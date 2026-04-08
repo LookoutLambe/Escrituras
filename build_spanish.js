@@ -686,6 +686,69 @@ function buildDictionary(progress, engData) {
     'vista': 'sight', 'presencia': 'presence',
     'amado': 'beloved',
 
+    // Proper nouns — always capitalized
+    'nefi': 'Nephi', 'lehi': 'Lehi', 'lamán': 'Laman', 'lemuel': 'Lemuel',
+    'sam': 'Sam', 'ismael': 'Ishmael', 'labán': 'Laban', 'zoram': 'Zoram',
+    'sedequías': 'Zedekiah', 'jerusalén': 'Jerusalem', 'mesías': 'Messiah',
+    'aarón': 'Aaron', 'josué': 'Joshua', 'isaías': 'Isaiah',
+    'jeremías': 'Jeremiah', 'ezequías': 'Hezekiah', 'noé': 'Noah',
+    'adán': 'Adam', 'eva': 'Eve', 'satanás': 'Satan',
+    'pedro': 'Peter', 'pablo': 'Paul', 'juan': 'John',
+    'salomón': 'Solomon', 'elías': 'Elijah',
+    'faraón': 'Pharaoh', 'sion': 'Zion', 'moroni': 'Moroni',
+    'zarahemla': 'Zarahemla', 'ammón': 'Ammon',
+
+    // Words wrong in 1 Nephi 1 and similar contexts
+    'tanto': 'therefore', // "por tanto" = therefore
+    'cuán': 'how', 'cuan': 'how',
+    'todopoderoso': 'Almighty',
+    'eleva': 'rises', 'alturas': 'heights',
+    'extienden': 'extend', 'extender': 'extend',
+    'dejarás': 'shalt-suffer', 'perecer': 'perish',
+    'acudan': 'come', 'acudir': 'come',
+    'expresaba': 'expressed', 'expresar': 'express',
+    'alabanzas': 'praises', 'alabanza': 'praise',
+    'regocijaba': 'rejoiced', 'regocijarse': 'rejoice', 'regocijo': 'rejoicing',
+    'henchido': 'filled',
+    'serían': 'should-be',
+    'sería': 'should-be',
+    'perecerían': 'should-perish',
+    'llevados': 'carried',
+    'acaeció': 'came-to-pass',
+    'prorrumpió': 'exclaimed',
+    'maravillosas': 'marvelous', 'maravilloso': 'marvelous', 'maravillosa': 'marvelous',
+    'misericordias': 'mercies', 'misericordioso': 'merciful',
+    'tiernas': 'tender', 'tierno': 'tender',
+    'antigüedad': 'old',
+    'irritaron': 'were-angered', 'irritar': 'anger',
+    'procuraron': 'sought', 'procurar': 'seek',
+    'poderosos': 'mighty', 'poderoso': 'mighty',
+    'mostraré': 'I-shall-show', 'mostrar': 'show', 'mostrado': 'shown',
+    'burlaron': 'mocked', 'burlar': 'mock',
+    'manifestaban': 'manifested', 'manifestar': 'manifest',
+    'claramente': 'plainly',
+    'arrepintiera': 'repent', 'arrepentirse': 'repent',
+    'testificó': 'testified', 'testificar': 'testify',
+    'profetizando': 'prophesying', 'profetizar': 'prophesy',
+    'profetizó': 'prophesied',
+    'reinado': 'reign', 'reinar': 'reign',
+    'morado': 'dwelt', 'morar': 'dwell',
+    'excedía': 'exceeded', 'exceder': 'exceed',
+    'seguían': 'followed', 'seguir': 'follow',
+    'avanzaron': 'went-forth', 'avanzar': 'go-forth',
+    'descendía': 'descending', 'descender': 'descend',
+    'compendiado': 'abridged', 'compendiar': 'abridge',
+    'escribiré': 'I-shall-write',
+    'supieseis': 'ye-should-know',
+    'tantas': 'so-many', 'tantos': 'so-many',
+    'respecto': 'respect/concerning',
+    'declararles': 'declare-unto-them', 'declarar': 'declare',
+    'escogido': 'chosen', 'escoger': 'choose',
+    'librarse': 'deliverance',
+    'leía': 'read', 'leyera': 'might-read',
+    'quitarle': 'take-away-his',
+    'apedreado': 'stoned', 'apedrear': 'stone',
+
     // More PMI fixes
     'oh': 'oh', 'modo': 'manner/way',
     'lamanitas': 'Lamanites', 'nefitas': 'Nephites',
@@ -804,84 +867,175 @@ function buildDictionary(progress, engData) {
 function morphGloss(word, dictionary) {
   const w = word.toLowerCase();
 
-  // 1. Try stripping reflexive -se / -le / -lo / -la / -nos / -les / -los / -las endings
-  const reflexiveRe = /^(.+?)(se|le|lo|la|nos|les|los|las|me|te)$/;
-  const reflexiveMatch = w.match(reflexiveRe);
-  if (reflexiveMatch) {
-    const stem = reflexiveMatch[1];
-    const pron = reflexiveMatch[2];
-    const pronGloss = { se:'[refl.]', le:'him/her', lo:'it', la:'her', nos:'us', les:'them', los:'them', las:'them', me:'me', te:'thee' }[pron] || pron;
-    const stemGloss = dictionary[stem];
-    if (stemGloss) return stemGloss + '-' + pronGloss;
+  // Helper: look up a word, trying the word itself and common accent variations
+  function lookup(w) {
+    if (dictionary[w]) return dictionary[w];
+    // Try adding/removing common accents
+    const accent = { 'a':'á', 'e':'é', 'i':'í', 'o':'ó', 'u':'ú',
+                     'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u' };
+    // Try last vowel accent toggle
+    for (let i = w.length - 1; i >= 0; i--) {
+      if (accent[w[i]]) {
+        const alt = w.slice(0, i) + accent[w[i]] + w.slice(i + 1);
+        if (dictionary[alt]) return dictionary[alt];
+      }
+    }
+    return '';
   }
 
-  // 2. Gerund: -ando / -endo / -iendo → V-ing
-  const gerundRe = /^(.+?)(ando|iendo|endo)$/;
-  const gerundMatch = w.match(gerundRe);
-  if (gerundMatch) {
-    // Try to find infinitive
-    const stem = gerundMatch[1];
-    const suffix = gerundMatch[2];
-    // -ando → -ar, -iendo/-endo → -er/-ir
-    const tryInfs = suffix === 'ando' ? [stem + 'ar'] : [stem + 'er', stem + 'ir', stem + 'cer', stem + 'cir'];
-    for (const inf of tryInfs) {
-      if (dictionary[inf]) return dictionary[inf].replace(/^to-/, '') + 'ing';
+  // Direct lookup first
+  const direct = lookup(w);
+  if (direct) return direct;
+
+  // 1. Enclitic pronouns: -se/-le/-lo/-la/-nos/-les/-los/-las/-me/-te/-nos attached to verbs
+  const cliticRe = /^(.+?)(sele|selo|sela|seles|selos|selas|melo|mela|telo|tela|se|le|lo|la|nos|les|los|las|me|te)$/;
+  const cliticMatch = w.match(cliticRe);
+  if (cliticMatch) {
+    const stem = cliticMatch[1];
+    const pron = cliticMatch[2];
+    const pronMap = { se:'[refl.]', le:'him', lo:'it', la:'her', nos:'us', les:'them', los:'them', las:'them', me:'me', te:'thee',
+                      sele:'[refl.]-him', selo:'[refl.]-it', sela:'[refl.]-her', seles:'[refl.]-them', selos:'[refl.]-them', selas:'[refl.]-them',
+                      melo:'me-it', mela:'me-her', telo:'thee-it', tela:'thee-her' };
+    const pronGloss = pronMap[pron] || pron;
+    // Try stem as-is, then with accent restoration (mandó -> mando+le)
+    const stemGloss = lookup(stem);
+    if (stemGloss) return stemGloss + '-' + pronGloss;
+    // Try infinitive forms: declarar+les -> stem=declarar
+    if (stem.endsWith('ar') || stem.endsWith('er') || stem.endsWith('ir')) {
+      const infGloss = lookup(stem);
+      if (infGloss) return infGloss + '-' + pronGloss;
+    }
+    // Try gerund: predicándo+le -> predicando
+    const gerundGloss = morphGloss(stem, dictionary);
+    if (gerundGloss) return gerundGloss + '-' + pronGloss;
+  }
+
+  // 2. Gerund: -ando / -iendo / -endo → V-ing
+  if (w.endsWith('ando') && w.length > 5) {
+    const stem = w.slice(0, -4);
+    const inf = lookup(stem + 'ar');
+    if (inf) return inf.replace(/^to-/, '') + 'ing';
+  }
+  if ((w.endsWith('iendo') || w.endsWith('endo')) && w.length > 5) {
+    const stem = w.endsWith('iendo') ? w.slice(0, -5) : w.slice(0, -4);
+    for (const suf of ['er', 'ir', 'cer', 'cir', 'eer']) {
+      const inf = lookup(stem + suf);
+      if (inf) return inf.replace(/^to-/, '') + 'ing';
+    }
+    // stem change: diciendo (decir), viniendo (venir), etc.
+    // Try the -iendo form directly in dict
+  }
+
+  // 3. Past participle: -ado / -ido
+  if (w.endsWith('ado') && w.length > 4) {
+    const stem = w.slice(0, -3);
+    const inf = lookup(stem + 'ar');
+    if (inf) return inf.replace(/^to-/, '') + 'ed';
+  }
+  if (w.endsWith('ido') && w.length > 4) {
+    const stem = w.slice(0, -3);
+    for (const suf of ['er', 'ir', 'cer', 'cir']) {
+      const inf = lookup(stem + suf);
+      if (inf) return inf.replace(/^to-/, '') + 'ed';
     }
   }
 
-  // 3. Past participle: -ado / -ido → V-ed
-  const ppRe = /^(.+?)(ado|ido)$/;
-  const ppMatch = w.match(ppRe);
-  if (ppMatch) {
-    const stem = ppMatch[1];
-    const suffix = ppMatch[2];
-    const tryInfs = suffix === 'ado' ? [stem + 'ar'] : [stem + 'er', stem + 'ir'];
-    for (const inf of tryInfs) {
-      if (dictionary[inf]) {
-        const base = dictionary[inf].replace(/^to-/, '');
-        return base + 'ed';
+  // 4. Verb conjugation patterns — try to find the infinitive and gloss accordingly
+  // Preterite -ar verbs: -é, -aste, -ó, -amos, -aron
+  // Preterite -er/-ir: -í, -iste, -ió, -imos, -ieron
+  // Imperfect -ar: -aba, -abas, -aban, -ábamos
+  // Imperfect -er/-ir: -ía, -ías, -ían, -íamos
+  // Future: -ré, -rás, -rá, -remos, -rán (all conjugations)
+  // Conditional: -ría, -rías, -ríamos, -rían
+  // Present subjunctive -ar: -e, -es, -en, -emos
+  // Present subjunctive -er/-ir: -a, -as, -an, -amos
+  // Imperfect subjunctive: -iera, -ieras, -ieran, -iéramos, -ara, -aras, -aran
+  // Imperative: various
+
+  const verbPatterns = [
+    // Imperfect -ar: cantaba → cantar
+    { re: /^(.+?)(aba|abas|aban|ábamos)$/, inf: s => [s+'ar'], gloss: (g,suf) => suf === 'aban' ? 'were-'+g+'ing' : 'was-'+g+'ing' },
+    // Imperfect -er/-ir: comía → comer
+    { re: /^(.+?)(ía|ías|ían|íamos)$/, inf: s => [s+'er', s+'ir'], gloss: (g,suf) => suf === 'ían' ? 'were-'+g+'ing' : 'was-'+g+'ing' },
+    // Future: -ré, -rás, -rá, -remos, -réis, -rán
+    { re: /^(.+?)(ré|rás|rá|remos|réis|rán)$/, inf: s => [s+'r'], gloss: (g,suf) => 'shall-'+g },
+    // Conditional: -ría, -rías, -ríamos, -rían
+    { re: /^(.+?)(ría|rías|ríamos|rían)$/, inf: s => [s+'r'], gloss: (g,suf) => 'would-'+g },
+    // Preterite -ar: -ó, -aron, -aste, -amos, -é
+    { re: /^(.+?)(aron)$/, inf: s => [s+'ar'], gloss: g => g+'ed' },
+    { re: /^(.+?)ó$/, inf: s => [s+'ar', s+'er', s+'ir'], gloss: g => g+'ed' },
+    // Preterite -er/-ir: -ieron
+    { re: /^(.+?)(ieron)$/, inf: s => [s+'er', s+'ir'], gloss: g => g+'ed' },
+    // Imperfect subjunctive: -iera, -ieran, -iese, -iesen, -ara, -aran, -ase, -asen
+    { re: /^(.+?)(iera|ieran|ieras|iese|iesen)$/, inf: s => [s+'er', s+'ir'], gloss: g => 'might-'+g },
+    { re: /^(.+?)(ara|aran|aras|ase|asen)$/, inf: s => [s+'ar'], gloss: g => 'might-'+g },
+    // Present subjunctive -ar: -e, -en, -es, -emos (from -ar verbs)
+    { re: /^(.+?)(en)$/, inf: s => [s+'ar', s+'er', s+'ir'], gloss: g => 'may-'+g },
+    // Present -ar: -a, -an, -as, -amos (1st person plural same as pret)
+    { re: /^(.+?)(an)$/, inf: s => [s+'ar', s+'er', s+'ir'], gloss: g => g },
+  ];
+
+  for (const pat of verbPatterns) {
+    const m = w.match(pat.re);
+    if (!m) continue;
+    const stem = m[1];
+    const suffix = m[2];
+    const infs = pat.inf(stem);
+    for (const inf of infs) {
+      const infGloss = lookup(inf);
+      if (infGloss) {
+        const base = infGloss.replace(/^to-/, '');
+        return pat.gloss(base, suffix);
       }
     }
   }
 
-  // 4. Plural: -es / -s
+  // 5. Plural: -es / -s
   if (w.endsWith('es') && w.length > 3) {
     const sing = w.slice(0, -2);
-    // restore accent: e.g. nación/naciones
-    if (dictionary[sing]) return dictionary[sing] + 's';
-    if (dictionary[sing + 'ón']) return dictionary[sing + 'ón'] + 's';
-    if (dictionary[sing + 'ión']) return dictionary[sing + 'ión'] + 's';
-    if (dictionary[sing + 'ad']) return dictionary[sing + 'ad'] + 's';
+    const g = lookup(sing);
+    if (g) return g + 's';
+    // nación→naciones, ciudad→ciudades
+    const withAccent = lookup(sing + 'ón') || lookup(sing + 'ión') || lookup(sing + 'ad') || lookup(sing + 'al');
+    if (withAccent) return withAccent + 's';
   }
   if (w.endsWith('s') && !w.endsWith('es') && w.length > 2) {
     const sing = w.slice(0, -1);
-    if (dictionary[sing]) return dictionary[sing] + 's';
+    const g = lookup(sing);
+    if (g) return g + 's';
   }
 
-  // 5. Feminine: -a from -o
+  // 6. Feminine: -a from -o
   if (w.endsWith('a') && w.length > 2) {
     const masc = w.slice(0, -1) + 'o';
-    if (dictionary[masc]) return dictionary[masc];
+    const g = lookup(masc);
+    if (g) return g;
   }
 
-  // 6. Diminutive: -ito/-ita/-illo/-illa
+  // 7. Diminutive: -ito/-ita/-illo/-illa
   const dimRe = /^(.+?)(ito|ita|illo|illa|itos|itas|illos|illas|cito|cita)$/;
   const dimMatch = w.match(dimRe);
   if (dimMatch) {
     const stem = dimMatch[1];
-    if (dictionary[stem]) return 'little-' + dictionary[stem];
-    if (dictionary[stem + 'o']) return 'little-' + dictionary[stem + 'o'];
-    if (dictionary[stem + 'a']) return 'little-' + dictionary[stem + 'a'];
+    const g = lookup(stem) || lookup(stem + 'o') || lookup(stem + 'a');
+    if (g) return 'little-' + g;
   }
 
-  // 7. -mente adverbs
+  // 8. -mente adverbs
   if (w.endsWith('mente') && w.length > 6) {
     const adj = w.slice(0, -5);
-    // try feminine form first (rectamente -> recta -> recto)
-    if (dictionary[adj]) return dictionary[adj] + 'ly';
-    if (dictionary[adj + 'o']) return dictionary[adj + 'o'] + 'ly';
+    const g = lookup(adj) || lookup(adj + 'o');
+    if (g) return g + 'ly';
     const adjBase = adj.endsWith('a') ? adj.slice(0, -1) + 'o' : adj;
-    if (dictionary[adjBase]) return dictionary[adjBase] + 'ly';
+    const g2 = lookup(adjBase);
+    if (g2) return g2 + 'ly';
+  }
+
+  // 9. Augmentative / superlative: -ísimo/-ísima
+  if (w.match(/ísim[oa]s?$/)) {
+    const stem = w.replace(/ísim[oa]s?$/, '');
+    const g = lookup(stem) || lookup(stem + 'o');
+    if (g) return 'very-' + g;
   }
 
   return '';
