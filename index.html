@@ -314,21 +314,24 @@ body {
 }
 
 /* Hide glosses mode (Español — continuous prose) */
-body.hide-gloss .gl { display: none; }
+body.hide-gloss .gl { display: none !important; }
 body.hide-gloss .word-unit {
-  display: inline;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-  border-radius: 0;
-  vertical-align: baseline;
+  display: inline !important;
+  flex-direction: unset !important;
+  align-items: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  max-width: unset !important;
+  border-radius: 0 !important;
+  vertical-align: baseline !important;
 }
-body.hide-gloss .word-unit:hover { background: none; }
+body.hide-gloss .word-unit:hover { background: none !important; }
 body.hide-gloss .hw {
-  font-size: 1.05em;
-  line-height: 1.7;
-  display: inline;
-  text-align: left;
+  font-size: 1.05em !important;
+  line-height: 1.7 !important;
+  display: inline !important;
+  text-align: left !important;
 }
 body.hide-gloss .hw::after { content: ' '; }
 body.hide-gloss .word-flow { line-height: 1.7; }
