@@ -313,9 +313,25 @@ body {
   accent-color: var(--accent-light);
 }
 
-/* Hide glosses mode */
+/* Hide glosses mode (Español — continuous prose) */
 body.hide-gloss .gl { display: none; }
-body.hide-gloss .word-unit { padding-bottom: 3px; }
+body.hide-gloss .word-unit {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  border-radius: 0;
+  vertical-align: baseline;
+}
+body.hide-gloss .word-unit:hover { background: none; }
+body.hide-gloss .hw {
+  font-size: 1.05em;
+  line-height: 1.7;
+  display: inline;
+  text-align: left;
+}
+body.hide-gloss .hw::after { content: ' '; }
+body.hide-gloss .word-flow { line-height: 1.7; }
 
 /* Dual mode */
 .verse-english { display: none; }
