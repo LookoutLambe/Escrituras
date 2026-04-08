@@ -2,7 +2,7 @@ const CACHE_NAME = 'escrituras-v1';
 
 const CORE_ASSETS = [
   './',
-  './Escrituras.html',
+  './index.html',
   './english_verses.js',
   './manifest.json',
   './icons/icon-192.png',

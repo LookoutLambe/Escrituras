@@ -2,7 +2,7 @@
   "name": "Las Escrituras — Spanish Interlinear",
   "short_name": "Las Escrituras",
   "description": "Spanish Interlinear Standard Works — Español con Glosas en Inglés",
-  "start_url": "./Escrituras.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#1e2233",
   "theme_color": "#1e2233",
