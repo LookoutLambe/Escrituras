@@ -333,10 +333,24 @@ body.dual-mode .verse-english {
   border-right: 1px solid var(--rule-light);
   opacity: 0.85;
 }
-body.dual-mode .word-flow { flex: 1 1 0; min-width: 0; }
+body.dual-mode .word-flow { flex: 1 1 0; min-width: 0; line-height: 1.65; }
 body.dual-mode .gl { display: none; }
-body.dual-mode .word-unit { padding-bottom: 3px; }
-body.dual-mode .hw { font-size: 16px; }
+body.dual-mode .word-unit {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  border-radius: 0;
+  vertical-align: baseline;
+}
+body.dual-mode .word-unit:hover { background: none; }
+body.dual-mode .hw {
+  font-size: 0.92em;
+  line-height: 1.65;
+  display: inline;
+  text-align: left;
+}
+body.dual-mode .hw::after { content: ' '; }
 @media (max-width: 700px) {
   body.dual-mode .verse-english {
     flex: 1 1 0;
@@ -347,7 +361,7 @@ body.dual-mode .hw { font-size: 16px; }
     line-height: 1.45;
   }
   body.dual-mode .word-flow { flex: 1 1 0; min-width: 0; }
-  body.dual-mode .hw { font-size: 10px; }
+  body.dual-mode .hw { font-size: 0.78em; }
   body.dual-mode .verse-num { min-width: 22px; font-size: 0.7em; }
 }
 
