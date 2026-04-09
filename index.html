@@ -12,6 +12,26 @@
 <meta name="apple-mobile-web-app-title" content="Las Escrituras">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<script>
+// Version check — runs before anything else to bust stale caches
+(function() {
+  var V = 'v6';
+  try {
+    if (localStorage.getItem('escrituras-cache-v') !== V) {
+      localStorage.setItem('escrituras-cache-v', V);
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          regs.forEach(function(r) { r.unregister(); });
+        });
+        caches.keys().then(function(names) {
+          names.forEach(function(n) { caches.delete(n); });
+        });
+        setTimeout(function() { location.reload(true); }, 500);
+      }
+    }
+  } catch(e) {}
+})();
+</script>
 <!-- Using system Times New Roman -->
 <style>
 
@@ -2002,16 +2022,11 @@ document.addEventListener('keydown', function(e) {
 });
 
 // =============================================
-// SERVICE WORKER: register sw.js which will nuke old caches and unregister itself
-// =============================================
+// Register SW — force update check on every page load
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(function() {});
-  // Also clear caches from this side
-  if ('caches' in window) {
-    caches.keys().then(function(names) {
-      names.forEach(function(name) { caches.delete(name); });
-    });
-  }
+  navigator.serviceWorker.register('sw.js').then(function(reg) {
+    reg.update();
+  }).catch(function() {});
 }
 </script>
 
