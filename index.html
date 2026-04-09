@@ -2002,11 +2002,28 @@ document.addEventListener('keydown', function(e) {
 });
 
 // =============================================
-// SERVICE WORKER REGISTRATION
+// SERVICE WORKER REGISTRATION + AUTO-UPDATE
 // =============================================
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js').catch(function() {});
+    navigator.serviceWorker.register('sw.js').then(function(reg) {
+      // Check for updates immediately, then every 60 seconds
+      reg.update();
+      setInterval(function() { reg.update(); }, 60000);
+      // When a new service worker is waiting, activate it and reload
+      reg.addEventListener('updatefound', function() {
+        var newWorker = reg.installing;
+        newWorker.addEventListener('statechange', function() {
+          if (newWorker.state === 'activated') {
+            window.location.reload();
+          }
+        });
+      });
+    }).catch(function() {});
+    // Also handle the case where a new SW takes over via controllerchange
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      window.location.reload();
+    });
   });
 }
 </script>
