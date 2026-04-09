@@ -15,7 +15,7 @@
 <script>
 // Version check — runs before anything else to bust stale caches
 (function() {
-  var V = 'v10';
+  var V = 'v11';
   try {
     if (localStorage.getItem('escrituras-cache-v') !== V) {
       localStorage.setItem('escrituras-cache-v', V);
@@ -79,13 +79,17 @@ body {
 }
 
 .page {
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 55px 24px 50px;
-  background: #faf8f2;
+  background: var(--bg);
   min-height: 100vh;
-  box-shadow: none;
   position: relative;
+}
+
+.chapter-panel {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .book-header {
