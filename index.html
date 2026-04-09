@@ -15,7 +15,7 @@
 <script>
 // Version check — runs before anything else to bust stale caches
 (function() {
-  var V = 'v12';
+  var V = 'v13';
   try {
     if (localStorage.getItem('escrituras-cache-v') !== V) {
       localStorage.setItem('escrituras-cache-v', V);
@@ -944,6 +944,65 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
 }
 .volume-link-btn:hover { background: #1a2744; color: #faf8f2; }
 
+/* Landing card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 28px 24px;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+.scripture-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.scripture-card:hover { transform: translateY(-4px); }
+.card-cover {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px 14px;
+  background: linear-gradient(170deg, #0d1a2e 0%, #162744 100%);
+  border: 1px solid #2a4060;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s;
+}
+.scripture-card:hover .card-cover {
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.12);
+}
+.card-cover .rule-top, .card-cover .rule-bottom {
+  width: 55%; height: 1px; background: #c8a84e; opacity: 0.5; margin: 10px auto;
+}
+.card-cover-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.15em; font-weight: 600; color: #c8a84e;
+  text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.35;
+}
+.card-cover-spanish {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.95em; color: #c8a84e; margin-top: 4px; line-height: 1.4;
+  font-style: italic;
+}
+.card-label { margin-top: 12px; text-align: center; }
+.card-label-en {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.95em; font-weight: 600; color: var(--ink);
+}
+.card-label-es {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.85em; color: var(--ink-light); margin-top: 2px;
+}
+
 /* ===== DARK MODE ===== */
 body.dark-mode {
   --bg: #333333;
@@ -1108,49 +1167,89 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <!-- Landing page -->
   <div class="chapter-panel" id="panel-landing" style="display:block">
-    <div style="max-width:700px;margin:0 auto;padding:60px 30px 40px;text-align:center">
+    <div style="text-align:center;padding:40px 0 10px">
+      <div style="font-family:'Times New Roman',Times,serif;font-size:2.6em;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:8px">Las Escrituras</div>
+      <div style="font-family:'Times New Roman',Times,serif;font-size:1.15em;color:var(--ink-light);font-style:italic;margin-bottom:6px">Spanish Interlinear Edition</div>
+      <div style="font-size:0.95em;color:var(--ink-light);max-width:600px;margin:16px auto 0;line-height:1.6">
+        Estudia las Obras Canónicas en español con glosas interlineales en inglés, palabra por palabra.
+      </div>
+    </div>
 
-      <div style="margin-bottom:30px">
-        <div style="font-family:'Times New Roman', Times, serif;font-size:1.8em;font-weight:600;color:var(--ink);letter-spacing:0.04em;margin-bottom:6px">Las Escrituras</div>
-        <div style="font-family:'Times New Roman',Times,serif;font-size:1.15em;font-weight:400;color:var(--ink-light);letter-spacing:0.04em">Obras Canónicas en Español</div>
+    <div style="text-align:center;padding:24px 0 32px;color:var(--accent);font-size:0.7em;letter-spacing:12px">&#183; &#183; &#9670; &#183; &#183;</div>
+
+    <div style="text-align:center;margin-bottom:32px">
+      <button id="start-reading-btn" onclick="startReading()" style="font-family:'Times New Roman',Times,serif;font-size:1em;background:rgba(200,168,78,0.08);border:1px solid rgba(200,168,78,0.25);border-radius:8px;padding:16px 32px;cursor:pointer;color:var(--accent);font-weight:600;transition:background 0.2s">Continuar Leyendo &#8594;</button>
+    </div>
+
+    <div class="card-grid">
+      <div class="scripture-card" onclick="navTo('gen-ch1')">
+        <div class="card-cover">
+          <div class="rule-top"></div>
+          <div class="card-cover-title">Old<br>Testament</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-spanish">Antiguo<br>Testamento</div>
+        </div>
+        <div class="card-label">
+          <div class="card-label-en">Old Testament</div>
+          <div class="card-label-es">Antiguo Testamento</div>
+        </div>
       </div>
 
-      <div class="ornament" style="margin:20px 0">&#183; &#183; &#9670; &#183; &#183;</div>
-
-      <div style="font-family:'Times New Roman',Times,serif;font-size:0.95em;color:var(--ink-light);margin-bottom:20px;line-height:1.6">
-        Edición Interlineal<br>
-        Texto en Español &#183; Glosas en Inglés
+      <div class="scripture-card" onclick="navTo('mat-ch1')">
+        <div class="card-cover">
+          <div class="rule-top"></div>
+          <div class="card-cover-title">New<br>Testament</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-spanish">Nuevo<br>Testamento</div>
+        </div>
+        <div class="card-label">
+          <div class="card-label-en">New Testament</div>
+          <div class="card-label-es">Nuevo Testamento</div>
+        </div>
       </div>
 
-      <div class="ornament" style="margin:20px 0">&#183; &#183; &#9670; &#183; &#183;</div>
-
-      <div style="margin-top:30px">
-        <button id="start-reading-btn" onclick="startReading()" style="margin-bottom:12px">Comenzar a Leer: 1 Nefi 1 &#8594;</button>
+      <div class="scripture-card" onclick="navTo('ch1')">
+        <div class="card-cover">
+          <div class="rule-top"></div>
+          <div class="card-cover-title">The Book<br>of Mormon</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-spanish">El Libro<br>de Mormón</div>
+        </div>
+        <div class="card-label">
+          <div class="card-label-en">The Book of Mormon</div>
+          <div class="card-label-es">El Libro de Mormón</div>
+        </div>
       </div>
 
-      <div class="ornament" style="margin:24px 0">&#183; &#183; &#9670; &#183; &#183;</div>
-
-      <div style="margin-top:20px">
-        <div style="font-family:'Times New Roman',Times,serif;font-size:0.95em;color:#1a2744;font-weight:600;margin-bottom:12px">Volúmenes</div>
-        <button class="volume-link-btn" onclick="navTo('gen-ch1')">Antiguo Testamento</button><br>
-        <button class="volume-link-btn" onclick="navTo('mat-ch1')">Nuevo Testamento</button><br>
-        <button class="volume-link-btn" onclick="navTo('ch1')">El Libro de Mormón</button><br>
-        <button class="volume-link-btn" onclick="navTo('dc-sec1')">Doctrina y Convenios</button><br>
-        <button class="volume-link-btn" onclick="navTo('ms-ch1')">La Perla de Gran Precio</button>
+      <div class="scripture-card" onclick="navTo('dc-sec1')">
+        <div class="card-cover">
+          <div class="rule-top"></div>
+          <div class="card-cover-title">Doctrine<br>and<br>Covenants</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-spanish">Doctrina<br>y Convenios</div>
+        </div>
+        <div class="card-label">
+          <div class="card-label-en">Doctrine and Covenants</div>
+          <div class="card-label-es">Doctrina y Convenios</div>
+        </div>
       </div>
 
-      <div class="ornament" style="margin:30px 0 0">&#183; &#183; &#9670; &#183; &#183;</div>
-      <div style="margin-top:18px;font-size:0.92em;color:var(--ink-light);line-height:1.6;text-align:center">
-        <strong style="color:var(--ink)">Comentarios Bienvenidos</strong><br>
-        Si encuentras una glosa que se pueda mejorar o tienes sugerencias,
-        por favor escríbenos.
+      <div class="scripture-card" onclick="navTo('ms-ch1')">
+        <div class="card-cover">
+          <div class="rule-top"></div>
+          <div class="card-cover-title">Pearl<br>of Great<br>Price</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-spanish">La Perla<br>de Gran Precio</div>
+        </div>
+        <div class="card-label">
+          <div class="card-label-en">Pearl of Great Price</div>
+          <div class="card-label-es">La Perla de Gran Precio</div>
+        </div>
       </div>
-      <div style="margin-top:12px;font-size:0.9em">
-        <a href="mailto:lookoutlambe@gmail.com" style="color:var(--accent);text-decoration:none">lookoutlambe@gmail.com</a>
-      </div>
-      <div style="margin-top:18px;font-size:0.78em;color:#888;line-height:1.5">
-        Este es un proyecto independiente y no está afiliado, respaldado ni asociado con La Iglesia de Jesucristo de los Santos de los Últimos Días.
-      </div>
+    </div>
+
+    <div style="text-align:center;padding:32px 0 0;font-size:0.78em;color:#888;line-height:1.5;max-width:600px;margin:0 auto">
+      Este es un proyecto independiente y no está afiliado, respaldado ni asociado con La Iglesia de Jesucristo de los Santos de los Últimos Días.
     </div>
   </div>
 
