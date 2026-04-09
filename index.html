@@ -15,7 +15,7 @@
 <script>
 // Version check — runs before anything else to bust stale caches
 (function() {
-  var V = 'v13';
+  var V = 'v14';
   try {
     if (localStorage.getItem('escrituras-cache-v') !== V) {
       localStorage.setItem('escrituras-cache-v', V);
@@ -947,9 +947,9 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
 /* Landing card grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px 24px;
-  max-width: 880px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 0 8px;
 }
