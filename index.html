@@ -15,7 +15,7 @@
 <script>
 // Version check — runs before anything else to bust stale caches
 (function() {
-  var V = 'v11';
+  var V = 'v12';
   try {
     if (localStorage.getItem('escrituras-cache-v') !== V) {
       localStorage.setItem('escrituras-cache-v', V);
@@ -79,17 +79,13 @@ body {
 }
 
 .page {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 55px 24px 50px;
-  background: var(--bg);
-  min-height: 100vh;
-  position: relative;
-}
-
-.chapter-panel {
   max-width: 800px;
   margin: 0 auto;
+  padding: 55px 24px 50px;
+  background: #faf8f2;
+  min-height: 100vh;
+  box-shadow: none;
+  position: relative;
 }
 
 .book-header {
@@ -581,12 +577,6 @@ body.dual-mode .hw::after { content: ' '; }
 }
 
 /* Page adjustments */
-.page { margin-left: 0 !important; }
-.controls-top, .controls-bottom {
-  left: 0 !important;
-  width: 100% !important;
-  right: 0 !important;
-}
 @media (max-width: 600px) {
   #drawer { width: 260px; left: -280px; }
   .chapter-grid { grid-template-columns: repeat(4, 1fr); }
