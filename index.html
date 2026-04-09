@@ -2002,15 +2002,23 @@ document.addEventListener('keydown', function(e) {
 });
 
 // =============================================
-// SERVICE WORKER REGISTRATION + AUTO-UPDATE
+// SERVICE WORKER: nuke old caches and force refresh
 // =============================================
 if ('serviceWorker' in navigator) {
+  // Immediately unregister any old service worker and clear all caches
+  navigator.serviceWorker.getRegistrations().then(function(regs) {
+    regs.forEach(function(r) { r.unregister(); });
+  });
+  if ('caches' in window) {
+    caches.keys().then(function(names) {
+      names.forEach(function(name) { caches.delete(name); });
+    });
+  }
+  // Register fresh service worker
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('sw.js').then(function(reg) {
-      // Check for updates immediately, then every 60 seconds
       reg.update();
       setInterval(function() { reg.update(); }, 60000);
-      // When a new service worker is waiting, activate it and reload
       reg.addEventListener('updatefound', function() {
         var newWorker = reg.installing;
         newWorker.addEventListener('statechange', function() {
@@ -2020,7 +2028,6 @@ if ('serviceWorker' in navigator) {
         });
       });
     }).catch(function() {});
-    // Also handle the case where a new SW takes over via controllerchange
     navigator.serviceWorker.addEventListener('controllerchange', function() {
       window.location.reload();
     });
