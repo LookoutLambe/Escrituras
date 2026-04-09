@@ -1,4 +1,4 @@
-var CACHE_NAME = 'escrituras-v9';
+var CACHE_NAME = 'escrituras-v10';
 var SHELL = [
   './',
   './index.html',
