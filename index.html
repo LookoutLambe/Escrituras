@@ -15,7 +15,7 @@
 <script>
 // Version check — runs before anything else to bust stale caches
 (function() {
-  var V = 'v7';
+  var V = 'v8';
   try {
     if (localStorage.getItem('escrituras-cache-v') !== V) {
       localStorage.setItem('escrituras-cache-v', V);
@@ -81,13 +81,18 @@ body {
 .page {
   width: 100%;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding: 55px 24px 50px;
   background: #faf8f2;
   min-height: 100vh;
   box-shadow: none;
   position: relative;
+  overflow-x: hidden;
+}
+
+html, body {
+  width: 100%;
   overflow-x: hidden;
 }
 
