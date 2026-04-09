@@ -1,4 +1,4 @@
-const CACHE_NAME = 'escrituras-v1';
+const CACHE_NAME = 'escrituras-v2';
 
 const CORE_ASSETS = [
   './',
