@@ -1,4 +1,4 @@
-const CACHE_NAME = 'escrituras-v2';
+const CACHE_NAME = 'escrituras-v3';
 
 const CORE_ASSETS = [
   './',
@@ -27,21 +27,7 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
-  // Verse files: cache-first (they rarely change)
-  if (url.pathname.includes('/verses/')) {
-    event.respondWith(
-      caches.match(event.request).then(cached => {
-        if (cached) return cached;
-        return fetch(event.request).then(response => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-          return response;
-        });
-      })
-    );
-    return;
-  }
-  // Everything else: network-first
+  // Network-first for everything — use cache only when offline
   event.respondWith(
     fetch(event.request)
       .then(response => {
