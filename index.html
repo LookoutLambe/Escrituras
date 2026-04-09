@@ -2002,36 +2002,16 @@ document.addEventListener('keydown', function(e) {
 });
 
 // =============================================
-// SERVICE WORKER: nuke old caches and force refresh
+// SERVICE WORKER: register sw.js which will nuke old caches and unregister itself
 // =============================================
 if ('serviceWorker' in navigator) {
-  // Immediately unregister any old service worker and clear all caches
-  navigator.serviceWorker.getRegistrations().then(function(regs) {
-    regs.forEach(function(r) { r.unregister(); });
-  });
+  navigator.serviceWorker.register('sw.js').catch(function() {});
+  // Also clear caches from this side
   if ('caches' in window) {
     caches.keys().then(function(names) {
       names.forEach(function(name) { caches.delete(name); });
     });
   }
-  // Register fresh service worker
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js').then(function(reg) {
-      reg.update();
-      setInterval(function() { reg.update(); }, 60000);
-      reg.addEventListener('updatefound', function() {
-        var newWorker = reg.installing;
-        newWorker.addEventListener('statechange', function() {
-          if (newWorker.state === 'activated') {
-            window.location.reload();
-          }
-        });
-      });
-    }).catch(function() {});
-    navigator.serviceWorker.addEventListener('controllerchange', function() {
-      window.location.reload();
-    });
-  });
 }
 </script>
 
