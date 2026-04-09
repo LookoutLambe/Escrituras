@@ -15,7 +15,7 @@
 <script>
 // Version check — runs before anything else to bust stale caches
 (function() {
-  var V = 'v8';
+  var V = 'v9';
   try {
     if (localStorage.getItem('escrituras-cache-v') !== V) {
       localStorage.setItem('escrituras-cache-v', V);
@@ -53,6 +53,7 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { overflow-x: hidden; }
 
 .skip-link {
   position: absolute;
@@ -75,25 +76,16 @@ body {
   color: var(--ink);
   font-family: 'Times New Roman', Times, serif;
   min-height: 100vh;
-  direction: ltr;
 }
 
 .page {
-  width: 100%;
   max-width: 800px;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin: 0 auto;
   padding: 55px 24px 50px;
   background: #faf8f2;
   min-height: 100vh;
   box-shadow: none;
   position: relative;
-  overflow-x: hidden;
-}
-
-html, body {
-  width: 100%;
-  overflow-x: hidden;
 }
 
 .book-header {
