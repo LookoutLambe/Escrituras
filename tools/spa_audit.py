@@ -478,3 +478,108 @@ def repair_sense(rows, dry_run=True):
             if not dry_run:
                 open(path, 'w', encoding='utf-8').write(new_src)
     return changes, files
+
+
+_CANON_DF = None
+
+def _canon_df():
+    """How many verses each English word appears in. A word that turns up in
+    thousands of verses proves nothing about one token: "pass" is in every
+    "it came to pass", so its presence was shielding every token wrongly
+    glossed "pass" -- including `erigio`, which means "erected"."""
+    global _CANON_DF
+    if _CANON_DF is None:
+        df, n = Counter(), 0
+        for _b, _c, _v, en, _t in A.walk_verses():
+            if not en:
+                continue
+            n += 1
+            for w in set(re.findall(r"[a-z']+", en.lower())):
+                df[w] += 1
+        _CANON_DF = (df, max(n, 1))
+    return _CANON_DF
+
+
+def _common_in_canon(w):
+    df, n = _canon_df()
+    return df.get(w, 0) / n > 0.02          # in more than 2% of verses
+
+
+def unrelated(book_filter=None, chapter_filter=None):
+    """A gloss that is a real English word belonging to no sense of its word.
+
+    Neither drift nor junk sees these: "pass" for `erigio` (to erect) and
+    "toed" for `viajo` (to travel) are ordinary content words, correctly
+    spelled. They simply have nothing to do with the Spanish in front of them.
+
+    Four conditions, all required, because each one alone over-fires:
+      1. the gloss is not any sense of this word, NOR an inflection of one;
+      2. the gloss does NOT appear in that verse's printed English -- which is
+         what protects a legitimate idiomatic rendering. `hechos` glossed
+         "proceedings" is not a dictionary sense of hecho, but 1 Nephi 1:1
+         reads "my proceedings", so it stays;
+      3. the tool's own derivation IS a sense of the word, so there is a real
+         answer to replace it with rather than a guess.
+    """
+    lex, forms, names = A.load()
+    out = []
+    for book, ch, v, en, toks in A.walk_verses():
+        if book_filter and book != book_filter:
+            continue
+        if chapter_filter and ch != chapter_filter:
+            continue
+        if not en:
+            continue
+        canon = set(re.findall(r"[a-z']+", en.lower()))
+        canon |= {EV.base_form(w) for w in canon}
+        for i, (sp, gl) in enumerate(toks):
+            k = sp.lower().strip(A.STRIP)
+            g = gl.strip('.,;:!?¿¡"')
+            if not k or not g or ' ' in k or '/' in g or sp[:1].isupper():
+                continue
+            if M.pos(k) in ('DET', 'PRON', 'ADP', 'CCONJ', 'SCONJ', 'NUM', 'PROPN'):
+                continue
+            head = [t for t in g.lower().replace('-', ' ').split()
+                    if t not in ('i', 'you', 'we', 'they', 'he', 'she', 'it', 'to',
+                                 'will', 'would', 'may', 'might', 'shall', 'should',
+                                 'be', 'is', 'are', 'was', 'were', 'have', 'has', 'had')]
+            if not head:
+                continue
+            cur = head[-1]
+            if len(cur) < 3:
+                continue
+            if (cur in canon or EV.base_form(cur) in canon) and not _common_in_canon(cur):
+                # The canon uses this very word here, and it is rare enough
+                # that its presence means something -- `hechos` glossed
+                # "proceedings" is not a dictionary sense of hecho, but
+                # 1 Nephi 1:1 reads "my proceedings", so it stays.
+                continue
+            src, tr = S.gloss_candidates(S.normalise(k), lex, forms, names)
+            if not src or not tr or src == 'name':
+                continue
+            sen = senses_of(tr)
+            if gloss_forms(g) & sen:
+                continue                       # it IS a sense of this word
+            lemma = src.split(':')[1].split('>')[0] if ':' in src else k
+            cand = G.gloss(k, lemma, tr, S.first_sense, A.build_ctx(toks, i, lex, forms)) \
+                or G.gloss(k, lemma, tr, S.first_sense, {'prev_surface': ''})
+            if not cand:
+                continue
+            if not (gloss_forms(str(cand)) & sen):
+                continue                       # the replacement must belong too
+            # 4. and the replacement must be ATTESTED IN THIS VERSE. Without
+            #    this the detector traded one defensible word for another:
+            #    "afflicted" for "distressed", "placed" for "position", and
+            #    "descendants" for "descendant", losing the plural. With it,
+            #    only a change the printed English actually vouches for lands.
+            rep = [t for t in str(cand).lower().replace('-', ' ').split()
+                   if t not in ('i', 'you', 'we', 'they', 'he', 'she', 'it', 'to',
+                                'will', 'would', 'may', 'might', 'shall', 'should',
+                                'be', 'is', 'are', 'was', 'were', 'have', 'has', 'had')]
+            if not rep or not (rep[-1] in canon or EV.base_form(rep[-1]) in canon):
+                continue
+            out.append({'book': book, 'ch': ch, 'v': v, 'i': i, 'sp': sp,
+                        'gloss': gl, 'to': str(cand) + (
+                            re.search(r'([^\w\- ]+)$', gl).group(1)
+                            if re.search(r'([^\w\- ]+)$', gl) else '')})
+    return out

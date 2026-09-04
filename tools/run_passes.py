@@ -267,11 +267,23 @@ def pass_gentilics(dry):
     return A.edit_tokens(fix, dry)
 
 
+def pass_unrelated(dry):
+    """A gloss that is a real English word belonging to no sense of its
+    Spanish word, where the verse's own English vouches for the replacement.
+    Catches what drift and junk cannot: `erigio` glossed "pass", `viajo`
+    glossed "toed" — correctly spelled words with nothing to do with the word
+    in front of them."""
+    rows = AU.unrelated()
+    fix = {(r['book'], r['ch'], r['v'], r['i']): r['to'] for r in rows}
+    return A.edit_tokens(fix, dry)
+
+
 PASSES = [
     ('reflexive pronouns', pass_reflexives),
     ('x/y by the verse', pass_xy_witnessed),
     ('x/y by settled usage', pass_xy_settled),
     ('drift + junk repair', pass_repair),
+    ('unrelated glosses', pass_unrelated),
     ('gentilics (peoples)', pass_gentilics),
     ('proper names', pass_names),
     ('name capitalisation', pass_name_case),

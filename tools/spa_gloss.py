@@ -484,6 +484,7 @@ SCRIPTURAL = {
     'sucedió':'it-came-to-pass', 'sucedio':'it-came-to-pass',
     'acaeció':'it-came-to-pass', 'acaecio':'it-came-to-pass',
     'aconteció':'it-came-to-pass', 'acontecio':'it-came-to-pass',
+    'ocurrió':'it-came-to-pass', 'ocurrio':'it-came-to-pass',
     'arrepentido':'penitent','arrepentidos':'penitent','arrepentida':'penitent',
     'arrepentidas':'penitent','arrepentimiento':'repentance','arrepentirse':'to repent',
     'expiación':'atonement','expiar':'to atone','expiatorio':'atoning',
