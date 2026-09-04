@@ -40,6 +40,21 @@ def _ing(v):
 IRREGULAR = {}      # retained only so old references resolve; the lexicon wins
 
 
+_WORDS = None
+
+def _english_words():
+    global _WORDS
+    if _WORDS is None:
+        import os
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'words_alpha.txt')
+        try:
+            with open(path, encoding='utf-8') as fh:
+                _WORDS = {l.strip() for l in fh if l.strip()}
+        except OSError:
+            _WORDS = set()
+    return _WORDS
+
+
 def pluralise(n):
     if re.search(r'(s|sh|ch|x|z)$', n):  return n + 'es'
     if re.search(r'[^aeiou]y$', n):      return n[:-1] + 'ies'
@@ -49,6 +64,29 @@ def pluralise(n):
 
 IRREG_PLURAL = {'child':'children','man':'men','woman':'women','foot':'feet','tooth':'teeth',
                 'ox':'oxen','person':'people','life':'lives','city':'cities'}
+
+
+def plural_of(n):
+    """Plural, checked against a real English dictionary.
+
+    The naive rule gives "foremans" and "almss". Compounds in -man take -men,
+    and some nouns are already plural (alms, sheep, cattle). The dictionary
+    decides: if the built plural is not a word and a known alternative is,
+    take the alternative.
+    """
+    if n in IRREG_PLURAL:
+        return IRREG_PLURAL[n]
+    words = _english_words()
+    naive = pluralise(n)
+    if not words or naive in words:
+        return naive
+    for cand in (n[:-3] + 'men' if n.endswith('man') else None,
+                 n[:-1] + 'ves' if n.endswith('f') else None,
+                 n[:-2] + 'ves' if n.endswith('fe') else None,
+                 n):                       # already plural: alms, sheep
+        if cand and cand in words:
+            return cand
+    return naive
 
 # Spanish surface ending -> which English form to build
 VERB_SHAPE = [
@@ -162,6 +200,34 @@ ENGLISH_PARADIGM = {
 }
 
 JOIN = '-'
+
+# Spanish marks the infinitive with a preceding particle, and that particle is
+# its own interlinear token carrying its own "to". Glossing the infinitive
+# "to-grow" as well produces "a[to] crecer[to-grow]" -- "to to grow". The
+# particle carries it; the infinitive is bare. A bare infinitive with no
+# particle before it keeps the "to".
+# Spanish normally drops the subject pronoun, so the gloss carries the person
+# on the verb. When the pronoun IS written it is its own interlinear token
+# carrying its own "I"/"you"/"they", and repeating it on the verb reads
+# "yo[I] soy[I-am]" -- "I I-am". The written pronoun wins; the verb goes bare.
+# The reflexive clitics have a proper English gloss: the reflexive pronoun
+# agreeing with their verb. "se" is not "[refl.]" -- a placeholder is not a
+# translation. Person and number come from the verb it attaches to, which the
+# conjugation tag already gives.
+REFLEXIVE_BY_PERSON = {
+    '1s': 'myself', '2s': 'yourself', '3s': 'himself',
+    '1p': 'ourselves', '2p': 'yourselves', '3p': 'themselves',
+}
+# the clitic itself fixes the person for everything except `se`
+CLITIC_PERSON = {'me': '1s', 'te': '2s', 'nos': '1p', 'os': '2p'}
+
+SUBJECT_PRONOUNS = {'yo', 'tu', 'tú', 'el', 'él', 'ella', 'ello', 'usted',
+                    'nosotros', 'nosotras', 'vosotros', 'vosotras',
+                    'ellos', 'ellas', 'ustedes'}
+
+INFINITIVAL_PARTICLES = {'a', 'al', 'de', 'del', 'para', 'por', 'que', 'sin',
+                         'hasta', 'tras', 'he'}
+
 # 3rd plural is always "they" -- unambiguous, and the translator asked for it:
 # "empezaron" is "they began", not "began". 3rd SINGULAR stays bare because
 # he/she/it cannot be chosen without knowing the subject, and English marks it
@@ -182,7 +248,7 @@ def _head_inflect(v, fn):
     return ' '.join([fn(parts[0])] + parts[1:])
 
 
-def _build(v, shape, person=None):
+def _build(v, shape, person=None, bare_infinitive=False):
     par = ENGLISH_PARADIGM.get(v)
     if par and person:
         if shape in ('plain', 'third'):
@@ -200,7 +266,7 @@ def _build(v, shape, person=None):
     elif shape == 'might':     core = 'might' + JOIN + v
     elif shape == 'should':    core = 'should' + JOIN + v
     elif shape == 'third':     core = _head_inflect(v, _third)
-    elif shape == 'infinitive':core = 'to' + JOIN + v
+    elif shape == 'infinitive':core = v if bare_infinitive else 'to' + JOIN + v
     else:                      core = v
     # the corpus writes multiword glosses with hyphens (51,843 against 3,217),
     # so a phrasal verb reads "they-went-out", not "they-went out"
@@ -246,6 +312,15 @@ def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None):
     # conjugation index is NOT sufficient either: "a", "thus", "said" and
     # "wine" all have verb homographs, and treating them as verbs produced
     # "may-a", "I-thused", "saided". Require the dictionary to call it a verb.
+    # A preposition, article or conjunction is never inflected. "a" has a verb
+    # homograph in the conjugation index, and inflecting it built "toing";
+    # "el" built "thes" and "de" built "ofs".
+    try:
+        import spa_morph
+        if spa_morph.pos(s) in ('ADP', 'DET', 'CCONJ', 'SCONJ', 'PRON', 'NUM'):
+            return base
+    except Exception:
+        pass
     is_verb = looks_like_verb(s, raw, base, tag)
     if is_verb and noun_position(prev_surface, s):
         return None            # nominal slot: the caller keeps the noun gloss
@@ -255,7 +330,10 @@ def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None):
             return None
         shape, person = _shape_from_tag(tag)
         if shape:
-            return _build(v, shape, person)
+            prev = (prev_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
+            if prev in SUBJECT_PRONOUNS:
+                person = None          # the written pronoun already says it
+            return _build(v, shape, person, prev in INFINITIVAL_PARTICLES)
         # fallback for forms the database does not carry
         for pat, shape in VERB_SHAPE:
             if re.search(pat, s):
@@ -266,9 +344,18 @@ def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None):
     # became "separateds" — 337 tokens of nonsense.
     if re.search(r'(ados|idos|adas|idas|ados|antes|entes|ientes)$', s):
         return base
+    # Spanish adjectives agree in number; English ones do not. "grandes" is
+    # "great", not "greats", and "malos" is "wicked", not "bads". The treebank
+    # says which words are adjectives.
+    try:
+        import spa_morph
+        if spa_morph.pos(s) == 'ADJ':
+            return base
+    except Exception:
+        pass
     # nouns: carry the plural across
     if s.endswith(('s','es')) and lem and not lem.endswith(('s','es')):
-        return IRREG_PLURAL.get(base, pluralise(base))
+        return plural_of(base)
     return base
 
 # ── 2. HOMOGRAPHS ────────────────────────────────────────────────────────────
@@ -341,11 +428,17 @@ SCRIPTURAL = {
 
 # ── 3. REGISTER ──────────────────────────────────────────────────────────────
 # Where the dictionary and this text simply use different English.
+# Register substitutions, each checked against the English canon. Three
+# entries were removed after that check contradicted them:
+#   anger -> wrath        the canon reads "anger" 322 times, "wrath" 235
+#   inheritance -> heritage   "inheritance" 289, "heritage" 32
+#   army -> armies        this one forced a SINGULAR into a PLURAL
 REGISTER = {
-    'desert':'wilderness', 'anger':'wrath', 'inheritance':'heritage',
-    'town':'city', 'boat':'ship', 'kill':'slay', 'army':'armies',
-    'sunset':'evening', 'impure':'unclean', 'jail':'prison',
-    'guy':'man', 'children of israel':'children of Israel',
+    # canon-backed: "inheritance" 289 against "heritage" 32
+    'heritage': 'inheritance', 'heritages': 'inheritances',
+    'desert': 'wilderness', 'town': 'city', 'boat': 'ship', 'kill': 'slay',
+    'sunset': 'evening', 'impure': 'unclean', 'jail': 'prison', 'guy': 'man',
+    'children of israel': 'children of Israel',
 }
 
 # ── modern English, not King James ─────────────────────────────────────────
@@ -486,6 +579,26 @@ def sense_choice(lemma):
     return _SENSE_CHOICE.get((lemma or '').lower())
 
 
+# The sense the English canon actually attests for a lemma, aggregated over
+# every verse containing it (build_canon_sense.py). The dictionary is modern
+# Spanish and orders its senses accordingly: grande is "big" before "great",
+# carne "meat" before "flesh", puerta "door" before "gate".
+_CANON_SENSE = None
+
+def canon_sense(lemma):
+    global _CANON_SENSE
+    if _CANON_SENSE is None:
+        import os, json as _json
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'spa_canon_sense.json')
+        try:
+            with open(path, encoding='utf-8') as fh:
+                _CANON_SENSE = _json.load(fh)
+        except OSError:
+            _CANON_SENSE = {}
+    return _CANON_SENSE.get((lemma or '').lower())
+
+
 def apply_register(word):
     return modernise(REGISTER.get(word.lower(), word))
 
@@ -558,10 +671,11 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
         return HOMOGRAPHS[key]
 
     base = first_sense(translation)
-    # the translator's established word for this lemma outranks sense #1
-    learned = sense_choice(lemma)
+    # the translator's established word for this lemma outranks sense #1,
+    # and the canon's attested sense outranks the dictionary's ordering
+    learned = sense_choice(lemma) or canon_sense(lemma)
     if learned:
-        base = 'to ' + learned
+        base = ('to ' + learned) if base.startswith('to ') else learned
     out = inflect(base, key, lemma, c['prev_surface'], c.get('keep_verb'),
                   raw=translation)
     if out is None:

@@ -31,6 +31,27 @@ import spa_gloss as G
 import spa_morph as M
 import eng_verbs as EV
 
+_ENGLISH = None
+
+def english_words():
+    """A real English dictionary (words_alpha, 370,105 entries).
+
+    The canon is KJV and the verb lexicon only holds verbs, so between them
+    they rejected "impetus", "magnitude", "commission", "dense" and
+    "mountainous" -- perfectly good glosses the tool had already worked out,
+    which then could not be applied. It still rejects what matters: racimos,
+    expresamente, foremans, beginns.
+    """
+    global _ENGLISH
+    if _ENGLISH is None:
+        path = os.path.join(HERE, 'words_alpha.txt')
+        try:
+            with open(path, encoding='utf-8') as fh:
+                _ENGLISH = {l.strip() for l in fh if l.strip()}
+        except OSError:
+            _ENGLISH = set()
+    return _ENGLISH
+
 STOPGLOSS = {'', '-'}
 
 
@@ -84,7 +105,7 @@ def _real_word(t, vocab):
     generated-form set separates them: abides and brings are in it, while
     beginns, hads, kepts, sinns, committs and grievs are not.
     """
-    return t in vocab or t in EV._reverse()
+    return t in vocab or t in EV._reverse() or t in english_words()
 
 
 def is_nonword(g, vocab):
@@ -93,9 +114,34 @@ def is_nonword(g, vocab):
     if not core or '/' in core:
         return False        # "work/labor" is the x/y ambiguity class, not junk
     toks = [t for t in core.split() if t]
-    if len(toks) > 1 and toks[0] in ('i', 'you', 'we', 'they', 'he', 'she', 'it'):
+    # Strip the pronoun AND the auxiliaries. "was-toing" is "was" + to + ing;
+    # keeping "was" in the test made the whole gloss look like real English and
+    # hid 111 of them, every one an imperfect-tense verb.
+    AUXV = ('i', 'you', 'we', 'they', 'he', 'she', 'it', 'was', 'were', 'is',
+            'are', 'be', 'been', 'will', 'would', 'may', 'might', 'shall',
+            'should', 'have', 'has', 'had', 'let', 'do', 'does', 'did')
+    while len(toks) > 1 and toks[0] in AUXV:
         toks = toks[1:]
     return bool(toks) and all(not _real_word(t, vocab) for t in toks)
+
+
+_NAMESET = None
+
+def _known_names():
+    global _NAMESET
+    if _NAMESET is None:
+        import json as _json
+        out = set()
+        for fn, pick in (('canon_names_en.json', None),
+                         ('bom_names_es_en.json', 'values')):
+            try:
+                with open(os.path.join(HERE, fn), encoding='utf-8') as fh:
+                    d = _json.load(fh)
+                out |= {str(x).lower() for x in (d.values() if pick else d)}
+            except OSError:
+                pass
+        _NAMESET = out
+    return _NAMESET
 
 
 def audit(book_filter=None, chapter_filter=None, limit=None):
@@ -144,7 +190,11 @@ def audit(book_filter=None, chapter_filter=None, limit=None):
                                 if t not in ('i', 'you', 'we', 'they', 'he', 'she', 'it'))
             drift = content and stripped and all(
                 t in FUNCTION_EN for t in stripped.split())
-            junk = content and is_nonword(g, vocab)
+            # A gloss that is not English is a defect whatever the Spanish
+            # word's part of speech: "a" glossed "toing" and "de" glossed
+            # "ofs" are broken regardless, and requiring a CONTENT word here
+            # hid 1,478 of them.
+            junk = is_nonword(g, vocab)
             if not (drift or junk):
                 continue
             neighbour = ''
@@ -173,23 +223,29 @@ def _acceptable(cand, k, lex, forms, names, base=None):
     """
     if not cand:
         return False
+    text = str(cand)
     # (0) you cannot build a verb from the base "the". When the dictionary
     #     entry for the token is itself a function word, inflecting it just
-    #     re-applies the defect: "thed", "anded", "to-toe".
+    #     re-applies the defect: "thed", "anded", "toing". Returning it
+    #     unchanged ("to") is the correct answer and must be allowed.
     if base:
         b = base.lower().strip()
         if b.startswith('to '):
             b = b[3:].strip()
-        if b in FUNCTION_EN:
+        if b in FUNCTION_EN and text.lower().strip('.,;:!? ') != b:
             return False
-    text = str(cand)
     core = text.lower().replace('-', ' ').strip(' .,;:!?')
     parts = [t for t in core.split()
              if t not in ('i', 'you', 'we', 'they', 'he', 'she', 'it',
                           'may', 'might', 'will', 'would', 'shall', 'should',
                           'to', 'be', 'is', 'are', 'was', 'were')]
     if not parts:
-        return False
+        # the whole gloss is a function word: right for a preposition or
+        # article ("a" -> "to", "el" -> "the"), which is exactly the repair
+        # for `a` glossed "toing"
+        return bool(base) and text.lower().strip('.,;:!? ') == (
+            base[3:].strip().lower() if base.lower().startswith('to ')
+            else base.lower().strip())
     # (1) still a bare function word -> the defect was re-applied
     if all(t in FUNCTION_EN for t in parts):
         return False
@@ -211,7 +267,7 @@ def _acceptable(cand, k, lex, forms, names, base=None):
             return True
     vocab = G._vocab()
     head = parts[-1]
-    return head in vocab or EV.known(head)
+    return head in vocab or EV.known(head) or head in english_words()
 
 
 def repair(hits, dry_run=True):
@@ -362,3 +418,53 @@ def _appears(word, bases):
              stem + 'eth', stem + 'est', stem + 'ed', stem + 'es', stem + 'ing',
              EV.third(word), EV.past(word), EV.participle(word), EV.ing(word)}
     return bool(cands & bases)
+
+
+def repair_sense(rows, dry_run=True):
+    """Switch a gloss to the sense the verse's own English attests.
+
+    `rows` come from sense_mismatch(): the current gloss's word is absent from
+    the printed English of that verse, and another sense of the same Spanish
+    word is present. The replacement is re-inflected through the normal
+    pipeline, so "they-arrived" becomes "they-came" and not "they-come".
+    """
+    lex, forms, names = A.load()
+    want = {}
+    for r in rows:
+        want[(r['sp'], r['gloss'])] = r['should']
+    changes, files = Counter(), 0
+    import glob as _glob
+    for path in sorted(_glob.glob(os.path.join(os.path.dirname(HERE), 'verses', '*.js'))):
+        src = open(path, encoding='utf-8').read()
+
+        def verse(vm):
+            toks = A.TOK.findall(vm.group(2))
+            out, hit = [], False
+            for i, (sp, en) in enumerate(toks):
+                new = en
+                target = want.get((sp, en))
+                if target and not sp[:1].isupper():
+                    k = sp.lower().strip(A.STRIP)
+                    s2, tr = S.gloss_candidates(S.normalise(k), lex, forms, names)
+                    lemma = s2.split(':')[1].split('>')[0] if s2 and ':' in s2 else k
+                    ctx = A.build_ctx(toks, i, lex, forms)
+                    ctx['keep_verb'] = target
+                    cand = G.gloss(k, lemma, tr or k, S.first_sense, ctx)
+                    if cand is None:
+                        ctx = {'prev_surface': '', 'keep_verb': target}
+                        cand = G.gloss(k, lemma, tr or k, S.first_sense, ctx)
+                    if cand and _acceptable(cand, k, lex, forms, names, 'to ' + target):
+                        t = A.TAIL.search(en)
+                        new = str(cand) + (t.group(1) if t else '')
+                if new != en:
+                    changes[(en, new)] += 1
+                    hit = True
+                out.append('["%s","%s"]' % (sp, new))
+            return vm.group(0) if not hit else '{num:%s,words:[%s]}' % (vm.group(1), ','.join(out))
+
+        new_src = A.VERSE.sub(verse, src)
+        if new_src != src:
+            files += 1
+            if not dry_run:
+                open(path, 'w', encoding='utf-8').write(new_src)
+    return changes, files

@@ -305,6 +305,94 @@ def apply_persons(dry_run=False):
     return changes, files
 
 
+def strip_doubled_to(dry_run=False):
+    """Drop the "to" from an infinitive whose particle already carries it.
+
+    "a[to] crecer[to-grow]" reads "to to grow". Spanish marks the infinitive
+    with a preceding particle, that particle is its own interlinear token, and
+    the token glosses it "to" -- so the infinitive must not repeat it. A bare
+    infinitive with no particle before it keeps its "to".
+    """
+    import spa_conjug, spa_gloss
+    lex, forms, names = load()
+    changes, files = Counter(), 0
+    for path in sorted(glob.glob(os.path.join(ROOT, 'verses', '*.js'))):
+        src = open(path, encoding='utf-8').read()
+
+        def verse(vm):
+            toks = TOK.findall(vm.group(2))
+            out, hit = [], False
+            for i, (sp, en) in enumerate(toks):
+                new = en
+                k = sp.lower().strip(STRIP)
+                core = en.strip('.,;:!?')
+                if i and core.lower().startswith('to-') and len(core) > 3:
+                    prev = toks[i - 1][0].lower().strip(STRIP)
+                    prev_g = toks[i - 1][1].lower().replace('-', ' ').split()
+                    if (prev in spa_gloss.INFINITIVAL_PARTICLES
+                            and 'to' in prev_g
+                            and spa_conjug.verb_tag(k) == 'inf'):
+                        t = TAIL.search(en)
+                        new = core[3:] + (t.group(1) if t else '')
+                if new != en:
+                    changes[(en, new)] += 1
+                    hit = True
+                out.append('["%s","%s"]' % (sp, new))
+            return vm.group(0) if not hit else '{num:%s,words:[%s]}' % (vm.group(1), ','.join(out))
+
+        new_src = VERSE.sub(verse, src)
+        if new_src != src:
+            files += 1
+            if not dry_run:
+                open(path, 'w', encoding='utf-8').write(new_src)
+    return changes, files
+
+
+def edit_tokens(mapping, dry_run=False):
+    """Rewrite specific tokens, addressed by (book, chapter, verse, index).
+
+    The primitive every per-verse pass needs. Keying an edit by (word, gloss)
+    instead applies it everywhere that pair occurs, which is how a change
+    witnessed in one verse leaked into 176 others whose English said the
+    opposite word.
+    """
+    BOOKS = book_map()
+    changes, files = Counter(), 0
+    for path in sorted(glob.glob(os.path.join(ROOT, 'verses', '*.js'))):
+        src = open(path, encoding='utf-8').read()
+
+        def do_set(sm):
+            pm = re.match(r'([a-z0-9]+)-ch(\d+)$', sm.group(3))
+            if not pm:
+                return sm.group(0)
+            book = BOOKS.get(pm.group(1) + '-ch')
+            if not book:
+                return sm.group(0)
+            ch = int(pm.group(2))
+
+            def do_verse(vm):
+                toks = TOK.findall(vm.group(2))
+                out, hit = [], False
+                for i, (sp, en) in enumerate(toks):
+                    new = mapping.get((book, ch, vm.group(1), i), en)
+                    if new != en:
+                        changes[(en, new)] += 1
+                        hit = True
+                    out.append('["%s","%s"]' % (sp, new))
+                return vm.group(0) if not hit else '{num:%s,words:[%s]}' % (
+                    vm.group(1), ','.join(out))
+
+            body = VERSE.sub(do_verse, sm.group(2))
+            return sm.group(0).replace(sm.group(2), body, 1) if body != sm.group(2) else sm.group(0)
+
+        new_src = SET.sub(do_set, src)
+        if new_src != src:
+            files += 1
+            if not dry_run:
+                open(path, 'w', encoding='utf-8').write(new_src)
+    return changes, files
+
+
 def english_canon():
     """The printed English column, keyed 'Book|chapter|verse'. Never written."""
     raw = open(os.path.join(ROOT, 'english_verses.js'), encoding='utf-8').read()
@@ -342,6 +430,8 @@ def main(argv):
     ap.add_argument('--verbs', action='store_true',
                     help='every token the conjugation database recognises')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--infinitives', action='store_true',
+                    help='drop the doubled "to" after an infinitival particle')
     ap.add_argument('--persons', action='store_true',
                     help='add the subject pronoun the verb carries')
     ap.add_argument('--names', action='store_true',
@@ -349,6 +439,13 @@ def main(argv):
     ap.add_argument('--modernise', action='store_true',
                     help='archaic -est/-eth verbs -> modern English')
     a = ap.parse_args(argv)
+    if a.infinitives:
+        changes, files = strip_doubled_to(a.dry_run)
+        print("  %s %d tokens in %d files" %
+              ('would change' if a.dry_run else 'changed', sum(changes.values()), files))
+        for (o, n), c in changes.most_common(14):
+            print('   %-18s -> %-16s %d' % ('"' + o + '"', '"' + n + '"', c))
+        return 0
     if a.persons:
         changes, files = apply_persons(a.dry_run)
         print("  %s %d tokens in %d files" %

@@ -308,6 +308,13 @@ def gloss_candidates(word, lex, forms, names=None, prefer_verb=False):
     w = normalise(word)
     if not w:
         return None, None
+    # The supplement is where a gap or a wrong entry in the third-party
+    # dictionary gets corrected, so it must outrank it. `hincha` is listed
+    # there as "fan (noun)" -- a football supporter -- and the supplement's
+    # "to swell" was never reached because the direct entry won first.
+    sup = load_supplement()
+    if w in sup:
+        return 'added', sup[w]
     if w in lex and not _prefer_lemma(w, lex) and not (
             prefer_verb and _has_verb_lemma(w, lex)):
         return 'direct', lex[w]
