@@ -3,3 +3,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 .claude/
+
+# UD Spanish treebanks (AnCora + GSD) -- 71 MB, BUILD-ONLY.
+# Nothing loads these at runtime; tools/build_morph.py reads them once to
+# produce tools/spa_morph.json, which is the artifact the tool actually uses
+# and IS committed. Re-download with the URLs in build_morph.py's docstring.
+tools/*.conllu

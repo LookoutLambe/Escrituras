@@ -6,7 +6,7 @@
 <title>Las Escrituras — Spanish Interlinear</title>
 <meta name="description" content="Spanish Interlinear Standard Works — Español con Glosas en Inglés">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1e2233">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Las Escrituras">
@@ -36,20 +36,50 @@
 <style>
 
 :root {
-  --bg: #faf8f2;
-  --bg-deep: #f0ece0;
-  --ink: #1a1a1a;
-  --ink-light: #444;
-  --accent: #c8a84e;
-  --accent-light: #d4b96a;
-  --rule: #d6ceb8;
-  --rule-light: #e8e2d4;
-  --gloss: #333;
-  --verse-num: #7fb3d3;
-  --highlight: rgba(200, 168, 78, 0.10);
-  --header-bg: #1e2233;
-  --header-text: #c8a84e;
-  --row-alt: #fdf8eb;
+  /* ══════════════════════════════════════════════════════════════════════
+     PLAIN. Black words on white, and nothing else.
+     Two values: #000 and #fff. No greys, no tints, no fills, no shadows.
+     Structure comes from hairline rules and space, not from shading.
+
+     Every rule in this file points at a token here; nothing else in the app
+     names a colour. A palette, when there is one, is filled in HERE and
+     nowhere else.
+     ══════════════════════════════════════════════════════════════════════ */
+  --bg: #ffffff;  --bg-deep: #ffffff;  --row-alt: #ffffff;  --surface: #ffffff;
+  --ink: #000000; --ink-light: #000000; --sp: #000000; --gloss-en: #000000;
+  --muted: #000000; --rule: #000000; --rule-light: #000000;
+
+  /* the bars and drawer are white too — they are not a separate material */
+  --chrome: #ffffff;  --chrome-deep: #ffffff;
+  --chrome-hover: #ffffff; --chrome-hover-2: #ffffff;
+  --chrome-line: #000000; --chrome-line-2: #000000;
+  --on-chrome: #000000;   --on-chrome-2: #000000;  --on-chrome-hover: #000000;
+
+  --accent: #000000; --accent-light: #000000; --accent-chrome: #000000;
+  --accent-fill: #ffffff; --on-fill: #000000;
+  --accent-wash: transparent; --highlight: transparent;
+
+  --link: #000000; --link-hover: #000000; --verse-num: #000000;
+  --shadow-1: none; --shadow-2: none;
+
+  --accent-deep: var(--accent);
+  --header-bg: var(--chrome);
+  --header-text: var(--on-chrome);
+  --gloss: var(--gloss-en);
+}
+
+/* Dark is the straight inversion — the same two values, swapped. */
+body.dark-mode {
+  --bg: #000000; --bg-deep: #000000; --row-alt: #000000; --surface: #000000;
+  --ink: #ffffff; --ink-light: #ffffff; --sp: #ffffff; --gloss-en: #ffffff;
+  --muted: #ffffff; --rule: #ffffff; --rule-light: #ffffff;
+  --chrome: #000000; --chrome-deep: #000000;
+  --chrome-hover: #000000; --chrome-hover-2: #000000;
+  --chrome-line: #ffffff; --chrome-line-2: #ffffff;
+  --on-chrome: #ffffff; --on-chrome-2: #ffffff; --on-chrome-hover: #ffffff;
+  --accent: #ffffff; --accent-light: #ffffff; --accent-chrome: #ffffff;
+  --accent-fill: #000000; --on-fill: #ffffff;
+  --link: #ffffff; --link-hover: #ffffff; --verse-num: #ffffff;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,8 +89,8 @@ html { overflow-x: hidden; }
   position: absolute;
   top: -100px;
   left: 0;
-  background: #1e2233;
-  color: #c8a84e;
+  background:var(--chrome);
+  color:var(--accent);
   padding: 10px 20px;
   z-index: 9999;
   font-size: 1em;
@@ -68,24 +98,35 @@ html { overflow-x: hidden; }
 }
 .skip-link:focus { top: 0; }
 
-*:focus-visible { outline: 2px solid #c8a84e; outline-offset: 2px; }
-body.dark-mode *:focus-visible { outline-color: #d4af37; }
+*:focus-visible { outline:2px solid var(--accent); outline-offset: 2px; }
+body.dark-mode *:focus-visible { outline-color:var(--accent); }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: 'Times New Roman', Times, serif;
   min-height: 100vh;
+  /* no rubber-band into a grey void mid-verse */
+  overscroll-behavior-y: none;
 }
 
 .page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 55px 24px 50px;
-  background: #faf8f2;
-  min-height: 100vh;
+  background:var(--bg);
   box-shadow: none;
   position: relative;
+  /* iOS Safari's 100vh excludes the URL bar, so its bottom is unreachable;
+     dvh tracks the visible height and vh stays as the fallback. */
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* The shorthand comes FIRST and the edges refine it. Reversed, `padding`
+     resets padding-top and the text slides back under the fixed header. */
+  padding: 55px 24px 50px;
+  padding-top: calc(var(--chrome-h, 78px) + 16px);
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
 }
 
 .book-header {
@@ -154,7 +195,7 @@ body {
 }
 
 .verse:hover {
-  background: rgba(200, 168, 78, 0.14);
+  background:var(--accent-wash);
 }
 
 .verse:last-child {
@@ -199,15 +240,15 @@ body {
 }
 
 .word-unit:hover {
-  background: rgba(139, 105, 20, 0.08);
+  background: var(--accent-wash);
 }
 
-.hw {
+.sp {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.4em;
   font-weight: 500;
   line-height: 1.5;
-  color: #1a2744;
+  color:var(--sp);
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -217,7 +258,7 @@ body {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.78em;
   font-style: italic;
-  color: #5a6a8a;
+  color:var(--gloss-en);
   line-height: 1.3;
   text-align: center;
   margin-top: 2px;
@@ -231,38 +272,123 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: #1e2233;
-  color: #c8a84e;
+  z-index: 100;
+  /* ONE row. It was two — a nav row above a tools row — which stood 104px
+     tall and held a font-size slider permanently in view for a setting most
+     readers touch once. The slider now lives behind Aa; what is left is the
+     chapter you are in and the four things you reach for while reading. */
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 6px 12px 6px;
+  background: var(--chrome);
+  color: var(--accent-chrome);
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.9em;
-  z-index: 100;
+  border-bottom: 1px solid var(--rule-light);
+  padding: 4px 8px;
+  padding-top: max(4px, env(safe-area-inset-top));
+  padding-left: max(8px, env(safe-area-inset-left));
+  padding-right: max(8px, env(safe-area-inset-right));
 }
+.bar-group { display: flex; align-items: center; gap: 2px; }
+/* Chapter turning sits in the footer, in the thumb's reach, flanking the mode
+   group. In the header it competed for a 375px bar with five other controls
+   and pushed Search off the screen. */
+.mode-group { display: flex; align-items: center; gap: 8px; flex: 1 1 auto; justify-content: center; }
+.bar-left  { flex: 0 0 auto; }
+.bar-right { flex: 0 0 auto; margin-left: auto; }
+
+/* The chapter you are in IS the navigation: it names your place and opens the
+   contents. It takes the middle and the remaining width, so it reads as the
+   subject of the bar rather than one more button. */
+.chapter-pill {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0 4px;
+  padding: 4px 10px;
+  background: transparent;
+  border: 0;
+  color: var(--accent-chrome);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.02em;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.chapter-pill:hover { background: var(--accent-wash); }
+
+/* Every control in the bar is the same object: a 44px square that shows one
+   mark. Before, each carried its own inline style. */
+.icon-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--accent-chrome);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1em;
+  cursor: pointer;
+}
+.icon-btn:hover:not(:disabled) { background: var(--accent-wash); border-color: var(--chrome-line); }
+.icon-btn:disabled { opacity: 0.32; cursor: default; }
+
+/* Text size, on demand */
+#text-panel {
+  position: fixed;
+  top: calc(var(--chrome-h, 56px) + 6px);
+  right: max(10px, env(safe-area-inset-right));
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.9em;
+  color: var(--ink);
+}
+#text-panel[hidden] { display: none; }
+#text-panel input[type=range] { width: 150px; }
+#size-readout { min-width: 3.2em; text-align: right; }
 /* Controls bottom bar */
 .controls-bottom {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #1e2233;
-  color: #c8a84e;
+  background:var(--chrome);
+  color:var(--accent-chrome);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  padding: 6px 12px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.9em;
   z-index: 100;
+  /* 8px between adjacent targets, so a near-miss lands on nothing rather
+     than on the wrong control */
+  gap: 8px;
+  /* clears the home indicator on an installed iPhone */
+  padding: 6px 12px;
+  padding-bottom: max(6px, env(safe-area-inset-bottom));
+  padding-left: max(8px, env(safe-area-inset-left));
+  padding-right: max(8px, env(safe-area-inset-right));
 }
 .controls-top .nav-prev, .controls-top .nav-next {
   background: transparent;
-  border: 1px solid #c8a84e;
-  color: #c8a84e;
+  border:1px solid var(--accent);
+  color:var(--accent-chrome);
   padding: 5px 10px;
   border-radius: 3px;
   cursor: pointer;
@@ -271,8 +397,8 @@ body {
   white-space: nowrap;
 }
 .controls-top .nav-prev:hover, .controls-top .nav-next:hover {
-  background: #2a2f44;
-  color: #fff;
+  background:var(--chrome-hover);
+  color:var(--on-chrome-hover);
 }
 .controls-top .nav-prev:disabled, .controls-top .nav-next:disabled {
   opacity: 0.35;
@@ -296,8 +422,8 @@ body {
 
 .controls-top button, .controls-bottom button {
   background: transparent;
-  border: 1px solid #3a3f55;
-  color: #c8a84e;
+  border:1px solid var(--chrome-line);
+  color:var(--accent-chrome);
   padding: 5px 14px;
   border-radius: 3px;
   cursor: pointer;
@@ -309,15 +435,15 @@ body {
 }
 
 .controls-top button:hover, .controls-bottom button:hover {
-  background: #2a2f44;
-  border-color: var(--accent);
-  color: #fff;
+  background:var(--chrome-hover);
+  border-color:var(--on-chrome-hover);
+  color:var(--on-chrome-hover);
 }
 
 .controls-bottom button.active {
   background: var(--accent);
-  border-color: var(--accent);
-  color: #1e2233;
+  border-color:var(--accent-chrome);
+  color:var(--chrome);
   font-weight: 600;
 }
 
@@ -330,7 +456,7 @@ body {
 
 .controls-top input[type="range"] {
   width: 80px;
-  accent-color: var(--accent-light);
+  accent-color:var(--accent-chrome);
 }
 
 /* Hide glosses mode (Español — continuous prose) */
@@ -347,13 +473,13 @@ body.hide-gloss .word-unit {
   vertical-align: baseline !important;
 }
 body.hide-gloss .word-unit:hover { background: none !important; }
-body.hide-gloss .hw {
+body.hide-gloss .sp {
   font-size: 1.05em !important;
   line-height: 1.7 !important;
   display: inline !important;
   text-align: left !important;
 }
-body.hide-gloss .hw::after { content: ' '; }
+body.hide-gloss .sp::after { content: ' '; }
 body.hide-gloss .word-flow { line-height: 1.7; }
 
 /* Dual mode */
@@ -383,13 +509,13 @@ body.dual-mode .word-unit {
   vertical-align: baseline;
 }
 body.dual-mode .word-unit:hover { background: none; }
-body.dual-mode .hw {
+body.dual-mode .sp {
   font-size: 0.92em;
   line-height: 1.65;
   display: inline;
   text-align: left;
 }
-body.dual-mode .hw::after { content: ' '; }
+body.dual-mode .sp::after { content: ' '; }
 @media (max-width: 700px) {
   body.dual-mode .verse-english {
     flex: 1 1 0;
@@ -400,14 +526,20 @@ body.dual-mode .hw::after { content: ' '; }
     line-height: 1.45;
   }
   body.dual-mode .word-flow { flex: 1 1 0; min-width: 0; }
-  body.dual-mode .hw { font-size: 0.78em; }
+  body.dual-mode .sp { font-size: 0.78em; }
   body.dual-mode .verse-num { min-width: 22px; font-size: 0.7em; }
 }
 
 /* Responsive */
 @media (max-width: 700px) {
-  .page { padding: 55px 18px 50px; }
-  .hw { font-size: 1.2em; }
+  .page {
+    /* only the sides narrow on a phone. Re-declaring the `padding` shorthand
+       here reset padding-top, which put the first verse back under the fixed
+       header — the same shorthand-beats-longhand trap as in the base rule. */
+    padding-left: max(18px, env(safe-area-inset-left));
+    padding-right: max(18px, env(safe-area-inset-right));
+  }
+  .sp { font-size: 1.2em; }
   .gl { font-size: 0.68em; }
   .verse { gap: 8px; }
   .word-flow { margin: 0; }
@@ -438,13 +570,20 @@ body.dual-mode .hw::after { content: ' '; }
   left: -320px;
   width: 300px;
   height: 100vh;
-  background: #151520;
-  border-right: 1px solid #2a2a3e;
+  background:var(--chrome-deep);
+  border-right:1px solid var(--chrome-line-2);
   z-index: 150;
   overflow-y: auto;
   transition: left 0.3s ease;
-  padding: 18px 20px 40px;
   box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;   /* scrolling to its end must not drag the page */
+  padding: 18px 20px 40px;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
 }
 #drawer.open { left: 0; }
 
@@ -454,33 +593,33 @@ body.dual-mode .hw::after { content: ' '; }
   justify-content: space-between;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #2a2a3e;
+  border-bottom:1px solid var(--chrome-line-2);
 }
 .drawer-header-title {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.35em;
-  color: #c8a84e;
+  color:var(--accent-chrome);
   font-weight: 700;
 }
 .drawer-header-sub {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.8em;
-  color: #7a7a9a;
+  color:var(--on-chrome-2);
 }
 .drawer-close {
   background: none;
   border: none;
-  color: #7a7a9a;
+  color:var(--on-chrome-2);
   font-size: 1.5em;
   cursor: pointer;
   padding: 0 4px;
   line-height: 1;
 }
-.drawer-close:hover { color: #c8a84e; }
+.drawer-close:hover { color:var(--accent-chrome); }
 
 .drawer-section-label {
   font-family: 'Times New Roman', Times, serif;
-  color: #5a5a7a;
+  color:var(--on-chrome-2);
   font-size: 0.72em;
   letter-spacing: 1px;
   margin: 18px 0 8px;
@@ -499,12 +638,12 @@ body.dual-mode .hw::after { content: ' '; }
   margin-top: 4px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.0em;
-  color: #d4af37;
+  color:var(--accent-chrome);
   font-weight: 700;
 }
-.volume-header:hover { background: #1e1e30; }
+.volume-header:hover { background:var(--chrome-hover-2); }
 .vol-arrow {
-  color: #c8a84e;
+  color:var(--accent);
   font-size: 0.7em;
   transition: transform 0.2s;
 }
@@ -522,24 +661,24 @@ body.dual-mode .hw::after { content: ' '; }
   transition: background 0.15s;
   margin-top: 4px;
 }
-.book-row:hover { background: #1e1e30; }
-.book-row.expanded { background: #1a1a2e; }
+.book-row:hover { background:var(--chrome-hover-2); }
+.book-row.expanded { background:var(--chrome-deep); }
 .book-row-name {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95em;
-  color: #c8a84e;
+  color:var(--accent);
   font-weight: 600;
 }
 .book-row-en {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.78em;
-  color: #7a7a9a;
+  color:var(--on-chrome-2);
   font-weight: 400;
   margin-left: 6px;
   display: inline;
 }
 .book-row-arrow {
-  color: #c8a84e;
+  color:var(--accent);
   font-size: 0.7em;
   transition: transform 0.2s;
 }
@@ -558,21 +697,21 @@ body.dual-mode .hw::after { content: ' '; }
   justify-content: center;
   height: 36px;
   background: transparent;
-  border: 1px solid #2a2a3e;
+  border:1px solid var(--chrome-line-2);
   border-radius: 4px;
-  color: #8a8aa8;
+  color:var(--on-chrome-2);
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.9em;
   cursor: pointer;
   transition: all 0.15s;
 }
-.ch-brick:hover { background: #1e1e30; color: #c8a84e; border-color: #444; }
-.ch-brick.active { background: #c8a84e22; color: #c8a84e; border-color: #c8a84e; font-weight: 700; }
+.ch-brick:hover { background:var(--chrome-hover-2); color:var(--on-chrome-hover); border-color:var(--ink-light); }
+.ch-brick.active { background:#c8a84e22; color:var(--accent); border-color:var(--accent); font-weight: 700; }
 
 /* Divider */
 .drawer-divider {
   border: none;
-  border-top: 1px solid #2a2a3e;
+  border-top:1px solid var(--chrome-line-2);
   margin: 14px 0;
 }
 
@@ -608,7 +747,7 @@ body.dual-mode .hw::after { content: ' '; }
 
 /* Verse highlighting */
 .verse.highlighted {
-  background: rgba(200, 168, 78, 0.08);
+  background:var(--accent-wash);
   border-radius: 6px;
   box-shadow: inset 3px 0 0 var(--accent);
   padding-left: 8px;
@@ -621,9 +760,9 @@ body.dual-mode .hw::after { content: ' '; }
   display: none;
   position: fixed;
   z-index: 200;
-  background: #fff;
+  background:var(--surface);
   color: var(--ink);
-  border: 2px solid #c8a84e;
+  border:2px solid var(--accent);
   border-radius: 8px;
   padding: 14px 18px;
   font-family: 'Times New Roman', Times, serif;
@@ -654,12 +793,12 @@ body.dual-mode .hw::after { content: ' '; }
   top: 4px;
   right: 8px;
   cursor: pointer;
-  color: #888;
+  color:var(--muted);
   font-size: 14px;
   padding: 8px;
 }
 .word-unit { cursor: pointer; }
-.word-unit:hover { background: rgba(200,168,78,0.06); border-radius: 4px; }
+.word-unit:hover { background:var(--accent-wash); border-radius: 4px; }
 
 @media (max-width: 600px) {
   #word-popup { max-width: 90vw; padding: 16px 20px; }
@@ -667,55 +806,11 @@ body.dual-mode .hw::after { content: ' '; }
   #word-popup .popup-gloss { font-size: 1.3em !important; }
 }
 
-/* Cross-Reference Panel (right slide) */
-#xref-panel {
-  position: fixed; top: 0; right: -400px; width: 380px; height: 100vh;
-  background: var(--bg); border-left: 2px solid var(--accent); z-index: 160;
-  transition: right 0.3s ease; overflow-y: auto; padding: 0;
-  font-family: 'Times New Roman', Times, serif;
-  box-shadow: -4px 0 20px rgba(0,0,0,0.3);
-}
-#xref-panel.open { right: 0; }
-.xref-panel-header {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 14px 16px; border-bottom: 1px solid var(--rule-light);
-  position: sticky; top: 0; background: var(--bg); z-index: 2;
-}
-.xref-panel-header h3 { margin: 0; font-size: 1em; color: var(--ink); }
-.xref-panel-close { cursor: pointer; font-size: 18px; color: #888; padding: 4px 8px; }
-.xref-panel-word { font-weight: 600; color: var(--accent); font-size: 1.1em; padding: 12px 16px 0; }
-.xref-panel-category { font-size: 0.8em; color: var(--ink-light, #888); padding: 2px 16px 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-.xref-ref-card { padding: 12px 16px; border-bottom: 1px solid var(--rule-light); }
-.xref-ref-title { font-weight: 600; color: var(--ink); font-size: 0.95em; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px; }
-.xref-ref-goto { font-size: 0.75em; color: var(--ink-light, #888); cursor: pointer; padding: 2px 8px; border: 1px solid var(--rule-light); border-radius: 3px; text-decoration: none; white-space: nowrap; }
-.xref-ref-goto:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-.xref-ref-content { display: flex; flex-wrap: wrap; gap: 4px 8px; margin: 6px 0; line-height: 1.7; }
-.xref-ref-word { display: inline-flex; flex-direction: column; align-items: center; text-align: center; padding: 2px 3px; }
-.xref-ref-word .hw { font-family: 'Times New Roman', Times, serif; font-size: 1.05em; color: var(--ink); }
-.xref-ref-word .en { font-size: 0.65em; color: #5a6a8a; direction: ltr; }
-.xref-ref-english { font-size: 0.88em; color: var(--ink-light, #888); line-height: 1.5; margin-top: 6px; padding: 8px 10px; background: rgba(200,168,78,0.05); border-radius: 4px; border-left: 3px solid var(--accent); }
-.xref-ref-nodata { padding: 16px; color: #888; font-style: italic; }
-
-/* Cross-ref markers on words (hidden — access via word click) */
-.xref-marker { display: none; }
-.word-unit.xref-linked { cursor: pointer; }
-.word-unit.xref-linked .hw { color: #5dade2 !important; }
-.word-unit.xref-linked .gl { color: #5dade2 !important; }
-.word-unit.xref-linked:hover .hw { color: #85c1e9 !important; text-decoration: underline; }
-.word-unit.xref-linked:hover .gl { color: #85c1e9 !important; }
-
 /* Talk reference badge */
 .talk-ref-badge { display: block; font-size: 0.7em; cursor: pointer; margin-top: 2px; opacity: 0.7; transition: opacity 0.2s; }
 .talk-ref-badge:hover { opacity: 1; }
 
-/* Dark mode for xref panel */
-body.dark-mode #xref-panel { background: #252525; border-color: #d4af37; }
-body.dark-mode .xref-panel-header { background: #252525; }
-body.dark-mode .xref-ref-card { border-color: #444; }
-body.dark-mode .xref-ref-english { background: rgba(200,168,78,0.08); }
-
 @media (max-width: 600px) {
-  #xref-panel { width: 85%; right: -85%; }
 }
 
 /* Return navigation banner */
@@ -726,17 +821,17 @@ body.dark-mode .xref-ref-english { background: rgba(200,168,78,0.08); }
   border-bottom: 1px solid var(--rule-light); box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 #return-banner a {
-  display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+  display: inline-block; background: var(--accent); color:var(--on-chrome); text-decoration: none;
   padding: 6px 18px; border-radius: 4px; font-weight: 600; font-size: 0.9em;
 }
-#return-banner a:hover { background: #b8942e; }
+#return-banner a:hover { background:var(--accent); }
 #return-banner .return-dismiss {
   position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-  cursor: pointer; color: #999; font-size: 1.2em; background: none; border: none;
+  cursor: pointer; color:var(--muted); font-size: 1.2em; background: none; border: none;
 }
-body.dark-mode #return-banner { background: #252525; border-color: #444; }
-body.dark-mode #return-banner a { background: #d4af37; color: #1a1a1a; }
-body.dark-mode #return-banner a:hover { background: #c8a84e; }
+body.dark-mode #return-banner { background:var(--surface); border-color:var(--ink-light); }
+body.dark-mode #return-banner a { background:var(--accent); color:var(--ink); }
+body.dark-mode #return-banner a:hover { background:var(--accent); }
 
 /* Inline audio player */
 .talk-audio-player {
@@ -746,24 +841,24 @@ body.dark-mode #return-banner a:hover { background: #c8a84e; }
   width: 100%; height: 36px; border-radius: 4px;
 }
 .talk-audio-player .audio-label {
-  font-size: 0.75em; color: var(--ink-light, #888); margin-bottom: 4px;
+  font-size: 0.75em; color:var(--ink-light, var(--muted)); margin-bottom: 4px;
 }
 .talk-audio-lang-tabs {
   display: flex; gap: 0; margin-bottom: 6px; border-radius: 4px; overflow: hidden; border: 1px solid var(--rule-light);
 }
 .talk-audio-lang-tabs button {
   flex: 1; padding: 5px 8px; font-size: 0.8em; cursor: pointer;
-  background: var(--bg-deep, #f0ece0); border: none; color: var(--ink);
+  background:var(--bg-deep, var(--bg-deep)); border: none; color: var(--ink);
   font-family: 'Times New Roman', Times, serif; font-weight: 600; transition: background 0.2s;
 }
 .talk-audio-lang-tabs button.active {
-  background: var(--accent); color: #fff;
+  background: var(--accent); color:var(--on-chrome);
 }
 .talk-audio-lang-tabs button:hover:not(.active) {
   background: var(--rule-light);
 }
-body.dark-mode .talk-audio-lang-tabs button { background: #333; color: #ccc; }
-body.dark-mode .talk-audio-lang-tabs button.active { background: #d4af37; color: #1a1a1a; }
+body.dark-mode .talk-audio-lang-tabs button { background:var(--gloss-en); color:var(--on-chrome-2); }
+body.dark-mode .talk-audio-lang-tabs button.active { background:var(--accent); color:var(--ink); }
 
 /* Full talk view in panel */
 .talk-full-view { padding: 0 16px 16px; }
@@ -771,19 +866,19 @@ body.dark-mode .talk-audio-lang-tabs button.active { background: #d4af37; color:
   display: flex; justify-content: space-between; align-items: center;
   padding: 10px 0; border-bottom: 1px solid var(--rule-light); margin-bottom: 12px;
 }
-.talk-full-header h4 { margin: 0; font-size: 1em; color: var(--accent); font-weight: 600; }
+.talk-full-header h4 { margin: 0; font-size: 1em; color:var(--accent-chrome); font-weight: 600; }
 .talk-font-controls {
   display: flex; gap: 4px; align-items: center;
 }
 .talk-font-controls button {
   width: 28px; height: 28px; border: 1px solid var(--rule-light); border-radius: 4px;
-  background: var(--bg-deep, #f0ece0); cursor: pointer; font-size: 0.9em;
+  background:var(--bg-deep, var(--bg-deep)); cursor: pointer; font-size: 0.9em;
   font-family: 'Times New Roman', Times, serif; font-weight: 700; color: var(--ink);
   display: flex; align-items: center; justify-content: center;
 }
-.talk-font-controls button:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-body.dark-mode .talk-font-controls button { background: #333; color: #ccc; border-color: #555; }
-body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1a1a1a; }
+.talk-font-controls button:hover { background: var(--accent); color:var(--on-chrome); border-color:var(--accent-chrome); }
+body.dark-mode .talk-font-controls button { background:var(--gloss-en); color:var(--on-chrome-2); border-color:var(--chrome-line); }
+body.dark-mode .talk-font-controls button:hover { background:var(--accent); color:var(--ink); }
 .talk-back-btn {
   display: inline-block; cursor: pointer; color: var(--accent); font-size: 0.85em;
   font-weight: 600; padding: 4px 0; margin-bottom: 8px; border: none; background: none;
@@ -805,7 +900,7 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 300;
-  background: #1e2233;
+  background:var(--chrome);
   padding: 12px 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
@@ -813,36 +908,40 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
 #search-input {
   flex: 1;
   padding: 8px 12px;
-  border: 1px solid #3a3f55;
+  border:1px solid var(--chrome-line);
   border-radius: 4px;
-  background: #12142a;
-  color: #e8e0d0;
+  background:var(--chrome-deep);
+  color:var(--ink);
   font-family: 'Times New Roman', Times, serif;
   font-size: 1em;
   outline: none;
 }
 #search-input:focus { border-color: var(--accent); }
-#search-input::placeholder { color: #555; }
-#search-close { cursor: pointer; color: #888; font-size: 1.2em; padding: 4px 8px; }
-#search-close:hover { color: #fff; }
+#search-input::placeholder { color:var(--chrome-line); }
+#search-close { cursor: pointer; color:var(--muted); font-size: 1.2em; padding: 4px 8px; }
+#search-close:hover { color:var(--on-chrome); }
 #search-results {
   display: none;
   position: fixed;
   top: 52px; left: 0; right: 0;
   max-height: 60vh;
   overflow-y: auto;
-  background: #1e2233;
+  /* scrolling the results to their end must not start dragging the page
+     behind them; folded back in from the shared rule this used to share
+     with #drawer. */
+  overscroll-behavior: contain;
+  background:var(--chrome);
   z-index: 299;
   padding: 0 16px 12px;
 }
 #search-results.open { display: block; }
 .search-result {
   padding: 10px 12px;
-  border-bottom: 1px solid #2a2f44;
+  border-bottom:1px solid var(--chrome-hover);
   cursor: pointer;
   transition: background 0.15s;
 }
-.search-result:hover { background: #2a2f44; }
+.search-result:hover { background:var(--chrome-hover); }
 .search-result-ref {
   font-family: 'Times New Roman', Times, serif;
   font-weight: 600;
@@ -851,7 +950,7 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
 }
 .search-result-text {
   font-family: 'Times New Roman', Times, serif;
-  color: #b0a890;
+  color:var(--ink-light);
   font-size: 0.85em;
   margin-top: 3px;
   white-space: nowrap;
@@ -859,7 +958,7 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   text-overflow: ellipsis;
 }
 .search-result-text mark {
-  background: rgba(200,168,78,0.25);
+  background:var(--accent-wash);
   color: var(--accent);
   border-radius: 2px;
   padding: 0 2px;
@@ -876,20 +975,6 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   transition: width 0.15s;
   pointer-events: none;
 }
-#book-progress-bar {
-  position: fixed;
-  bottom: 38px; left: 0; right: 0;
-  height: 2px;
-  background: #12142a;
-  z-index: 101;
-  pointer-events: none;
-}
-#book-progress-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--accent);
-  transition: width 0.3s;
-}
 
 /* Nav row */
 .nav-row {
@@ -905,18 +990,11 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   text-align: center;
 }
 #nav-label:hover { text-decoration: underline; }
-#nav-progress-text {
-  display: block;
-  font-size: 0.65em;
-  font-weight: 400;
-  opacity: 0.6;
-  margin-top: 1px;
-}
 
 /* Start reading button */
 #start-reading-btn {
   background: var(--accent);
-  color: #1a1a2e;
+  color:var(--chrome-deep);
   border: none;
   padding: 12px 32px;
   font-family: 'Times New Roman', Times, serif;
@@ -933,7 +1011,7 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   display: inline-block;
   background: transparent;
   border: 1px solid var(--accent);
-  color: #1a2744;
+  color:var(--sp);
   padding: 8px 20px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 1em;
@@ -942,7 +1020,7 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   transition: all 0.2s;
   margin: 4px;
 }
-.volume-link-btn:hover { background: #1a2744; color: #faf8f2; }
+.volume-link-btn:hover { background:var(--sp); color:var(--bg); }
 
 /* Landing card grid */
 .card-grid {
@@ -972,8 +1050,8 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   justify-content: center;
   text-align: center;
   padding: 18px 14px;
-  background: linear-gradient(170deg, #0d1a2e 0%, #162744 100%);
-  border: 1px solid #2a4060;
+  background:linear-gradient(170deg, var(--chrome-deep) 0%, var(--chrome) 100%);
+  border:1px solid var(--chrome-line);
   box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
   transition: box-shadow 0.2s;
 }
@@ -981,16 +1059,16 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
   box-shadow: 0 8px 28px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.12);
 }
 .card-cover .rule-top, .card-cover .rule-bottom {
-  width: 55%; height: 1px; background: #c8a84e; opacity: 0.5; margin: 10px auto;
+  width: 55%; height: 1px; background:var(--accent); opacity: 0.5; margin: 10px auto;
 }
 .card-cover-title {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 1.15em; font-weight: 600; color: #c8a84e;
+  font-size: 1.15em; font-weight: 600; color:var(--accent-chrome);
   text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.35;
 }
 .card-cover-spanish {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 0.95em; color: #c8a84e; margin-top: 4px; line-height: 1.4;
+  font-size: 0.95em; color:var(--accent-chrome); margin-top: 4px; line-height: 1.4;
   font-style: italic;
 }
 .card-label { margin-top: 12px; text-align: center; }
@@ -1004,42 +1082,168 @@ body.dark-mode .talk-font-controls button:hover { background: #d4af37; color: #1
 }
 
 /* ===== DARK MODE ===== */
-body.dark-mode {
-  --bg: #333333;
-  --bg-deep: #2a2a2a;
-  --ink: #e8e0d0;
-  --ink-light: #b0a890;
-  --accent: #d4af37;
-  --accent-light: #e8c84e;
-  --rule: #444444;
-  --rule-light: #383838;
-  --gloss: #c0b898;
-  --verse-num: #7fb3d3;
-  --highlight: rgba(200, 168, 78, 0.15);
-  --header-bg: #d4af37;
-  --header-text: #d4af37;
-  --row-alt: #2e2e2e;
-}
-body.dark-mode .hw { color: var(--ink); }
-body.dark-mode .gl { color: var(--gloss); }
-body.dark-mode .page { background: #333333; }
-body.dark-mode .controls-top, body.dark-mode .controls-bottom { background: #0a0a0a; }
-body.dark-mode .verse { border-color: #383838; }
-body.dark-mode .verse:hover { background: rgba(200, 168, 78, 0.08); }
-body.dark-mode .word-unit:hover { background: rgba(200, 168, 78, 0.10); }
-body.dark-mode #drawer { background: #0a0a0a; color: #e8e0d0; }
-body.dark-mode .drawer-section-label { color: #b0a890; }
-body.dark-mode .ch-brick { border-color: #444444; color: #e8e0d0; }
-body.dark-mode .ch-brick:hover { background: #383838; }
-body.dark-mode #word-popup { background: #252525; border-color: #d4af37; color: #e8e0d0; }
-body.dark-mode .book-title { color: #d4af37; }
-body.dark-mode .book-subtitle { color: #b0a890; }
-body.dark-mode .chapter-heading h2 { color: #e8e0d0; }
-body.dark-mode #search-container { background: #252525; border-color: #444444; }
-body.dark-mode #search-input { background: #2a2a2a; color: #e8e0d0; border-color: #444444; }
-body.dark-mode #search-results { background: #252525; }
-body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
+body.dark-mode .sp { color: var(--ink); }
+body.dark-mode .gl { color: var(--gloss); }
+body.dark-mode .page { background:var(--bg); }
+body.dark-mode .controls-top, body.dark-mode .controls-bottom { background:var(--chrome-deep); }
+body.dark-mode .verse { border-color:var(--rule-light); }
+body.dark-mode .verse:hover { background:var(--accent-wash); }
+body.dark-mode .word-unit:hover { background:var(--accent-wash); }
+body.dark-mode #drawer { background:var(--chrome-deep); color:var(--ink); }
+body.dark-mode .drawer-section-label { color:var(--ink-light); }
+body.dark-mode .ch-brick { border-color:var(--rule); color:var(--ink); }
+body.dark-mode .ch-brick:hover { background:var(--rule-light); }
+body.dark-mode #word-popup { background:var(--surface); border-color:var(--accent); color:var(--ink); }
+body.dark-mode .book-title { color:var(--accent); }
+body.dark-mode .book-subtitle { color:var(--ink-light); }
+body.dark-mode .chapter-heading h2 { color:var(--ink); }
+body.dark-mode #search-container { background:var(--surface); border-color:var(--rule); }
+body.dark-mode #search-input { background:var(--bg-deep); color:var(--ink); border-color:var(--rule); }
+body.dark-mode #search-results { background:var(--surface); }
+body.dark-mode .verse.highlighted { background:var(--accent-wash); }
+
+
+/* ── LANDING: a header and the books. Nothing else. ──
+   The title, subtitle, standfirst, ornament and "Continuar Leyendo" button
+   were five inline style="" attributes on the panel; styling in the markup
+   cannot be themed or overridden, so what survives lives here instead. */
+.landing-head { text-align: center; padding: 48px 0 28px; }
+.landing-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2.6em; font-weight: 600; line-height: 1.2;
+  color: var(--ink); margin-bottom: 6px;
+}
+.landing-sub {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.05em; font-style: italic; color: var(--ink-light);
+  letter-spacing: 0.02em;
+}
+
+/* The browser's own defaults were the last grey: <hr> paints #808080 and a
+   form control paints its text #101010, neither of which any rule here set. */
+hr, .drawer-divider { border: 0; border-top: 1px solid var(--rule); color: var(--ink); background: none; }
+input, textarea, select, button { color: var(--ink); }
+input, textarea { background: var(--surface); border-color: var(--rule); }
+::placeholder { color: var(--ink); opacity: 0.55; }
+/* the card covers were a gradient; plain means a hairline, not a fill */
+.card-cover { background: var(--bg) !important; border: 1px solid var(--rule); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   NAVIGATION ERGONOMICS
+   Measured before this: all nine controls were under the 44x44 minimum —
+   the largest was 38x33, most were 34x27 — so every navigation control on
+   a phone was a miss risk. And the fixed bar stands 78px tall while .page
+   reserved 55px, hiding 23px of the first verse behind it.
+   ══════════════════════════════════════════════════════════════════════ */
+.controls-top button,
+.controls-bottom button,
+.controls-top .nav-prev,
+.controls-top .nav-next,
+#nav-label,
+#search-toggle,
+#dark-mode-toggle {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+}
+/* the mode row reads as words, so it needs width but not square corners */
+.controls-bottom button { min-width: 0; padding: 6px 16px; }
+/* 8px between adjacent targets, so a near-miss lands on nothing rather than
+   on the wrong control */
+.controls-top .nav-row { gap: 8px; }
+
+
+/* the fixed bar's real height, not a guess */
+
+
+/* Motion is a preference, not a decoration. Two page-flip animations and every
+   transition ran regardless of what the reader had asked their OS for; a
+   vestibular trigger is not something to ship by default. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The search field turned its focus ring off and signalled focus with a border
+   colour alone — a 1px change, and in a two-colour palette an invisible one. */
+#search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* A closed drawer is not merely off-screen: it must be out of the tab order
+   too, or Tab walks 1,582 invisible chapter links before reaching the page. */
+#drawer[aria-hidden="true"] { visibility: hidden; }
+#drawer[aria-hidden="false"] { visibility: visible; }
+
+/* ══════════════════════════════════════════════════════════════════════
+   PHONE AND HOME-SCREEN APP
+   This page declares apple-mobile-web-app-status-bar-style: black-translucent,
+   which means that when it is installed to an iPhone Home Screen it draws
+   UNDER the status bar and under the home indicator. Nothing here accounted
+   for that, so the header sat beneath the notch and the mode bar beneath the
+   home indicator. Everything below is that one problem and its neighbours,
+   kept together rather than sprinkled through the sheet.
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* The safe area is a property of the device, so it belongs on the frame, not
+   on each component that happens to touch an edge. */
+.controls-top {
+  padding-top: max(4px, env(safe-area-inset-top));
+  padding-left: max(6px, env(safe-area-inset-left));
+  padding-right: max(6px, env(safe-area-inset-right));
+}
+
+
+
+
+/* iOS Safari's 100vh is the height WITHOUT the URL bar, so a 100vh element is
+   taller than the visible page and its bottom is unreachable. dvh is the
+   dynamic height that shrinks and grows with the bar; vh stays as the
+   fallback for anything that does not know dvh. */
+
+
+
+/* A tap should not flash a translucent grey rectangle over the word you are
+   reading; the app already draws its own pressed states. */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Scrolling the drawer to its end must not start dragging the page behind it,
+   and the reader must not rubber-band into a grey void mid-verse. */
+
+
+
+/* Momentum scrolling inside the drawer on iOS */
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   CHROME GETS OUT OF THE WAY
+   On a 812px phone the two bars took 155px — 19% of the screen — and held it
+   the whole time you were reading. They retract on the way down and come
+   back the moment you scroll up, which is the gesture every reading app has
+   trained readers to expect, and they are always present at the top of a
+   chapter. Nothing is hidden behind a discoverability problem: one upward
+   flick returns them from anywhere.
+   ══════════════════════════════════════════════════════════════════════ */
+.controls-top, .controls-bottom {
+  transition: transform 0.24s ease;
+  will-change: transform;
+}
+body.chrome-hidden .controls-top    { transform: translateY(-100%); }
+body.chrome-hidden .controls-bottom { transform: translateY(100%); }
+
+/* A reader who asked for less motion gets the bars staying put, not snapping. */
+@media (prefers-reduced-motion: reduce) {
+  .controls-top, .controls-bottom { transition: none; }
+}
 </style>
 </head>
 <body>
@@ -1047,7 +1251,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
 <!-- Reading progress bar -->
 <div id="reading-progress"></div>
-<div id="book-progress-bar"><div id="book-progress-fill"></div></div>
+
 
 <!-- Search bar -->
 <div id="search-container" role="search">
@@ -1059,20 +1263,12 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 <!-- Word popup -->
 <div id="word-popup">
   <span class="popup-close" onclick="closePopup()" role="button" aria-label="Close popup">&#10005;</span>
-  <div class="popup-spanish" id="popup-hw"></div>
+  <div class="popup-spanish" id="popup-sp"></div>
   <div class="popup-gloss" id="popup-gl"></div>
 </div>
 
 <!-- Cross-Reference Panel (right slide) -->
-<div id="xref-panel">
-  <div class="xref-panel-header">
-    <h3>Referencias</h3>
-    <span class="xref-panel-close" onclick="closeXrefPanel()">&#10005;</span>
-  </div>
-  <div class="xref-panel-word"></div>
-  <div class="xref-panel-category"></div>
-  <div id="xref-panel-refs"></div>
-</div>
+
 
 <!-- Return navigation banner -->
 <div id="return-banner">
@@ -1081,10 +1277,10 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 </div>
 
 <!-- Overlay -->
-<div id="drawer-overlay" onclick="toggleDrawer()"></div>
+<div id="drawer-overlay" onclick="toggleDrawer()" aria-hidden="true"></div>
 
 <!-- Slide-out drawer (LEFT side for LTR) -->
-<nav id="drawer">
+<nav id="drawer" aria-label="Contenido" aria-hidden="true">
   <div class="drawer-header">
     <div>
       <div class="drawer-header-title">Las Escrituras</div>
@@ -1095,7 +1291,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <div class="drawer-section-label">VOLÚMENES</div>
 
-  <!-- Volume: Old Testament -->
+  <!-- Volume:Old Testament -->
   <div class="volume-header" onclick="toggleVolume('ot')">
     Antiguo Testamento <span class="vol-arrow" id="vol-arrow-ot">&#9660;</span>
   </div>
@@ -1103,7 +1299,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <hr class="drawer-divider">
 
-  <!-- Volume: New Testament -->
+  <!-- Volume:New Testament -->
   <div class="volume-header" onclick="toggleVolume('nt')">
     Nuevo Testamento <span class="vol-arrow" id="vol-arrow-nt">&#9660;</span>
   </div>
@@ -1111,7 +1307,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <hr class="drawer-divider">
 
-  <!-- Volume: Book of Mormon -->
+  <!-- Volume:Book of Mormon -->
   <div class="volume-header" onclick="toggleVolume('bom')">
     El Libro de Mormón <span class="vol-arrow" id="vol-arrow-bom">&#9660;</span>
   </div>
@@ -1119,7 +1315,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <hr class="drawer-divider">
 
-  <!-- Volume: D&C -->
+  <!-- Volume:D&C -->
   <div class="volume-header" onclick="toggleVolume('dc')">
     Doctrina y Convenios <span class="vol-arrow" id="vol-arrow-dc">&#9660;</span>
   </div>
@@ -1127,7 +1323,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <hr class="drawer-divider">
 
-  <!-- Volume: Pearl of Great Price -->
+  <!-- Volume:Pearl of Great Price -->
   <div class="volume-header" onclick="toggleVolume('pgp')">
     La Perla de Gran Precio <span class="vol-arrow" id="vol-arrow-pgp">&#9660;</span>
   </div>
@@ -1136,25 +1332,35 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
 <!-- Controls top -->
 <div class="controls-top">
-  <div class="nav-row">
-    <button class="nav-prev" onclick="navTo('landing')" aria-label="Home" style="font-size:1.2em">🏠</button>
-    <button class="nav-prev" id="nav-prev" onclick="goPrev()" disabled aria-label="Previous chapter">&#8592;</button>
-    <span id="nav-label" onclick="toggleDrawer()">Contenido &#9662;</span>
-    <button class="nav-next" id="nav-next" onclick="goNext()" disabled aria-label="Next chapter">&#8594;</button>
+  <div class="bar-group bar-left">
+    <button class="icon-btn" onclick="navTo('landing')" aria-label="Inicio"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 3.2 2.6 11.3a1 1 0 0 0 1.3 1.5l.6-.5V20a1 1 0 0 0 1 1h4.1v-5.3h4.8V21h4.1a1 1 0 0 0 1-1v-7.7l.6.5a1 1 0 0 0 1.3-1.5Z"/></svg></button>
   </div>
-  <div class="tools-group">
-    <label><span class="label-text">Size </span><input type="range" id="sizeSlider" min="70" max="150" value="100" oninput="setSize(this.value)" aria-label="Font size"></label>
-    <span style="color:#3a3f55">|</span>
-    <button id="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
-    <button id="search-toggle" style="background:transparent;border:1px solid #3a3f55;color:#c8a84e;padding:5px 10px;border-radius:3px;cursor:pointer;font-size:0.9em;" onclick="openSearch()" title="Search" aria-label="Search">&#128269;</button>
+
+  <button id="nav-label" class="chapter-pill" onclick="toggleDrawer()" aria-haspopup="dialog"
+          aria-controls="drawer" aria-label="Abrir el contenido">Contenido&nbsp;&#9662;</button>
+
+  <div class="bar-group bar-right">
+    <button class="icon-btn" id="text-toggle" onclick="toggleTextPanel()" aria-expanded="false"
+            aria-controls="text-panel" aria-label="Tamaño del texto" title="Tamaño del texto">Aa</button>
+    <button class="icon-btn" id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Cambiar tema" title="Tema">&#9789;&#65038;</button>
+    <button class="icon-btn" id="search-toggle" onclick="openSearch()" aria-label="Buscar" title="Buscar"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.2"/><path d="M15.2 15.2 21 21"/></svg></button>
   </div>
+</div>
+
+<!-- Text size lives behind Aa, not as permanent furniture in the bar. -->
+<div id="text-panel" hidden role="group" aria-label="Tamaño del texto">
+  <label for="sizeSlider">Tamaño</label>
+  <input type="range" id="sizeSlider" min="70" max="150" value="100" oninput="setSize(this.value)" aria-label="Tamaño del texto">
+  <output id="size-readout" for="sizeSlider">100%</output>
 </div>
 
 <!-- Controls bottom -->
 <div class="controls-bottom">
-  <button id="btn-inter" class="active" onclick="setMode('inter')">Interlineal</button>
-  <button id="btn-smo" onclick="setMode('smo')">Español</button>
-  <button id="btn-dual" onclick="setMode('dual')">Dual</button>
+  <button class="icon-btn" id="nav-prev" onclick="goPrev()" disabled aria-label="Capítulo anterior">&#8592;</button>
+  <div class="mode-group" role="group" aria-label="Modo de lectura"><button id="btn-inter" class="active" onclick="setMode('inter')">Interlineal</button>
+  <button id="btn-es" onclick="setMode('es')">Español</button>
+  <button id="btn-dual" onclick="setMode('dual')">Dual</button></div>
+  <button class="icon-btn" id="nav-next" onclick="goNext()" disabled aria-label="Capítulo siguiente">&#8594;</button>
 </div>
 
 <!-- Main content area -->
@@ -1167,19 +1373,10 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
 
   <!-- Landing page -->
   <div class="chapter-panel" id="panel-landing" style="display:block">
-    <div style="text-align:center;padding:40px 0 10px">
-      <div style="font-family:'Times New Roman',Times,serif;font-size:2.6em;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:8px">Las Escrituras</div>
-      <div style="font-family:'Times New Roman',Times,serif;font-size:1.15em;color:var(--ink-light);font-style:italic;margin-bottom:6px">Spanish Interlinear Edition</div>
-      <div style="font-size:0.95em;color:var(--ink-light);max-width:600px;margin:16px auto 0;line-height:1.6">
-        Estudia las Obras Canónicas en español con glosas interlineales en inglés, palabra por palabra.
-      </div>
-    </div>
-
-    <div style="text-align:center;padding:24px 0 32px;color:var(--accent);font-size:0.7em;letter-spacing:12px">&#183; &#183; &#9670; &#183; &#183;</div>
-
-    <div style="text-align:center;margin-bottom:32px">
-      <button id="start-reading-btn" onclick="startReading()" style="font-family:'Times New Roman',Times,serif;font-size:1em;background:rgba(200,168,78,0.08);border:1px solid rgba(200,168,78,0.25);border-radius:8px;padding:16px 32px;cursor:pointer;color:var(--accent);font-weight:600;transition:background 0.2s">Continuar Leyendo &#8594;</button>
-    </div>
+    <header class="landing-head">
+      <h1 class="landing-title">Las Escrituras</h1>
+      <p class="landing-sub">Spanish Interlinear Edition</p>
+    </header>
 
     <div class="card-grid">
       <div class="scripture-card" onclick="navTo('gen-ch1')">
@@ -1248,7 +1445,7 @@ body.dark-mode .verse.highlighted { background: rgba(200, 168, 78, 0.12); }
       </div>
     </div>
 
-    <div style="text-align:center;padding:32px 0 0;font-size:0.78em;color:#888;line-height:1.5;max-width:600px;margin:0 auto">
+    <div style="text-align:center;padding:32px 0 0;font-size:0.78em;color:var(--muted);line-height:1.5;max-width:600px;margin:0 auto">
       Este es un proyecto independiente y no está afiliado, respaldado ni asociado con La Iglesia de Jesucristo de los Santos de los Últimos Días.
     </div>
   </div>
@@ -1497,9 +1694,30 @@ function getChapterLabel(id) {
 // =============================================
 // DRAWER NAVIGATION
 // =============================================
+/* The drawer is an off-canvas surface laid over the reading page. Toggling a
+   class alone left it permanently present to a screen reader — its 1,582
+   chapter links were in the tab order whether it was open or shut — and a
+   keyboard user who opened it had focus left behind on the page underneath.
+   State, focus and the announcement now move together, in this one place. */
+var _drawerOpener = null;
+
 function toggleDrawer() {
-  document.getElementById('drawer').classList.toggle('open');
-  document.getElementById('drawer-overlay').classList.toggle('open');
+  var drawer = document.getElementById('drawer');
+  var overlay = document.getElementById('drawer-overlay');
+  var opening = !drawer.classList.contains('open');
+
+  drawer.classList.toggle('open', opening);
+  overlay.classList.toggle('open', opening);
+  drawer.setAttribute('aria-hidden', opening ? 'false' : 'true');
+
+  if (opening) {
+    _drawerOpener = document.activeElement;
+    var first = drawer.querySelector('button, [href], input, [tabindex]:not([tabindex="-1"])');
+    if (first) first.focus();
+  } else if (_drawerOpener && typeof _drawerOpener.focus === 'function') {
+    _drawerOpener.focus();          // put the reader back where they were
+    _drawerOpener = null;
+  }
 }
 
 function toggleVolume(volId) {
@@ -1535,7 +1753,7 @@ function makeWordUnit(w, g) {
   div.className = 'word-unit';
   div.setAttribute('data-w', w);
   var gloss = g ? g.replace(/-/g, ' ') : '';
-  div.innerHTML = '<span class="hw">' + w + '</span><span class="gl">' + gloss + '</span>';
+  div.innerHTML = '<span class="sp">' + w + '</span><span class="gl">' + gloss + '</span>';
   return div;
 }
 
@@ -1666,6 +1884,15 @@ function _ensureChapterRendered(chapId) {
 var currentChapterId = null;
 var currentPageId = 'landing';
 
+/* The URL is the app's address bar AND its history. Before this, navTo()
+   never touched it: no hash, no pushState, no popstate handler. That meant a
+   chapter could not be linked, bookmarked or refreshed back into, and the
+   browser's Back button left the site entirely instead of returning to the
+   chapter you came from — on a phone, the single most-used control.
+   navTo now pushes a hash; popstate replays it. _fromHistory stops a
+   history-driven navigation from pushing a duplicate entry back on. */
+var _fromHistory = false;
+
 function navTo(id, slideDir) {
   var isLanding = id === 'landing';
 
@@ -1746,7 +1973,22 @@ function navTo(id, slideDir) {
   if (id && id !== 'landing') {
     try { localStorage.setItem('tp-last-chapter', id); } catch(e) {}
   }
+
+  // ...and to the URL, so the chapter can be shared, bookmarked, refreshed
+  // into, and — most of all — returned to with Back.
+  if (!_fromHistory) {
+    var want = isLanding ? '#' : '#' + id;
+    if (location.hash !== want) {
+      try { history.pushState({ id: id }, '', want); } catch (e) { location.hash = want; }
+    }
+  }
 }
+
+window.addEventListener('popstate', function () {
+  var id = (location.hash || '').replace(/^#/, '') || 'landing';
+  _fromHistory = true;
+  try { navTo(id); } finally { _fromHistory = false; }
+});
 
 function goNext() {
   var idx = fullPageOrder.indexOf(currentPageId);
@@ -1783,36 +2025,27 @@ function updateNavButtons() {
   prevBtn.disabled = idx <= 0;
   nextBtn.disabled = idx >= fullPageOrder.length - 1;
 
+  /* The pill says where you are and nothing else. It used to carry
+     "32/63 · Book 75 of 87" as well — English metadata, in a Spanish app,
+     crammed into 160px next to the caret with no space before it. Two of the
+     three branches also assigned '&#9662;' through textContent, which prints
+     the entity literally rather than a caret. One string, built once. */
   if (label) {
+    var text = 'Contenido';
     if (currentChapterId) {
       var progress = getBookProgress(currentChapterId);
       if (progress) {
-        var mainText = progress.bookName;
-        if (progress.totalChapters > 1) mainText += ' ' + progress.chapterNum;
-        label.innerHTML = mainText + ' &#9662;' +
-          '<span id="nav-progress-text">' +
-          progress.chapterNum + '/' + progress.totalChapters +
-          ' &#183; Book ' + progress.bookIndex + ' of ' + progress.totalBooks +
-          '</span>';
+        text = progress.bookName;
+        if (progress.totalChapters > 1) text += ' ' + progress.chapterNum;
       } else {
-        label.textContent = getChapterLabel(currentChapterId) + ' &#9662;';
+        text = getChapterLabel(currentChapterId);
       }
-    } else {
-      label.textContent = 'Contenido &#9662;';
     }
+    label.textContent = text + ' \u25BE';
+    label.setAttribute('aria-label', currentChapterId ? text + ' — abrir el contenido' : 'Abrir el contenido');
   }
-  updateBookProgressBar();
 }
 
-function updateBookProgressBar() {
-  var fill = document.getElementById('book-progress-fill');
-  if (!fill) return;
-  if (!currentChapterId) { fill.style.width = '0%'; return; }
-  var chIdx = chapterOrder.indexOf(currentChapterId);
-  if (chIdx < 0) { fill.style.width = '0%'; return; }
-  var pct = ((chIdx + 1) / chapterOrder.length) * 100;
-  fill.style.width = pct + '%';
-}
 
 // =============================================
 // DISPLAY MODES
@@ -1821,9 +2054,9 @@ function setMode(mode) {
   document.body.classList.remove('hide-gloss', 'dual-mode');
   document.querySelectorAll('.controls-bottom button').forEach(function(b) { b.classList.remove('active'); });
 
-  if (mode === 'smo') {
+  if (mode === 'es') {
     document.body.classList.add('hide-gloss');
-    document.getElementById('btn-smo').classList.add('active');
+    document.getElementById('btn-es').classList.add('active');
   } else if (mode === 'dual') {
     document.body.classList.add('dual-mode');
     document.getElementById('btn-dual').classList.add('active');
@@ -1845,7 +2078,7 @@ function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   var isDark = document.body.classList.contains('dark-mode');
   var btn = document.getElementById('dark-mode-toggle');
-  btn.innerHTML = isDark ? '&#9728;' : '&#127769;';
+  btn.innerHTML = isDark ? '&#9728;&#65038;' : '&#9789;&#65038;';
   try { localStorage.setItem('tp-dark-mode', isDark ? '1' : '0'); } catch(e) {}
 }
 (function() {
@@ -1854,7 +2087,7 @@ function toggleDarkMode() {
     if (saved === '1') {
       document.body.classList.add('dark-mode');
       var btn = document.getElementById('dark-mode-toggle');
-      if (btn) btn.innerHTML = '&#9728;';
+      if (btn) btn.innerHTML = '&#9728;&#65038;';
     }
   } catch(e) {}
 })();
@@ -1881,19 +2114,26 @@ function loadEnglishText() {
     populateEnglishDivs();
     return;
   }
-  // Fallback: try fetch
-  if (typeof fetch !== 'undefined' && window.location.protocol !== 'file:') {
-    fetch('english_verses.json')
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        if (typeof data === 'object' && !Array.isArray(data)) {
-          window._englishMap = data;
-        }
-        window._englishLoaded = true;
-        populateEnglishDivs();
-      })
-      .catch(function(err) { console.warn('English text load failed:', err); });
-  }
+  /* Fetch it on demand. This used to be a <script> tag in the head — 6.9 MB
+     blocking every page view for a column that only the Español and Dual
+     views show. The fallback here fetched english_verses.json, a file this
+     repo does not contain, so the moment that tag went away the English
+     column would have failed silently. It loads english_verses.js now, the
+     file that actually exists, the same way a book does. */
+  if (window._englishLoading) return;
+  window._englishLoading = true;
+  var el = document.createElement('script');
+  el.src = 'english_verses.js';
+  el.onload = function() {
+    window._englishLoading = false;
+    if (window._englishVersesData) { loadEnglishText(); }
+    else { console.warn('english_verses.js loaded but set no data'); }
+  };
+  el.onerror = function() {
+    window._englishLoading = false;
+    console.warn('English text failed to load');
+  };
+  document.head.appendChild(el);
 }
 
 function populateEnglishDivs() {
@@ -1915,10 +2155,10 @@ function closePopup() {
 document.addEventListener('click', function(e) {
   var wu = e.target.closest('.word-unit');
   if (wu) {
-    var hw = wu.querySelector('.hw');
+    var sp = wu.querySelector('.sp');
     var gl = wu.querySelector('.gl');
     var popup = document.getElementById('word-popup');
-    document.getElementById('popup-hw').textContent = hw ? hw.textContent : '';
+    document.getElementById('popup-sp').textContent = sp ? sp.textContent : '';
     document.getElementById('popup-gl').textContent = gl ? gl.textContent : '';
     popup.style.display = 'block';
     // Position near click
@@ -1961,7 +2201,7 @@ function buildSearchIndex() {
       searchIndex.push({
         chapId: reg.chapId,
         ref: label + ':' + (vi + 1),
-        samoan: sWords.join(' '),
+        spanish: sWords.join(' '),
         english: eWords.join(' '),
         verseIdx: vi
       });
@@ -2003,19 +2243,19 @@ function doSearch(query) {
   var MAX_RESULTS = 100;
   for (var i = 0; i < searchIndex.length; i++) {
     var item = searchIndex[i];
-    if (item.samoan.toLowerCase().includes(q) || item.english.toLowerCase().includes(q)) {
+    if (item.spanish.toLowerCase().includes(q) || item.english.toLowerCase().includes(q)) {
       matches.push(item);
     }
   }
   if (matches.length === 0) {
-    results.innerHTML = '<div style="color:#888;padding:12px;font-family:Times New Roman,Times,serif;">No se encontraron resultados</div>';
+    results.innerHTML = '<div style="color:var(--muted);padding:12px;font-family:Times New Roman,Times,serif;">No se encontraron resultados</div>';
     results.classList.add('open');
     return;
   }
   var shown = matches.length > MAX_RESULTS ? matches.slice(0, MAX_RESULTS) : matches;
   var countMsg = matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' found';
   if (matches.length > MAX_RESULTS) countMsg = 'Showing ' + MAX_RESULTS + ' of ' + matches.length + ' results';
-  var html = '<div style="color:#c8a84e;padding:8px 12px;font-size:0.85em;font-family:Times New Roman,Times,serif;border-bottom:1px solid #2a2f44;">' + countMsg + '</div>';
+  var html = '<div style="color:var(--accent);padding:8px 12px;font-size:0.85em;font-family:Times New Roman,Times,serif;border-bottom:1px solid var(--chrome-hover);">' + countMsg + '</div>';
   shown.forEach(function(m) {
     var preview = m.english.length > 80 ? m.english.substring(0, 80) + '...' : m.english;
     var idx = preview.toLowerCase().indexOf(q);
@@ -2024,8 +2264,8 @@ function doSearch(query) {
     }
     html += '<div class="search-result" onclick="goToSearchResult(\'' + m.chapId + '\',' + m.verseIdx + ')">';
     html += '<div class="search-result-ref">' + m.ref + '</div>';
-    html += '<div class="search-result-text">' + m.samoan.substring(0, 60) + '</div>';
-    html += '<div style="color:#888;font-size:0.8em;font-family:Times New Roman,Times,serif;">' + preview + '</div>';
+    html += '<div class="search-result-text">' + m.spanish.substring(0, 60) + '</div>';
+    html += '<div style="color:var(--muted);font-size:0.8em;font-family:Times New Roman,Times,serif;">' + preview + '</div>';
     html += '</div>';
   });
   results.innerHTML = html;
@@ -2050,26 +2290,128 @@ function goToSearchResult(chapId, verseIdx) {
 // =============================================
 // START READING
 // =============================================
-function startReading() {
-  var last = null;
-  try { last = localStorage.getItem('tp-last-chapter'); } catch(e) {}
-  if (last && chapterOrder.indexOf(last) >= 0) {
-    navTo(last);
-  } else {
-    navTo('ch1');
+
+/* Open whatever the URL names. Without this a shared or bookmarked link like
+   #al-ch32 opened the landing page instead of Alma 32, which made the hash
+   pushed by navTo() decorative. Falls through to the landing when the hash is
+   absent or names nothing real, so a bad link degrades instead of breaking. */
+(function bootFromUrl() {
+  function go() {
+    var id = (location.hash || '').replace(/^#/, '');
+    if (!id) return;
+    if (typeof chapterOrder !== 'undefined' && chapterOrder.indexOf(id) < 0) return;
+    _fromHistory = true;                 // the entry is already in history
+    try { navTo(id); } finally { _fromHistory = false; }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+  else go();
+})();
+
+
+/* The bar's height changes with the font-size control and with wrapping, so
+   the padding that clears it is measured rather than hardcoded. */
+(function syncChromeHeight() {
+  function sync() {
+    var bar = document.querySelector('.controls-top');
+    if (bar) document.documentElement.style.setProperty('--chrome-h', bar.offsetHeight + 'px');
+    var foot = document.querySelector('.controls-bottom');
+    if (foot) document.documentElement.style.setProperty('--footer-h', foot.offsetHeight + 'px');
+  }
+  window.addEventListener('resize', sync);
+  window.addEventListener('load', sync);
+  if (document.readyState !== 'loading') sync();
+  else document.addEventListener('DOMContentLoaded', sync);
+  setTimeout(sync, 300);
+})();
+
+/* The iPhone status bar takes its colour from this meta tag, so it has to
+   follow the theme or it sits as a dark strip above a white header. */
+(function syncStatusBarColour() {
+  function sync() {
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (!m) return;
+    var dark = document.body.classList.contains('dark-mode');
+    m.setAttribute('content', dark ? '#000000' : '#ffffff');
+  }
+  try { new MutationObserver(sync).observe(document.body, {attributes:true, attributeFilter:['class']}); } catch (e) {}
+  sync();
+})();
+
+
+/* One owner for chrome visibility. Retract while reading down, restore on any
+   upward intent, and never hide it at the top of a chapter or while a drawer,
+   search or popup is open — a control you cannot see must still be reachable. */
+(function autoHideChrome() {
+  var last = window.scrollY, ticking = false;
+  var THRESHOLD = 8;      // ignore sub-pixel jitter and rubber-band
+  var ARM_AFTER = 120;    // never hide within the first screenful
+
+  function blocked() {
+    var d = document.getElementById('drawer');
+    var sc = document.getElementById('search-container');
+    var pop = document.getElementById('word-popup');
+    return (d && d.classList.contains('open')) ||
+           (sc && sc.classList.contains('open')) ||
+           (pop && pop.style.display && pop.style.display !== 'none');
+  }
+
+  function show() { document.body.classList.remove('chrome-hidden'); }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      var y = window.scrollY, dy = y - last;
+      if (Math.abs(dy) < THRESHOLD) return;
+      last = y;
+      if (blocked() || y < ARM_AFTER) { show(); return; }
+      document.body.classList.toggle('chrome-hidden', dy > 0);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // any deliberate intent brings them back
+  ['keydown', 'touchstart', 'mousemove'].forEach(function (ev) {
+    window.addEventListener(ev, function (e) {
+      if (ev === 'keydown' || e.type === 'touchstart') show();
+    }, { passive: true });
+  });
+  window.addEventListener('hashchange', show);
+})();
+
+
+/* The text-size panel: one owner for its open state, its label, and closing it.
+   It opens from Aa, closes on Escape, on a click outside, and on navigation —
+   a panel that outlives the reason it was opened is just clutter. */
+function toggleTextPanel(force) {
+  var panel = document.getElementById('text-panel');
+  var btn = document.getElementById('text-toggle');
+  if (!panel) return;
+  var open = (typeof force === 'boolean') ? force : panel.hidden;
+  panel.hidden = !open;
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) {
+    var sl = document.getElementById('sizeSlider');
+    if (sl) sl.focus();
   }
 }
+document.addEventListener('click', function (e) {
+  var panel = document.getElementById('text-panel');
+  if (!panel || panel.hidden) return;
+  if (panel.contains(e.target)) return;
+  if (e.target.closest && e.target.closest('#text-toggle')) return;
+  toggleTextPanel(false);
+});
+window.addEventListener('hashchange', function () { toggleTextPanel(false); });
 
-// Update Start Reading button text if there's a saved chapter
-(function() {
-  try {
-    var last = localStorage.getItem('tp-last-chapter');
-    var btn = document.getElementById('start-reading-btn');
-    if (last && btn) {
-      var label = getChapterLabel(last);
-      btn.textContent = 'Continuar Leyendo \u2014 ' + label + ' \u2192';
-    }
-  } catch(e) {}
+/* The slider had no readout, so its value was invisible while you dragged it. */
+(function sizeReadout() {
+  var sl = document.getElementById('sizeSlider'), out = document.getElementById('size-readout');
+  if (!sl || !out) return;
+  function show() { out.textContent = sl.value + '%'; }
+  sl.addEventListener('input', show);
+  show();
 })();
 
 // =============================================
@@ -2107,9 +2449,9 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'ArrowRight') { goNext(); e.preventDefault(); }
   if (e.key === 'ArrowLeft') { goPrev(); e.preventDefault(); }
   if (e.key === 'Escape') {
+    toggleTextPanel(false);
     closeSearch();
     closePopup();
-    if (typeof closeXrefPanel === 'function') closeXrefPanel();
     var drawer = document.getElementById('drawer');
     if (drawer && drawer.classList.contains('open')) toggleDrawer();
   }
@@ -2125,32 +2467,14 @@ if ('serviceWorker' in navigator) {
 </script>
 
 <!-- Verse data files (pre-loaded books) -->
-<script src="verses/1nephi.js"></script>
-<script src="verses/2nephi.js"></script>
-<script src="verses/jacob.js"></script>
-<script src="verses/enos.js"></script>
-<script src="verses/jarom.js"></script>
-<script src="verses/omni.js"></script>
-<script src="verses/wom.js"></script>
-<script src="verses/mosiah.js"></script>
-<script src="verses/alma.js"></script>
-<script src="verses/helaman.js"></script>
-<script src="verses/3nephi.js"></script>
-<script src="verses/4nephi.js"></script>
-<script src="verses/mormon.js"></script>
-<script src="verses/ether.js"></script>
-<script src="verses/moroni.js"></script>
-<script src="verses/dc.js"></script>
-<script src="verses/moses.js"></script>
-<script src="verses/abraham.js"></script>
-<script src="verses/jsmatthew.js"></script>
-<script src="verses/jshistory.js"></script>
-<script src="verses/aof.js"></script>
-<script src="english_verses.js"></script>
+
+  <!-- The 21 Book of Mormon / D&C / Pearl verse files used to be loaded here
+       with plain <script> tags: 7,306 KB blocking first paint, for books the
+       reader may never open. The other 66 books never had tags — they come
+       from _loadBookScript() on demand. Two mechanisms doing one job; the
+       tags are gone and all 87 books now load the same way. -->
 
 <!-- Cross-references + Oaks talks -->
-<script src="crossrefs_all.js"></script>
-<script src="crossrefs_engine_spa.js"></script>
 
 </body>
 </html>

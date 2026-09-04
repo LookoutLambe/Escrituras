@@ -4,8 +4,8 @@
   "description": "Spanish Interlinear Standard Works — Español con Glosas en Inglés",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#1e2233",
-  "theme_color": "#1e2233",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "orientation": "any",
   "icons": [
     {
