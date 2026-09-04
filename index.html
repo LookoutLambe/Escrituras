@@ -6,7 +6,7 @@
 <title>Las Escrituras — Spanish Interlinear</title>
 <meta name="description" content="Spanish Interlinear Standard Works — Español con Glosas en Inglés">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#1B2A41">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Las Escrituras">
@@ -35,51 +35,108 @@
 <!-- Using system Times New Roman -->
 <style>
 
+/* ══════════════════════════════════════════════════════════════════════
+   INDIGO & GOLD.  Navy binding, gilt edge.
+
+   Three reading modes. SEPIA IS A LIGHT THEME — warm paper, dark ink. A
+   warm DARK ground is the trap: positive polarity reads better over long
+   stretches, and dark mode haloes for astigmatism.
+
+   Paper and chrome are different materials. The bars are never the same
+   value as the page.
+
+   The accent is a MARK, never a FILL: verse number, chapter rule, link,
+   the active view. It never tints the reading ground or the body text.
+
+   The three modes share their NEUTRALS; only chrome and accent change.
+   Every pair here was contrast-checked before it was written — body text
+   clears AAA at 7:1 in all three modes, every accent clears AA at 4.5:1.
+   The generator that proves it is tools/build_palettes.py.
+
+   Every rule in this file points at a token here. Nothing else in the app
+   names a colour, so the palette changes HERE and nowhere else.
+   ══════════════════════════════════════════════════════════════════════ */
 :root {
-  /* ══════════════════════════════════════════════════════════════════════
-     PLAIN. Black words on white, and nothing else.
-     Two values: #000 and #fff. No greys, no tints, no fills, no shadows.
-     Structure comes from hairline rules and space, not from shading.
+  --bg: #FCFAF7;  --bg-deep: #F0ECE5;  --row-alt: #F7F4EF;  --surface: #FFFFFF;
+  --ink: #191713; --sp: #191713; --ink-light: #554E45; --gloss-en: #554E45;
+  --muted: #6D655B; --rule: #E2DCD2; --rule-light: #EDE9E2;
 
-     Every rule in this file points at a token here; nothing else in the app
-     names a colour. A palette, when there is one, is filled in HERE and
-     nowhere else.
-     ══════════════════════════════════════════════════════════════════════ */
-  --bg: #ffffff;  --bg-deep: #ffffff;  --row-alt: #ffffff;  --surface: #ffffff;
-  --ink: #000000; --ink-light: #000000; --sp: #000000; --gloss-en: #000000;
-  --muted: #000000; --rule: #000000; --rule-light: #000000;
+  /* the bars and drawer are navy — a different material from the page */
+  --chrome: #1B2A41;  --chrome-deep: #16223A;
+  --chrome-hover: #25374F; --chrome-hover-2: #2E4159;
+  --chrome-line: #DDB768; --chrome-line-2: #3A4E69;
+  --on-chrome: #F3EDE2;   --on-chrome-2: #C7D2E0;  --on-chrome-hover: #FFFFFF;
 
-  /* the bars and drawer are white too — they are not a separate material */
-  --chrome: #ffffff;  --chrome-deep: #ffffff;
-  --chrome-hover: #ffffff; --chrome-hover-2: #ffffff;
-  --chrome-line: #000000; --chrome-line-2: #000000;
-  --on-chrome: #000000;   --on-chrome-2: #000000;  --on-chrome-hover: #000000;
+  --accent: #8E6215; --accent-light: #A8762A; --accent-chrome: #DDB768;
+  --accent-fill: #8E6215; --on-fill: #FFFBF3;
+  --accent-wash: rgba(142, 98, 21, 0.10); --highlight: rgba(221, 183, 104, 0.30);
 
-  --accent: #000000; --accent-light: #000000; --accent-chrome: #000000;
-  --accent-fill: #ffffff; --on-fill: #000000;
-  --accent-wash: transparent; --highlight: transparent;
+  --link: #8E6215; --link-hover: #6F4B0F; --verse-num: #8E6215;
+  --shadow-1: 0 1px 2px rgba(25, 23, 19, 0.06);
+  --shadow-2: 0 4px 14px rgba(25, 23, 19, 0.10);
+  --shadow-card: 0 4px 16px rgba(25, 23, 19, 0.14), 0 1px 4px rgba(25, 23, 19, 0.08);
+  --shadow-card-hover: 0 8px 28px rgba(25, 23, 19, 0.20), 0 2px 8px rgba(25, 23, 19, 0.10);
+  --overlay: rgba(12, 18, 30, 0.55);
 
-  --link: #000000; --link-hover: #000000; --verse-num: #000000;
-  --shadow-1: none; --shadow-2: none;
-
-  --accent-deep: var(--accent);
+  --accent-deep: #6F4B0F;
   --header-bg: var(--chrome);
   --header-text: var(--on-chrome);
   --gloss: var(--gloss-en);
 }
 
-/* Dark is the straight inversion — the same two values, swapped. */
+/* SEPIA — a LIGHT theme on warm paper. Same navy chrome, deeper gold so it
+   still clears 4.5:1 against the warmer ground. */
+body.sepia-mode {
+  --bg: #F4EAD8;  --bg-deep: #E8DAC2;  --row-alt: #EFE3CD;  --surface: #FAF2E4;
+  --ink: #2A2318; --sp: #2A2318; --ink-light: #5C503C; --gloss-en: #5C503C;
+  --muted: #71634C; --rule: #DCCDB2; --rule-light: #E6DAC5;
+  --accent: #7A5412; --accent-light: #96690F; --accent-fill: #7A5412;
+  --accent-wash: rgba(122, 84, 18, 0.10); --highlight: rgba(221, 183, 104, 0.34);
+  --link: #7A5412; --link-hover: #5E400C; --verse-num: #7A5412;
+  --accent-deep: #5E400C;
+  /* These aliases must be REDECLARED in every mode. A custom property whose
+     value is var(...) is resolved on the element where it is DECLARED, so
+     `--gloss: var(--gloss-en)` sitting only on :root bakes in the light value
+     and inherits it into dark — which is how the dark gloss line ended up at
+     2.28:1 while light and sepia were fine. */
+  --gloss: var(--gloss-en);
+  --header-bg: var(--chrome);
+  --header-text: var(--on-chrome);
+  --shadow-1: 0 1px 2px rgba(42, 35, 24, 0.07);
+  --shadow-2: 0 4px 14px rgba(42, 35, 24, 0.12);
+  --shadow-card: 0 4px 16px rgba(42, 35, 24, 0.16), 0 1px 4px rgba(42, 35, 24, 0.09);
+  --shadow-card-hover: 0 8px 28px rgba(42, 35, 24, 0.22), 0 2px 8px rgba(42, 35, 24, 0.11);
+  --overlay: rgba(30, 22, 10, 0.55);
+}
+
+/* DARK — a warm near-black ground, never pure #000, which haloes. The ink is
+   warm off-white for the same reason. */
 body.dark-mode {
-  --bg: #000000; --bg-deep: #000000; --row-alt: #000000; --surface: #000000;
-  --ink: #ffffff; --ink-light: #ffffff; --sp: #ffffff; --gloss-en: #ffffff;
-  --muted: #ffffff; --rule: #ffffff; --rule-light: #ffffff;
-  --chrome: #000000; --chrome-deep: #000000;
-  --chrome-hover: #000000; --chrome-hover-2: #000000;
-  --chrome-line: #ffffff; --chrome-line-2: #ffffff;
-  --on-chrome: #ffffff; --on-chrome-2: #ffffff; --on-chrome-hover: #ffffff;
-  --accent: #ffffff; --accent-light: #ffffff; --accent-chrome: #ffffff;
-  --accent-fill: #000000; --on-fill: #ffffff;
-  --link: #ffffff; --link-hover: #ffffff; --verse-num: #ffffff;
+  --bg: #14120F;  --bg-deep: #0C0B09;  --row-alt: #191613;  --surface: #1C1916;
+  --ink: #EDE6DA; --sp: #EDE6DA; --ink-light: #B5A896; --gloss-en: #B5A896;
+  --muted: #9A8D7C; --rule: #342E26; --rule-light: #2A251F;
+  --chrome: #101823;  --chrome-deep: #0B1119;
+  --chrome-hover: #1A2532; --chrome-hover-2: #22303F;
+  --chrome-line: #E6C87E; --chrome-line-2: #2C3A4B;
+  --on-chrome: #E7E0D4;   --on-chrome-2: #AEBBCA;  --on-chrome-hover: #FFFFFF;
+  --accent: #D9B45F; --accent-light: #E6C87E; --accent-chrome: #E6C87E;
+  --accent-fill: #D9B45F; --on-fill: #14120F;
+  --accent-wash: rgba(217, 180, 95, 0.14); --highlight: rgba(217, 180, 95, 0.26);
+  --link: #D9B45F; --link-hover: #E6C87E; --verse-num: #D9B45F;
+  --accent-deep: #E6C87E;
+  /* These aliases must be REDECLARED in every mode. A custom property whose
+     value is var(...) is resolved on the element where it is DECLARED, so
+     `--gloss: var(--gloss-en)` sitting only on :root bakes in the light value
+     and inherits it into dark — which is how the dark gloss line ended up at
+     2.28:1 while light and sepia were fine. */
+  --gloss: var(--gloss-en);
+  --header-bg: var(--chrome);
+  --header-text: var(--on-chrome);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.62), 0 1px 4px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 8px 28px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --overlay: rgba(0, 0, 0, 0.66);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -190,12 +247,10 @@ body {
   align-items: flex-start;
   gap: 12px;
   padding: 14px 0;
-  transition: background 0.2s;
-  background: var(--row-alt);
-}
-
-.verse:hover {
-  background:var(--accent-wash);
+  /* No resting tint and no hover tint. A verse sits ON the page; boxing each
+     one in a panel is the "verse highlighter" the translator asked to be rid
+     of. Deliberate highlighting (.verse.highlighted) is a user action and
+     stays. */
 }
 
 .verse:last-child {
@@ -550,14 +605,13 @@ body.dual-mode .sp::after { content: ' '; }
 @media print {
   .controls-top, .controls-bottom { display: none; }
   .page { box-shadow: none; padding: 20px 40px; }
-  .verse:hover { background: none; }
 }
 
 /* ===== OVERLAY ===== */
 #drawer-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: var(--overlay);
   z-index: 149;
   display: none;
 }
@@ -706,7 +760,7 @@ body.dual-mode .sp::after { content: ' '; }
   transition: all 0.15s;
 }
 .ch-brick:hover { background:var(--chrome-hover-2); color:var(--on-chrome-hover); border-color:var(--ink-light); }
-.ch-brick.active { background:#c8a84e22; color:var(--accent); border-color:var(--accent); font-weight: 700; }
+.ch-brick.active { background:var(--accent-wash); color:var(--accent); border-color:var(--accent); font-weight: 700; }
 
 /* Divider */
 .drawer-divider {
@@ -767,7 +821,7 @@ body.dual-mode .sp::after { content: ' '; }
   padding: 14px 18px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95em;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-2);
   min-width: 180px;
   max-width: 320px;
   pointer-events: auto;
@@ -818,7 +872,7 @@ body.dual-mode .sp::after { content: ' '; }
   display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 101;
   background: var(--bg); padding: 8px 20px; text-align: center;
   font-family: 'Times New Roman', Times, serif; font-size: 0.95em;
-  border-bottom: 1px solid var(--rule-light); box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-bottom: 1px solid var(--rule-light); box-shadow: var(--shadow-1);
 }
 #return-banner a {
   display: inline-block; background: var(--accent); color:var(--on-chrome); text-decoration: none;
@@ -902,7 +956,7 @@ body.dark-mode .talk-font-controls button:hover { background:var(--accent); colo
   z-index: 300;
   background:var(--chrome);
   padding: 12px 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: var(--shadow-2);
 }
 #search-container.open { display: flex; gap: 10px; align-items: center; }
 #search-input {
@@ -1052,11 +1106,11 @@ body.dark-mode .talk-font-controls button:hover { background:var(--accent); colo
   padding: 18px 14px;
   background:linear-gradient(170deg, var(--chrome-deep) 0%, var(--chrome) 100%);
   border:1px solid var(--chrome-line);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.10);
+  box-shadow: var(--shadow-card);
   transition: box-shadow 0.2s;
 }
 .scripture-card:hover .card-cover {
-  box-shadow: 0 8px 28px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: var(--shadow-card-hover);
 }
 .card-cover .rule-top, .card-cover .rule-bottom {
   width: 55%; height: 1px; background:var(--accent); opacity: 0.5; margin: 10px auto;
@@ -1088,7 +1142,6 @@ body.dark-mode .gl { color: var(--gloss); }
 body.dark-mode .page { background:var(--bg); }
 body.dark-mode .controls-top, body.dark-mode .controls-bottom { background:var(--chrome-deep); }
 body.dark-mode .verse { border-color:var(--rule-light); }
-body.dark-mode .verse:hover { background:var(--accent-wash); }
 body.dark-mode .word-unit:hover { background:var(--accent-wash); }
 body.dark-mode #drawer { background:var(--chrome-deep); color:var(--ink); }
 body.dark-mode .drawer-section-label { color:var(--ink-light); }
@@ -1126,8 +1179,9 @@ hr, .drawer-divider { border: 0; border-top: 1px solid var(--rule); color: var(-
 input, textarea, select, button { color: var(--ink); }
 input, textarea { background: var(--surface); border-color: var(--rule); }
 ::placeholder { color: var(--ink); opacity: 0.55; }
-/* the card covers were a gradient; plain means a hairline, not a fill */
-.card-cover { background: var(--bg) !important; border: 1px solid var(--rule); }
+/* The covers are the BINDING: navy board, gold foil. They were flattened to
+   white during the black-and-white strip-down, which left gold type on a
+   near-white card — the one pairing this palette must never make. */
 
 /* ══════════════════════════════════════════════════════════════════════
    NAVIGATION ERGONOMICS
@@ -1237,8 +1291,6 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
   transition: transform 0.24s ease;
   will-change: transform;
 }
-body.chrome-hidden .controls-top    { transform: translateY(-100%); }
-body.chrome-hidden .controls-bottom { transform: translateY(100%); }
 
 /* A reader who asked for less motion gets the bars staying put, not snapping. */
 @media (prefers-reduced-motion: reduce) {
@@ -2074,22 +2126,50 @@ function setSize(val) {
 // =============================================
 // DARK MODE
 // =============================================
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  var isDark = document.body.classList.contains('dark-mode');
-  var btn = document.getElementById('dark-mode-toggle');
-  btn.innerHTML = isDark ? '&#9728;&#65038;' : '&#9789;&#65038;';
-  try { localStorage.setItem('tp-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+/* Three reading modes, one button: light -> sepia -> dark -> light.
+   Sepia sits between the two because it IS a light theme -- warm paper, dark
+   ink -- so the cycle runs from brightest ground to darkest. The button shows
+   the mode you are IN and its label names the one you will get next. */
+var THEME_MODES = ['light', 'sepia', 'dark'];
+var THEME_ICON  = { light: '\u2600\uFE0E', sepia: '\u25D1', dark: '\u263E\uFE0E' };
+var THEME_NAME  = { light: 'claro', sepia: 'sepia', dark: 'oscuro' };
+
+function currentTheme() {
+  if (document.body.classList.contains('dark-mode')) return 'dark';
+  if (document.body.classList.contains('sepia-mode')) return 'sepia';
+  return 'light';
 }
-(function() {
+
+function applyTheme(mode) {
+  document.body.classList.remove('sepia-mode', 'dark-mode');
+  if (mode === 'sepia') document.body.classList.add('sepia-mode');
+  if (mode === 'dark')  document.body.classList.add('dark-mode');
+  var btn = document.getElementById('dark-mode-toggle');
+  if (btn) {
+    var next = THEME_MODES[(THEME_MODES.indexOf(mode) + 1) % THEME_MODES.length];
+    btn.innerHTML = THEME_ICON[mode];
+    btn.setAttribute('aria-label', 'Tema: ' + THEME_NAME[mode] + '. Cambiar a ' + THEME_NAME[next] + '.');
+    btn.setAttribute('title', 'Tema: ' + THEME_NAME[mode]);
+  }
+  try { localStorage.setItem('tp-theme', mode); } catch (e) {}
+}
+
+function toggleDarkMode() {
+  var i = THEME_MODES.indexOf(currentTheme());
+  applyTheme(THEME_MODES[(i + 1) % THEME_MODES.length]);
+}
+
+(function restoreTheme() {
+  var mode = 'light';
   try {
-    var saved = localStorage.getItem('tp-dark-mode');
-    if (saved === '1') {
-      document.body.classList.add('dark-mode');
-      var btn = document.getElementById('dark-mode-toggle');
-      if (btn) btn.innerHTML = '&#9728;&#65038;';
+    var saved = localStorage.getItem('tp-theme');
+    if (THEME_MODES.indexOf(saved) !== -1) {
+      mode = saved;
+    } else if (localStorage.getItem('tp-dark-mode') === '1') {
+      mode = 'dark';                      // carry over the old two-state key
     }
-  } catch(e) {}
+  } catch (e) {}
+  applyTheme(mode);
 })();
 
 // =============================================
@@ -2330,8 +2410,10 @@ function goToSearchResult(chapId, verseIdx) {
   function sync() {
     var m = document.querySelector('meta[name="theme-color"]');
     if (!m) return;
-    var dark = document.body.classList.contains('dark-mode');
-    m.setAttribute('content', dark ? '#000000' : '#ffffff');
+    /* the status bar sits directly above the header, so it takes the CHROME
+       colour, not the page colour, or it reads as a strip of the wrong material */
+    var chrome = getComputedStyle(document.body).getPropertyValue('--chrome').trim();
+    m.setAttribute('content', chrome || '#1B2A41');
   }
   try { new MutationObserver(sync).observe(document.body, {attributes:true, attributeFilter:['class']}); } catch (e) {}
   sync();
@@ -2341,44 +2423,9 @@ function goToSearchResult(chapId, verseIdx) {
 /* One owner for chrome visibility. Retract while reading down, restore on any
    upward intent, and never hide it at the top of a chapter or while a drawer,
    search or popup is open — a control you cannot see must still be reachable. */
-(function autoHideChrome() {
-  var last = window.scrollY, ticking = false;
-  var THRESHOLD = 8;      // ignore sub-pixel jitter and rubber-band
-  var ARM_AFTER = 120;    // never hide within the first screenful
-
-  function blocked() {
-    var d = document.getElementById('drawer');
-    var sc = document.getElementById('search-container');
-    var pop = document.getElementById('word-popup');
-    return (d && d.classList.contains('open')) ||
-           (sc && sc.classList.contains('open')) ||
-           (pop && pop.style.display && pop.style.display !== 'none');
-  }
-
-  function show() { document.body.classList.remove('chrome-hidden'); }
-
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () {
-      ticking = false;
-      var y = window.scrollY, dy = y - last;
-      if (Math.abs(dy) < THRESHOLD) return;
-      last = y;
-      if (blocked() || y < ARM_AFTER) { show(); return; }
-      document.body.classList.toggle('chrome-hidden', dy > 0);
-    });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  // any deliberate intent brings them back
-  ['keydown', 'touchstart', 'mousemove'].forEach(function (ev) {
-    window.addEventListener(ev, function (e) {
-      if (ev === 'keydown' || e.type === 'touchstart') show();
-    }, { passive: true });
-  });
-  window.addEventListener('hashchange', show);
-})();
+/* The header and footer are ALWAYS visible. They used to retract while
+   reading down and return on upward intent; the translator asked for them to
+   stay. A control you cannot see is a control you cannot reach. */
 
 
 /* The text-size panel: one owner for its open state, its label, and closing it.
