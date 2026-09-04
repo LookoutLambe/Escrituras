@@ -362,10 +362,12 @@ def edit_tokens(mapping, dry_run=False):
         src = open(path, encoding='utf-8').read()
 
         def do_set(sm):
-            pm = re.match(r'([a-z0-9]+)-ch(\d+)$', sm.group(3))
+            # The D&C numbers its chapters "sec", not "ch": dc-sec1. Matching
+            # only -ch made the whole volume invisible to every corpus pass.
+            pm = re.match(r'([a-z0-9]+)-(?:ch|sec)(\d+)$', sm.group(3))
             if not pm:
                 return sm.group(0)
-            book = BOOKS.get(pm.group(1) + '-ch')
+            book = BOOKS.get(pm.group(1) + '-ch') or BOOKS.get(pm.group(1) + '-sec') or BOOKS.get(pm.group(1) + '-sec')
             if not book:
                 return sm.group(0)
             ch = int(pm.group(2))
@@ -451,10 +453,12 @@ def walk_verses():
     for path in sorted(glob.glob(os.path.join(ROOT, 'verses', '*.js'))):
         src = open(path, encoding='utf-8').read()
         for sm in SET.finditer(src):
-            pm = re.match(r'([a-z0-9]+)-ch(\d+)$', sm.group(3))
+            # The D&C numbers its chapters "sec", not "ch": dc-sec1. Matching
+            # only -ch made the whole volume invisible to every corpus pass.
+            pm = re.match(r'([a-z0-9]+)-(?:ch|sec)(\d+)$', sm.group(3))
             if not pm:
                 continue
-            book = BOOKS.get(pm.group(1) + '-ch')
+            book = BOOKS.get(pm.group(1) + '-ch') or BOOKS.get(pm.group(1) + '-sec') or BOOKS.get(pm.group(1) + '-sec')
             if not book:
                 continue
             ch = int(pm.group(2))

@@ -1148,7 +1148,7 @@ var v62 = [
 renderVerseSet(v62, 'psa-ch62-verses');
 
 var v63 = [
-  {num:1,words:[["Oh","oh"],["Dios,","God,"],["tú","you"],["eres","are"],["mi","my"],["Dios;","God;"],["temprano","early"],["te","you"],["buscaré.Mi","you:"],["alma","soul"],["tiene","has"],["sed","thirst/be"],["de","of"],["ti;","you;"],["mi","my"],["carne","flesh"],["te","you"],["anhelaen","you"],["tierra","land"],["seca","dries"],["y","and"],["árida","thirsty"],["donde","where"],["no","not"],["hay","there-is"],["agua,","water,"]]},
+  {num:1,words:[["Oh","oh"],["Dios,","God,"],["tú","you"],["eres","are"],["mi","my"],["Dios;","God;"],["temprano","early"],["te","you"],["buscaré.Mi","you:"],["alma","soul"],["tiene","has"],["sed","thirst"],["de","of"],["ti;","you;"],["mi","my"],["carne","flesh"],["te","you"],["anhelaen","you"],["tierra","land"],["seca","dries"],["y","and"],["árida","thirsty"],["donde","where"],["no","not"],["hay","there-is"],["agua,","water,"]]},
   {num:2,words:[["para","for"],["ver","see"],["tu","your"],["poder","power"],["y","and"],["tu","your"],["gloria,así","so"],["como","as"],["te","you"],["he","I-have"],["mirado","looked"],["en","in"],["el","the"],["santuario.","sanctuary."]]},
   {num:3,words:[["Porque", "because"], ["mejor", "better"], ["es", "is"], ["tu","your"], ["misericordia", "mercy"], ["que", "that"], ["la", "the"], ["vida;mis", "lips"], ["labios", "lips"], ["te","you"], ["alabarán.", "shall-praise."]]},
   {num:4,words:[["Así","thus"],["te","you"],["bendeciré","bless"],["en","in"],["mi","my"],["vida;en","i"],["tu","your"],["nombre","name"],["alzaré","I-shall-up"],["mis","my"],["manos.","hands."]]},

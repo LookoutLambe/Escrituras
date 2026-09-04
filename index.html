@@ -811,19 +811,28 @@ body.dual-mode .sp::after { content: ' '; }
 
 /* Word popup */
 #word-popup {
-  display: none;
+  /* CENTERED on the viewport, like the selection popover. It used to be
+     placed at the tapped word, which covered the word you had just tapped
+     and made the card jump around the page on every tap. */
   position: fixed;
+  left: 50%;
+  bottom: 88px;
+  top: auto;
+  transform: translateX(-50%);
+  display: none;
   z-index: 200;
-  background:var(--surface);
+  background: var(--surface);
   color: var(--ink);
-  border:2px solid var(--accent);
+  border: 2px solid var(--accent);
   border-radius: 8px;
   padding: 14px 18px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95em;
   box-shadow: var(--shadow-2);
-  min-width: 180px;
-  max-width: 320px;
+  min-width: 220px;
+  max-width: min(92vw, 420px);
+  max-height: 62vh;
+  overflow-y: auto;
   pointer-events: auto;
 }
 #word-popup .popup-spanish {
@@ -855,7 +864,14 @@ body.dual-mode .sp::after { content: ' '; }
 .word-unit:hover { background:var(--accent-wash); border-radius: 4px; }
 
 @media (max-width: 600px) {
-  #word-popup { max-width: 90vw; padding: 16px 20px; }
+  #word-popup {
+  /* centered on the viewport, not anchored to the word */
+  position: fixed;
+  left: 50%;
+  bottom: 88px;
+  transform: translateX(-50%);
+  top: auto;
+  max-width: min(92vw, 420px); max-width: 90vw; padding: 16px 20px; }
   #word-popup .popup-spanish { font-size: 2.2em !important; }
   #word-popup .popup-gloss { font-size: 1.3em !important; }
 }
@@ -1147,7 +1163,113 @@ body.dark-mode #drawer { background:var(--chrome-deep); color:var(--ink); }
 body.dark-mode .drawer-section-label { color:var(--ink-light); }
 body.dark-mode .ch-brick { border-color:var(--rule); color:var(--ink); }
 body.dark-mode .ch-brick:hover { background:var(--rule-light); }
-body.dark-mode #word-popup { background:var(--surface); border-color:var(--accent); color:var(--ink); }
+
+/* ── selection popover: highlights, underline, notes ─────────────────────
+   CENTERED on the viewport. Anchoring it to the selection put it over the
+   words being marked and made it jump on every reselect. */
+#hl-pop {
+  position: fixed; left: 50%; bottom: 88px; transform: translateX(-50%) translateY(8px);
+  z-index: 1400; display: none; flex-direction: column; gap: 8px;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--accent); border-radius: 6px;
+  padding: 10px 12px; box-shadow: var(--shadow-2);
+  max-width: min(92vw, 420px);
+  opacity: 0; transition: opacity .16s ease, transform .16s ease;
+}
+#hl-pop.visible { display: flex; opacity: 1; transform: translateX(-50%) translateY(0); }
+.sel-color-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.sel-row-label {
+  font-size: 0.72rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); margin-right: 2px;
+}
+.sel-color, .sel-eraser {
+  width: 26px; height: 26px; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--rule); display: inline-flex;
+  align-items: center; justify-content: center; flex: 0 0 auto;
+}
+.sel-eraser { background: var(--bg); color: var(--muted); font-size: 0.8rem; }
+.sel-color:hover, .sel-eraser:hover { outline: 2px solid var(--accent); outline-offset: 1px; }
+.hl-actions { display: flex; gap: 6px; }
+.hl-actions button {
+  flex: 1; min-height: 40px; cursor: pointer; font: inherit; font-size: 0.95rem;
+  background: var(--bg); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 4px;
+  transition: background .16s, color .16s;
+}
+.hl-actions button:hover { background: var(--accent); color: var(--on-fill); border-color: var(--accent); }
+.hl-note-row { display: flex; gap: 6px; align-items: stretch; }
+.hl-note-row textarea {
+  flex: 1; min-height: 62px; resize: vertical; font: inherit; font-size: 0.9rem;
+  background: var(--bg); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 4px; padding: 7px 9px;
+}
+.hl-note-save {
+  cursor: pointer; font: inherit; font-size: 0.85rem; padding: 0 14px; min-height: 40px;
+  background: var(--accent-fill); color: var(--on-fill);
+  border: 1px solid var(--accent); border-radius: 4px;
+}
+
+/* A mark sits BEHIND the words. In dark mode the pastels become translucent
+   washes — a solid pastel on a near-black ground is brighter than the text,
+   and the eye goes to the mark instead of the words. */
+.word-unit.ann-hl { background: var(--ann-color); border-radius: 2px; }
+body.dark-mode .word-unit.ann-hl {
+  background: color-mix(in srgb, var(--ann-color) 30%, transparent);
+}
+.word-unit.ann-ul .sp { text-decoration: underline; text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px; text-decoration-color: var(--accent); }
+/* a verse carrying a note is marked on its number, not in the text */
+.verse-num.has-note::after {
+  content: '\2022'; color: var(--accent); font-size: 0.75em;
+  vertical-align: super; margin-left: 2px;
+}
+
+/* ── word scorecard ──────────────────────────────────────────────────────
+   What the card shows, matching the Hebrew one: the dictionary form, how
+   often the scriptures use it and in how many verses, the split across
+   volumes, the surface forms it takes, and the English it is glossed with.
+   The tapped form and gloss are marked so the reader can see where the word
+   in front of them sits in the whole. */
+.ssc-slot:empty { display: none; }
+.ssc-slot {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  text-align: left; font-size: 0.82rem; line-height: 1.5;
+}
+.ssc-loading { color: var(--muted); font-style: italic; }
+.ssc-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.ssc-lemma { font-size: 1.15em; font-weight: 700; color: var(--accent); }
+.ssc-count { color: var(--muted); font-size: 0.9em; }
+.ssc-meaning { font-style: italic; color: var(--ink-light); margin-top: 2px; }
+.ssc-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 9px 0 4px; }
+.ssc-chip {
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: 2px 7px; font-size: 0.85em; color: var(--ink-light);
+  white-space: nowrap;
+}
+.ssc-row { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; align-items: baseline; }
+.ssc-row b {
+  flex: 0 0 auto; font-weight: 600; color: var(--muted);
+  font-size: 0.85em; letter-spacing: 0.05em; text-transform: uppercase;
+  margin-right: 3px;
+}
+.ssc-form {
+  border: 1px solid var(--rule-light); border-radius: 2px;
+  padding: 2px 7px; white-space: nowrap; color: var(--ink);
+}
+.ssc-form i { font-style: normal; color: var(--muted); font-size: 0.85em; }
+/* the word actually tapped, so it is findable in the list */
+.ssc-form.ssc-here { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.ssc-form.ssc-here i { color: var(--accent); }
+
+body.dark-mode #word-popup {
+  /* centered on the viewport, not anchored to the word */
+  position: fixed;
+  left: 50%;
+  bottom: 88px;
+  transform: translateX(-50%);
+  top: auto;
+  max-width: min(92vw, 420px); background:var(--surface); border-color:var(--accent); color:var(--ink); }
 body.dark-mode .book-title { color:var(--accent); }
 body.dark-mode .book-subtitle { color:var(--ink-light); }
 body.dark-mode .chapter-heading h2 { color:var(--ink); }
@@ -1313,10 +1435,33 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 <div id="search-results"></div>
 
 <!-- Word popup -->
+
+<!-- Selection popover. CENTERED, not anchored to the selection: anchored, it
+     covered the very words being marked and jumped on every reselect. -->
+<div id="hl-pop" role="toolbar" aria-label="Marcar selección">
+  <div class="sel-color-row">
+    <span class="sel-row-label">Marcar</span>
+    <span class="sel-color" style="background:#fff9c4" data-c="#fff9c4" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#bbdefb" data-c="#bbdefb" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#ef9a9a" data-c="#ef9a9a" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#c8e6c9" data-c="#c8e6c9" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#e1bee7" data-c="#e1bee7" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#ffe0b2" data-c="#ffe0b2" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#b2dfdb" data-c="#b2dfdb" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#f8bbd0" data-c="#f8bbd0" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#ffecb3" data-c="#ffecb3" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span><span class="sel-color" style="background:#cfd8dc" data-c="#cfd8dc" onclick="SpaAnnotate.apply(this.dataset.c)" role="button" aria-label="Highlight"></span>
+    <span class="sel-eraser" data-c="" onclick="SpaAnnotate.apply('')"
+          role="button" aria-label="Quitar">&#10005;</span>
+  </div>
+  <div class="hl-actions">
+    <button type="button" onclick="SpaAnnotate.underline()" title="Subrayar" aria-label="Subrayar"><u>U</u></button>
+    <button type="button" onclick="SpaAnnotate.note()" title="Nota" aria-label="Nota">&#9998;</button>
+    <button type="button" onclick="SpaAnnotate.copy()" title="Copiar" aria-label="Copiar">&#128203;</button>
+    <button type="button" onclick="SpaAnnotate.close()" title="Cerrar" aria-label="Cerrar">&#10005;</button>
+  </div>
+  <div class="hl-note-row" id="hl-note-row" style="display:none">
+    <textarea id="hl-note-input" placeholder="Escribe una nota…"></textarea>
+    <button class="hl-note-save" onclick="SpaAnnotate.saveNote()">Guardar</button>
+  </div>
+</div>
+
 <div id="word-popup">
   <span class="popup-close" onclick="closePopup()" role="button" aria-label="Close popup">&#10005;</span>
   <div class="popup-spanish" id="popup-sp"></div>
   <div class="popup-gloss" id="popup-gl"></div>
+  <div class="ssc-slot" id="popup-card"></div>
 </div>
 
 <!-- Cross-Reference Panel (right slide) -->
@@ -1506,6 +1651,10 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
 </div>
 
+<!-- the word scorecard engine; its 1.16 MB concordance is fetched
+     on the first word tap, not with the page -->
+<script src="spa_scorecard.js"></script>
+<script src="spa_annotate.js"></script>
 <script>
 // =============================================
 // BOOK DATA
@@ -1893,6 +2042,10 @@ function _doRenderVerses(verseData, containerId) {
   if (window._crossrefsLoaded && typeof window.addCrossRefMarkers === 'function') {
     setTimeout(window.addCrossRefMarkers, 100);
   }
+
+  /* marks are stored by (verse, word index) and must be repainted after
+     every render, or they vanish on navigation and on view-mode switches */
+  if (window.SpaAnnotate) { try { SpaAnnotate.refresh(); } catch (e) {} }
 }
 
 function _ensureChapterRendered(chapId) {
@@ -2240,16 +2393,14 @@ document.addEventListener('click', function(e) {
     var popup = document.getElementById('word-popup');
     document.getElementById('popup-sp').textContent = sp ? sp.textContent : '';
     document.getElementById('popup-gl').textContent = gl ? gl.textContent : '';
+    if (window.SpaScorecard) {
+      SpaScorecard.fill(document.getElementById('popup-card'),
+                        sp ? sp.textContent : '', gl ? gl.textContent : '');
+    }
+    /* The card is CENTERED, like the selection popover. It used to be placed
+       at the tapped word, which meant it covered the word you had just
+       tapped and jumped around the page on every tap. */
     popup.style.display = 'block';
-    // Position near click
-    var rect = wu.getBoundingClientRect();
-    var popW = 260;
-    var left = Math.min(rect.left, window.innerWidth - popW - 20);
-    if (left < 10) left = 10;
-    var top = rect.bottom + 8;
-    if (top + 120 > window.innerHeight) top = rect.top - 120;
-    popup.style.left = left + 'px';
-    popup.style.top = top + 'px';
     return;
   }
   // Click outside popup closes it
