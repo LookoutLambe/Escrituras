@@ -283,7 +283,15 @@ def apply_persons(dry_run=False):
                     pos = spa_morph.pos(k)
                     is_verb = pos in ('VERB', 'AUX') or '(verb' in (tr or '')
                     bare = core.replace('-', ' ').strip().lower()
-                    if (person in PRON and is_verb
+                    # The gloss must itself be a VERB form. Without this a noun
+                    # with a verb homograph took a pronoun: "mountains" became
+                    # "you-mountains", "things" became "you-things".
+                    import eng_verbs as _ev
+                    head = bare.split()[-1] if bare else ''
+                    gloss_is_verb = bool(head) and (
+                        _ev.known(head) or (_ev.base_form(head) != head
+                                            and _ev.known(_ev.base_form(head))))
+                    if (person in PRON and is_verb and gloss_is_verb
                             and bare not in STOP_EN
                             and bare not in PARTICIPLES
                             and not spa_gloss.noun_position(prev, k)
@@ -362,12 +370,13 @@ def edit_tokens(mapping, dry_run=False):
         src = open(path, encoding='utf-8').read()
 
         def do_set(sm):
-            # The D&C numbers its chapters "sec", not "ch": dc-sec1. Matching
-            # only -ch made the whole volume invisible to every corpus pass.
-            pm = re.match(r'([a-z0-9]+)-(?:ch|sec)(\d+)$', sm.group(3))
+            # The chapter id is the BOOK_DATA prefix plus a number, and the
+            # prefixes are not uniform: al-ch32, dc-sec1, and bare ch1 for
+            # 1 Nephi. Strip the trailing digits; what is left IS the prefix.
+            pm = re.match(r'^(.*?)(\d+)$', sm.group(3))
             if not pm:
                 return sm.group(0)
-            book = BOOKS.get(pm.group(1) + '-ch') or BOOKS.get(pm.group(1) + '-sec') or BOOKS.get(pm.group(1) + '-sec')
+            book = BOOKS.get(pm.group(1))
             if not book:
                 return sm.group(0)
             ch = int(pm.group(2))
@@ -453,12 +462,16 @@ def walk_verses():
     for path in sorted(glob.glob(os.path.join(ROOT, 'verses', '*.js'))):
         src = open(path, encoding='utf-8').read()
         for sm in SET.finditer(src):
-            # The D&C numbers its chapters "sec", not "ch": dc-sec1. Matching
-            # only -ch made the whole volume invisible to every corpus pass.
-            pm = re.match(r'([a-z0-9]+)-(?:ch|sec)(\d+)$', sm.group(3))
+            # The chapter id is the BOOK_DATA prefix followed by a number, and
+            # the prefixes are not uniform: Alma is "al-ch32", the D&C is
+            # "dc-sec1" and 1 Nephi is bare "ch1". Matching a fixed shape made
+            # whole books invisible to every corpus pass -- the D&C (102,212
+            # tokens) and 1 Nephi. Strip the trailing digits instead; whatever
+            # is left IS the prefix, so no book can be missed again.
+            pm = re.match(r'^(.*?)(\d+)$', sm.group(3))
             if not pm:
                 continue
-            book = BOOKS.get(pm.group(1) + '-ch') or BOOKS.get(pm.group(1) + '-sec') or BOOKS.get(pm.group(1) + '-sec')
+            book = BOOKS.get(pm.group(1)) or BOOKS.get(pm.group(1) + '-sec')
             if not book:
                 continue
             ch = int(pm.group(2))

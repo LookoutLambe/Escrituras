@@ -318,6 +318,20 @@ def _head_inflect(v, fn):
 
 
 def _build(v, shape, person=None, bare_infinitive=False):
+    # A multiword base inflects its HEAD, and the head needs the person too.
+    # "nacer" is "to be born"; _head_inflect alone gave the plural past of be,
+    # so 1st singular read "I-were-born" instead of "I-was-born".
+    if ' ' in v:
+        head, rest = v.split(' ', 1)
+        hp = ENGLISH_PARADIGM.get(head)
+        if hp and person:
+            table = hp['pres'] if shape in ('plain', 'third') else (
+                    hp['past'] if shape == 'past' else None)
+            if table and table.get(person):
+                core = table[person] + ' ' + rest
+                core = core.replace(' ', JOIN)
+                pron = PRONOUN.get(person or '')
+                return (pron + JOIN + core) if (pron and shape not in NON_FINITE) else core
     par = ENGLISH_PARADIGM.get(v)
     if par and person:
         if shape in ('plain', 'third'):
@@ -583,10 +597,28 @@ ARCHAIC_2S = {'mayest', 'doest', 'shouldest', 'wouldest', 'couldest',
               'wilt', 'canst', 'dost', 'art'}
 
 
+_CANON_NAMES = None
+
+def _is_canon_name(w):
+    """A scripture name is never an archaic verb. Nazareth, Elisabeth,
+    Ish-bosheth and Japheth all end in -eth, and stripping it produced
+    "nazars", "elisabs" and "Ish-boshes"."""
+    global _CANON_NAMES
+    if _CANON_NAMES is None:
+        import os, json as _json
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'canon_names_en.json')
+        try:
+            with open(p, encoding='utf-8') as fh:
+                _CANON_NAMES = {x.lower() for x in _json.load(fh)}
+        except OSError:
+            _CANON_NAMES = set()
+    return (w or '').lower() in _CANON_NAMES
+
+
 def _modernise_word(w):
     """archaic -est / -eth verb -> its modern form, or None if not archaic."""
     lw = w.lower()
-    if lw in ARCHAIC_KEEP:
+    if lw in ARCHAIC_KEEP or _is_canon_name(lw):
         return None
     if lw in ARCHAIC_STEM:
         return ARCHAIC_STEM[lw]
@@ -607,6 +639,10 @@ def _modernise_word(w):
 
 def modernise(gloss):
     """Rewrite any archaic verb inside a (possibly hyphenated) gloss."""
+    # A hyphenated NAME must be tested whole: splitting "Ish-bosheth" on the
+    # hyphen hid the name from the guard and left "Ish-boshes".
+    if _is_canon_name(str(gloss or '').strip('.,;:!?')):
+        return gloss
     out, changed = [], False
     for part in re.split(r'([-\s]+)', gloss):
         core = part.strip('.,;:!?')

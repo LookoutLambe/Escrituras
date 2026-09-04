@@ -1,7 +1,7 @@
 (function() {
 var v1 = [
   {num:1,words:[["Pablo,", "Paul,"], ["prisionero", "of"], ["de", "of"], ["Jesucristo,", "Jesus-Christ,"], ["y", "and"], ["el", "the"], ["hermano", "brother"], ["Timoteo,", "timotheus,"], ["al", "to-the"], ["amado", "beloved"], ["Filemón,", "dearly,"], ["colaborador", "beloved,"], ["nuestro,", "our,"]]},
-  {num:2,words:[["y","and"],["a","to"],["la","the"],["amada","beloved"],["hermana","sister"],["Apia,","apphia,"],["y","and"],["a","to"],["Arquipo,","archippus,"],["nuestro","our"],["compañero","companion"],["de","of"],["milicia,","militia,"],["y","and"],["a","to"],["la","the"],["iglesia","church"],["que","that"],["está","is"],["en","in"],["tu","your"],["casa:","house:"]]},
+  {num:2,words:[["y","and"],["a","to"],["la","the"],["amada","beloved"],["hermana","sister"],["Apia,","apphia,"],["y","and"],["a","to"],["Arquipo,","Archippus,"],["nuestro","our"],["compañero","companion"],["de","of"],["milicia,","militia,"],["y","and"],["a","to"],["la","the"],["iglesia","church"],["que","that"],["está","is"],["en","in"],["tu","your"],["casa:","house:"]]},
   {num:3,words:[["Gracia", "grace"], ["a", "to"], ["vosotros", "you"], ["y", "and"], ["paz", "peace"], ["de", "of"], ["parte", "part"], ["de", "of"], ["Dios", "God"], ["nuestro", "our"], ["Padre", "father"], ["y", "and"], ["del", "of-the"], ["Señor", "Lord"], ["Jesucristo.", "Jesus-Christ."]]},
   {num:4,words:[["Doy", "I-give"], ["gracias", "thanks"], ["a", "to"], ["mi", "my"], ["Dios,", "God,"], ["haciendo","making"], ["siempre", "always"], ["memoria", "remembrance"], ["de", "of"], ["ti","you"], ["en", "in"], ["mis", "my"], ["oraciones,", "prayers,"]]},
   {num:5,words:[["porque","because"],["oigo","I-hear"],["del","of-the"],["amor","love"],["y","and"],["de","of"],["la","the"],["fe","faith"],["que","that"],["tienes","you-have"],["hacia","toward"],["el","the"],["Señor","Lord"],["Jesús,","Jesus,"],["y","and"],["para","for"],["con","with"],["todos","all"],["los","the"],["santos;","saints;"]]},
@@ -23,8 +23,8 @@ var v1 = [
   {num:21,words:[["Te","you"],["he","I-have"],["escrito","written"],["confiando","trusting"],["en","in"],["tu","your"],["obediencia,","obedience,"],["sabiendo","knowing"],["que","that"],["harás","you-will-make"],["aún","yet"],["más","more"],["de","of"],["lo","it/him"],["que","that"],["te","you"],["digo.","I-say."]]},
   {num:22,words:[["Y","and"],["asimismo,","likewise,"],["prepárame","for-me"],["también","also"],["alojamiento,","lodging,"],["porque","because"],["espero","I-trust"],["que","that"],["por","for"],["vuestras","your"],["oraciones","prayers"],["yo","I"],["os","you"],["sea","be"],["concedido.","granted."]]},
   {num:23,words:[["Te","you"],["saludan","salute"],["Epafras,","Epaphras,"],["mi","my"],["compañero","companion"],["de","of"],["prisión","prison"],["por","for"],["Cristo","Christ"],["Jesús,","Jesus,"]]},
-  {num:24,words:[["Marcos,","Mark,"], ["Aristarco,", "aristarchus,"], ["Demas","Demas"], ["y", "and"], ["Lucas,", "lucas,"], ["mis", "my"], ["colaboradores.", "fellowlabourers."]]},
-  {num:25,words:[["La", "the"], ["gracia", "grace"], ["de", "of"], ["nuestro", "our"], ["Señor", "Lord"], ["Jesucristo", "Jesus-Christ"], ["sea","be"], ["con", "with"], ["vuestro", "your"], ["espíritu.", "Spirit."], ["Amén.", "amen."]]},
+  {num:24,words:[["Marcos,","Mark,"],["Aristarco,","Aristarchus,"],["Demas","Demas"],["y","and"],["Lucas,","lucas,"],["mis","my"],["colaboradores.","fellowlabourers."]]},
+  {num:25,words:[["La","the"],["gracia","grace"],["de","of"],["nuestro","our"],["Señor","Lord"],["Jesucristo","Jesus-Christ"],["sea","be"],["con","with"],["vuestro","your"],["espíritu.","Spirit."],["Amén.","Amen."]]},
 ];
 renderVerseSet(v1, 'phm-ch1-verses');
 

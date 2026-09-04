@@ -12,7 +12,7 @@ var v1 = [
   {num:10,words:[["Si","if"],["alguno","some"],["viene","comes"],["a","to"],["vosotros","you"],["y","and"],["no","not"],["trae","brings"],["esta","this"],["doctrina,","doctrine,"],["no","not"],["lo","him"],["recibáis","you-receive"],["en","in"],["casa","house"],["ni","nor"],["le","him"],["digáis:","you-may-say:"],["¡Bienvenido!","speed!"]]},
   {num:11,words:[["Porque","because"],["el","the"],["que","that"],["le","him"],["dice","says"],["bienvenido","speed"],["participa","participates"],["en","in"],["sus","his"],["malas","evil"],["obras.","works."]]},
   {num:12,words:[["Aunque","although"],["tengo","I-have"],["muchas","many"],["cosas","things"],["que","that"],["escribiros,","write,"],["no","not"],["he","I-have"],["querido","lord"],["comunicarlas","communicates"],["por medio de","by means of"],["papel","paper"],["y","and"],["tinta,","inks,"],["pues","for"],["espero","I-trust"],["ir","to-go"],["a","to"],["vosotros","you"],["y","and"],["hablar","to-speak"],["cara","face"],["a","to"],["cara,","face,"],["para que","that"],["nuestro","our"],["gozo","joy"],["sea","be"],["completo.","utterly."]]},
-  {num:13,words:[["Los", "the"], ["hijos", "children"], ["de", "of"], ["tu","your"], ["hermana", "sister"], ["elegida", "chosen"], ["te","you"], ["saludan.", "salute."], ["Amén.", "amen."]]},
+  {num:13,words:[["Los","the"],["hijos","children"],["de","of"],["tu","your"],["hermana","sister"],["elegida","chosen"],["te","you"],["saludan.","salute."],["Amén.","Amen."]]},
 ];
 renderVerseSet(v1, '2jn-ch1-verses');
 

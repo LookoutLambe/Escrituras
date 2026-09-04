@@ -1,6 +1,6 @@
 (function() {
 var v1 = [
-  {num:1,words:[["El","the"],["anciano","ancient"],["al","to-the"],["muy","very"],["amado","beloved"],["Gayo,","gaius,"],["a","to"],["quien","who"],["yo","I"],["amo","master"],["en","in"],["la","the"],["verdad.","truth."]]},
+  {num:1,words:[["El","the"],["anciano","ancient"],["al","to-the"],["muy","very"],["amado","beloved"],["Gayo,","Gaius,"],["a","to"],["quien","who"],["yo","I"],["amo","master"],["en","in"],["la","the"],["verdad.","truth."]]},
   {num:2,words:[["Amado,","beloved,"],["yo","I"],["deseo","desire"],["que","that"],["tú","you"],["seas","may"],["prosperado","prospered"],["en","in"],["todas","all"],["las","the"],["cosas","things"],["y","and"],["que","that"],["tengas","you-afraid"],["salud,","health,"],["así","thus"],["como","as"],["prospera","prospers"],["tu","your"],["alma.","soul."]]},
   {num:3,words:[["Pues","for"],["me","me"],["regocijé","rejoice"],["mucho","much"],["cuando","when"],["vinieron","they-came"],["los","the"],["hermanos","brothers"],["y","and"],["dieron","they-gave"],["testimonio","testimony"],["de","of"],["la","the"],["verdad","truth"],["que","that"],["hay","there-is"],["en","in"],["ti,","you,"],["de","of"],["cómo","how"],["andas","you-walk"],["en","in"],["la","the"],["verdad.","truth."]]},
   {num:4,words:[["No","not"],["tengo","I-have"],["yo","I"],["mayor","greater"],["gozo","I-joy"],["que","that"],["este,","this,"],["el","the"],["oír","hear"],["que","that"],["mis","my"],["hijos","children"],["andan","they-walk"],["en","in"],["la","the"],["verdad.","truth."]]},
