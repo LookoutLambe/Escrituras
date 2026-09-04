@@ -45,7 +45,7 @@ var v2 = [
 renderVerseSet(v2, 'hab-ch2-verses');
 
 var v3 = [
-  {num:1,words:[["Oración", "prayer"], ["del", "of-the"], ["profeta", "prophet"], ["Habacuc,","Habakkuk,"], ["sobre", "upon"], ["Sigionot.", "shigionoth."]]},
+  {num:1,words:[["Oración","prayer"],["del","of-the"],["profeta","prophet"],["Habacuc,","Habakkuk,"],["sobre","upon"],["Sigionot.","Shigionoth."]]},
   {num:2,words:[["Oh","oh"],["Jehová,","jehovah,"],["he","I-have"],["oído","heard"],["tu","your"],["palabra","word"],["y","and"],["temí.Oh","was"],["Jehová,","jehovah,"],["aviva","revives"],["tu","your"],["obra","work"],["en","in"],["medio","midst"],["de","of"],["los","the"],["tiempos,en","of"],["medio","midst"],["de","of"],["los","the"],["tiempos","times"],["hazla","do-her"],["conocer;en","the"],["la","the"],["ira","wrath"],["acuérdate","remember"],["de","of"],["la","the"],["misericordia.","mercy."]]},
   {num:3,words:[["Dios","God"],["viene","comes"],["de","of"],["Temán,y","Teman"],["el","the"],["Santo","holy"],["desde","from"],["el","the"],["monte","mount"],["Parán.","Paran."],["SelahSu","Selah"],["gloria","glory"],["cubrió","covered"],["los","the"],["cielos,y","the"],["la","the"],["tierra","earth"],["se","himself"],["llenó","filled"],["de","of"],["su","his"],["alabanza.","praise."]]},
   {num:4,words:[["Y","and"],["su","his"],["resplandor","luster"],["es","is"],["como","as"],["la","the"],["luz,rayos","had"],["brillantes","horns"],["salen","they-forth"],["de","of"],["su","his"],["mano,y","hand"],["allí","there"],["está","is"],["escondido","hid"],["su","his"],["poder.","power."]]},

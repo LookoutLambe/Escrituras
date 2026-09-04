@@ -720,6 +720,14 @@ def positional(book_filter=None, chapter_filter=None):
             # This needs no ownership test and no dictionary: a capitalised
             # token mid-sentence whose gloss is not its own spelling is wrong.
             gparts = g.replace('-', ' ').split()
+            # A REGISTERED name is settled; the detector must not relitigate
+            # it, or the silo and the report drift apart the way the Hebrew
+            # registry was built to prevent.
+            _reg = G.name_registry().get(sp.strip(A.STRIP))
+            if _reg and g.strip('.,;:!?¿¡"') == _reg.lower().strip():
+                continue
+            if _reg and gl.strip('.,;:!?¿¡"') == _reg:
+                continue
             if (gparts and sp[:1].isupper() and i > 0 and len(k) > 1
                     and not (ES.variants(gparts[0]) & surf[i])):
                 folded = ES._fold_name(k) if hasattr(ES, '_fold_name') else k

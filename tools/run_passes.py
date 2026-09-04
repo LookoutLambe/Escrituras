@@ -530,8 +530,20 @@ def pass_contested(dry):
                 continue
             if not AU._acceptable(cand, k, lex, forms, names, S.first_sense(tr)):
                 continue
+            # The canon has to carry the WORD, not the shape. A subject
+            # pronoun, the infinitival "to" and the modal that marks a
+            # subjunctive or a future are all supplied by the grammar from the
+            # conjugation tag -- the English of the verse has no reason to
+            # contain them. `arreglen` rebuilt as "they-may-settle" was refused
+            # because the verse does not say "may", though it says "settle"
+            # plainly, which is the only word the dictionary was being asked
+            # about.
+            SHAPE = ('i', 'you', 'we', 'they', 'he', 'she', 'it', 'to',
+                     'may', 'might', 'shall', 'will', 'would', 'should',
+                     'let', 'do', 'does', 'did', 'be', 'is', 'are', 'was',
+                     'were', 'have', 'has', 'had')
             core = [t for t in cand.lower().replace('-', ' ').split()
-                    if t not in ('i', 'you', 'we', 'they', 'he', 'she', 'it', 'to')]
+                    if t not in SHAPE]
             # THE CANON IS A VETO, and it stays one. It was briefly relaxed
             # here on the reasoning that the detector had already proved the
             # current gloss wrong, so anything the dictionary offered had to be
@@ -559,6 +571,45 @@ def pass_contested(dry):
                         continue
             fix[(book, ch, v, i)] = cand + tail(g)
     return A.edit_tokens(fix, dry)
+
+
+def pass_registry_names(dry):
+    """Apply the name registry. A registered name glosses as itself, always.
+
+    The Hebrew app keeps its transliterated terms in one JSON line that every
+    consumer reads, and the engine skips them rather than analysing them. This
+    is the same silo for Spanish: tools/spa_names.json, derived from the canon
+    by build_name_registry.py, holding only surfaces the dictionary cannot
+    render as a common word -- so `Alma` the name never collides with `alma`
+    the soul, the collision that once flattened 254 tokens.
+
+    Once a name is registered there is nothing to decide per verse, which is
+    the whole point: pass_name_from_canon has to search the verse's English
+    and score candidates, and this does not.
+    """
+    reg = G.name_registry()
+    fix = {}
+    for book, ch, v, en, toks in A.walk_verses():
+        for i, (sp, g) in enumerate(toks):
+            bare = sp.strip(A.STRIP)
+            want = reg.get(bare)
+            if not want:
+                continue
+            if g.strip('.,;:!?¿¡"') == want:
+                continue
+            fix[(book, ch, v, i)] = want + tail(g)
+    return A.edit_tokens(fix, dry)
+
+
+# THE PASS THAT IS NOT HERE: "a contested verb takes the verse's unclaimed
+# verb". It was written, dry-run and deleted. The idea is sound and it is what
+# a human does -- `arreglen` reads "they-servant", the sentence has "settle"
+# going spare, and only one token can be it -- but automated it produced
+# `Hiram` -> "peacocks", `gold` -> "you-may-break", `man` -> "outs" and
+# `ears.` -> "may-let." out of 146 proposals. Taking the leftover word needs
+# to know which leftovers are leftovers, and nothing in the toolchain does.
+# Left here as a record so it is not reinvented.
+
 
 
 def pass_poder_units(dry):
@@ -832,6 +883,7 @@ PASSES = [
     ('unrelated glosses', pass_unrelated),
     ('gentilics (peoples)', pass_gentilics),
     ('proper names', pass_names),
+    ('proper names from the registry', pass_registry_names),
     ('names from the canon of the verse', pass_name_from_canon),
     ('noun/verb homographs, decided per verse', pass_homograph_by_canon),
     ('contested glosses, re-derived', pass_contested),

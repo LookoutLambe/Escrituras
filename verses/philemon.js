@@ -1,6 +1,6 @@
 (function() {
 var v1 = [
-  {num:1,words:[["Pablo,","Paul,"],["prisionero","of"],["de","of"],["Jesucristo,","Jesus-Christ,"],["y","and"],["el","the"],["hermano","brother"],["Timoteo,","timotheus,"],["al","to-the"],["amado","beloved"],["Filemón,","Philemon,"],["colaborador","beloved"],["nuestro,","our,"]]},
+  {num:1,words:[["Pablo,","Paul,"],["prisionero","of"],["de","of"],["Jesucristo,","Jesus-Christ,"],["y","and"],["el","the"],["hermano","brother"],["Timoteo,","Timotheus,"],["al","to-the"],["amado","beloved"],["Filemón,","Philemon,"],["colaborador","beloved"],["nuestro,","our,"]]},
   {num:2,words:[["y","and"],["a","to"],["la","the"],["amada","beloved"],["hermana","sister"],["Apia,","apphia,"],["y","and"],["a","to"],["Arquipo,","Archippus,"],["nuestro","our"],["compañero","companion"],["de","of"],["milicia,","militia,"],["y","and"],["a","to"],["la","the"],["iglesia","church"],["que","that"],["está","is"],["en","in"],["tu","your"],["casa:","house:"]]},
   {num:3,words:[["Gracia", "grace"], ["a", "to"], ["vosotros", "you"], ["y", "and"], ["paz", "peace"], ["de", "of"], ["parte", "part"], ["de", "of"], ["Dios", "God"], ["nuestro", "our"], ["Padre", "father"], ["y", "and"], ["del", "of-the"], ["Señor", "Lord"], ["Jesucristo.", "Jesus-Christ."]]},
   {num:4,words:[["Doy", "I-give"], ["gracias", "thanks"], ["a", "to"], ["mi", "my"], ["Dios,", "God,"], ["haciendo","making"], ["siempre", "always"], ["memoria", "remembrance"], ["de", "of"], ["ti","you"], ["en", "in"], ["mis", "my"], ["oraciones,", "prayers,"]]},

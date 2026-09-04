@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """
 spa_gloss — turn a dictionary lemma into the gloss the SURFACE form needs.
@@ -881,12 +882,46 @@ def unit_gloss(surface):
     return _UNITS.get(key)
 
 
+_NAME_REGISTRY = None
+
+
+def name_registry():
+    """Proper names, siloed OUT of the engine — the Hebrew TRANSLIT_TERMS idea.
+
+    One file, read by every consumer, so the pipeline and the detectors can
+    never drift apart on what counts as a name.
+
+    This sits in FRONT of everything, including the grammar, and that is not a
+    contradiction of the rule that a table must never overrule a grammar rule:
+    a proper name has no morphology to analyse and no sense to choose. There is
+    no rule here to overrule. `Marks` is not a form of anything; it is Marks.
+    Built by tools/build_name_registry.py from the canon, never by hand, and
+    it holds only surfaces the dictionary cannot render as a common word --
+    which is what keeps `Alma` the name apart from `alma` the soul.
+    """
+    global _NAME_REGISTRY
+    if _NAME_REGISTRY is None:
+        import json as _json
+        try:
+            with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                   'spa_names.json'), encoding='utf-8') as fh:
+                _NAME_REGISTRY = _json.load(fh)
+        except OSError:
+            _NAME_REGISTRY = {}
+    return _NAME_REGISTRY
+
+
 def gloss(surface, lemma, translation, first_sense, ctx=None, skip_tables=False):
     """The full pipeline: context -> vocabulary -> homograph -> inflection.
 
     Returns None to mean "leave the existing gloss alone" -- used when the
     token sits in a nominal slot and every table here would give a verb.
     """
+    bare = (surface or '').strip('.,;:¿?¡!»«()"“”— ')
+    if bare[:1].isupper():
+        nm = name_registry().get(bare)
+        if nm:
+            return nm                      # a name glosses as itself
     key = surface.lower().strip('.,;:¿?¡!»«()"“”— ')
     unit = unit_gloss(surface)
     if unit:
