@@ -158,8 +158,15 @@ def noun_position(prev_surface, surface):
         try:
             import spa_conjug
             tags = spa_conjug.form_index().get((surface or '').lower()) or []
-            if any(t != 'inf' for _l, t in tags):
-                return False          # clitic + verb, not determiner + noun
+            # An object clitic attaches to a FINITE verb ("la hemos"), or is
+            # enclitic on an infinitive or gerund and so not a separate token
+            # at all. It can never stand before a bare PARTICIPLE: "la entrada"
+            # is the entrance, not "it entered", and "la muerte", "la vista",
+            # "la salida" are all the same shape. Counting the participle as a
+            # verb here made every one of them look like clitic + verb, so the
+            # nominal gate never fired and the canon was left to guess.
+            if any(t not in ('inf', 'part', 'ger') for _l, t in tags):
+                return False          # clitic + finite verb, not det + noun
         except Exception:
             pass
     if p in _det():
@@ -874,7 +881,7 @@ def unit_gloss(surface):
     return _UNITS.get(key)
 
 
-def gloss(surface, lemma, translation, first_sense, ctx=None):
+def gloss(surface, lemma, translation, first_sense, ctx=None, skip_tables=False):
     """The full pipeline: context -> vocabulary -> homograph -> inflection.
 
     Returns None to mean "leave the existing gloss alone" -- used when the
@@ -884,17 +891,18 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
     unit = unit_gloss(surface)
     if unit:
         return unit
+    _T = not skip_tables
     c = {'prev': [], 'prev_surface': '', 'next_surface': '', 'comma_after': False,
          'next_finite_verb': False, 'keep_verb': None}
     c.update(ctx or {})
 
     # 1. explicit context rules come first: they are the ones that KNOW
-    if key in CONTEXTUAL:
+    if _T and key in CONTEXTUAL:
         trigger, yes, no = CONTEXTUAL[key]
         return yes if trigger(c) else no
 
     # 2. scriptural vocabulary: nouns, safe in any slot
-    if key in SCRIPTURAL:
+    if _T and key in SCRIPTURAL:
         return SCRIPTURAL[key]
 
     # 3. every table below returns a VERB reading, so the nominal slot has to
@@ -903,9 +911,9 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
     if noun_position(c['prev_surface'], key) or reflexive_position(c['prev_surface']):
         return None
 
-    if key in STRONG_PRETERITE:
+    if _T and key in STRONG_PRETERITE:
         return STRONG_PRETERITE[key]
-    if key in HOMOGRAPHS:
+    if _T and key in HOMOGRAPHS:
         return HOMOGRAPHS[key]
 
     # An enclitic pronoun is part of the word: gloss the verb, then the clitic.

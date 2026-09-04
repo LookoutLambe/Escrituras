@@ -583,3 +583,198 @@ def unrelated(book_filter=None, chapter_filter=None):
                             re.search(r'([^\w\- ]+)$', gl).group(1)
                             if re.search(r'([^\w\- ]+)$', gl) else '')})
     return out
+
+
+# ══════════════════════════════════════════════════════════════════════════
+# POSITIONAL DRIFT — the English laid down in ENGLISH order on Spanish tokens
+#
+# D&C 117:1 audits CLEAN under every test above and reads like this:
+#
+#     arreglen  -> "they-servant"     negocios -> "marks"
+#     Marks     -> "my"               Whitney, -> "k,"
+#
+# The Spanish says "arreglen sus negocios rápidamente mis siervos William
+# Marks"; the English says "unto my servant William Marks ... let them settle
+# up their business speedily". Somebody walked the two in parallel and the
+# orders do not match, so each token got whatever English word stood at its
+# index. Every gloss is a real word FROM THE VERSE, which is exactly why no
+# junk test and no non-English test can see it.
+#
+# The signature that does see it is OWNERSHIP. One English content word belongs
+# to one Spanish token. A gloss word is CONTESTED when
+#
+#   1. it is not a sense of the word it sits on, and
+#   2. it does appear in the verse's printed English, and
+#   3. some OTHER token in the verse can mean it -- or is the proper name it
+#      is a copy of.
+#
+# Condition 2 is what separates this from ordinary vocabulary error, and
+# condition 3 is what separates it from register: `sobre -> "upon"` satisfies
+# 1 and 2 in almost every verse it occurs in, and is CORRECT -- no other token
+# in the verse has any claim on "upon", so nothing is contested and it passes.
+# ══════════════════════════════════════════════════════════════════════════
+import functools as _ft
+import eng_sense as ES
+
+_PRONOUN_PREFIX = {'i', 'you', 'we', 'they', 'he', 'she', 'it',
+                   'my', 'your', 'his', 'her', 'our', 'their', 'its'}
+
+# Shared by construction, so never "contested": every clause can carry a
+# copula, and every infinitive an infinitival "to".
+_AUX_SHARED = {'be', 'is', 'am', 'are', 'was', 'were', 'been', 'being',
+               'have', 'has', 'had', 'do', 'does', 'did', 'will', 'shall',
+               'would', 'should', 'may', 'might', 'can', 'could', 'must',
+               'let', 'there', 'to'}
+
+
+def _looks_like_name(k, sp, senses):
+    """A capitalised token that the lexicon cannot render as a common word."""
+    if k in _known_names():
+        return True
+    if senses:
+        return False              # capitalised but the dictionary knows it
+    # Adán-ondi-Ahmán and Olaha Shinehah carry internal capitals after a
+    # hyphen; a pattern that allowed only lowercase after the first letter
+    # rejected them, and they are exactly the names this rule is for.
+    return bool(re.match(r"^[A-ZÁÉÍÓÚÑ][a-záéíóúñ'.]*(?:[-'][A-Za-zÁÉÍÓÚÑáéíóúñ]+)*\.?$",
+                         sp.strip(A.STRIP)))
+
+
+def _gloss_is_name_of(g, k):
+    """Does the gloss spell this name? Accent- and orthography-folded, so
+    Adán-ondi-Ahmán -> "adan-ondi-ahman" counts and so does Sion -> "zion"."""
+    import learn_register as LR
+    a = LR._fold(k)
+    for part in g.replace('-', ' ').split():
+        b = LR._fold(part)
+        if b and (a.startswith(b[:4]) or b.startswith(a[:4]) or a == b):
+            return True
+    return LR._same_name(k, g.replace('-', ' ').split()[0]) if g else False
+
+
+@_ft.lru_cache(maxsize=1)
+def _register():
+    try:
+        with open(os.path.join(HERE, 'spa_register.json'), encoding='utf-8') as fh:
+            return {k: v['gloss'] if isinstance(v, dict) else v
+                    for k, v in json.load(fh).items()}
+    except OSError:
+        return {}
+
+
+def _resolve(k, lex, forms, names):
+    """(senses, is_name) for one surface form. Cached: the corpus is 1.07M
+    tokens over ~60k types, so resolving per occurrence is 18x the work."""
+    src, tr = S.gloss_candidates(S.normalise(k), lex, forms, names)
+    if not src or not tr:
+        return set(), src == 'name'
+    sen = ES.spread(tr)
+    if ':' in str(src):
+        lemma = str(src).split(':')[1].split('>')[0]
+        sen |= ES.spread(lex.get(lemma) or '')
+    reg = _register().get(k)
+    if reg:
+        sen |= ES.spread(reg)
+    return sen, src == 'name'
+
+
+def positional(book_filter=None, chapter_filter=None):
+    lex, forms, names = A.load()
+    cache = {}
+
+    def res(k):
+        if k not in cache:
+            cache[k] = _resolve(k, lex, forms, names)
+        return cache[k]
+
+    hits, verses = [], 0
+    for book, ch, v, en, toks in A.walk_verses():
+        if book_filter and book != book_filter:
+            continue
+        if chapter_filter and ch != chapter_filter:
+            continue
+        if not en:
+            continue
+        verses += 1
+        enw = set()
+        for w in re.findall(r"[A-Za-z']+", en.lower()):
+            enw |= ES.variants(w)
+        # every token's senses, and the fold of its own surface (a proper name
+        # owns its own spelling even when the lexicon has never heard of it)
+        sens, surf = [], []
+        for sp, gl in toks:
+            k = sp.lower().strip(A.STRIP)
+            s, _isname = res(k) if k and ' ' not in k else (set(), False)
+            sens.append(s)
+            surf.append(ES.variants(k))
+        for i, (sp, gl) in enumerate(toks):
+            g = gl.lower().strip(' .,;:!?¿¡"')
+            core = [t for t in g.replace('-', ' ').split()
+                    if t and t not in _PRONOUN_PREFIX and t not in STOPGLOSS]
+            k = sp.lower().strip(A.STRIP)
+
+            # ── RULE A: a proper name glosses as itself, and nothing else.
+            # Marks -> "my", Whitney -> "k", Granger -> "but", Olaha ->
+            # "plains", Adan-ondi-Ahman -> "be". The name is right there in the
+            # English; the gloss is whatever word fell at that index instead.
+            # This needs no ownership test and no dictionary: a capitalised
+            # token mid-sentence whose gloss is not its own spelling is wrong.
+            gparts = g.replace('-', ' ').split()
+            if (gparts and sp[:1].isupper() and i > 0 and len(k) > 1
+                    and not (ES.variants(gparts[0]) & surf[i])):
+                folded = ES._fold_name(k) if hasattr(ES, '_fold_name') else k
+                if _looks_like_name(k, sp, sens[i]) and not _gloss_is_name_of(g, k):
+                    hits.append({'book': book, 'ch': ch, 'v': v, 'i': i,
+                                 'rule': 'name', 'sp': sp, 'gloss': gl,
+                                 'word': (core[0] if core else g),
+                                 'owner': '(itself)',
+                                 'english': en,
+                                 'owner_gloss': sp.strip(A.STRIP)})
+                    continue
+
+            # Rule B needs a content word; Rule A above does not, and must
+            # run first. `Marks` glossed "my" has no content word at all, and
+            # an early `if not core: continue` skipped it before the name rule
+            # could see it -- so the one token whose gloss was purely a stolen
+            # possessive was the one the detector could not report.
+            if not core:
+                continue
+
+            # ── RULE B: a CONTENT word contested by another token.
+            # Restricted to content words on purpose. Function words and
+            # copulas are legitimately shared -- the infinitival "to" of
+            # `guardarla -> "to-keep-it"` duplicates the "to" of `para`, and
+            # `hay -> "there-is"` duplicates the "be" of `sea`, and both are
+            # correct. Requiring a content word drops those without a list of
+            # exceptions.
+            for w in core:
+                if w in FUNCTION_EN or w in _AUX_SHARED:
+                    continue
+                wv = ES.variants(w)
+                if wv & sens[i] or wv & surf[i]:
+                    continue                       # the token owns it
+                if not (wv & enw):
+                    continue                       # not from this sentence
+                owners = [j for j in range(len(toks))
+                          if j != i and (wv & sens[j] or wv & surf[j])]
+                if not owners:
+                    continue                       # register/synonym, not drift
+                hits.append({'book': book, 'ch': ch, 'v': v, 'i': i,
+                             'rule': 'contested', 'sp': sp, 'gloss': gl,
+                             'word': w, 'owner': toks[owners[0]][0],
+                             'english': en,
+                             'owner_gloss': toks[owners[0]][1]})
+                break
+    return hits, verses
+
+
+def main_positional(argv):
+    bk = argv[0] if argv else None
+    chn = int(argv[1]) if len(argv) > 1 else None
+    hits, verses = positional(bk, chn)
+    print('  %d contested glosses across %d verses\n' % (len(hits), verses))
+    for h in hits[:80]:
+        print('   %-9s %-9s %s:%-4s %-18s %-18s  "%s" belongs to %s (%s)'
+              % (h.get('rule', ''), h['book'], h['ch'], h['v'], h['sp'],
+                 '"' + h['gloss'] + '"', h['word'], h['owner'], h['owner_gloss']))
+    return 0
