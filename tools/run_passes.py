@@ -316,6 +316,74 @@ def pass_written_subject(dry):
     return A.edit_tokens(fix, dry)
 
 
+def pass_enclitics(dry):
+    """An enclitic pronoun is part of the word and belongs in its gloss.
+    "hacerlo" is "to-do-it", not "do"; "darle" is "to-give-him", not "give"."""
+    lex, forms, names = A.load()
+    fix = {}
+    for book, ch, v, en, toks in A.walk_verses():
+        for i, (sp, g) in enumerate(toks):
+            k = sp.lower().strip(A.STRIP)
+            if not G.split_enclitic(k):
+                continue
+            src, tr = S.gloss_candidates(S.normalise(k), lex, forms, names)
+            lemma = src.split(':')[1].split('>')[0] if src and ':' in src else k
+            cand = G.gloss(k, lemma, tr or '', S.first_sense,
+                           A.build_ctx(toks, i, lex, forms))
+            if cand and str(cand) != g.strip('.,;:!?'):
+                fix[(book, ch, v, i)] = str(cand) + tail(g)
+    return A.edit_tokens(fix, dry)
+
+
+def pass_dative_possession(dry):
+    """Spanish marks possession with a dative clitic plus a DEFINITE article;
+    English puts a possessive in the article's slot.
+
+    "quitarte la vida" is "to take your life": the "your" is carried by the
+    -te and lands on the article, not on the verb. So both tokens move — the
+    verb drops the clitic ("to-take") and the article becomes the possessive
+    ("your") — which is the only split that reads as English across the three.
+
+    Applied only where that verse's own English reads the possessive, because
+    the same shape is often a plain dative: "predicarles la palabra" is
+    "preach the word UNTO them", not "their word". The canon is KJV, so thy
+    and thine count as "your" and mine as "my".
+    """
+    DAT = {'me': ('my', ('my', 'mine')), 'te': ('your', ('thy', 'thine', 'your')),
+           'le': ('his', ('his', 'her')), 'nos': ('our', ('our',)),
+           'os': ('your', ('your', 'thy')), 'les': ('their', ('their',))}
+    ART = {'la', 'el', 'los', 'las'}
+    fix = {}
+    for book, ch, v, en, toks in A.walk_verses():
+        if not en:
+            continue
+        low = ' ' + re.sub(r"[^a-z ]+", ' ', en.lower()) + ' '
+        for i, (sp, g) in enumerate(toks):
+            k = sp.lower().strip(A.STRIP)
+            enc = G.split_enclitic(k)
+            if not enc or i + 2 >= len(toks):
+                continue
+            stem, clitic, _kind = enc
+            if clitic not in DAT:
+                continue
+            poss, canon_forms = DAT[clitic]
+            if toks[i + 1][0].lower().strip(A.STRIP) not in ART:
+                continue
+            noun = toks[i + 2][1].strip('.,;:!?').lower()
+            if not noun:
+                continue
+            if not any((' ' + cf + ' ' + noun + ' ') in low for cf in canon_forms):
+                continue
+            # the verb keeps its infinitive but loses the clitic, which has
+            # moved onto the article
+            cur = g.strip('.,;:!?')
+            m = re.match(r'^(.*)-' + re.escape(G.ENCLITIC_EN[clitic]) + r'$', cur)
+            if m:
+                fix[(book, ch, v, i)] = m.group(1) + tail(g)
+            fix[(book, ch, v, i + 1)] = poss + tail(toks[i + 1][1])
+    return A.edit_tokens(fix, dry)
+
+
 PASSES = [
     ('reflexive pronouns', pass_reflexives),
     ('x/y by the verse', pass_xy_witnessed),
@@ -328,6 +396,8 @@ PASSES = [
     ('auxiliary+participle verbs', pass_born),
     ('no+poder units', pass_poder_units),
     ('written subject', pass_written_subject),
+    ('enclitic pronouns', pass_enclitics),
+    ('dative of possession', pass_dative_possession),
 ]
 
 

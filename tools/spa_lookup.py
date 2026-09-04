@@ -20,12 +20,14 @@ corpus is inflected. On its own the dictionary matched 69.2% of tokens but only
   python3 tools/spa_lookup.py --coverage        # measure against verses/*.js
 """
 import json, os, re, sys
+import functools
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from spa_gloss import gloss as _shape
 from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+@functools.lru_cache(maxsize=1)
 def load_lexicon():
     raw = json.load(open(os.path.join(ROOT, 'spa_eng_dict.json'), encoding='utf-8'))
     arr = json.loads(raw) if isinstance(raw, str) else raw
@@ -50,6 +52,7 @@ def load_supplement():
                 if not k.startswith('_')}
     return _SUP
 
+@functools.lru_cache(maxsize=1)
 def load_lemmas():
     """form -> {lemma, ...}. The file is 'lemma<TAB>form', one per line."""
     forms = {}

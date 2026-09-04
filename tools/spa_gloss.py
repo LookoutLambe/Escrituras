@@ -164,7 +164,14 @@ def noun_position(prev_surface, surface):
             pass
     if p in _det():
         return True
-    if p in _prep() and not surface.lower().endswith(('ar', 'er', 'ir')):
+    if p in _prep():
+        # An infinitive after a preposition is still a verb -- and an enclitic
+        # hides the ending, so "de quitarte" looked nominal and the token was
+        # left alone. Test for the verb, not for the last two letters.
+        if surface.lower().endswith(('ar', 'er', 'ir')):
+            return False
+        if split_enclitic(surface.lower()):
+            return False
         return True
     return False
 
@@ -358,6 +365,42 @@ def _build(v, shape, person=None, bare_infinitive=False, drop_pron=False):
     if pron and shape not in NON_FINITE:
         core = pron + JOIN + core
     return core
+
+
+# An enclitic pronoun is part of the word and must appear in its gloss.
+# "hacerlo" is "to-do-it", "darle" is "to-give-him", "quitarte" is
+# "to-take-you". Dropping it left 4,201 tokens glossed as the bare verb, so
+# the reader saw "do" for a word that says "to do it".
+ENCLITIC_EN = {
+    'me': 'me', 'te': 'you', 'nos': 'us', 'os': 'you',
+    'lo': 'it', 'la': 'it', 'los': 'them', 'las': 'them',
+    'le': 'him', 'les': 'them', 'se': 'himself',
+    'melo': 'it-to-me', 'mela': 'it-to-me', 'telo': 'it-to-you',
+    'tela': 'it-to-you', 'selo': 'it-to-him', 'sela': 'it-to-him',
+    'noslo': 'it-to-us', 'nosla': 'it-to-us',
+}
+_ENC_ORDER = sorted(ENCLITIC_EN, key=len, reverse=True)
+
+
+def split_enclitic(surface):
+    """(stem, clitic) when the word ends in an enclitic pronoun on a real
+    infinitive or gerund, else None. The stem must be a KNOWN infinitive:
+    "muerte" splits as muer+te and "muer" ends in -er, which is not a verb."""
+    k = (surface or '').lower()
+    try:
+        import spa_conjug
+        verbs, _ = spa_conjug.load()
+    except Exception:
+        return None
+    for e in _ENC_ORDER:
+        if k.endswith(e) and len(k) > len(e) + 2:
+            stem = k[:-len(e)]
+            if stem in verbs:
+                return stem, e, 'inf'
+            base = stem.replace('\u00e1ndo', 'ando').replace('\u00e9ndo', 'endo')
+            if base.endswith(('ando', 'iendo')):
+                return base, e, 'ger'
+    return None
 
 
 def looks_like_verb(surface, raw_translation, base, tag):
@@ -810,6 +853,21 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
         return STRONG_PRETERITE[key]
     if key in HOMOGRAPHS:
         return HOMOGRAPHS[key]
+
+    # An enclitic pronoun is part of the word: gloss the verb, then the clitic.
+    enc = split_enclitic(key)
+    if enc:
+        stem, clitic, kind = enc
+        try:
+            import spa_lookup as _sl
+            _lex, _forms = _sl.load_lexicon(), _sl.load_lemmas()
+            _src, _tr = _sl.gloss_candidates(stem, _lex, _forms, None)
+        except Exception:
+            _src = _tr = None
+        if _tr:
+            inner = gloss(stem, stem, _tr, first_sense, {'prev_surface': ''})
+            if inner:
+                return str(inner) + JOIN + ENCLITIC_EN[clitic]
 
     base = first_sense(translation)
     # the translator's established word for this lemma outranks sense #1,
