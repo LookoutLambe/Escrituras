@@ -243,30 +243,50 @@ def normalise(word):
 
 _SELFGLOSS = None
 
-def _self_gloss(w, lex):
-    """True when the dictionary entry just echoes the Spanish word back.
 
-    489 conjugated forms are recorded with themselves as their "translation":
-    empezaron -> "empezaron (verb; 3rd person plural)". Taken as a direct hit
-    that produced the gloss "empezaron (verb" -- a Spanish word and a
-    part-of-speech tag on the English line. Falling through to the lemma gives
-    "to begin", which the paradigm then inflects to "they-began".
+def _has_verb_lemma(w, lex):
+    """Does this form have a verb lemma the dictionary knows?
 
-    Restricted to forms the treebank tags as a VERB, so real cognate nouns
-    (adobe, crisis, region, local) keep their correct direct entry.
+    Used when the syntax guarantees a verb -- after a reflexive clitic, "se
+    hincha" can only be a verb -- so the modern noun entry must be skipped.
+    The dictionary is contemporary Spanish: `hincha` is listed as "fan (noun)",
+    a football supporter, and that reading won until this.
     """
-    global _SELFGLOSS
-    if _SELFGLOSS is None:
-        import os, json as _json
-        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                            'lexicon_selfgloss.json')
-        try:
-            with open(path, encoding='utf-8') as fh:
-                _SELFGLOSS = set(_json.load(fh))
-        except OSError:
-            _SELFGLOSS = set()
-    if w not in _SELFGLOSS:
+    try:
+        import spa_conjug
+        tags = spa_conjug.form_index().get(w) or []
+    except Exception:
         return False
+    return any(l in lex and t != 'inf' for l, t in tags)
+
+
+def _prefer_lemma(w, lex):
+    """True when a CONJUGATED verb form should be looked up by its lemma.
+
+    Direct dictionary entries for conjugated forms are junk in three distinct
+    ways, and all three produced broken English:
+
+        empezaron -> "empezaron (verb; 3rd person plural)"  -> "empezaron (verb"
+        llegaron  -> "they arrived (verb)"                  -> "they-theyed arrived"
+        estaban   -> "were (verb)"                          -> "they-wered"
+
+    The last one is the reason a skip-list is not enough: the entry looks
+    perfectly clean, it is simply ALREADY inflected, so inflecting it again
+    doubles the ending. The lemma plus the conjugation tag gives the right
+    answer in every case -- estar + impf.3p is "they were".
+
+    Guarded by part of speech, so genuine homograph nouns keep their direct
+    entry: vino (wine), casa (house), pueblo (people) are tagged NOUN.
+    """
+    try:
+        import spa_conjug
+        tags = spa_conjug.form_index().get(w)
+    except Exception:
+        return False
+    if not tags:
+        return False
+    if all(t == 'inf' or l == w for l, t in tags):
+        return False              # the infinitive itself: its entry is the lemma's
     try:
         import spa_morph
         pos = spa_morph.pos(w)
@@ -274,10 +294,11 @@ def _self_gloss(w, lex):
             return False
     except Exception:
         pass
-    return True
+    # only divert when the lemma actually has an entry to divert to
+    return any(l in lex for l, _t in tags)
 
 
-def gloss_candidates(word, lex, forms, names=None):
+def gloss_candidates(word, lex, forms, names=None, prefer_verb=False):
     """Return (source, english) or (None, None).
 
     Four passes, cheapest first: the dictionary itself, the lemma list, the
@@ -287,7 +308,8 @@ def gloss_candidates(word, lex, forms, names=None):
     w = normalise(word)
     if not w:
         return None, None
-    if w in lex and not _self_gloss(w, lex):
+    if w in lex and not _prefer_lemma(w, lex) and not (
+            prefer_verb and _has_verb_lemma(w, lex)):
         return 'direct', lex[w]
     for lemma in sorted(forms.get(w, ())):
         if lemma in lex:

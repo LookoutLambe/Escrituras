@@ -19,61 +19,26 @@ it instead of me applying it by hand every time.
 import re
 
 # ── 1. INFLECTION ────────────────────────────────────────────────────────────
-IRREGULAR = {
-    'be':('is','was','been','being'),      'go':('goes','went','gone','going'),
-    'say':('says','said','said','saying'), 'take':('takes','took','taken','taking'),
-    'come':('comes','came','come','coming'),'give':('gives','gave','given','giving'),
-    'see':('sees','saw','seen','seeing'),  'make':('makes','made','made','making'),
-    'do':('does','did','done','doing'),    'have':('has','had','had','having'),
-    'know':('knows','knew','known','knowing'),'speak':('speaks','spoke','spoken','speaking'),
-    'write':('writes','wrote','written','writing'),'find':('finds','found','found','finding'),
-    'send':('sends','sent','sent','sending'),'hear':('hears','heard','heard','hearing'),
-    'bring':('brings','brought','brought','bringing'),'leave':('leaves','left','left','leaving'),
-    'stand':('stands','stood','stood','standing'),'fall':('falls','fell','fallen','falling'),
-    'eat':('eats','ate','eaten','eating'), 'rise':('rises','rose','risen','rising'),
-    'flee':('flees','fled','fled','fleeing'),'build':('builds','built','built','building'),
-    'keep':('keeps','kept','kept','keeping'),'hold':('holds','held','held','holding'),
-    'put':('puts','put','put','putting'),  'set':('sets','set','set','setting'),
-    'become':('becomes','became','become','becoming'),
-    'sing':('sings','sang','sung','singing'),   'drink':('drinks','drank','drunk','drinking'),
-    'run':('runs','ran','run','running'),       'sit':('sits','sat','sat','sitting'),
-    'lie':('lies','lay','lain','lying'),        'lay':('lays','laid','laid','laying'),
-    'buy':('buys','bought','bought','buying'),  'seek':('seeks','sought','sought','seeking'),
-    'teach':('teaches','taught','taught','teaching'),'think':('thinks','thought','thought','thinking'),
-    'fight':('fights','fought','fought','fighting'),'catch':('catches','caught','caught','catching'),
-    'begin':('begins','began','begun','beginning'),'break':('breaks','broke','broken','breaking'),
-    'choose':('chooses','chose','chosen','choosing'),'forget':('forgets','forgot','forgotten','forgetting'),
-    'forgive':('forgives','forgave','forgiven','forgiving'),'grow':('grows','grew','grown','growing'),
-    'throw':('throws','threw','thrown','throwing'),'wear':('wears','wore','worn','wearing'),
-    'win':('wins','won','won','winning'),       'lose':('loses','lost','lost','losing'),
-    'feel':('feels','felt','felt','feeling'),   'tell':('tells','told','told','telling'),
-    'sell':('sells','sold','sold','selling'),   'meet':('meets','met','met','meeting'),
-    'read':('reads','read','read','reading'),   'lead':('leads','led','led','leading'),
-    'flee':('flees','fled','fled','fleeing'),   'shed':('sheds','shed','shed','shedding'),
-    'cast':('casts','cast','cast','casting'),   'cut':('cuts','cut','cut','cutting'),
-    'bear':('bears','bore','borne','bearing'),  'swear':('swears','swore','sworn','swearing'),
-}
+# English verb morphology comes from eng_verbs.py (Pattern/UPenn lexicon,
+# 8,466 verbs). The hand-typed IRREGULAR dict that used to live here held
+# about forty verbs and produced "drived", "cry outed" and "receivs" for
+# everything it did not know.
+import eng_verbs as _EV
 
 def _third(v):
-    if v in IRREGULAR: return IRREGULAR[v][0]
-    if re.search(r'(s|sh|ch|x|z|o)$', v): return v + 'es'
-    if re.search(r'[^aeiou]y$', v):       return v[:-1] + 'ies'
-    return v + 's'
+    return _EV.third(v)
 
 def _past(v):
-    if v in IRREGULAR: return IRREGULAR[v][1]
-    if v.endswith('e'):                   return v + 'd'
-    if re.search(r'[^aeiou]y$', v):       return v[:-1] + 'ied'
-    return v + 'ed'
+    return _EV.past(v)
 
 def _parti(v):
-    if v in IRREGULAR: return IRREGULAR[v][2]
-    return _past(v)
+    return _EV.participle(v)
 
 def _ing(v):
-    if v in IRREGULAR: return IRREGULAR[v][3]
-    if v.endswith('e') and not v.endswith('ee'): return v[:-1] + 'ing'
-    return v + 'ing'
+    return _EV.ing(v)
+
+IRREGULAR = {}      # retained only so old references resolve; the lexicon wins
+
 
 def pluralise(n):
     if re.search(r'(s|sh|ch|x|z)$', n):  return n + 'es'
@@ -204,33 +169,71 @@ JOIN = '-'
 PRONOUN = {'1s': 'I', '2s': 'you', '1p': 'we', '2p': 'you', '3p': 'they'}
 NON_FINITE = ('infinitive', 'participle', 'ing')
 
+def _head_inflect(v, fn):
+    """Inflect the HEAD of a phrasal verb: "cry out" -> "cried out".
+
+    _past("cry out") appended to the particle and produced "cry outed"; the
+    same broke "go out", "come to pass", "cast out" and every other phrasal
+    verb in the dictionary.
+    """
+    parts = v.split()
+    if len(parts) < 2:
+        return fn(v)
+    return ' '.join([fn(parts[0])] + parts[1:])
+
+
 def _build(v, shape, person=None):
     par = ENGLISH_PARADIGM.get(v)
     if par and person:
         if shape in ('plain', 'third'):
-            core = par['pres'].get(person) or (_third(v) if shape == 'third' else v)
+            core = par['pres'].get(person) or (_head_inflect(v, _third) if shape == 'third' else v)
             return (PRONOUN[person] + JOIN + core) if person in PRONOUN else core
         if shape == 'past':
-            core = par['past'].get(person) or _past(v)
+            core = par['past'].get(person) or _head_inflect(v, _past)
             return (PRONOUN[person] + JOIN + core) if person in PRONOUN else core
-    if shape == 'ing':         core = _ing(v)
-    elif shape == 'participle':core = _parti(v)
-    elif shape == 'past':      core = _past(v)
+    if shape == 'ing':         core = _head_inflect(v, _ing)
+    elif shape == 'participle':core = _head_inflect(v, _parti)
+    elif shape == 'past':      core = _head_inflect(v, _past)
     elif shape == 'future':    core = 'will' + JOIN + v
     elif shape == 'would':     core = 'would' + JOIN + v
     elif shape == 'may':       core = 'may' + JOIN + v
     elif shape == 'might':     core = 'might' + JOIN + v
     elif shape == 'should':    core = 'should' + JOIN + v
-    elif shape == 'third':     core = _third(v)
+    elif shape == 'third':     core = _head_inflect(v, _third)
     elif shape == 'infinitive':core = 'to' + JOIN + v
     else:                      core = v
+    # the corpus writes multiword glosses with hyphens (51,843 against 3,217),
+    # so a phrasal verb reads "they-went-out", not "they-went out"
+    core = core.replace(' ', JOIN)
     pron = PRONOUN.get(person or '')
     if pron and shape not in NON_FINITE:
         core = pron + JOIN + core
     return core
 
 
-def inflect(base, surface, lemma, prev_surface=None, verb=None):
+def looks_like_verb(surface, raw_translation, base, tag):
+    """Is this token a verb?
+
+    first_sense() strips the "(verb)" marker, so testing the STRIPPED sense for
+    it never matched and every verb recorded bare -- "enter (verb)", not "to
+    enter" -- fell through to the noun branch and lost its tense: entrando
+    glossed "enter" instead of "entering". Test the RAW entry, and fall back to
+    the treebank's part of speech.
+    """
+    if base.startswith('to '):
+        return True
+    if tag is None:
+        return False
+    if '(verb' in (raw_translation or '') or '(v.' in (raw_translation or ''):
+        return True
+    try:
+        import spa_morph
+        return spa_morph.pos(surface) in ('VERB', 'AUX')
+    except Exception:
+        return False
+
+
+def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None):
     """base is the dictionary sense ('to receive', 'advise', 'son', 'city').
 
     `verb`, when given, is the English verb to build from -- used to keep the
@@ -243,7 +246,7 @@ def inflect(base, surface, lemma, prev_surface=None, verb=None):
     # conjugation index is NOT sufficient either: "a", "thus", "said" and
     # "wine" all have verb homographs, and treating them as verbs produced
     # "may-a", "I-thused", "saided". Require the dictionary to call it a verb.
-    is_verb = base.startswith('to ') or (tag is not None and '(verb' in (base or ''))
+    is_verb = looks_like_verb(s, raw, base, tag)
     if is_verb and noun_position(prev_surface, s):
         return None            # nominal slot: the caller keeps the noun gloss
     if is_verb:
@@ -380,19 +383,24 @@ ARCHAIC_STEM = {
 _VOCAB = None
 
 def _vocab():
+    """Real English words, taken from the CANON -- not from the glosses.
+
+    Building this from the gloss column made it circular: a junk gloss like
+    "beginns" or "ands" appeared in the vocabulary and so validated itself,
+    and the detector that was meant to catch it reported it as a real word.
+    english_verses.js is 41,992 verses of actual English and is never edited,
+    so it is the right authority.
+    """
     global _VOCAB
     if _VOCAB is None:
-        import os as _os, glob as _glob
-        words = set()
+        import os as _os
         root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
-        tok = re.compile(r'\["(?:[^"\\]|\\.)*",\s*"((?:[^"\\]|\\.)*)"\]')
-        for f in _glob.glob(_os.path.join(root, 'verses', '*.js')):
-            try:
-                with open(f, encoding='utf-8') as fh:
-                    for g in tok.findall(fh.read()):
-                        words.update(w.lower() for w in re.findall(r"[A-Za-z]+", g))
-            except OSError:
-                pass
+        words = set()
+        try:
+            with open(_os.path.join(root, 'english_verses.js'), encoding='utf-8') as fh:
+                words.update(w.lower() for w in re.findall(r"[A-Za-z']+", fh.read()))
+        except OSError:
+            pass
         _VOCAB = words
     return _VOCAB
 
@@ -452,6 +460,30 @@ def modernise(gloss):
         else:
             out.append(part)
     return ''.join(out) if changed else gloss
+
+
+# ── the translator's own vocabulary ────────────────────────────────────────
+# The dictionary orders its senses its own way, and that order is often not
+# the one this translation uses: salir lists "leave" before "go out", empezar
+# lists "start" before "begin". Taking sense #1 silently overwrites the
+# translator's word choice. build_sense_choice.py reads the choice off the
+# existing corpus -- which sense the current glosses are actually forms of --
+# and this table is the result. 227 lemmas.
+_SENSE_CHOICE = None
+
+def sense_choice(lemma):
+    """The English verb THIS translation uses for a lemma, or None."""
+    global _SENSE_CHOICE
+    if _SENSE_CHOICE is None:
+        import os, json as _json
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'spa_sense_choice.json')
+        try:
+            with open(path, encoding='utf-8') as fh:
+                _SENSE_CHOICE = _json.load(fh)
+        except OSError:
+            _SENSE_CHOICE = {}
+    return _SENSE_CHOICE.get((lemma or '').lower())
 
 
 def apply_register(word):
@@ -526,7 +558,12 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
         return HOMOGRAPHS[key]
 
     base = first_sense(translation)
-    out = inflect(base, key, lemma, c['prev_surface'], c.get('keep_verb'))
+    # the translator's established word for this lemma outranks sense #1
+    learned = sense_choice(lemma)
+    if learned:
+        base = 'to ' + learned
+    out = inflect(base, key, lemma, c['prev_surface'], c.get('keep_verb'),
+                  raw=translation)
     if out is None:
         return None
     return apply_register(out)

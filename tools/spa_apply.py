@@ -259,7 +259,11 @@ def apply_persons(dry_run=False):
         yea also even still very more most out up down upon unto into his her their my
         your our its him them us me one two three now behold therefore because if
         while after before until since about against over under between among""".split())
-    PARTICIPLES = {v[2] for v in spa_gloss.IRREGULAR.values() if v[2] != v[1]}
+    import eng_verbs
+    # bare irregular participles ("seen", "given", "known"): a preterite tag on
+    # one needs "saw", not "I-seen", so the pronoun pass skips them
+    PARTICIPLES = {e['part'] for e in eng_verbs._table().values()
+                   if e.get('part') and e['part'] != e.get('past')}
     changes, files = Counter(), 0
     for path in sorted(glob.glob(os.path.join(ROOT, 'verses', '*.js'))):
         src = open(path, encoding='utf-8').read()
