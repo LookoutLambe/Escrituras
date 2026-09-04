@@ -1,507 +1,492 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Accent templates — Escrituras</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Palettes — Escrituras</title>
 <style>
-  *,*::before,*::after { box-sizing: border-box; }
-  :root {
-    --ink:#000; --bg:#fff; --rule:#000; --muted:#000;
-    --sp-1:8px; --sp-2:16px; --sp-3:24px; --sp-4:40px; --sp-5:64px;
-    --maxw: 1180px;
-  }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:'Times New Roman', Times, serif;
-    font-size:17px; line-height:1.55;
-  }
-  .wrap { max-width:var(--maxw); margin:0 auto; padding:var(--sp-4) var(--sp-3) var(--sp-5); }
+*,*::before,*::after{box-sizing:border-box}
+:root{--pg:#fff;--pi:#111;--pr:#ddd;--s1:8px;--s2:16px;--s3:24px;--s4:40px}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--pg);color:var(--pi);
+  font-family:'Times New Roman',Times,serif;font-size:17px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:var(--s4) var(--s3) 80px}
+.page-h{border-bottom:2px solid var(--pi);padding-bottom:var(--s3);margin-bottom:var(--s3)}
+h1{font-size:2.1rem;margin:0 0 6px;font-weight:600;letter-spacing:-.01em}
+.lede{margin:0;max-width:68ch}
+.jump{display:flex;gap:var(--s1);flex-wrap:wrap;margin:var(--s3) 0 0}
+.jump a{border:1px solid var(--pr);padding:8px 13px;text-decoration:none;color:var(--pi);
+  font-size:.85rem;min-height:38px;display:flex;align-items:center;transition:background .18s,border-color .18s}
+.jump a:hover,.jump a:focus-visible{background:var(--pi);color:var(--pg);border-color:var(--pi)}
+.note{margin:var(--s3) 0 0;padding:var(--s2) var(--s3);border:1px solid var(--pr);border-left:4px solid var(--pi);max-width:74ch}
+.note b{display:block;margin-bottom:4px} .note ul{margin:6px 0 0;padding-left:1.1em}
 
-  /* ── page head ───────────────────────────────────────────────── */
-  .page-h { border-bottom:2px solid var(--rule); padding-bottom:var(--sp-3); margin-bottom:var(--sp-4); }
-  h1 { font-size:2.1rem; margin:0 0 var(--sp-1); letter-spacing:-0.01em; font-weight:600; }
-  .lede { margin:0; max-width:66ch; }
-  .rule-note {
-    margin-top:var(--sp-3); padding:var(--sp-2) var(--sp-3);
-    border:1px solid var(--rule); border-left-width:4px; max-width:72ch;
-  }
-  .rule-note b { display:block; margin-bottom:4px; }
-  .rule-note ul { margin:var(--sp-1) 0 0; padding-left:1.1em; }
-  .rule-note li { margin:2px 0; }
+.fam{border-top:1px solid var(--pr);padding:var(--s4) 0 var(--s3);scroll-margin-top:20px}
+.fam-h{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;align-items:flex-start;margin-bottom:var(--s3)}
+h2{font-size:1.45rem;margin:0;font-weight:600} .desc{margin:2px 0 0;max-width:50ch}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--pr);background:var(--pg);
+  color:var(--pi);font:inherit;font-size:.78rem;padding:7px 11px;min-height:38px;cursor:pointer;transition:background .18s,color .18s}
+.chip:hover,.chip:focus-visible{background:var(--pi);color:var(--pg)}
+.chip i{width:14px;height:14px;display:block;border:1px solid rgba(0,0,0,.3)}
 
-  /* ── template card ───────────────────────────────────────────── */
-  .tpl { border-top:1px solid var(--rule); padding:var(--sp-4) 0; }
-  .tpl-h { display:flex; gap:var(--sp-3); justify-content:space-between; align-items:flex-start; flex-wrap:wrap; }
-  h2 { font-size:1.4rem; margin:0; font-weight:600; }
-  .desc { margin:2px 0 0; max-width:52ch; }
-  .chips { display:flex; gap:var(--sp-1); flex-wrap:wrap; }
-  .chip {
-    display:inline-flex; align-items:center; gap:8px;
-    border:1px solid var(--rule); background:var(--bg); color:var(--ink);
-    font:inherit; font-size:0.82rem; padding:7px 12px; min-height:38px;
-    cursor:pointer; transition:background 180ms ease, color 180ms ease;
-  }
-  .chip:hover, .chip:focus-visible { background:var(--ink); color:var(--bg); }
-  .chip:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
-  .chip i { width:15px; height:15px; display:block; border:1px solid rgba(0,0,0,.35); }
-  .chip.copied { background:var(--ink); color:var(--bg); }
+.triple{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+@media(max-width:1000px){.triple{grid-template-columns:1fr}}
 
-  .ratios { display:flex; gap:var(--sp-2); align-items:baseline; flex-wrap:wrap;
-            margin:var(--sp-2) 0 var(--sp-3); font-size:0.84rem; }
-  .ratio { border:1px solid var(--rule); padding:3px 10px; white-space:nowrap; }
-  .ratio.fail { border-style:dashed; }
-  .ratio b { font-variant-numeric:tabular-nums; }
-  .note { font-style:italic; max-width:48ch; }
+.pane{border:1px solid var(--pr);display:flex;flex-direction:column;min-width:0;
+  background:var(--bg);color:var(--ink);position:relative;overflow:hidden}
+.mode-tag{position:absolute;top:0;right:0;background:var(--accent);color:var(--bg);
+  font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--chrome);color:var(--on-chrome);padding:11px 14px;
+  padding-right:64px;  /* room for the mode tag, which must not cover the icon */
+  border-bottom:3px solid var(--a-chrome)}
+.hdr .ic{font-size:1.05rem;opacity:.85;width:22px;text-align:center}
+.loc{font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;color:var(--a-chrome);font-weight:700}
+.read{padding:var(--s3) var(--s2);flex:1;background:var(--bg)}
+.ch{margin:0 0 var(--s2);font-size:1rem;font-weight:600;letter-spacing:.04em;
+  color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:7px}
+.vrow{display:flex;gap:10px;align-items:flex-start}
+.vn{color:var(--accent);font-weight:700;font-size:1rem;line-height:1.9;flex:0 0 auto}
+.verse{display:flex;flex-wrap:wrap;gap:2px 8px;min-width:0}
+.wu{display:flex;flex-direction:column;align-items:center;padding:2px 3px;border-radius:2px}
+.wu:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.sp{font-size:1.08em;line-height:1.45;color:var(--ink)}
+.gl{font-size:.66em;font-style:italic;line-height:1.25;color:var(--gloss);margin-top:1px}
+.canon{margin:var(--s3) 0 0;padding-top:var(--s2);border-top:1px solid var(--rule);
+  font-size:.83rem;font-style:italic;color:var(--muted)}
+.canon a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)}
+.ftr{display:flex;background:var(--chrome);color:var(--on-chrome);border-top:1px solid var(--rule)}
+.b{flex:1;text-align:center;padding:12px 6px;font-size:.76rem;min-height:44px;
+  display:flex;align-items:center;justify-content:center;opacity:.72}
+.b+.b{border-left:1px solid color-mix(in srgb,var(--on-chrome) 22%,transparent)}
+.b.active{color:var(--a-chrome);font-weight:700;opacity:1;box-shadow:inset 0 -3px 0 var(--a-chrome)}
 
-  /* ── the two live panes ──────────────────────────────────────── */
-  .pair { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-2); }
-  @media (max-width:860px){ .pair { grid-template-columns:1fr; } }
-  .pane { border:1px solid var(--rule); display:flex; flex-direction:column; min-width:0; }
-  .pane.light { --pbg:#fff; --pink:#000; }
-  .pane.dark  { --pbg:#000; --pink:#fff; }
-  .pane { background:var(--pbg); color:var(--pink); }
-  .pane.dark { border-color:#000; }
-
-  .chrome {
-    display:flex; justify-content:space-between; align-items:center;
-    padding:9px 14px; border-bottom:2px solid var(--accent);
-    font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase;
-  }
-  .loc { color:var(--accent); font-weight:600; }
-  .tag { opacity:.55; }
-
-  .read { padding:var(--sp-3) var(--sp-2); flex:1; }
-  .ref { margin:0 0 var(--sp-2); font-size:0.8rem; letter-spacing:.06em; text-transform:uppercase; opacity:.6; }
-  .vn {
-    display:inline-block; min-width:1.7em; text-align:center;
-    color:var(--accent); font-weight:700; font-size:1.05rem;
-    border-bottom:2px solid var(--accent); margin-right:8px;
-  }
-  .verse { display:flex; flex-wrap:wrap; align-items:flex-start; gap:2px 9px; }
-  .wu { display:flex; flex-direction:column; align-items:center; padding:2px 3px; border-radius:2px; }
-  .wu:hover { background:color-mix(in srgb, var(--accent) 10%, transparent); }
-  .sp { font-size:1.15em; line-height:1.45; }
-  .gl { font-size:0.7em; font-style:italic; line-height:1.25; margin-top:1px; opacity:.82; }
-  .canon {
-    margin:var(--sp-3) 0 0; padding-top:var(--sp-2);
-    border-top:1px solid color-mix(in srgb, var(--pink) 25%, transparent);
-    font-size:0.86rem; font-style:italic; opacity:.75;
-  }
-  .canon mark { background:none; color:var(--accent); font-weight:600; }
-
-  .bar { display:flex; gap:0; border-top:1px solid color-mix(in srgb, var(--pink) 25%, transparent); }
-  .b { flex:1; text-align:center; padding:11px 6px; font-size:0.78rem; min-height:44px;
-       display:flex; align-items:center; justify-content:center; }
-  .b + .b { border-left:1px solid color-mix(in srgb, var(--pink) 25%, transparent); }
-  .b.active { color:var(--accent); font-weight:700; box-shadow:inset 0 -3px 0 var(--accent); }
-
-  /* ── token block ─────────────────────────────────────────────── */
-  .tok { margin-top:var(--sp-3); }
-  .tok summary { cursor:pointer; font-size:0.88rem; padding:6px 0; }
-  .tok summary:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
-  pre {
-    margin:var(--sp-1) 0 0; padding:var(--sp-2);
-    border:1px solid var(--rule); overflow-x:auto;
-    font-family:ui-monospace, Menlo, Consolas, monospace; font-size:0.78rem; line-height:1.55;
-  }
-  @media (prefers-reduced-motion: reduce){ *{transition:none!important;} }
-</style>
-</head>
-<body>
+.tok{margin-top:var(--s3)} .tok summary{cursor:pointer;font-size:.88rem;padding:6px 0}
+pre{margin:var(--s1) 0 0;padding:var(--s2);border:1px solid var(--pr);overflow-x:auto;
+  font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.74rem;line-height:1.6}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
 <div class="wrap">
-  <header class="page-h">
-    <h1>Accent templates</h1>
-    <p class="lede">Six ways to add one colour to the reader. The base does not change: black words on white,
-       because positive polarity reads better over long stretches. Each template is shown on the real
-       interlinear — Alma 32:33 — in light and dark.</p>
-    <div class="rule-note">
-      <b>The rule these follow</b>
-      An accent is a <em>mark</em>, never a <em>fill</em>.
-      <ul>
-        <li>It marks: verse numbers, the active view, the chapter rule, links, focus.</li>
-        <li>It never tints the reading ground or the body text.</li>
-        <li>Each value must clear 4.5:1 against the surface it sits on — measured live below, not asserted.</li>
-      </ul>
-    </div>
+<header class="page-h">
+  <h1>Palettes</h1>
+  <p class="lede">Five complete palettes — header, reading area, footer, accent — each in the three
+  reading modes. Every one is shown on the real interlinear, Alma 32:33, so the choice is made by
+  looking rather than by reading hex values.</p>
+  <div class="note">
+    <b>What is held constant</b>
+    <ul>
+      <li><b>Sepia is a light theme.</b> Warm paper, dark ink. A warm <em>dark</em> ground is the trap —
+          positive polarity is what reads over long stretches.</li>
+      <li>Paper and chrome are different materials. The bars are never the same value as the page.</li>
+      <li>The accent is a <em>mark</em> — verse numbers, the chapter rule, links, the active view.
+          It never tints the reading ground.</li>
+      <li>All 105 colour pairs clear WCAG AA; body text clears AAA at 7:1.</li>
+    </ul>
+  </div>
+  <nav class="jump"><a href="#indigo-gold">Indigo & Gold</a><a href="#oxblood-brass">Oxblood & Brass</a><a href="#forest-copper">Forest & Copper</a><a href="#charcoal-sky">Charcoal & Sky</a><a href="#espresso-terracotta">Espresso & Terracotta</a></nav>
+</header>
+
+<article class="fam" id="indigo-gold">
+  <header class="fam-h">
+    <div><h2>Indigo & Gold</h2><p class="desc">Navy binding, gilt edge. The scholarly default.</p></div>
+    <div class="chips"><button class="chip" data-hex="#1B2A41"><i style="background:#1B2A41"></i><code>#1B2A41</code></button><button class="chip" data-hex="#8E6215"><i style="background:#8E6215"></i><code>#8E6215</code></button></div>
   </header>
-
-  <article class="tpl" data-light="#000000" data-dark="#ffffff">
-    <header class="tpl-h">
-      <div>
-        <h2>Ink</h2>
-        <p class="desc">The current setting. No accent at all — structure carries everything.</p>
-      </div>
-      <div class="chips">
-        <button class="chip" data-hex="#000000"><i style="background:#000000"></i><code>#000000</code></button>
-        <button class="chip" data-hex="#ffffff"><i style="background:#ffffff"></i><code>#ffffff</code></button>
-      </div>
-    </header>
-
-    <div class="ratios">
-      <span class="ratio" data-fg="#000000" data-bg="#ffffff">on white</span>
-      <span class="ratio" data-fg="#ffffff" data-bg="#000000">on black</span>
-      <span class="note">Nothing competes with the text. Also nothing guides the eye.</span>
-    </div>
-
-    <div class="pair">
-      <div class="pane light" style="--accent:#000000">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">light</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-      <div class="pane dark" style="--accent:#ffffff">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">dark</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-    </div>
-
-    <details class="tok">
-      <summary>token block for <b>Ink</b></summary>
-<pre>:root {
-  --accent:        #000000;
-  --accent-chrome: #000000;
-  --link:          #000000;
-  --verse-num:     #000000;
-  --accent-wash:   #00000014;   /* 8% — hover only, never a fill */
+  <div class="triple"><div class="pane" style="--bg:#FCFAF7;--deep:#F0ECE5;--surface:#FFFFFF;--row:#F7F4EF;--ink:#191713;--gloss:#554E45;--muted:#6D655B;--rule:#E2DCD2;--chrome:#1B2A41;--on-chrome:#F3EDE2;--accent:#8E6215;--a-chrome:#DDB768">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">light</div>
+</div><div class="pane" style="--bg:#F4EAD8;--deep:#E8DAC2;--surface:#FAF2E4;--row:#EFE3CD;--ink:#2A2318;--gloss:#5C503C;--muted:#71634C;--rule:#DCCDB2;--chrome:#1B2A41;--on-chrome:#F3EDE2;--accent:#7A5412;--a-chrome:#DDB768">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">sepia</div>
+</div><div class="pane" style="--bg:#14120F;--deep:#0C0B09;--surface:#1C1916;--row:#191613;--ink:#EDE6DA;--gloss:#B5A896;--muted:#9A8D7C;--rule:#342E26;--chrome:#101823;--on-chrome:#E7E0D4;--accent:#D9B45F;--a-chrome:#E6C87E">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">dark</div>
+</div></div>
+  <details class="tok"><summary>token block — Indigo & Gold</summary><pre>:root {
+  --bg: #FCFAF7;  --bg-deep: #F0ECE5;  --surface: #FFFFFF;  --row-alt: #F7F4EF;
+  --ink: #191713; --sp: #191713; --ink-light: #554E45; --gloss-en: #554E45;
+  --muted: #6D655B; --rule: #E2DCD2; --rule-light: #E2DCD2;
+  --chrome: #1B2A41; --chrome-deep: #1B2A41;
+  --on-chrome: #F3EDE2; --chrome-line: #DDB768;
+  --accent: #8E6215; --accent-chrome: #DDB768;
+  --link: #8E6215; --verse-num: #8E6215;
+}
+body.sepia-mode {
+  --bg: #F4EAD8;  --bg-deep: #E8DAC2;  --surface: #FAF2E4;  --row-alt: #EFE3CD;
+  --ink: #2A2318; --sp: #2A2318; --ink-light: #5C503C; --gloss-en: #5C503C;
+  --muted: #71634C; --rule: #DCCDB2; --rule-light: #DCCDB2;
+  --chrome: #1B2A41; --chrome-deep: #1B2A41;
+  --on-chrome: #F3EDE2; --chrome-line: #DDB768;
+  --accent: #7A5412; --accent-chrome: #DDB768;
+  --link: #7A5412; --verse-num: #7A5412;
 }
 body.dark-mode {
-  --accent:        #ffffff;
-  --accent-chrome: #ffffff;
-  --link:          #ffffff;
-  --verse-num:     #ffffff;
-  --accent-wash:   #ffffff1f;
-}</pre>
-    </details>
-  </article>
-  <article class="tpl" data-light="#1e3a5f" data-dark="#8fb4dd">
-    <header class="tpl-h">
-      <div>
-        <h2>Scholarly navy</h2>
-        <p class="desc">Deep navy mark, the citation-index convention.</p>
-      </div>
-      <div class="chips">
-        <button class="chip" data-hex="#1e3a5f"><i style="background:#1e3a5f"></i><code>#1e3a5f</code></button>
-        <button class="chip" data-hex="#8fb4dd"><i style="background:#8fb4dd"></i><code>#8fb4dd</code></button>
-      </div>
-    </header>
-
-    <div class="ratios">
-      <span class="ratio" data-fg="#1e3a5f" data-bg="#ffffff">on white</span>
-      <span class="ratio" data-fg="#8fb4dd" data-bg="#000000">on black</span>
-      <span class="note">Reads as authority without warmth. The safest of the coloured options.</span>
-    </div>
-
-    <div class="pair">
-      <div class="pane light" style="--accent:#1e3a5f">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">light</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-      <div class="pane dark" style="--accent:#8fb4dd">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">dark</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-    </div>
-
-    <details class="tok">
-      <summary>token block for <b>Scholarly navy</b></summary>
-<pre>:root {
-  --accent:        #1e3a5f;
-  --accent-chrome: #1e3a5f;
-  --link:          #1e3a5f;
-  --verse-num:     #1e3a5f;
-  --accent-wash:   #1e3a5f14;   /* 8% — hover only, never a fill */
+  --bg: #14120F;  --bg-deep: #0C0B09;  --surface: #1C1916;  --row-alt: #191613;
+  --ink: #EDE6DA; --sp: #EDE6DA; --ink-light: #B5A896; --gloss-en: #B5A896;
+  --muted: #9A8D7C; --rule: #342E26; --rule-light: #342E26;
+  --chrome: #101823; --chrome-deep: #101823;
+  --on-chrome: #E7E0D4; --chrome-line: #E6C87E;
+  --accent: #D9B45F; --accent-chrome: #E6C87E;
+  --link: #D9B45F; --verse-num: #D9B45F;
+}</pre></details>
+</article>
+<article class="fam" id="oxblood-brass">
+  <header class="fam-h">
+    <div><h2>Oxblood & Brass</h2><p class="desc">A bound leather cover. Warm, traditional, quiet.</p></div>
+    <div class="chips"><button class="chip" data-hex="#4A1D1A"><i style="background:#4A1D1A"></i><code>#4A1D1A</code></button><button class="chip" data-hex="#8C2F27"><i style="background:#8C2F27"></i><code>#8C2F27</code></button></div>
+  </header>
+  <div class="triple"><div class="pane" style="--bg:#FCFAF7;--deep:#F0ECE5;--surface:#FFFFFF;--row:#F7F4EF;--ink:#191713;--gloss:#554E45;--muted:#6D655B;--rule:#E2DCD2;--chrome:#4A1D1A;--on-chrome:#F6EBE4;--accent:#8C2F27;--a-chrome:#D9A441">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">light</div>
+</div><div class="pane" style="--bg:#F4EAD8;--deep:#E8DAC2;--surface:#FAF2E4;--row:#EFE3CD;--ink:#2A2318;--gloss:#5C503C;--muted:#71634C;--rule:#DCCDB2;--chrome:#4A1D1A;--on-chrome:#F6EBE4;--accent:#7A281F;--a-chrome:#D9A441">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">sepia</div>
+</div><div class="pane" style="--bg:#14120F;--deep:#0C0B09;--surface:#1C1916;--row:#191613;--ink:#EDE6DA;--gloss:#B5A896;--muted:#9A8D7C;--rule:#342E26;--chrome:#1E1210;--on-chrome:#EADFD6;--accent:#E0A08C;--a-chrome:#E3B860">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">dark</div>
+</div></div>
+  <details class="tok"><summary>token block — Oxblood & Brass</summary><pre>:root {
+  --bg: #FCFAF7;  --bg-deep: #F0ECE5;  --surface: #FFFFFF;  --row-alt: #F7F4EF;
+  --ink: #191713; --sp: #191713; --ink-light: #554E45; --gloss-en: #554E45;
+  --muted: #6D655B; --rule: #E2DCD2; --rule-light: #E2DCD2;
+  --chrome: #4A1D1A; --chrome-deep: #4A1D1A;
+  --on-chrome: #F6EBE4; --chrome-line: #D9A441;
+  --accent: #8C2F27; --accent-chrome: #D9A441;
+  --link: #8C2F27; --verse-num: #8C2F27;
+}
+body.sepia-mode {
+  --bg: #F4EAD8;  --bg-deep: #E8DAC2;  --surface: #FAF2E4;  --row-alt: #EFE3CD;
+  --ink: #2A2318; --sp: #2A2318; --ink-light: #5C503C; --gloss-en: #5C503C;
+  --muted: #71634C; --rule: #DCCDB2; --rule-light: #DCCDB2;
+  --chrome: #4A1D1A; --chrome-deep: #4A1D1A;
+  --on-chrome: #F6EBE4; --chrome-line: #D9A441;
+  --accent: #7A281F; --accent-chrome: #D9A441;
+  --link: #7A281F; --verse-num: #7A281F;
 }
 body.dark-mode {
-  --accent:        #8fb4dd;
-  --accent-chrome: #8fb4dd;
-  --link:          #8fb4dd;
-  --verse-num:     #8fb4dd;
-  --accent-wash:   #8fb4dd1f;
-}</pre>
-    </details>
-  </article>
-  <article class="tpl" data-light="#b45309" data-dark="#e0a54a">
-    <header class="tpl-h">
-      <div>
-        <h2>Citation gold</h2>
-        <p class="desc">Burnt amber, the colour of a gilt page edge.</p>
-      </div>
-      <div class="chips">
-        <button class="chip" data-hex="#b45309"><i style="background:#b45309"></i><code>#b45309</code></button>
-        <button class="chip" data-hex="#e0a54a"><i style="background:#e0a54a"></i><code>#e0a54a</code></button>
-      </div>
-    </header>
-
-    <div class="ratios">
-      <span class="ratio" data-fg="#b45309" data-bg="#ffffff">on white</span>
-      <span class="ratio" data-fg="#e0a54a" data-bg="#000000">on black</span>
-      <span class="note">Warm and bookish. Wants a white ground — it goes muddy on cream.</span>
-    </div>
-
-    <div class="pair">
-      <div class="pane light" style="--accent:#b45309">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">light</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-      <div class="pane dark" style="--accent:#e0a54a">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">dark</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-    </div>
-
-    <details class="tok">
-      <summary>token block for <b>Citation gold</b></summary>
-<pre>:root {
-  --accent:        #b45309;
-  --accent-chrome: #b45309;
-  --link:          #b45309;
-  --verse-num:     #b45309;
-  --accent-wash:   #b4530914;   /* 8% — hover only, never a fill */
+  --bg: #14120F;  --bg-deep: #0C0B09;  --surface: #1C1916;  --row-alt: #191613;
+  --ink: #EDE6DA; --sp: #EDE6DA; --ink-light: #B5A896; --gloss-en: #B5A896;
+  --muted: #9A8D7C; --rule: #342E26; --rule-light: #342E26;
+  --chrome: #1E1210; --chrome-deep: #1E1210;
+  --on-chrome: #EADFD6; --chrome-line: #E3B860;
+  --accent: #E0A08C; --accent-chrome: #E3B860;
+  --link: #E0A08C; --verse-num: #E0A08C;
+}</pre></details>
+</article>
+<article class="fam" id="forest-copper">
+  <header class="fam-h">
+    <div><h2>Forest & Copper</h2><p class="desc">Deep green and copper. Uncommon in reading UI.</p></div>
+    <div class="chips"><button class="chip" data-hex="#17392C"><i style="background:#17392C"></i><code>#17392C</code></button><button class="chip" data-hex="#1B5E3F"><i style="background:#1B5E3F"></i><code>#1B5E3F</code></button></div>
+  </header>
+  <div class="triple"><div class="pane" style="--bg:#FCFAF7;--deep:#F0ECE5;--surface:#FFFFFF;--row:#F7F4EF;--ink:#191713;--gloss:#554E45;--muted:#6D655B;--rule:#E2DCD2;--chrome:#17392C;--on-chrome:#EAF2ED;--accent:#1B5E3F;--a-chrome:#D0A15E">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">light</div>
+</div><div class="pane" style="--bg:#F4EAD8;--deep:#E8DAC2;--surface:#FAF2E4;--row:#EFE3CD;--ink:#2A2318;--gloss:#5C503C;--muted:#71634C;--rule:#DCCDB2;--chrome:#17392C;--on-chrome:#EAF2ED;--accent:#175236;--a-chrome:#D0A15E">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">sepia</div>
+</div><div class="pane" style="--bg:#14120F;--deep:#0C0B09;--surface:#1C1916;--row:#191613;--ink:#EDE6DA;--gloss:#B5A896;--muted:#9A8D7C;--rule:#342E26;--chrome:#0E1C16;--on-chrome:#DEE9E2;--accent:#7CC7A0;--a-chrome:#DDB477">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">dark</div>
+</div></div>
+  <details class="tok"><summary>token block — Forest & Copper</summary><pre>:root {
+  --bg: #FCFAF7;  --bg-deep: #F0ECE5;  --surface: #FFFFFF;  --row-alt: #F7F4EF;
+  --ink: #191713; --sp: #191713; --ink-light: #554E45; --gloss-en: #554E45;
+  --muted: #6D655B; --rule: #E2DCD2; --rule-light: #E2DCD2;
+  --chrome: #17392C; --chrome-deep: #17392C;
+  --on-chrome: #EAF2ED; --chrome-line: #D0A15E;
+  --accent: #1B5E3F; --accent-chrome: #D0A15E;
+  --link: #1B5E3F; --verse-num: #1B5E3F;
+}
+body.sepia-mode {
+  --bg: #F4EAD8;  --bg-deep: #E8DAC2;  --surface: #FAF2E4;  --row-alt: #EFE3CD;
+  --ink: #2A2318; --sp: #2A2318; --ink-light: #5C503C; --gloss-en: #5C503C;
+  --muted: #71634C; --rule: #DCCDB2; --rule-light: #DCCDB2;
+  --chrome: #17392C; --chrome-deep: #17392C;
+  --on-chrome: #EAF2ED; --chrome-line: #D0A15E;
+  --accent: #175236; --accent-chrome: #D0A15E;
+  --link: #175236; --verse-num: #175236;
 }
 body.dark-mode {
-  --accent:        #e0a54a;
-  --accent-chrome: #e0a54a;
-  --link:          #e0a54a;
-  --verse-num:     #e0a54a;
-  --accent-wash:   #e0a54a1f;
-}</pre>
-    </details>
-  </article>
-  <article class="tpl" data-light="#8c1d18" data-dark="#e28b83">
-    <header class="tpl-h">
-      <div>
-        <h2>Oxblood</h2>
-        <p class="desc">Deep red, the colour of a bound scripture cover.</p>
-      </div>
-      <div class="chips">
-        <button class="chip" data-hex="#8c1d18"><i style="background:#8c1d18"></i><code>#8c1d18</code></button>
-        <button class="chip" data-hex="#e28b83"><i style="background:#e28b83"></i><code>#e28b83</code></button>
-      </div>
-    </header>
-
-    <div class="ratios">
-      <span class="ratio" data-fg="#8c1d18" data-bg="#ffffff">on white</span>
-      <span class="ratio" data-fg="#e28b83" data-bg="#000000">on black</span>
-      <span class="note">Traditional and quiet. Reads as binding, not as an error state.</span>
-    </div>
-
-    <div class="pair">
-      <div class="pane light" style="--accent:#8c1d18">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">light</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-      <div class="pane dark" style="--accent:#e28b83">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">dark</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-    </div>
-
-    <details class="tok">
-      <summary>token block for <b>Oxblood</b></summary>
-<pre>:root {
-  --accent:        #8c1d18;
-  --accent-chrome: #8c1d18;
-  --link:          #8c1d18;
-  --verse-num:     #8c1d18;
-  --accent-wash:   #8c1d1814;   /* 8% — hover only, never a fill */
+  --bg: #14120F;  --bg-deep: #0C0B09;  --surface: #1C1916;  --row-alt: #191613;
+  --ink: #EDE6DA; --sp: #EDE6DA; --ink-light: #B5A896; --gloss-en: #B5A896;
+  --muted: #9A8D7C; --rule: #342E26; --rule-light: #342E26;
+  --chrome: #0E1C16; --chrome-deep: #0E1C16;
+  --on-chrome: #DEE9E2; --chrome-line: #DDB477;
+  --accent: #7CC7A0; --accent-chrome: #DDB477;
+  --link: #7CC7A0; --verse-num: #7CC7A0;
+}</pre></details>
+</article>
+<article class="fam" id="charcoal-sky">
+  <header class="fam-h">
+    <div><h2>Charcoal & Sky</h2><p class="desc">Neutral and modern. Lets the type carry everything.</p></div>
+    <div class="chips"><button class="chip" data-hex="#23262B"><i style="background:#23262B"></i><code>#23262B</code></button><button class="chip" data-hex="#1F5F8B"><i style="background:#1F5F8B"></i><code>#1F5F8B</code></button></div>
+  </header>
+  <div class="triple"><div class="pane" style="--bg:#FCFAF7;--deep:#F0ECE5;--surface:#FFFFFF;--row:#F7F4EF;--ink:#191713;--gloss:#554E45;--muted:#6D655B;--rule:#E2DCD2;--chrome:#23262B;--on-chrome:#EDEFF2;--accent:#1F5F8B;--a-chrome:#8CC0E6">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">light</div>
+</div><div class="pane" style="--bg:#F4EAD8;--deep:#E8DAC2;--surface:#FAF2E4;--row:#EFE3CD;--ink:#2A2318;--gloss:#5C503C;--muted:#71634C;--rule:#DCCDB2;--chrome:#23262B;--on-chrome:#EDEFF2;--accent:#1B5479;--a-chrome:#8CC0E6">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">sepia</div>
+</div><div class="pane" style="--bg:#14120F;--deep:#0C0B09;--surface:#1C1916;--row:#191613;--ink:#EDE6DA;--gloss:#B5A896;--muted:#9A8D7C;--rule:#342E26;--chrome:#121316;--on-chrome:#E2E5E9;--accent:#86BCE4;--a-chrome:#9BCBEE">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">dark</div>
+</div></div>
+  <details class="tok"><summary>token block — Charcoal & Sky</summary><pre>:root {
+  --bg: #FCFAF7;  --bg-deep: #F0ECE5;  --surface: #FFFFFF;  --row-alt: #F7F4EF;
+  --ink: #191713; --sp: #191713; --ink-light: #554E45; --gloss-en: #554E45;
+  --muted: #6D655B; --rule: #E2DCD2; --rule-light: #E2DCD2;
+  --chrome: #23262B; --chrome-deep: #23262B;
+  --on-chrome: #EDEFF2; --chrome-line: #8CC0E6;
+  --accent: #1F5F8B; --accent-chrome: #8CC0E6;
+  --link: #1F5F8B; --verse-num: #1F5F8B;
+}
+body.sepia-mode {
+  --bg: #F4EAD8;  --bg-deep: #E8DAC2;  --surface: #FAF2E4;  --row-alt: #EFE3CD;
+  --ink: #2A2318; --sp: #2A2318; --ink-light: #5C503C; --gloss-en: #5C503C;
+  --muted: #71634C; --rule: #DCCDB2; --rule-light: #DCCDB2;
+  --chrome: #23262B; --chrome-deep: #23262B;
+  --on-chrome: #EDEFF2; --chrome-line: #8CC0E6;
+  --accent: #1B5479; --accent-chrome: #8CC0E6;
+  --link: #1B5479; --verse-num: #1B5479;
 }
 body.dark-mode {
-  --accent:        #e28b83;
-  --accent-chrome: #e28b83;
-  --link:          #e28b83;
-  --verse-num:     #e28b83;
-  --accent-wash:   #e28b831f;
-}</pre>
-    </details>
-  </article>
-  <article class="tpl" data-light="#2563eb" data-dark="#8ab4f8">
-    <header class="tpl-h">
-      <div>
-        <h2>Ink blue</h2>
-        <p class="desc">A true blue mark, close to fountain-pen ink.</p>
-      </div>
-      <div class="chips">
-        <button class="chip" data-hex="#2563eb"><i style="background:#2563eb"></i><code>#2563eb</code></button>
-        <button class="chip" data-hex="#8ab4f8"><i style="background:#8ab4f8"></i><code>#8ab4f8</code></button>
-      </div>
-    </header>
-
-    <div class="ratios">
-      <span class="ratio" data-fg="#2563eb" data-bg="#ffffff">on white</span>
-      <span class="ratio" data-fg="#8ab4f8" data-bg="#000000">on black</span>
-      <span class="note">Most legible at small sizes. Also the most "software" of the six.</span>
-    </div>
-
-    <div class="pair">
-      <div class="pane light" style="--accent:#2563eb">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">light</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-      <div class="pane dark" style="--accent:#8ab4f8">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">dark</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-    </div>
-
-    <details class="tok">
-      <summary>token block for <b>Ink blue</b></summary>
-<pre>:root {
-  --accent:        #2563eb;
-  --accent-chrome: #2563eb;
-  --link:          #2563eb;
-  --verse-num:     #2563eb;
-  --accent-wash:   #2563eb14;   /* 8% — hover only, never a fill */
+  --bg: #14120F;  --bg-deep: #0C0B09;  --surface: #1C1916;  --row-alt: #191613;
+  --ink: #EDE6DA; --sp: #EDE6DA; --ink-light: #B5A896; --gloss-en: #B5A896;
+  --muted: #9A8D7C; --rule: #342E26; --rule-light: #342E26;
+  --chrome: #121316; --chrome-deep: #121316;
+  --on-chrome: #E2E5E9; --chrome-line: #9BCBEE;
+  --accent: #86BCE4; --accent-chrome: #9BCBEE;
+  --link: #86BCE4; --verse-num: #86BCE4;
+}</pre></details>
+</article>
+<article class="fam" id="espresso-terracotta">
+  <header class="fam-h">
+    <div><h2>Espresso & Terracotta</h2><p class="desc">Printed missal. The warmest of the five.</p></div>
+    <div class="chips"><button class="chip" data-hex="#372B22"><i style="background:#372B22"></i><code>#372B22</code></button><button class="chip" data-hex="#9C4A2A"><i style="background:#9C4A2A"></i><code>#9C4A2A</code></button></div>
+  </header>
+  <div class="triple"><div class="pane" style="--bg:#FCFAF7;--deep:#F0ECE5;--surface:#FFFFFF;--row:#F7F4EF;--ink:#191713;--gloss:#554E45;--muted:#6D655B;--rule:#E2DCD2;--chrome:#372B22;--on-chrome:#F4EBE2;--accent:#9C4A2A;--a-chrome:#D9A06E">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">light</div>
+</div><div class="pane" style="--bg:#F4EAD8;--deep:#E8DAC2;--surface:#FAF2E4;--row:#EFE3CD;--ink:#2A2318;--gloss:#5C503C;--muted:#71634C;--rule:#DCCDB2;--chrome:#372B22;--on-chrome:#F4EBE2;--accent:#8A4024;--a-chrome:#D9A06E">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">sepia</div>
+</div><div class="pane" style="--bg:#14120F;--deep:#0C0B09;--surface:#1C1916;--row:#191613;--ink:#EDE6DA;--gloss:#B5A896;--muted:#9A8D7C;--rule:#342E26;--chrome:#17120E;--on-chrome:#E8DED3;--accent:#E09B76;--a-chrome:#E4B489">
+  <div class="hdr">
+    <span class="ic">&#9776;</span>
+    <span class="loc">Alma 32</span>
+    <span class="ic">&#9906;</span>
+  </div>
+  <div class="read">
+    <h3 class="ch">Capítulo 32</h3>
+    <div class="vrow"><span class="vn">33</span><div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div></div>
+    <p class="canon">…because ye have <a href="#">tried the experiment</a>, and planted the seed…</p>
+  </div>
+  <div class="ftr">
+    <span class="b active">Interlineal</span><span class="b">Español</span><span class="b">Dual</span>
+  </div>
+  <div class="mode-tag">dark</div>
+</div></div>
+  <details class="tok"><summary>token block — Espresso & Terracotta</summary><pre>:root {
+  --bg: #FCFAF7;  --bg-deep: #F0ECE5;  --surface: #FFFFFF;  --row-alt: #F7F4EF;
+  --ink: #191713; --sp: #191713; --ink-light: #554E45; --gloss-en: #554E45;
+  --muted: #6D655B; --rule: #E2DCD2; --rule-light: #E2DCD2;
+  --chrome: #372B22; --chrome-deep: #372B22;
+  --on-chrome: #F4EBE2; --chrome-line: #D9A06E;
+  --accent: #9C4A2A; --accent-chrome: #D9A06E;
+  --link: #9C4A2A; --verse-num: #9C4A2A;
+}
+body.sepia-mode {
+  --bg: #F4EAD8;  --bg-deep: #E8DAC2;  --surface: #FAF2E4;  --row-alt: #EFE3CD;
+  --ink: #2A2318; --sp: #2A2318; --ink-light: #5C503C; --gloss-en: #5C503C;
+  --muted: #71634C; --rule: #DCCDB2; --rule-light: #DCCDB2;
+  --chrome: #372B22; --chrome-deep: #372B22;
+  --on-chrome: #F4EBE2; --chrome-line: #D9A06E;
+  --accent: #8A4024; --accent-chrome: #D9A06E;
+  --link: #8A4024; --verse-num: #8A4024;
 }
 body.dark-mode {
-  --accent:        #8ab4f8;
-  --accent-chrome: #8ab4f8;
-  --link:          #8ab4f8;
-  --verse-num:     #8ab4f8;
-  --accent-wash:   #8ab4f81f;
-}</pre>
-    </details>
-  </article>
-  <article class="tpl" data-light="#1b5e3f" data-dark="#6fc29a">
-    <header class="tpl-h">
-      <div>
-        <h2>Forest</h2>
-        <p class="desc">Deep green, restrained and uncommon in reading UI.</p>
-      </div>
-      <div class="chips">
-        <button class="chip" data-hex="#1b5e3f"><i style="background:#1b5e3f"></i><code>#1b5e3f</code></button>
-        <button class="chip" data-hex="#6fc29a"><i style="background:#6fc29a"></i><code>#6fc29a</code></button>
-      </div>
-    </header>
-
-    <div class="ratios">
-      <span class="ratio" data-fg="#1b5e3f" data-bg="#ffffff">on white</span>
-      <span class="ratio" data-fg="#6fc29a" data-bg="#000000">on black</span>
-      <span class="note">Distinct from every link colour a reader has seen before.</span>
-    </div>
-
-    <div class="pair">
-      <div class="pane light" style="--accent:#1b5e3f">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">light</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-      <div class="pane dark" style="--accent:#6fc29a">
-        <div class="chrome"><span class="loc">Alma 32</span><span class="tag">dark</span></div>
-        <div class="read">
-          <p class="ref"><span class="vn">33</span> Alma 32</p>
-          <div class="verse"><span class="wu"><span class="sp">Y</span><span class="gl">and</span></span><span class="wu"><span class="sp">he aquí,</span><span class="gl">behold,</span></span><span class="wu"><span class="sp">por</span><span class="gl">for</span></span><span class="wu"><span class="sp">haber</span><span class="gl">have</span></span><span class="wu"><span class="sp">probado</span><span class="gl">tried</span></span><span class="wu"><span class="sp">el</span><span class="gl">the</span></span><span class="wu"><span class="sp">experimento</span><span class="gl">experiment</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">sembrado</span><span class="gl">sown</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla,</span><span class="gl">seed,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">porque</span><span class="gl">because</span></span><span class="wu"><span class="sp">esta</span><span class="gl">this</span></span><span class="wu"><span class="sp">se</span><span class="gl">itself</span></span><span class="wu"><span class="sp">hincha,</span><span class="gl">swells,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">brota,</span><span class="gl">sprouts,</span></span><span class="wu"><span class="sp">y</span><span class="gl">and</span></span><span class="wu"><span class="sp">empieza</span><span class="gl">begins</span></span><span class="wu"><span class="sp">a</span><span class="gl">to</span></span><span class="wu"><span class="sp">crecer,</span><span class="gl">grow,</span></span><span class="wu"><span class="sp">sabéis</span><span class="gl">you-know</span></span><span class="wu"><span class="sp">por fuerza</span><span class="gl">must needs</span></span><span class="wu"><span class="sp">que</span><span class="gl">that</span></span><span class="wu"><span class="sp">la</span><span class="gl">the</span></span><span class="wu"><span class="sp">semilla</span><span class="gl">seed</span></span><span class="wu"><span class="sp">es</span><span class="gl">is</span></span><span class="wu"><span class="sp">buena.</span><span class="gl">good.</span></span></div>
-          <p class="canon">…because ye have <mark>tried the experiment</mark>, and planted the seed…</p>
-        </div>
-        <div class="bar"><span class="b active">Interlinear</span><span class="b">Spanish</span><span class="b">Dual</span></div>
-      </div>
-    </div>
-
-    <details class="tok">
-      <summary>token block for <b>Forest</b></summary>
-<pre>:root {
-  --accent:        #1b5e3f;
-  --accent-chrome: #1b5e3f;
-  --link:          #1b5e3f;
-  --verse-num:     #1b5e3f;
-  --accent-wash:   #1b5e3f14;   /* 8% — hover only, never a fill */
-}
-body.dark-mode {
-  --accent:        #6fc29a;
-  --accent-chrome: #6fc29a;
-  --link:          #6fc29a;
-  --verse-num:     #6fc29a;
-  --accent-wash:   #6fc29a1f;
-}</pre>
-    </details>
-  </article>
+  --bg: #14120F;  --bg-deep: #0C0B09;  --surface: #1C1916;  --row-alt: #191613;
+  --ink: #EDE6DA; --sp: #EDE6DA; --ink-light: #B5A896; --gloss-en: #B5A896;
+  --muted: #9A8D7C; --rule: #342E26; --rule-light: #342E26;
+  --chrome: #17120E; --chrome-deep: #17120E;
+  --on-chrome: #E8DED3; --chrome-line: #E4B489;
+  --accent: #E09B76; --accent-chrome: #E4B489;
+  --link: #E09B76; --verse-num: #E09B76;
+}</pre></details>
+</article>
 </div>
 <script>
-(function () {
-  function srgb(c){ c/=255; return c<=0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4); }
-  function lum(hex){
-    var h = hex.replace('#','');
-    if (h.length===3) h = h.split('').map(function(x){return x+x;}).join('');
-    var r=parseInt(h.substr(0,2),16), g=parseInt(h.substr(2,2),16), b=parseInt(h.substr(4,2),16);
-    return 0.2126*srgb(r)+0.7152*srgb(g)+0.0722*srgb(b);
-  }
-  function ratio(a,b){ var l1=lum(a), l2=lum(b); var hi=Math.max(l1,l2), lo=Math.min(l1,l2);
-    return (hi+0.05)/(lo+0.05); }
-
-  document.querySelectorAll('.ratio').forEach(function(el){
-    var r = ratio(el.dataset.fg, el.dataset.bg);
-    var pass = r >= 4.5;
-    el.innerHTML = el.textContent + ' <b>' + r.toFixed(2) + ':1</b> ' + (pass ? '\u2713 AA' : '\u2717 under 4.5');
-    if (!pass) el.classList.add('fail');
+document.querySelectorAll('.chip').forEach(function(b){
+  b.addEventListener('click',function(){
+    var c=b.querySelector('code'),old=c.textContent;
+    var done=function(){c.textContent='copied';setTimeout(function(){c.textContent=old;},1000);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(b.dataset.hex).then(done,done);}else done();
   });
-
-  document.querySelectorAll('.chip').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var hex = btn.dataset.hex;
-      var done = function(){
-        var old = btn.querySelector('code').textContent;
-        btn.classList.add('copied');
-        btn.querySelector('code').textContent = 'copied';
-        setTimeout(function(){ btn.classList.remove('copied'); btn.querySelector('code').textContent = old; }, 1100);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(hex).then(done, done);
-      } else { done(); }
-    });
-  });
-})();
-</script>
-</body></html>
+});
+</script></body></html>
