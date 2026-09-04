@@ -393,6 +393,46 @@ def edit_tokens(mapping, dry_run=False):
     return changes, files
 
 
+def merge_pairs(is_pair, gloss_for, dry_run=False):
+    """Merge two adjacent tokens into one interlinear unit.
+
+    Some Spanish phrases are a single English word and must be one token, the
+    way "he aqui" is one token glossing "behold". "no podeis" is English
+    "cannot" -- one word -- so splitting it across two tokens either doubles
+    the negative ("not" + "you-cannot") or loses it ("not" + "you-can").
+
+    is_pair(a_sp, b_sp) -> bool, gloss_for(a_sp, b_sp) -> the united gloss.
+    """
+    changes, files = Counter(), 0
+    for path in sorted(glob.glob(os.path.join(ROOT, 'verses', '*.js'))):
+        src = open(path, encoding='utf-8').read()
+
+        def verse(vm):
+            toks = TOK.findall(vm.group(2))
+            out, i, hit = [], 0, False
+            while i < len(toks):
+                if i + 1 < len(toks) and is_pair(toks[i][0], toks[i + 1][0]):
+                    a, b = toks[i][0], toks[i + 1][0]
+                    united = gloss_for(a, b)
+                    if united:
+                        out.append('["%s %s","%s"]' % (a, b, united))
+                        changes[('%s %s' % (a, b), united)] += 1
+                        hit = True
+                        i += 2
+                        continue
+                out.append('["%s","%s"]' % (toks[i][0], toks[i][1]))
+                i += 1
+            return vm.group(0) if not hit else '{num:%s,words:[%s]}' % (
+                vm.group(1), ','.join(out))
+
+        new_src = VERSE.sub(verse, src)
+        if new_src != src:
+            files += 1
+            if not dry_run:
+                open(path, 'w', encoding='utf-8').write(new_src)
+    return changes, files
+
+
 def english_canon():
     """The printed English column, keyed 'Book|chapter|verse'. Never written."""
     raw = open(os.path.join(ROOT, 'english_verses.js'), encoding='utf-8').read()

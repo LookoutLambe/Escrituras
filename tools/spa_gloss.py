@@ -214,6 +214,53 @@ JOIN = '-'
 # agreeing with their verb. "se" is not "[refl.]" -- a placeholder is not a
 # translation. Person and number come from the verb it attaches to, which the
 # conjugation tag already gives.
+_ANIMATE = None
+
+def animate_nouns():
+    """English nouns that denote a person, animal or group (WordNet)."""
+    global _ANIMATE
+    if _ANIMATE is None:
+        import os, json as _json
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'english_animate.json')
+        try:
+            with open(path, encoding='utf-8') as fh:
+                _ANIMATE = set(_json.load(fh))
+        except OSError:
+            _ANIMATE = set()
+    return _ANIMATE
+
+
+def reflexive_for(person, subject_gloss=None, canon_text=None):
+    """himself / herself / itself / themselves -- decided by the subject.
+
+    "la semilla se hincha" is "the seed swelleth" and the seed is an it, so
+    the reflexive is "itself"; "el hombre se humilla" is "himself". The
+    lexicon alone cannot settle it -- WordNet files "seed" under person
+    (progeny) and "man" and "king" under artifact (chess) -- so the verse's
+    own printed English is the first witness and animacy only the fallback.
+    """
+    if person in ('1s', '2s', '1p', '2p', '3p'):
+        return REFLEXIVE_BY_PERSON[person]
+    if canon_text:
+        low = ' ' + re.sub(r"[^a-z ]+", ' ', canon_text.lower()) + ' '
+        for w in ('itself', 'himself', 'herself', 'themselves'):
+            if ' ' + w + ' ' in low:
+                return w
+        has_it = ' it ' in low or ' its ' in low
+        has_he = ' he ' in low or ' his ' in low or ' him ' in low
+        if has_it and not has_he:
+            return 'itself'
+        if has_he and not has_it:
+            return 'himself'
+    if subject_gloss:
+        base = subject_gloss.lower().strip('.,;:!?').rstrip('s')
+        if base in animate_nouns() or subject_gloss.lower() in animate_nouns():
+            return 'himself'
+        return 'itself'
+    return 'himself'
+
+
 REFLEXIVE_BY_PERSON = {
     '1s': 'myself', '2s': 'yourself', '3s': 'himself',
     '1p': 'ourselves', '2p': 'yourselves', '3p': 'themselves',
@@ -224,6 +271,12 @@ CLITIC_PERSON = {'me': '1s', 'te': '2s', 'nos': '1p', 'os': '2p'}
 SUBJECT_PRONOUNS = {'yo', 'tu', 'tú', 'el', 'él', 'ella', 'ello', 'usted',
                     'nosotros', 'nosotras', 'vosotros', 'vosotras',
                     'ellos', 'ellas', 'ustedes'}
+
+# Spanish negates with a separate particle, and that particle is its own
+# interlinear token glossing "not". A verb after it must not carry the
+# negative too: "no[not] podeis[you-cannot]" says not twice. The verb is
+# "you-can" and the "no" supplies the negation.
+NEGATORS = {'no', 'ni', 'nunca', 'jamas', 'jamás', 'tampoco', 'nada', 'nadie'}
 
 INFINITIVAL_PARTICLES = {'a', 'al', 'de', 'del', 'para', 'por', 'que', 'sin',
                          'hasta', 'tras', 'he'}
@@ -639,6 +692,30 @@ CONTEXTUAL = {
 }
 
 
+_UNITS = None
+
+def unit_gloss(surface):
+    """The gloss for a multiword unit, or None.
+
+    Some Spanish phrases are one English word and are one interlinear token:
+    "he aqui" is "behold", "por tanto" is "therefore", "no podeis" is
+    "cannot". Learned from the corpus by build_units.py rather than listed
+    here, so the tool knows all 59 instead of whichever was noticed.
+    """
+    global _UNITS
+    if _UNITS is None:
+        import os, json as _json
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'spa_units.json')
+        try:
+            with open(path, encoding='utf-8') as fh:
+                _UNITS = _json.load(fh)
+        except OSError:
+            _UNITS = {}
+    key = (surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
+    return _UNITS.get(key)
+
+
 def gloss(surface, lemma, translation, first_sense, ctx=None):
     """The full pipeline: context -> vocabulary -> homograph -> inflection.
 
@@ -646,6 +723,9 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
     token sits in a nominal slot and every table here would give a verb.
     """
     key = surface.lower().strip('.,;:¿?¡!»«()"“”— ')
+    unit = unit_gloss(surface)
+    if unit:
+        return unit
     c = {'prev': [], 'prev_surface': '', 'comma_after': False,
          'next_finite_verb': False, 'keep_verb': None}
     c.update(ctx or {})
