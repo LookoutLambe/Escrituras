@@ -1,4 +1,4 @@
-var CACHE_NAME = 'escrituras-v25';   // bump whenever the shell changes, or returning readers keep the old one
+var CACHE_NAME = 'escrituras-v26';   // bump whenever the shell changes, or returning readers keep the old one
 var SHELL = [
   './',
   './index.html',

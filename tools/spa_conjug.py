@@ -87,7 +87,16 @@ def conjugate(lemma):
             elif tense == 'Gerundio':
                 put(root + rows[0][1], 'ger')
             elif tense == 'Participo':
-                put(root + rows[0][1], 'part')
+                # A Spanish participle AGREES in gender and number whenever it
+                # is adjectival or passive: muerto / muerta / muertos /
+                # muertas. The database lists only the masculine singular, so
+                # 143 frequent corpus forms -- muertos, llamados, escritas,
+                # bautizados -- were absent from the index entirely.
+                part = root + rows[0][1]
+                put(part, 'part')
+                if part.endswith('o'):
+                    for suf in ('a', 'os', 'as'):
+                        put(part[:-1] + suf, 'part')
     return out
 
 
@@ -119,6 +128,12 @@ TENSE_RANK = {'pres': 0, 'pret': 1, 'impf': 2, 'fut': 3, 'cond': 4,
               'subj': 8, 'subji': 9, 'subjs': 10, 'subjf': 11, 'imp': 12}
 
 
+# Forms the database omits. `ha` is the perfect auxiliary; Verbiste puts the
+# impersonal "hay" in haber's 3rd singular slot and the auxiliary is simply
+# missing, though it is one of the commonest words in the corpus (3,660).
+MISSING_FORMS = {'ha': ('haber', 'pres.3s')}
+
+
 @functools.lru_cache(maxsize=1)
 def form_index():
     """{form: [(lemma, tag), ...]} -- every analysis, not just one.
@@ -132,6 +147,8 @@ def form_index():
     for lemma in verbs:
         for form, tag in conjugate(lemma).items():
             idx.setdefault(form, []).append((lemma, tag))
+    for form, (lemma, tag) in MISSING_FORMS.items():
+        idx.setdefault(form, []).append((lemma, tag))
     return idx
 
 

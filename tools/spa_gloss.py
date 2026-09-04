@@ -367,6 +367,60 @@ def _build(v, shape, person=None, bare_infinitive=False, drop_pron=False):
     return core
 
 
+# ── perífrasis verbal ───────────────────────────────────────────────────
+# A Spanish verbal periphrasis is [governing verb] + link + [infinitive], and
+# the link (a / de / que) is NOT the preposition it looks like. In "tratan de
+# quitarte la vida" the `de` is not "of" — the construction is "seek TO take".
+# English writes the link as the infinitival "to", and the infinitive then
+# goes bare, exactly as it does after `a` and `para`.
+#
+# Glossed as a preposition it read "they seek OF TO take": the marker both
+# wrong and doubled.
+#
+# This is a closed, enumerable class, so it is listed rather than guessed at.
+# Grouped by the standard classification; every pair here is attested in this
+# corpus, and the noise the lemmatiser produced (`puntar de` for "a punto de",
+# `poblar a` for "pueblo a") is deliberately excluded.
+PERIPHRASIS = {
+    # obligativas — obligation
+    ('haber', 'de'), ('tener', 'que'), ('haber', 'que'),
+    # incoativas / ingresivas — beginning
+    ('empezar', 'a'), ('comenzar', 'a'), ('ponerse', 'a'), ('echar', 'a'),
+    ('principiar', 'a'), ('ir', 'a'),
+    # terminativas — ending
+    ('acabar', 'de'), ('dejar', 'de'), ('cesar', 'de'), ('terminar', 'de'),
+    # reiterativa — repetition
+    ('volver', 'a'),
+    # aproximativas — approach
+    ('llegar', 'a'), ('venir', 'a'), ('alcanzar', 'a'),
+    # conativas — attempt
+    ('tratar', 'de'), ('procurar', 'de'), ('dignarse', 'de'),
+    # verbs that simply govern a + infinitive
+    ('enseñar', 'a'), ('aprender', 'a'), ('ayudar', 'a'), ('obligar', 'a'),
+    ('atreverse', 'a'), ('apresurar', 'a'), ('apresurarse', 'a'),
+    ('invitar', 'a'), ('disponerse', 'a'), ('proceder', 'a'),
+    ('enviar', 'a'), ('salir', 'a'), ('entrar', 'a'), ('cuidar', 'de'),
+}
+LINKS = {'a', 'de', 'que'}
+
+
+def periphrasis_link(gov_surface, link_surface):
+    """True when these two words are the head and link of a verbal
+    periphrasis, so the link carries the infinitival "to"."""
+    link = (link_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
+    if link not in LINKS:
+        return False
+    gov = (gov_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
+    try:
+        import spa_conjug
+        for lemma, _tag in (spa_conjug.form_index().get(gov) or []):
+            if (lemma, link) in PERIPHRASIS:
+                return True
+    except Exception:
+        pass
+    return False
+
+
 # An enclitic pronoun is part of the word and must appear in its gloss.
 # "hacerlo" is "to-do-it", "darle" is "to-give-him", "quitarte" is
 # "to-take-you". Dropping it left 4,201 tokens glossed as the bare verb, so

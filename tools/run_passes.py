@@ -384,6 +384,73 @@ def pass_dative_possession(dry):
     return A.edit_tokens(fix, dry)
 
 
+def pass_periphrasis(dry):
+    """Verbal periphrasis: the LINK carries the infinitival "to".
+
+    A Spanish periphrasis is [governing verb] + link + [infinitive], and the
+    link (a / de / que) is not the preposition it looks like. "tratan de
+    quitarte la vida" is "they seek TO take your life" -- glossed de[of] +
+    quitarte[to-take] it read "they seek OF TO take", the marker both wrong
+    and doubled. English writes the link as "to" and the infinitive goes bare,
+    exactly as after `a` and `para`.
+
+    Driven by the periphrasis inventory in spa_gloss -- a closed, enumerable
+    class of Spanish grammar -- not by a surface pattern, so "despues de" and
+    "a punto de", which are not periphrases, are left to pass_locutions.
+    """
+    verbs, _t = C.load()
+    fix = {}
+    for book, ch, v, en, toks in A.walk_verses():
+        for i in range(len(toks) - 2):
+            gov, link, inf = toks[i], toks[i + 1], toks[i + 2]
+            if not G.periphrasis_link(gov[0], link[0]):
+                continue
+            inf_sp = inf[0].lower().strip(A.STRIP)
+            if not (inf_sp in verbs or G.split_enclitic(inf_sp)):
+                continue
+            link_g = link[1].strip('.,;:!?')
+            inf_g = inf[1].strip('.,;:!?')
+            if link_g.lower() != 'to':
+                fix[(book, ch, v, i + 1)] = 'to' + tail(link[1])
+            if inf_g.lower().startswith('to-') and len(inf_g) > 3:
+                fix[(book, ch, v, i + 2)] = inf_g[3:] + tail(inf[1])
+    return A.edit_tokens(fix, dry)
+
+
+def pass_locutions(dry):
+    """Locuciones prepositivas before an infinitive.
+
+    A second closed class, distinct from the periphrases: "a fin de",
+    "a punto de", "antes de", "despues de" are fixed prepositional locutions
+    whose final `de` is part of the locution, not the preposition "of". Where
+    the locution means purpose or imminence, English writes "to".
+
+    Listed rather than inferred, for the same reason the periphrases are:
+    they are enumerable, and a surface rule cannot tell "a fin de edificar"
+    (in order TO build) from "tiempo de partir" (the time OF departing).
+    """
+    PURPOSE = {('fin', 'de'), ('punto', 'de'), ('propósito', 'de'),
+               ('objeto', 'de'), ('manera', 'de'), ('modo', 'de')}
+    verbs, _t = C.load()
+    fix = {}
+    for book, ch, v, en, toks in A.walk_verses():
+        for i in range(len(toks) - 2):
+            head = toks[i][0].lower().strip(A.STRIP)
+            link = toks[i + 1][0].lower().strip(A.STRIP)
+            if (head, link) not in PURPOSE:
+                continue
+            inf_sp = toks[i + 2][0].lower().strip(A.STRIP)
+            if not (inf_sp in verbs or G.split_enclitic(inf_sp)):
+                continue
+            link_g = toks[i + 1][1].strip('.,;:!?')
+            inf_g = toks[i + 2][1].strip('.,;:!?')
+            if link_g.lower() != 'to':
+                fix[(book, ch, v, i + 1)] = 'to' + tail(toks[i + 1][1])
+            if inf_g.lower().startswith('to-') and len(inf_g) > 3:
+                fix[(book, ch, v, i + 2)] = inf_g[3:] + tail(toks[i + 2][1])
+    return A.edit_tokens(fix, dry)
+
+
 PASSES = [
     ('reflexive pronouns', pass_reflexives),
     ('x/y by the verse', pass_xy_witnessed),
@@ -397,7 +464,9 @@ PASSES = [
     ('no+poder units', pass_poder_units),
     ('written subject', pass_written_subject),
     ('enclitic pronouns', pass_enclitics),
+    ('verbal periphrasis', pass_periphrasis),
     ('dative of possession', pass_dative_possession),
+    ('prepositional locutions', pass_locutions),
 ]
 
 
