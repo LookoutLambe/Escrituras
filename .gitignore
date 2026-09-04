@@ -9,3 +9,8 @@ Thumbs.db
 # produce tools/spa_morph.json, which is the artifact the tool actually uses
 # and IS committed. Re-download with the URLs in build_morph.py's docstring.
 tools/*.conllu
+
+# WordNet lexicographer files (8.5 MB), BUILD-ONLY. Read once to produce
+# tools/english_animate.json, which is what the tool actually loads and IS
+# committed. Re-download from globalwordnet/english-wordnet.
+tools/noun.*.yaml
