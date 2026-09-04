@@ -278,6 +278,44 @@ def pass_unrelated(dry):
     return A.edit_tokens(fix, dry)
 
 
+def pass_written_subject(dry):
+    """A verb keeps its pronoun only when the subject is NOT written out.
+
+    Spanish puts the subject on either side of the verb -- "yo soy" and "eres
+    tu" are both subject + verb -- and when it is written it is its own
+    interlinear token. Repeating it on the verb gave "Bendito eres[you-are]
+    tu[you]": blessed you are you. The PERSON stays, because English still
+    needs it to choose am/are/is; only the pronoun goes."""
+    lex, forms, names = A.load()
+    fix = {}
+    for book, ch, v, en, toks in A.walk_verses():
+        for i, (sp, g) in enumerate(toks):
+            m = re.match(r'^(I|you|we|they|he|she|it)-(.+)$', g)
+            if not m:
+                continue
+            pron = m.group(1).lower()
+            adjacent = False
+            for j in (i - 1, i + 1):
+                if not (0 <= j < len(toks)):
+                    continue
+                nb = toks[j][0].lower().strip(A.STRIP)
+                if nb in G.SUBJECT_PRONOUNS and \
+                        toks[j][1].lower().strip('.,;:!?') == pron:
+                    adjacent = True
+            if not adjacent:
+                continue
+            k = sp.lower().strip(A.STRIP)
+            src, tr = S.gloss_candidates(S.normalise(k), lex, forms, names)
+            if not src or not tr:
+                continue
+            lemma = src.split(':')[1].split('>')[0] if ':' in src else k
+            ctx = A.build_ctx(toks, i, lex, forms)
+            cand = G.gloss(k, lemma, tr, S.first_sense, ctx)
+            if cand and str(cand) != g.strip('.,;:!?'):
+                fix[(book, ch, v, i)] = str(cand) + tail(g)
+    return A.edit_tokens(fix, dry)
+
+
 PASSES = [
     ('reflexive pronouns', pass_reflexives),
     ('x/y by the verse', pass_xy_witnessed),
@@ -289,6 +327,7 @@ PASSES = [
     ('name capitalisation', pass_name_case),
     ('auxiliary+participle verbs', pass_born),
     ('no+poder units', pass_poder_units),
+    ('written subject', pass_written_subject),
 ]
 
 

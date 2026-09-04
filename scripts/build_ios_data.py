@@ -41,7 +41,7 @@ from collections import Counter
 VOLUMES = [
     ("ot",  "Antiguo Testamento",      "Old Testament"),
     ("nt",  "Nuevo Testamento",        "New Testament"),
-    ("bom", "El Libro de Mormón",      "Book of Mormon"),
+    ("bom", "El Libro de Mormón",      "The Book of Mormon"),
     ("dc",  "Doctrina y Convenios",    "Doctrine and Covenants"),
     ("pgp", "La Perla de Gran Precio", "Pearl of Great Price"),
 ]

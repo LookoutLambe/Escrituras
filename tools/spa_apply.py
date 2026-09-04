@@ -40,6 +40,7 @@ def build_ctx(toks, i, lex, forms):
     return {
         'prev': prev,
         'prev_surface': toks[i - 1][0] if i else '',
+        'next_surface': toks[i + 1][0] if i + 1 < len(toks) else '',
         'comma_after': toks[i][0].rstrip().endswith(','),
         'next_finite_verb': S.is_finite_verb(nxt.strip(STRIP), lex, forms) if nxt else False,
     }

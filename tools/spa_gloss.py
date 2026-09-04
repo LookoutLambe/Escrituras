@@ -317,7 +317,7 @@ def _head_inflect(v, fn):
     return ' '.join([fn(parts[0])] + parts[1:])
 
 
-def _build(v, shape, person=None, bare_infinitive=False):
+def _build(v, shape, person=None, bare_infinitive=False, drop_pron=False):
     # A multiword base inflects its HEAD, and the head needs the person too.
     # "nacer" is "to be born"; _head_inflect alone gave the plural past of be,
     # so 1st singular read "I-were-born" instead of "I-was-born".
@@ -330,16 +330,16 @@ def _build(v, shape, person=None, bare_infinitive=False):
             if table and table.get(person):
                 core = table[person] + ' ' + rest
                 core = core.replace(' ', JOIN)
-                pron = PRONOUN.get(person or '')
+                pron = None if drop_pron else PRONOUN.get(person or '')
                 return (pron + JOIN + core) if (pron and shape not in NON_FINITE) else core
     par = ENGLISH_PARADIGM.get(v)
     if par and person:
         if shape in ('plain', 'third'):
             core = par['pres'].get(person) or (_head_inflect(v, _third) if shape == 'third' else v)
-            return (PRONOUN[person] + JOIN + core) if person in PRONOUN else core
+            return (PRONOUN[person] + JOIN + core) if (person in PRONOUN and not drop_pron) else core
         if shape == 'past':
             core = par['past'].get(person) or _head_inflect(v, _past)
-            return (PRONOUN[person] + JOIN + core) if person in PRONOUN else core
+            return (PRONOUN[person] + JOIN + core) if (person in PRONOUN and not drop_pron) else core
     if shape == 'ing':         core = _head_inflect(v, _ing)
     elif shape == 'participle':core = _head_inflect(v, _parti)
     elif shape == 'past':      core = _head_inflect(v, _past)
@@ -354,7 +354,7 @@ def _build(v, shape, person=None, bare_infinitive=False):
     # the corpus writes multiword glosses with hyphens (51,843 against 3,217),
     # so a phrasal verb reads "they-went-out", not "they-went out"
     core = core.replace(' ', JOIN)
-    pron = PRONOUN.get(person or '')
+    pron = None if drop_pron else PRONOUN.get(person or '')
     if pron and shape not in NON_FINITE:
         core = pron + JOIN + core
     return core
@@ -382,7 +382,8 @@ def looks_like_verb(surface, raw_translation, base, tag):
         return False
 
 
-def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None):
+def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None,
+            next_surface=None):
     """base is the dictionary sense ('to receive', 'advise', 'son', 'city').
 
     `verb`, when given, is the English verb to build from -- used to keep the
@@ -414,9 +415,16 @@ def inflect(base, surface, lemma, prev_surface=None, verb=None, raw=None):
         shape, person = _shape_from_tag(tag)
         if shape:
             prev = (prev_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
-            if prev in SUBJECT_PRONOUNS:
-                person = None          # the written pronoun already says it
-            return _build(v, shape, person, prev in INFINITIVAL_PARTICLES)
+            nxt = (next_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
+            # Spanish puts the subject on either side of the verb: "yo soy" and
+            # "eres tu" are both subject + verb. Checking only the word BEFORE
+            # left "Bendito eres[you-are] tu[you]" reading "blessed you are you".
+            # Suppressing the PRONOUN must not suppress the PERSON: English
+            # still needs it to choose am/are/is. Dropping person outright made
+            # "eres" read "be" instead of "are".
+            drop_pron = prev in SUBJECT_PRONOUNS or nxt in SUBJECT_PRONOUNS
+            return _build(v, shape, person, prev in INFINITIVAL_PARTICLES,
+                          drop_pron=drop_pron)
         # fallback for forms the database does not carry
         for pat, shape in VERB_SHAPE:
             if re.search(pat, s):
@@ -779,7 +787,7 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
     unit = unit_gloss(surface)
     if unit:
         return unit
-    c = {'prev': [], 'prev_surface': '', 'comma_after': False,
+    c = {'prev': [], 'prev_surface': '', 'next_surface': '', 'comma_after': False,
          'next_finite_verb': False, 'keep_verb': None}
     c.update(ctx or {})
 
@@ -810,7 +818,7 @@ def gloss(surface, lemma, translation, first_sense, ctx=None):
     if learned:
         base = ('to ' + learned) if base.startswith('to ') else learned
     out = inflect(base, key, lemma, c['prev_surface'], c.get('keep_verb'),
-                  raw=translation)
+                  raw=translation, next_surface=c.get('next_surface'))
     if out is None:
         return None
     return apply_register(out)
