@@ -141,11 +141,27 @@ def reflexive_position(prev_surface):
     return (prev_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ') in _reflex()
 
 
+# la/lo/los/las/le/les are determiners before a noun but OBJECT CLITICS before
+# a verb: "la casa" is "the house", "la hemos" is "we have it". Treating the
+# clitic as a determiner made the next word look nominal and stripped the
+# person off 947 perfect-tense auxiliaries.
+AMBIGUOUS_CLITICS = {'la', 'lo', 'los', 'las', 'le', 'les', 'me', 'te', 'nos',
+                     'os', 'se'}
+
+
 def noun_position(prev_surface, surface):
     """True when the preceding word forces a nominal reading of `surface`."""
     p = (prev_surface or '').lower().strip('.,;:¿?¡!»«()"“”— ')
     if not p:
         return False
+    if p in AMBIGUOUS_CLITICS:
+        try:
+            import spa_conjug
+            tags = spa_conjug.form_index().get((surface or '').lower()) or []
+            if any(t != 'inf' for _l, t in tags):
+                return False          # clitic + verb, not determiner + noun
+        except Exception:
+            pass
     if p in _det():
         return True
     if p in _prep() and not surface.lower().endswith(('ar', 'er', 'ir')):

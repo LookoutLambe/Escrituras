@@ -79,6 +79,24 @@ def main():
             continue                     # open-class: leave it to the pipeline
         if '/' in g or len(g) > 26:
             continue                     # unresolved x/y glosses are not answers
+        # A learner reading an imperfect corpus learns its defects. Two guards:
+        #   - every word of the value must be real English. Without this the
+        #     table recorded whatever junk the gloss column held.
+        #   - a BARE PRONOUN is only a valid reading for a word that is itself
+        #     a pronoun. "ellos" -> "they" is right; "seguros" -> "i" is a
+        #     drift gloss, and recording it made the audit treat "i" as that
+        #     word's settled reading and skip it forever.
+        import spa_audit as _au
+        parts = [t for t in g.lower().replace('-', ' ').split() if t]
+        PRONS = ('i', 'you', 'we', 'they', 'he', 'she', 'it', 'me', 'him',
+                 'her', 'us', 'them')
+        content = [t for t in parts if t not in PRONS]
+        if not content and M.pos(k) not in ('PRON', 'DET'):
+            continue
+        vocab = _au.G._vocab()
+        if any(t not in _au.english_words() and t not in vocab
+               and t not in _au._known_names() for t in (content or parts)):
+            continue
         # A VERB must never learn a bare function word as its reading; for a
         # genuinely closed-class form (sobre -> upon, entre -> among) that is
         # exactly the right answer, so the guard is scoped to verbs.

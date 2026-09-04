@@ -188,8 +188,18 @@ def audit(book_filter=None, chapter_filter=None, limit=None):
             core = g.lower().replace('-', ' ').strip(' .,;:!?¿¡"')
             stripped = ' '.join(t for t in core.split()
                                 if t not in ('i', 'you', 'we', 'they', 'he', 'she', 'it'))
-            drift = content and stripped and all(
-                t in FUNCTION_EN for t in stripped.split())
+            # A bare auxiliary is a fine gloss for ser/estar/haber/ir -- fue
+            # IS "was" -- but on any other verb it is a neighbour's word:
+            # sembrado ("sown") glossed "is".
+            AUXONLY = {'is', 'are', 'was', 'were', 'be', 'been', 'being',
+                       'have', 'has', 'had', 'do', 'does', 'did', 'will',
+                       'shall', 'would', 'should', 'may', 'might', 'can'}
+            copula = lemma in ('ser', 'estar', 'haber', 'ir', 'poder', 'deber')
+            aux_drift = (content and not copula and stripped
+                         and all(t in AUXONLY for t in stripped.split()))
+            bare_pronoun = content and not stripped and core
+            drift = bare_pronoun or aux_drift or (content and stripped and all(
+                t in FUNCTION_EN for t in stripped.split()))
             # A gloss that is not English is a defect whatever the Spanish
             # word's part of speech: "a" glossed "toing" and "de" glossed
             # "ofs" are broken regardless, and requiring a CONTENT word here
