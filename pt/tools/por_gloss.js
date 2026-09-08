@@ -120,13 +120,36 @@ const KJV = {
   wist: 'knew', durst: 'dared', builded: 'built', holpen: 'helped',
   blest: 'blessed', curst: 'cursed', girt: 'girded', gotten: 'got',
   slew: 'slew', smote: 'struck', beheld: 'saw', bade: 'bade', ye: 'you',
+  /* bases too short for the general rule to touch safely */
+  doest: 'do', goest: 'go', seest: 'see', beest: 'be', mayest: 'may',
+  shouldest: 'should', wouldest: 'would', mightest: 'might', gavest: 'gave',
+  camest: 'came', sawest: 'saw', wentest: 'went',
 };
-function modernise(en) {
+/* every English word the alignment ever proposed — 11,500 of them. A base
+   the corpus never uses is not the base of an archaic form: `honesto` really
+   is honestar's first singular, so the paradigm test passes it, and "honest"
+   still became "hone" because hone happens to be a verb in the tables. It
+   appears nowhere in this English. */
+let ENSEEN = null;
+function enSeen(w) {
+  if (!ENSEEN) {
+    ENSEEN = new Set();
+    for (const k in A) for (const c of A[k]) ENSEEN.add(c[0].toLowerCase());
+  }
+  return ENSEEN.has(w);
+}
+function modernise(en, verbal) {
   if (KJV[en]) return KJV[en];
+  /* -eth and -est ONLY when the Portuguese word is a verb. Stripping by shape
+     alone turned `honesto` into "hone" and `Beth-` into "be": priest, lest,
+     rest, west, manifest, harvest, greatest, tempest and 300 more end in -est
+     without being archaic anything. The paradigm is the test — if the source
+     word has no verb reading, its gloss is not a conjugated verb. */
+  if (!verbal) return en;
   const m = /^(.+?)(eth|est)$/.exec(en);
-  if (m) {
+  if (m && m[1].length >= 3) {
     for (const base of [m[1], m[1] + 'e', m[1].replace(/i$/, 'y')]) {
-      if (PAST[base] !== undefined) return base;
+      if (PAST[base] !== undefined && enSeen(base)) return base;
     }
   }
   return en;
@@ -205,7 +228,7 @@ function bestFrom(word) {
   const g = bestFromRaw(word);
   /* one place, so the paradigm's stem is modernised too: perguntou takes its
      stem from perguntar, and without this it re-inflected "asketh". */
-  return g ? modernise(g) : g;
+  return g ? modernise(g, !!(K[word] && K[word].length)) : g;
 }
 function bestFromRaw(word) {
   const a = A[word] || [];
@@ -245,7 +268,7 @@ function fromConj(c) {
   /* THE IMPERATIVE TAKES NO PERSON. English says "go", not "you-go" — and
      Portuguese imperatives are second person by definition, so the
      second-person rule was firing on every one of them: vai -> "you-go". */
-  if (IMPERATIVE.test(c[1])) return stem;
+  if (IMPERATIVE.test(c[1])) return baseVerb(stem);   // "knock", not "knocking"
   if (CONDITIONAL.test(c[1])) return (PERSON[pn] || '') + 'should-' + baseVerb(stem);
   if (PAST_TENSE.test(c[2])) {
     const pp = PASTP[stem];
@@ -409,7 +432,12 @@ function glossBare(w) {
      below that the paradigm knows more than the co-occurrence does. */
   if (simple.length && !nominal(w)) {
     const a = A[w];
-    if (!a || !a.length || a[0][1] < 0.35) {
+    /* AND A THIN ALIGNMENT IS A WEAK ONE, whatever its dice. `pedi` scored
+       0.378 for "knock" on SEVEN observations, while its own lemma `pedir`
+       has seventeen for "ask" — so the rare form outvoted the common one and
+       glossed "I-knocked". Dice is a ratio; it says nothing about how much
+       evidence produced it. */
+    if (!a || !a.length || a[0][1] < 0.35 || a[0][2] < 10) {
       const g = fromConj(pick(simple));
       if (g) return g;
     }
@@ -423,7 +451,7 @@ function glossBare(w) {
 
   let direct = bestFrom(w);
   if (direct) {
-    direct = modernise(direct);
+    direct = modernise(direct, !!(K[w] && K[w].length));
     /* THE ALIGNMENT SUPPLIES THE VERB; THE PARADIGM SUPPLIES THE PERSON.
        `começaram` aligns confidently to "began" (0.49) — the right verb with
        its subject stripped off, because the English column reads "they began"
@@ -497,7 +525,11 @@ function glossBare(w) {
 function splitEnclitic(w) {
   const sp = C.splits[w];
   if (!sp) return null;
-  const parts = sp.map((p, i) => (i === 0 ? glossBare(p) : (ENCLITIC[p] || (F[p] && F[p].gloss))));
+  /* the head of an enclitic form is a VERB by construction — `arrependei` is
+     listed only under the pronominal lemma arrepender-se, so the paradigm
+     test could not see it and "repenteth-you" kept its King James ending. */
+  const parts = sp.map((p, i) => (i === 0 ? (g => (g ? modernise(g, true) : g))(glossBare(p))
+                                          : (ENCLITIC[p] || (F[p] && F[p].gloss))));
   return parts.every(Boolean) ? parts.join('-') : null;
 }
 

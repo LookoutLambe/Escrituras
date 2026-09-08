@@ -1,7 +1,7 @@
 (function() {
 var v1 = [
   {num:1,words:[["O","The"],["ancião","ancient"],["ao","to-the"],["amado","beloved"],["Gaio,","Gaius,"],["a","the"],["quem","who"],["em verdade","verily"],["eu","I"],["amo.","I-mammon."]]},
-  {num:2,words:[["Amado,","Beloved,"],["em","in"],["tudo","all"],["desejo","desire"],["que","that"],["prosperes,","you-prosper,"],["e","and"],["que","that"],["tenhas","you-have"],["saúde,","health,"],["assim como","even-as"],["prospera","prosper"],["a","to"],["tua","your"],["alma.","soul."]]},
+  {num:2,words:[["Amado,","Beloved,"],["em","in"],["tudo","all"],["desejo","desire"],["que","that"],["prosperes,","you-prosper,"],["e","and"],["que","that"],["tenhas","you-have"],["saúde,","health,"],["assim como","even-as"],["prospera","prospers"],["a","to"],["tua","your"],["alma.","soul."]]},
   {num:3,words:[["Porque","Because"],["muito","much"],["me","me"],["alegrei","I-gladdened"],["quando","when"],["os","the"],["irmãos","brethren"],["vieram,","they-came,"],["e","and"],["testificaram","they-testified"],["da","of-the"],["verdade","truth"],["que","that"],["há","there-is"],["em","in"],["ti,","you,"],["e","and"],["de","of"],["como","as"],["andas","you-walk"],["na","in-the"],["verdade.","truth."]]},
   {num:4,words:[["Não","Not"],["tenho","I-have"],["maior","greater"],["alegria","joy"],["do que","than"],["esta:","this:"],["de","of"],["ouvir","to-hear"],["que","that"],["os","the"],["meus","my"],["filhos","children"],["andam","they-walk"],["na","in-the"],["verdade.","truth."]]},
   {num:5,words:[["Amado,","Beloved,"],["procedes","you-act"],["fielmente","faithfully"],["em","in"],["tudo","all"],["o","the"],["que","that"],["fazes","you-make"],["para","for"],["com","with"],["os","the"],["irmãos,","brethren,"],["e","and"],["para","for"],["com","with"],["os","the"],["estranhos,","strangers,"]]},
@@ -13,7 +13,7 @@ var v1 = [
   {num:11,words:[["Amado,","Beloved,"],["não","not"],["sigas","you-follow"],["o","the"],["mal,","evil,"],["mas","but"],["o","the"],["bem.","good."],["Quem","Who"],["faz","makes"],["o","the"],["bem","good"],["é","is"],["de","of"],["Deus;","God;"],["mas","but"],["quem","who"],["faz","makes"],["o","the"],["mal","evil"],["nunca","never"],["viu","saw"],["Deus.","God."]]},
   {num:12,words:[["Todos","All"],["dão","they-give"],["testemunho","testimony"],["de","of"],["Demétrio,","Demetrius,"],["até","until"],["a","the"],["própria","own"],["verdade;","truth;"],["e","and"],["também","also"],["nós","we"],["testemunhamos;","we-attest;"],["e","and"],["vós","you"],["bem","good"],["sabeis","you-know"],["que","that"],["o","the"],["nosso","our"],["testemunho","testimony"],["é","is"],["verdadeiro.","true."]]},
   {num:13,words:[["Tinha","Had"],["muito","much"],["que","that"],["escrever,","write,"],["porém","but"],["não","not"],["quero","I-will"],["escrever-te","write-you"],["com","with"],["tinta","ink"],["e","and"],["pena.","penalty."]]},
-  {num:14,words:[["Mas","But"],["espero","I-abide"],["ver-te","see-you"],["brevemente,","shortly,"],["e","and"],["falaremos","mercyseat"],["face","face"],["a","the"],["face.","face."]]},
+  {num:14,words:[["Mas","But"],["espero","I-abide"],["ver-te","see-you"],["brevemente,","shortly,"],["e","and"],["falaremos","we-will-speak"],["face","face"],["a","the"],["face.","face."]]},
   {num:15,words:[["Paz","Peace"],["seja","is"],["contigo.","with-you."],["Os","The"],["amigos","friends"],["te","you"],["saúdam.","they-greet."],["Saúda","Greets"],["os","the"],["amigos","friends"],["por","by"],["nome.","name."]]}
 ];
 renderVerseSet(v1, '3jn-ch1-verses');
