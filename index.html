@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Las Escrituras — Spanish Interlinear</title>
 <meta name="description" content="Spanish Interlinear Standard Works — Español con Glosas en Inglés">
 <link rel="manifest" href="manifest.json">
@@ -1093,13 +1093,46 @@ body.dark-mode .talk-font-controls button:hover { background:var(--accent); colo
 .volume-link-btn:hover { background:var(--sp); color:var(--bg); }
 
 /* Landing card grid */
+/* THE TRACKS MUST HAVE A LENGTH FOR THEIR MINIMUM, NOT `auto`.
+   This was `repeat(2, 1fr)`, and `1fr` is `minmax(auto, 1fr)` — so each track
+   was floored at its card's MIN-CONTENT width. "Testamento", "Doctrina" and
+   the rest set that floor, it grew with the type, and two tracks plus the gap
+   stopped fitting: 353px of tracks inside a 339px grid at 100%, 446px at 135%.
+   Content wider than the device makes the browser widen the layout viewport to
+   fit it — 375 -> 474 — and then scale the whole page down, which is the
+   "zoomed in" landing.
+
+   EVERY FIXED COUNT USES minmax(0, 1fr), NOT 1fr. Same reason, and it is what
+   makes the cards the SAME SIZE: with the `auto` floor each track sizes to its
+   own card, so "Doctrine and Covenants" claimed more room than "Old Testament"
+   and five volumes came out 164/164/133/165/105. A 0 minimum makes the tracks
+   genuinely equal and lets them shrink; long titles wrap inside the card
+   instead of widening it. Matches the layout of the Hebrew and Samoan
+   editions, whose shorter titles never exposed the difference. */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* min(165px, 100%) so the floor can never exceed a narrow phone: a flat
+     165px minimum needs 358px for two tracks and pushed a 320px viewport
+     out to 367. */
+  grid-template-columns: repeat(auto-fit, minmax(min(165px, 100%), 1fr));
   gap: 28px 24px;
-  max-width: 500px;
+  max-width: none;
   margin: 0 auto;
   padding: 0 8px;
+}
+@media (min-width: 601px) {
+  .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* NO FIVE-ACROSS ROW HERE. The Hebrew hub can do six because it is a separate
+   landing page whose .page is `max-width: none`. This file is the landing AND
+   the reader, and .page is capped at 800px for the reading measure — which must
+   stay — so five tracks came out 128px each and the covers were unreadable.
+   Three is the widest this measure carries; 3 + 2 is the desktop shape. */
+@media (max-width: 600px) {
+  .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+}
+@media (max-width: 380px) {
+  .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px; }
 }
 .scripture-card {
   display: flex;
@@ -1131,24 +1164,56 @@ body.dark-mode .talk-font-controls button:hover { background:var(--accent); colo
 .card-cover .rule-top, .card-cover .rule-bottom {
   width: 55%; height: 1px; background:var(--accent); opacity: 0.5; margin: 10px auto;
 }
-.card-cover-title {
+/* THIS IS A SPANISH EDITION, SO SPANISH LEADS. The cover read English first
+   and larger with the Spanish under it in small italic — the wrong way round
+   for the language the book is in. Spanish now takes the primary treatment
+   (first, larger, letterspaced caps) and English the secondary, the same
+   relationship the Samoan edition uses for Samoan over English.
+   The English is set in TITLE CASE, not caps: `text-transform: uppercase`
+   moved off it, so "Old Testament" renders as written in the markup. */
+.card-cover-spanish {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.15em; font-weight: 600; color:var(--accent-chrome);
   text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.35;
 }
-.card-cover-spanish {
+.card-cover-title {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95em; color:var(--accent-chrome); margin-top: 4px; line-height: 1.4;
   font-style: italic;
 }
 .card-label { margin-top: 12px; text-align: center; }
-.card-label-en {
+.card-label-es {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.95em; font-weight: 600; color: var(--ink);
 }
-.card-label-es {
+.card-label-en {
   font-family: 'Times New Roman', Times, serif;
   font-size: 0.85em; color: var(--ink-light); margin-top: 2px;
+}
+
+/* COVER TYPE AT PHONE WIDTHS — AND IT HAS TO SIT HERE, AFTER THE BASE RULES.
+   These first went in beside the .card-grid breakpoints further up, where they
+   silently lost: same specificity, but the base .card-cover-spanish below them
+   came later in the file, so it won and nothing changed on the page.
+
+   A 0 track minimum is what keeps the viewport fixed, but it lets the card
+   shrink under its longest word — on a 320px phone the card is 128px and
+   "TESTAMENTO" set 150px at 1.15em with 0.12em tracking, spilling across the
+   neighbouring card. Less tracking and a smaller cap fit it without
+   hyphenating a Spanish title. */
+@media (max-width: 600px) {
+  .card-cover-spanish { font-size: 0.95em; letter-spacing: 0.07em; }
+  .card-cover-title { font-size: 0.9em; }
+}
+@media (max-width: 420px) {
+  .card-cover { padding: 16px 10px; }
+  .card-cover-spanish { font-size: 0.8em; letter-spacing: 0.04em; }
+  .card-cover-title { font-size: 0.78em; }
+}
+@media (max-width: 340px) {
+  .card-cover { padding: 14px 7px; }
+  .card-cover-spanish { font-size: 0.72em; letter-spacing: 0.02em; }
+  .card-cover-title { font-size: 0.72em; }
 }
 
 /* ===== DARK MODE ===== */
@@ -1283,6 +1348,16 @@ body.dark-mode .verse.highlighted { background:var(--accent-wash); }
    The title, subtitle, standfirst, ornament and "Continuar Leyendo" button
    were five inline style="" attributes on the panel; styling in the markup
    cannot be themed or overridden, so what survives lives here instead. */
+/* THE READING SLIDER IS FOR SCRIPTURE, NOT FOR THE LANDING. setSize() writes
+   70-150% onto #page, and this landing lives inside #page because this file is
+   the reader and the landing in one — so a saved 135% was inflating the covers
+   and the titles too. The Hebrew and Samoan editions are immune structurally:
+   their landing is a separate hub page whose wrapper is `class="page"` with no
+   id, so getElementById('page') finds nothing and the slider cannot reach it.
+   Saying it in rem here buys the same immunity without splitting the file:
+   root-relative, so the percentage on #page does not cascade in. */
+#panel-landing { font-size: 1rem; }
+
 .landing-head { text-align: center; padding: 48px 0 28px; }
 .landing-title {
   font-family: 'Times New Roman', Times, serif;
@@ -1579,65 +1654,65 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
       <div class="scripture-card" onclick="navTo('gen-ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-title">Old<br>Testament</div>
-          <div class="rule-bottom"></div>
           <div class="card-cover-spanish">Antiguo<br>Testamento</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-title">Old<br>Testament</div>
         </div>
         <div class="card-label">
-          <div class="card-label-en">Old Testament</div>
           <div class="card-label-es">Antiguo Testamento</div>
+          <div class="card-label-en">Old Testament</div>
         </div>
       </div>
 
       <div class="scripture-card" onclick="navTo('mat-ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-title">New<br>Testament</div>
-          <div class="rule-bottom"></div>
           <div class="card-cover-spanish">Nuevo<br>Testamento</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-title">New<br>Testament</div>
         </div>
         <div class="card-label">
-          <div class="card-label-en">New Testament</div>
           <div class="card-label-es">Nuevo Testamento</div>
+          <div class="card-label-en">New Testament</div>
         </div>
       </div>
 
       <div class="scripture-card" onclick="navTo('ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-title">The Book<br>of Mormon</div>
-          <div class="rule-bottom"></div>
           <div class="card-cover-spanish">El Libro<br>de Mormón</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-title">The Book<br>of Mormon</div>
         </div>
         <div class="card-label">
-          <div class="card-label-en">The Book of Mormon</div>
           <div class="card-label-es">El Libro de Mormón</div>
+          <div class="card-label-en">The Book of Mormon</div>
         </div>
       </div>
 
       <div class="scripture-card" onclick="navTo('dc-sec1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-title">Doctrine<br>and<br>Covenants</div>
-          <div class="rule-bottom"></div>
           <div class="card-cover-spanish">Doctrina<br>y Convenios</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-title">Doctrine<br>and<br>Covenants</div>
         </div>
         <div class="card-label">
-          <div class="card-label-en">Doctrine and Covenants</div>
           <div class="card-label-es">Doctrina y Convenios</div>
+          <div class="card-label-en">Doctrine and Covenants</div>
         </div>
       </div>
 
       <div class="scripture-card" onclick="navTo('ms-ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-title">Pearl<br>of Great<br>Price</div>
-          <div class="rule-bottom"></div>
           <div class="card-cover-spanish">La Perla<br>de Gran Precio</div>
+          <div class="rule-bottom"></div>
+          <div class="card-cover-title">Pearl<br>of Great<br>Price</div>
         </div>
         <div class="card-label">
-          <div class="card-label-en">Pearl of Great Price</div>
           <div class="card-label-es">La Perla de Gran Precio</div>
+          <div class="card-label-en">Pearl of Great Price</div>
         </div>
       </div>
     </div>
