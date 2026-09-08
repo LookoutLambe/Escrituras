@@ -1191,6 +1191,52 @@ body.dark-mode .talk-font-controls button:hover { background:var(--accent); colo
   font-size: 0.85em; color: var(--ink-light); margin-top: 2px;
 }
 
+/* ===== LANGUAGE CHOICE — under the books on the landing =====
+   The edition, not a view mode. The three buttons in the footer answer "how do
+   I want this displayed"; this answers "which language am I reading". Keeping
+   them apart is what lets Português Dual and Português Interlinear exist at
+   all — folded into that row as a fourth button, they could not.
+
+   Gold is a FILL and a BORDER here, never text on the cream: the active pill
+   is --accent-fill with --on-fill text, the inactive is ink inside a gold
+   hairline. Same treatment as the active mode button in the footer, so the two
+   read as one family. */
+.lang-choice {
+  margin: 40px auto 0;
+  max-width: 460px;
+  padding: 24px 8px 0;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+}
+.lang-choice-label {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.78em; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 14px;
+}
+.lang-options { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.lang-btn {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1em; line-height: 1.2;
+  min-height: 44px; min-width: 132px;            /* thumb-sized, both of them */
+  padding: 11px 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--accent); border-radius: 3px;
+  background: transparent; color: var(--ink);
+  cursor: pointer; transition: background 0.18s, color 0.18s;
+}
+.lang-btn:hover { background: var(--accent-wash); }
+.lang-btn[aria-current="true"] {
+  background: var(--accent-fill); color: var(--on-fill); border-color: var(--accent-fill);
+}
+.lang-btn-sub { display: block; font-size: 0.74em; opacity: 0.78; margin-top: 3px; }
+.lang-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+body.dark-mode .lang-choice { border-top-color: var(--chrome-line-2); }
+body.dark-mode .lang-btn { color: var(--ink); border-color: var(--accent-chrome); }
+body.dark-mode .lang-btn[aria-current="true"] { background: var(--accent-chrome); color: var(--chrome); border-color: var(--accent-chrome); }
+@media (max-width: 380px) {
+  .lang-btn { min-width: 0; flex: 1 1 0; padding: 11px 8px; font-size: 0.92em; }
+}
+
 /* COVER TYPE AT PHONE WIDTHS — AND IT HAS TO SIT HERE, AFTER THE BASE RULES.
    These first went in beside the .card-grid breakpoints further up, where they
    silently lost: same specificity, but the base .card-cover-spanish below them
@@ -1714,6 +1760,18 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
           <div class="card-label-es">La Perla de Gran Precio</div>
           <div class="card-label-en">Pearl of Great Price</div>
         </div>
+      </div>
+    </div>
+
+    <div class="lang-choice">
+      <div class="lang-choice-label" id="lang-choice-label">Idioma · Language</div>
+      <div class="lang-options" role="group" aria-labelledby="lang-choice-label">
+        <button type="button" class="lang-btn" data-lang="es" aria-current="true" onclick="setEditionLanguage('es')">
+          <span>Español<span class="lang-btn-sub">Spanish</span></span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="pt" aria-current="false" onclick="setEditionLanguage('pt')">
+          <span>Português<span class="lang-btn-sub">Portuguese</span></span>
+        </button>
       </div>
     </div>
 
@@ -2344,6 +2402,24 @@ function setMode(mode) {
   } else {
     document.getElementById('btn-inter').classList.add('active');
   }
+}
+
+/* THE EDITION LANGUAGE. Separate from the view mode on purpose — see the
+   .lang-choice rule. Switching keeps the reader's place: same book, chapter,
+   verse and view mode, in the other language.
+
+   The Portuguese edition is still being built (corpus, then the glossing
+   toolchain, then the grammar), so this currently only records the choice.
+   When the Portuguese verses exist, the one commented line below becomes the
+   redirect and nothing else about this control changes. */
+function setEditionLanguage(lang) {
+  var buttons = document.querySelectorAll('.lang-btn');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].setAttribute('aria-current', buttons[i].getAttribute('data-lang') === lang ? 'true' : 'false');
+  }
+  try { localStorage.setItem('tp-edition-lang', lang); } catch (e) {}
+  document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt' : 'es');
+  // TODO(portuguese): location.href = ptHrefForCurrentPlace();
 }
 
 function setSize(val) {
