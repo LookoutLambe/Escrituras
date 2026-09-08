@@ -1,0 +1,430 @@
+sete	Seth	dice=0.86 sim=0.75 pt=28	dict-says-otherwise
+sem	Shem	dice=0.83 sim=0.86 pt=30	dict-says-otherwise
+cão	Ham	dice=0.98 sim=0.33 pt=23	dict-says-otherwise
+terá	Terah	dice=0.95 sim=0.89 pt=11	is-a-verb-form
+quedar	Kedar	dice=1.00 sim=0.73 pt=11	is-a-verb-form
+tema	Tema	dice=1.00 sim=1.00 pt=5	is-a-verb-form
+efá	Eldaah	dice=0.57 sim=0.44 pt=5
+coré	Korah	dice=0.91 sim=0.44 pt=27
+senhor	Israel	dice=0.18 sim=0.50 pt=8604	dict-says-otherwise
+azarias	Azariah	dice=1.00 sim=0.86 pt=45	is-a-verb-form
+rão	Hezron	dice=0.26 sim=0.44 pt=6
+e	Jesus	dice=0.06 sim=0.33 pt=1797	dict-says-otherwise
+atai	Attai	dice=0.86 sim=0.89 pt=3	is-a-verb-form
+belém	Beth-Lehem	dice=0.76 sim=0.67 pt=46	dict-says-otherwise
+salomão	Solomon	dice=0.99 sim=0.71 pt=280	dict-says-otherwise
+asa	Asa	dice=0.99 sim=1.00 pt=55	is-a-verb-form
+deus	God	dice=0.99 sim=0.29 pt=5786
+oh	Moronihah	dice=0.06 sim=0.36 pt=17	dict-says-otherwise
+coate	Kohath	dice=1.00 sim=0.55 pt=29	is-a-verb-form
+amarias	Amariah	dice=0.96 sim=0.86 pt=13	is-a-verb-form
+ido	Iddo	dice=0.96 sim=0.86 pt=12	is-a-verb-form
+sofonias	Zephaniah	dice=0.95 sim=0.35 pt=9
+maluque	Malluch	dice=0.91 sim=0.57 pt=5	is-a-verb-form
+bani	Bani	dice=1.00 sim=1.00 pt=14	is-a-verb-form
+geba	Geba	dice=0.89 sim=1.00 pt=13	is-a-verb-form
+siquém	Shechem	dice=0.95 sim=0.46 pt=59
+quedes	Kedesh	dice=0.96 sim=0.67 pt=12	is-a-verb-form
+jaza	Jahaz	dice=0.40 sim=0.89 pt=5	is-a-verb-form
+jazer	Jazer	dice=0.91 sim=1.00 pt=12	is-a-verb-form
+amiúde	Ammihud	dice=0.95 sim=0.77 pt=9	is-a-verb-form
+dor	Dor	dice=0.91 sim=1.00 pt=5	dict-says-otherwise
+isvi	Serah	dice=0.67 sim=0.22 pt=4
+ai	Ai	dice=0.54 sim=1.00 pt=78	dict-says-otherwise
+roga	Shamer	dice=0.40 sim=0.40 pt=3	is-a-verb-form
+gera	Gera	dice=1.00 sim=1.00 pt=9	is-a-verb-form
+quis	Kish	dice=0.98 sim=0.50 pt=22	is-a-verb-form
+qualquer	Molech	dice=0.06 sim=0.29 pt=23	dict-says-otherwise
+então	Samuel	dice=0.07 sim=0.36 pt=177	dict-says-otherwise
+exércitos	Israel	dice=0.05 sim=0.53 pt=342
+nunca	Bochim	dice=0.06 sim=0.18 pt=33	dict-says-otherwise
+isso	Irijah	dice=0.12 sim=0.20 pt=15	dict-says-otherwise
+nós	Shechaniah	dice=0.06 sim=0.31 pt=25	dict-says-otherwise
+paz	Ahimaaz	dice=0.06 sim=0.40 pt=20	dict-says-otherwise
+à	Abram	dice=0.07 sim=0.33 pt=10
+tiro	Tyre	dice=0.74 sim=0.50 pt=53	is-a-verb-form
+sobe	Pekod	dice=0.07 sim=0.44 pt=26	is-a-verb-form
+por	Pharisees	dice=0.05 sim=0.33 pt=302	dict-says-otherwise
+pelo	Ahithophel	dice=0.07 sim=0.57 pt=11	is-a-verb-form
+ninguém	Middoni	dice=0.06 sim=0.43 pt=20	dict-says-otherwise
+uni	Unni	dice=1.00 sim=0.86 pt=3	is-a-verb-form
+tudo	Ziba	dice=0.05 sim=0.00 pt=24	dict-says-otherwise
+assim	Amen	dice=0.20 sim=0.44 pt=347	dict-says-otherwise
+sal	Abishai	dice=0.07 sim=0.40 pt=4	dict-says-otherwise
+porventura	Baal-Zebub	dice=0.06 sim=0.30 pt=104	dict-says-otherwise
+disse	Hosea	dice=0.08 sim=0.40 pt=23	is-a-verb-form
+ide	Ekron	dice=0.06 sim=0.25 pt=52	is-a-verb-form
+basta	Jebusite	dice=0.16 sim=0.46 pt=11	is-a-verb-form
+dá-me	Ishmaelites	dice=0.07 sim=0.38 pt=21
+toma-o	Naboth	dice=0.10 sim=0.50 pt=3
+esta	Jezebel	dice=0.06 sim=0.18 pt=50	dict-says-otherwise
+filho	Christ	dice=0.12 sim=0.36 pt=451	is-a-verb-form
+ira	Ira	dice=0.67 sim=1.00 pt=3	is-a-verb-form
+estes	Azareel	dice=0.06 sim=0.33 pt=31	dict-says-otherwise
+ouvi-me	Zemaraim	dice=0.18 sim=0.40 pt=9
+teu	Thummim	dice=0.06 sim=0.40 pt=16	dict-says-otherwise
+sê	Cyrus	dice=0.06 sim=0.29 pt=17	is-a-verb-form
+bendito	Naomi	dice=0.07 sim=0.50 pt=41	is-a-verb-form
+pai	Christ	dice=0.12 sim=0.22 pt=603	dict-says-otherwise
+apolo	Apollos	dice=1.00 sim=0.83 pt=11	dict-says-otherwise
+gaio	Gaius	dice=1.00 sim=0.67 pt=5	dict-says-otherwise
+onde	Abel	dice=0.05 sim=0.25 pt=54	is-a-verb-form
+as	Beth-Shean	dice=0.05 sim=0.33 pt=34	dict-says-otherwise
+espírito	Christ	dice=0.08 sim=0.57 pt=727	dict-says-otherwise
+tirai	Martha	dice=0.10 sim=0.55 pt=8	is-a-verb-form
+santo	Israel	dice=0.06 sim=0.36 pt=398	dict-says-otherwise
+nisto	Hivites	dice=0.08 sim=0.50 pt=10
+tiago	James	dice=0.95 sim=0.20 pt=44
+esse	Urim	dice=0.07 sim=0.00 pt=10	dict-says-otherwise
+unigênito	Satan	dice=0.06 sim=0.29 pt=52
+rei	Pilate	dice=0.12 sim=0.44 pt=81	dict-says-otherwise
+viva	Archite	dice=0.14 sim=0.36 pt=9	is-a-verb-form
+tomai	Amon	dice=0.13 sim=0.67 pt=12	is-a-verb-form
+entra	Jael	dice=0.15 sim=0.44 pt=7	is-a-verb-form
+de	Caesar	dice=0.06 sim=0.25 pt=76	dict-says-otherwise
+bem	Festus	dice=0.08 sim=0.22 pt=36	dict-says-otherwise
+peço-te	Shunammite	dice=0.09 sim=0.24 pt=15
+pede	Shunammite	dice=0.14 sim=0.14 pt=6	is-a-verb-form
+sai	Belial	dice=0.06 sim=0.44 pt=17	is-a-verb-form
+faze	Jabesh	dice=0.07 sim=0.40 pt=17	is-a-verb-form
+boa	Isaiah	dice=0.06 sim=0.22 pt=6	dict-says-otherwise
+no	Ontario	dice=0.06 sim=0.44 pt=30
+zaretã	Baana	dice=0.40 sim=0.36 pt=3
+ouvi	Micaiah	dice=0.07 sim=0.18 pt=43	is-a-verb-form
+mar	Laman	dice=0.07 sim=0.50 pt=42	is-a-verb-form
+vermelho	Laman	dice=0.07 sim=0.31 pt=40	is-a-verb-form
+visto	Belial	dice=0.08 sim=0.18 pt=9	is-a-verb-form
+nada	Answerest	dice=0.29 sim=0.31 pt=9	is-a-verb-form
+toma	Moriah	dice=0.05 sim=0.60 pt=36	is-a-verb-form
+voltai	Naomi	dice=0.08 sim=0.55 pt=6	is-a-verb-form
+muito	Midianites	dice=0.06 sim=0.40 pt=11	dict-says-otherwise
+vem	Jehoahaz	dice=0.06 sim=0.18 pt=48	is-a-verb-form
+ainda	Micaiah	dice=0.05 sim=0.50 pt=57	dict-says-otherwise
+és	Asahel	dice=0.05 sim=0.50 pt=23	is-a-verb-form
+levanta-te	Jezreelite	dice=0.05 sim=0.40 pt=68	is-a-verb-form
+há	Jehu	dice=0.10 sim=0.33 pt=28	is-a-verb-form
+também	Thebez	dice=0.05 sim=0.50 pt=37	dict-says-otherwise
+aserá	Asa	dice=0.07 sim=0.75 pt=3
+todo	Omri	dice=0.06 sim=0.25 pt=15	dict-says-otherwise
+acabe	Ahab	dice=1.00 sim=0.67 pt=82	is-a-verb-form
+vive	Elijah	dice=0.09 sim=0.40 pt=34	is-a-verb-form
+vieste	Nazareth	dice=0.06 sim=0.29 pt=3	is-a-verb-form
+vê	Answerest	dice=0.17 sim=0.18 pt=7	is-a-verb-form
+aqui	Shaphat	dice=0.13 sim=0.18 pt=8	dict-says-otherwise
+até	Samson	dice=0.05 sim=0.22 pt=39	dict-says-otherwise
+escolhei	Philistine	dice=0.06 sim=0.56 pt=5	is-a-verb-form
+chegai-vos	Mishael	dice=0.15 sim=0.59 pt=5	is-a-verb-form
+tenho	Ehud	dice=0.07 sim=0.44 pt=21	is-a-verb-form
+deixa-me	Moabitess	dice=0.10 sim=0.47 pt=15
+conforme	Mephibosheth	dice=0.11 sim=0.30 pt=6	is-a-verb-form
+dizei	Ben-Hadad	dice=0.06 sim=0.29 pt=5	is-a-verb-form
+viste	Amalekite	dice=0.15 sim=0.43 pt=9	is-a-verb-form
+afeque	Aphek	dice=0.88 sim=0.36 pt=8
+diz	Ben-Hadad	dice=0.07 sim=0.17 pt=4	is-a-verb-form
+vinde	Heshbon	dice=0.06 sim=0.33 pt=32	is-a-verb-form
+já	Messias	dice=0.05 sim=0.22 pt=38	dict-says-otherwise
+os	Samson	dice=0.07 sim=0.50 pt=78	dict-says-otherwise
+irás	Ramoth-Gilead	dice=0.17 sim=0.35 pt=4	is-a-verb-form
+serei	Ramoth-Gilead	dice=0.09 sim=0.33 pt=3	is-a-verb-form
+irei	Kareah	dice=0.09 sim=0.40 pt=9	is-a-verb-form
+com	Com	dice=0.44 sim=1.00 pt=43	dict-says-otherwise
+vês	Micaiah	dice=0.07 sim=0.00 pt=11	is-a-verb-form
+vi	Edomite	dice=0.11 sim=0.22 pt=12	is-a-verb-form
+dá	Amaziah	dice=0.07 sim=0.22 pt=16	is-a-verb-form
+todavia	Mulek	dice=0.09 sim=0.00 pt=7	dict-says-otherwise
+portanto	Baal-Zebub	dice=0.05 sim=0.11 pt=71	dict-says-otherwise
+sei	Korihor	dice=0.10 sim=0.20 pt=8	is-a-verb-form
+eva	Eve	dice=1.00 sim=0.67 pt=15	dict-says-otherwise
+salvador	Savior	dice=0.66 sim=0.71 pt=62	dict-says-otherwise
+redentor	Amen	dice=0.05 sim=0.33 pt=82
+cordeiro	Gentiles	dice=0.07 sim=0.25 pt=97	dict-says-otherwise
+altíssimo	Hosanna	dice=0.11 sim=0.38 pt=75
+sabes	Kadesh	dice=0.08 sim=0.55 pt=9	is-a-verb-form
+olha	Enoch	dice=0.05 sim=0.44 pt=39	is-a-verb-form
+estas	Kolob	dice=0.09 sim=0.00 pt=17	dict-says-otherwise
+nosso	Dagon	dice=0.14 sim=0.40 pt=7	dict-says-otherwise
+abundância	Teancum	dice=0.16 sim=0.47 pt=31	dict-says-otherwise
+depois	Phichol	dice=0.13 sim=0.46 pt=12	dict-says-otherwise
+sois	Naomi	dice=0.08 sim=0.44 pt=6	is-a-verb-form
+haveis	Abinadi	dice=0.10 sim=0.31 pt=8
+temos	Bible	dice=0.12 sim=0.20 pt=9	is-a-verb-form
+poderoso	Savior	dice=0.14 sim=0.43 pt=10	dict-says-otherwise
+ponto	Pontus	dice=1.00 sim=0.73 pt=4	is-a-verb-form
+graça	Asia	dice=0.06 sim=0.44 pt=11	dict-says-otherwise
+sara	Sarah	dice=0.93 sim=0.89 pt=39	is-a-verb-form
+ana	Hannah	dice=0.96 sim=0.67 pt=12	dict-says-otherwise
+quando	Enoch	dice=0.06 sim=0.36 pt=82	dict-says-otherwise
+na	Mahan	dice=0.05 sim=0.57 pt=35
+eis-me	Eli	dice=0.14 sim=0.44 pt=27
+fala	Balaam	dice=0.05 sim=0.60 pt=14	is-a-verb-form
+levai	Nun	dice=0.06 sim=0.00 pt=3	is-a-verb-form
+qual	Legion	dice=0.11 sim=0.20 pt=33	dict-says-otherwise
+pecamos	Ashtaroth	dice=0.11 sim=0.38 pt=7	is-a-verb-form
+ouve	Ahitub	dice=0.07 sim=0.20 pt=14	is-a-verb-form
+levantou-se	Zalmunna	dice=0.17 sim=0.42 pt=3	is-a-verb-form
+dize	Ephraimites	dice=0.10 sim=0.27 pt=16	is-a-verb-form
+está	Zebah	dice=0.13 sim=0.44 pt=22	is-a-verb-form
+declara-me	Delilah	dice=0.18 sim=0.47 pt=5
+põe	Ethiopian	dice=0.11 sim=0.50 pt=12	is-a-verb-form
+vedes	Zebah	dice=0.15 sim=0.20 pt=4	is-a-verb-form
+deixa-nos	Jabesh	dice=0.14 sim=0.40 pt=3
+amanhã	Jabesh	dice=0.17 sim=0.33 pt=12	dict-says-otherwise
+hoje	Phinehas	dice=0.05 sim=0.33 pt=17	dict-says-otherwise
+jefté	Jephthah	dice=0.98 sim=0.46 pt=26
+trazei-me	Agag	dice=0.18 sim=0.15 pt=5
+subi	Phinehas	dice=0.06 sim=0.33 pt=12	is-a-verb-form
+traze	Tamar	dice=0.07 sim=0.60 pt=5	is-a-verb-form
+meu	Elisha	dice=0.07 sim=0.22 pt=40	dict-says-otherwise
+tem	Beelzebub	dice=0.11 sim=0.17 pt=11	is-a-verb-form
+pequei	Lachish	dice=0.06 sim=0.15 pt=9	is-a-verb-form
+vim	Cainan	dice=0.12 sim=0.22 pt=3	is-a-verb-form
+nem	Nineveh	dice=0.05 sim=0.40 pt=20	dict-says-otherwise
+buscai-me	En-Dor	dice=0.29 sim=0.27 pt=4
+deixa	Mizpeh	dice=0.05 sim=0.36 pt=17	is-a-verb-form
+dai-me	Philistine	dice=0.06 sim=0.25 pt=4
+contra	Jerahmeelites	dice=0.22 sim=0.32 pt=7	dict-says-otherwise
+sou	Zoan	dice=0.05 sim=0.29 pt=30	is-a-verb-form
+falai	Abiathar	dice=0.06 sim=0.46 pt=4	is-a-verb-form
+foram	Rahab	dice=0.11 sim=0.40 pt=8	is-a-verb-form
+anda	Shebna	dice=0.17 sim=0.40 pt=3	is-a-verb-form
+vai-te	Bahurim	dice=0.20 sim=0.31 pt=5	is-a-verb-form
+benditos	Jabesh-Gilead	dice=0.13 sim=0.48 pt=3
+mais	Shelah	dice=0.11 sim=0.40 pt=9	dict-says-otherwise
+cada	Baal-Peor	dice=0.14 sim=0.31 pt=9	dict-says-otherwise
+nenhum	Mizpeh	dice=0.07 sim=0.50 pt=9	dict-says-otherwise
+minha	Naomi	dice=0.06 sim=0.80 pt=14	dict-says-otherwise
+vejo	Joram	dice=0.06 sim=0.44 pt=11	is-a-verb-form
+jura-me	Abel	dice=0.07 sim=0.36 pt=4
+mediador	Abel	dice=0.07 sim=0.33 pt=5	dict-says-otherwise
+gerar	Gerar	dice=1.00 sim=1.00 pt=10	is-a-verb-form
+iremos	Ramoth-Gilead	dice=0.09 sim=0.53 pt=3	is-a-verb-form
+um	Amos	dice=0.08 sim=0.33 pt=38	dict-says-otherwise
+dai	Caesar	dice=0.16 sim=0.22 pt=13	is-a-verb-form
+traição	Athaliah	dice=0.20 sim=0.53 pt=3	dict-says-otherwise
+tirai-a	Tamar	dice=0.08 sim=0.67 pt=3
+saí	Baptist	dice=0.08 sim=0.60 pt=8	is-a-verb-form
+peca	Pekah	dice=1.00 sim=0.67 pt=12	is-a-verb-form
+filhos	Zebedee	dice=0.12 sim=0.00 pt=5
+desde	Lebanon	dice=0.05 sim=0.17 pt=5	dict-says-otherwise
+achei	Arioch	dice=0.20 sim=0.73 pt=4	is-a-verb-form
+teus	Jehu	dice=0.06 sim=0.50 pt=14
+ponde	Uriah	dice=0.07 sim=0.00 pt=6	is-a-verb-form
+ciro	Cyrus	dice=1.00 sim=0.44 pt=19
+são	Jewish	dice=0.20 sim=0.22 pt=8	is-a-verb-form
+da	Aram	dice=0.10 sim=0.33 pt=10
+era	Barnabas	dice=0.06 sim=0.36 pt=8	is-a-verb-form
+homem	Enoch	dice=0.06 sim=0.60 pt=127	dict-says-otherwise
+desce	Uriah	dice=0.06 sim=0.00 pt=7	is-a-verb-form
+fica	Micah	dice=0.05 sim=0.67 pt=8	is-a-verb-form
+isto	Laodiceans	dice=0.06 sim=0.43 pt=30	dict-says-otherwise
+chama	Lo-Ruhamah	dice=0.22 sim=0.53 pt=7	is-a-verb-form
+logo	Jehovah	dice=0.10 sim=0.18 pt=7	dict-says-otherwise
+donde	Amalekite	dice=0.18 sim=0.14 pt=7	dict-says-otherwise
+guarda-te	Syrian	dice=0.14 sim=0.27 pt=4	is-a-verb-form
+olhai	Sadducees	dice=0.10 sim=0.14 pt=7	is-a-verb-form
+hei	Hazael	dice=0.08 sim=0.44 pt=3	is-a-verb-form
+disse-me	Samaritans	dice=0.18 sim=0.44 pt=4
+tinha	Nimshi	dice=0.25 sim=0.55 pt=3	is-a-verb-form
+passa	Barzillai	dice=0.11 sim=0.29 pt=8	is-a-verb-form
+chegou	Thomas	dice=0.08 sim=0.33 pt=4	is-a-verb-form
+tira	Belial	dice=0.08 sim=0.40 pt=8	is-a-verb-form
+examinai	Jehonadab	dice=0.40 sim=0.47 pt=3	is-a-verb-form
+sela	Joktheel	dice=0.33 sim=0.33 pt=4	is-a-verb-form
+perante	Michal	dice=0.10 sim=0.15 pt=4	dict-says-otherwise
+fazei	Amnon	dice=0.05 sim=0.20 pt=18	is-a-verb-form
+come	Eve	dice=0.11 sim=0.29 pt=3	is-a-verb-form
+contudo	Jehovah	dice=0.09 sim=0.14 pt=8	dict-says-otherwise
+eles	Beelzebub	dice=0.07 sim=0.46 pt=21	dict-says-otherwise
+veste-te	Rahab	dice=0.13 sim=0.00 pt=4	is-a-verb-form
+desperta	Rahab	dice=0.11 sim=0.31 pt=7	is-a-verb-form
+quão	Michal	dice=0.05 sim=0.20 pt=22
+lembrai-vos	Jerubbaal	dice=0.08 sim=0.50 pt=12	is-a-verb-form
+todos	Emma	dice=0.07 sim=0.00 pt=22	dict-says-otherwise
+acautela-te	Remaliah	dice=0.19 sim=0.42 pt=3	is-a-verb-form
+príncipe	Messiah	dice=0.05 sim=0.27 pt=6	dict-says-otherwise
+foste	Lucifer	dice=0.29 sim=0.33 pt=4	is-a-verb-form
+será	Serah	dice=0.22 sim=0.89 pt=7	is-a-verb-form
+monte	Olivet	dice=0.09 sim=0.55 pt=20	is-a-verb-form
+uma	Ishmaelites	dice=0.07 sim=0.29 pt=22	dict-says-otherwise
+nos	Arabian	dice=0.18 sim=0.20 pt=6
+pela	Uriah	dice=0.05 sim=0.22 pt=14	is-a-verb-form
+servo	Ziba	dice=0.11 sim=0.00 pt=4	dict-says-otherwise
+deita-te	Jonadab	dice=0.14 sim=0.27 pt=3	is-a-verb-form
+sede	Amnon	dice=0.07 sim=0.00 pt=7	is-a-verb-form
+seja	Cushi	dice=0.09 sim=0.22 pt=16	is-a-verb-form
+melhor	Archite	dice=0.15 sim=0.46 pt=8	dict-says-otherwise
+levantai-vos	Shebaniah	dice=0.10 sim=0.57 pt=13	is-a-verb-form
+volta	Ittai	dice=0.13 sim=0.40 pt=8	is-a-verb-form
+retorna	Abiathar	dice=0.06 sim=0.40 pt=6	is-a-verb-form
+achega-te	Ahithophel	dice=0.10 sim=0.42 pt=3	is-a-verb-form
+chamai	Archite	dice=0.22 sim=0.62 pt=4	is-a-verb-form
+houve	Warren	dice=0.29 sim=0.18 pt=4	is-a-verb-form
+sendo	Bilhah	dice=0.14 sim=0.00 pt=3	is-a-verb-form
+guardai-vos	Abishai	dice=0.07 sim=0.44 pt=3	is-a-verb-form
+corre	Cushi	dice=0.18 sim=0.20 pt=4	is-a-verb-form
+sejam	Cushi	dice=0.18 sim=0.20 pt=4	is-a-verb-form
+quantos	Barzillai	dice=0.12 sim=0.13 pt=7	dict-says-otherwise
+maior	Anakims	dice=0.17 sim=0.50 pt=3	dict-says-otherwise
+rocha	Jeshurun	dice=0.13 sim=0.31 pt=12	dict-says-otherwise
+queres	Festus	dice=0.11 sim=0.50 pt=6	is-a-verb-form
+listra	Lystra	dice=1.00 sim=0.83 pt=6	is-a-verb-form
+caí	Aven	dice=0.29 sim=0.29 pt=4	is-a-verb-form
+desolação	Nehors	dice=0.10 sim=0.40 pt=17	dict-says-otherwise
+alma	Alma	dice=0.99 sim=1.00 pt=219	dict-says-otherwise
+louco	Raca	dice=0.80 sim=0.22 pt=3	dict-says-otherwise
+nova	Ontario	dice=0.14 sim=0.55 pt=27	is-a-verb-form
+cantai	Miriam	dice=0.11 sim=0.33 pt=6	is-a-verb-form
+amado	Personages	dice=0.18 sim=0.27 pt=8	is-a-verb-form
+igreja	Latter-Day	dice=0.32 sim=0.38 pt=28	dict-says-otherwise
+sacerdócio	Aaronic	dice=0.22 sim=0.59 pt=39	dict-says-otherwise
+caldeia	Chaldea	dice=1.00 sim=0.86 pt=12	is-a-verb-form
+essas	Ham	dice=0.07 sim=0.25 pt=4	dict-says-otherwise
+sarai	Sarai	dice=0.97 sim=1.00 pt=19	is-a-verb-form
+ló	Lot	dice=0.10 sim=0.80 pt=39
+ela	Elah	dice=0.07 sim=0.86 pt=11	dict-says-otherwise
+deuses	Eden	dice=0.05 sim=0.60 pt=40
+jardim	Eden	dice=0.34 sim=0.20 pt=8	dict-says-otherwise
+homens	Athens	dice=0.09 sim=0.67 pt=18
+bartolomeu	Bartholomew	dice=1.00 sim=0.86 pt=4	dict-says-otherwise
+justo	Justus	dice=0.38 sim=0.73 pt=13	is-a-verb-form
+vede	Galilaeans	dice=0.11 sim=0.14 pt=15	is-a-verb-form
+assenta-te	Baruch	dice=0.06 sim=0.13 pt=8	is-a-verb-form
+anás	Annas	dice=1.00 sim=0.89 pt=4	dict-says-otherwise
+dize-me	Roman	dice=0.25 sim=0.17 pt=3
+sinédrio	Pharisee	dice=0.08 sim=0.50 pt=13
+rogo-te	Zippor	dice=0.11 sim=0.31 pt=11
+creio	Philip	dice=0.05 sim=0.18 pt=4	is-a-verb-form
+irmão	Ananias	dice=0.15 sim=0.33 pt=3	dict-says-otherwise
+lida	Lydda	dice=1.00 sim=0.67 pt=3	is-a-verb-form
+envia	Joppa	dice=0.13 sim=0.20 pt=3	is-a-verb-form
+é-me	Greek	dice=0.11 sim=0.44 pt=7
+grande	Diana	dice=0.15 sim=0.55 pt=21	dict-says-otherwise
+grécia	Grecia	dice=0.75 sim=1.00 pt=5	dict-says-otherwise
+pretório	Caiaphas	dice=0.13 sim=0.25 pt=6
+festo	Festus	dice=0.96 sim=0.73 pt=13	is-a-verb-form
+digo-vos	Abinadi	dice=0.07 sim=0.27 pt=23
+ser	Zeezrom	dice=0.06 sim=0.40 pt=7	is-a-verb-form
+supremo	Zeezrom	dice=0.07 sim=0.57 pt=3	dict-says-otherwise
+digo-te	Zeezrom	dice=0.07 sim=0.29 pt=3
+estás	Korihor	dice=0.11 sim=0.00 pt=6	is-a-verb-form
+faça-se	Zeresh	dice=0.29 sim=0.31 pt=4	is-a-verb-form
+abençoado	Abinadi	dice=0.06 sim=0.63 pt=3	is-a-verb-form
+ânti-néfi-leí	Anti	dice=0.85 sim=0.47 pt=11
+meus	Cincinnati	dice=0.14 sim=0.00 pt=12
+siblon	Corianton	dice=0.46 sim=0.40 pt=10
+sabeis	Laish	dice=0.18 sim=0.55 pt=3	is-a-verb-form
+ajuntai-vos	Ashdod	dice=0.09 sim=0.35 pt=5	is-a-verb-form
+sete-estrelo	Pleiades	dice=0.80 sim=0.40 pt=3
+livro	Mormon	dice=0.46 sim=0.36 pt=20	is-a-verb-form
+podes	Belteshazzar	dice=0.18 sim=0.24 pt=3	is-a-verb-form
+essa	Persians	dice=0.20 sim=0.67 pt=5	dict-says-otherwise
+quanto	Martin	dice=0.07 sim=0.50 pt=14	dict-says-otherwise
+média	Media	dice=0.67 sim=1.00 pt=9	dict-says-otherwise
+smith	Joseph	dice=0.31 sim=0.36 pt=100
+guarda	Dumah	dice=0.18 sim=0.55 pt=7	is-a-verb-form
+david	Edward	dice=0.07 sim=0.55 pt=8	dict-says-otherwise
+doze	Taylor	dice=0.07 sim=0.20 pt=23	dict-says-otherwise
+antes	Nathanael	dice=0.11 sim=0.57 pt=12	dict-says-otherwise
+p	Pratt	dice=0.82 sim=0.33 pt=7
+dou-vos	Vinson	dice=0.20 sim=0.46 pt=8
+b	Robert	dice=0.29 sim=0.29 pt=5
+isaac	Isaac	dice=0.09 sim=1.00 pt=7
+w	William	dice=0.32 sim=0.25 pt=9
+h	Hyde	dice=0.40 sim=0.40 pt=7
+j	Newel	dice=0.20 sim=0.00 pt=3
+coe	Coe	dice=1.00 sim=1.00 pt=3	is-a-verb-form
+k	Kirtland	dice=0.14 sim=0.22 pt=13
+g	Knight	dice=0.09 sim=0.29 pt=14
+bem-aventurado	Mclellin	dice=0.13 sim=0.27 pt=12
+primeira	William	dice=0.05 sim=0.53 pt=11
+presidência	Melchizedek	dice=0.13 sim=0.45 pt=18
+apocalipse	Elias	dice=0.09 sim=0.67 pt=9	dict-says-otherwise
+r	Elias	dice=0.08 sim=0.00 pt=14
+devemos	Elias	dice=0.09 sim=0.33 pt=8	is-a-verb-form
+estado	Stoal	dice=0.33 sim=0.73 pt=9	is-a-verb-form
+palavra	Kirtland	dice=0.11 sim=0.40 pt=3	dict-says-otherwise
+condado	Jackson	dice=0.53 sim=0.57 pt=11	dict-says-otherwise
+cidade	En-Gedi	dice=0.18 sim=0.46 pt=5	dict-says-otherwise
+setenta	Adoni-Bezek	dice=0.22 sim=0.44 pt=6	dict-says-otherwise
+últimos	Latter-Day	dice=0.80 sim=0.24 pt=6
+dias	Latter-Day	dice=0.55 sim=0.29 pt=13
+ancião	Adam-Ondi-Ahman	dice=0.20 sim=0.48 pt=5
+marks	William	dice=0.24 sim=0.33 pt=4
+west	William	dice=0.06 sim=0.18 pt=4
+seria	Latter-Day	dice=0.17 sim=0.40 pt=3	is-a-verb-form
+c	Charles	dice=0.33 sim=0.25 pt=4
+casa	Nauvoo	dice=0.71 sim=0.20 pt=6	is-a-verb-form
+young	Henry	dice=0.29 sim=0.40 pt=4
+doutrina	Vinson	dice=0.40 sim=0.43 pt=3	is-a-verb-form
+quero	Missouri	dice=0.10 sim=0.46 pt=5	is-a-verb-form
+aquilo	Corinthians	dice=0.29 sim=0.35 pt=3	dict-says-otherwise
+preparai	Esaias	dice=0.06 sim=0.57 pt=7	is-a-verb-form
+profeta	Taylor	dice=0.25 sim=0.62 pt=4	is-a-verb-form
+vou	Hyrum	dice=0.07 sim=0.25 pt=4	is-a-verb-form
+tempo	Horeb	dice=0.10 sim=0.40 pt=3	dict-says-otherwise
+nossos	Anakims	dice=0.15 sim=0.31 pt=4
+ar	Ar	dice=1.00 sim=1.00 pt=6	dict-says-otherwise
+quais	Nazareth	dice=0.06 sim=0.15 pt=5	dict-says-otherwise
+vamos	Thomas	dice=0.05 sim=0.73 pt=18	is-a-verb-form
+zoar	Zoar	dice=0.82 sim=1.00 pt=13	is-a-verb-form
+libe	Lib	dice=1.00 sim=0.86 pt=13	is-a-verb-form
+quisera	Abinadi	dice=0.05 sim=0.29 pt=5	is-a-verb-form
+disse-lhes	Pilate	dice=0.07 sim=0.38 pt=7
+escreve	Amalek	dice=0.06 sim=0.15 pt=8	is-a-verb-form
+farei	Zerubbabel	dice=0.07 sim=0.40 pt=9	is-a-verb-form
+vossos	Sheba	dice=0.06 sim=0.18 pt=3
+ha	Ammonites	dice=0.07 sim=0.18 pt=3
+mênfis	Tahpanhes	dice=0.31 sim=0.40 pt=8
+ater	Ater	dice=0.89 sim=1.00 pt=4	is-a-verb-form
+ageu	Haggai	dice=1.00 sim=0.40 pt=11
+toda	Darius	dice=0.07 sim=0.40 pt=5
+aba	Abba	dice=1.00 sim=0.86 pt=3	is-a-verb-form
+goim	Arioch	dice=0.44 sim=0.40 pt=3
+do	Bochim	dice=0.14 sim=0.25 pt=12
+ali	Sarah	dice=0.05 sim=0.25 pt=3	dict-says-otherwise
+luz	Luz	dice=0.93 sim=1.00 pt=8	dict-says-otherwise
+somos	Beth-Lehem	dice=0.05 sim=0.13 pt=9	is-a-verb-form
+verdadeiramente	Galilaean	dice=0.18 sim=0.42 pt=8	dict-says-otherwise
+lia	Leah	dice=0.98 sim=0.57 pt=31	is-a-verb-form
+sobre	Pharez	dice=0.11 sim=0.36 pt=9	is-a-verb-form
+veio	Hebrew	dice=0.06 sim=0.20 pt=5	is-a-verb-form
+dos	Shephatiah	dice=0.09 sim=0.15 pt=10
+om	Poti-Pherah	dice=0.86 sim=0.15 pt=4
+foi	Siloam	dice=0.15 sim=0.44 pt=10	is-a-verb-form
+forte	Ah	dice=0.12 sim=0.00 pt=3	dict-says-otherwise
+deveras	Sabeans	dice=0.25 sim=0.43 pt=4	is-a-verb-form
+bebei	Rechabites	dice=0.29 sim=0.53 pt=3	is-a-verb-form
+gemarias	Gemariah	dice=1.00 sim=0.88 pt=5	is-a-verb-form
+compra	Hanameel	dice=0.50 sim=0.29 pt=4	is-a-verb-form
+declara-nos	Baruch	dice=0.07 sim=0.35 pt=3
+acaso	Ammonites	dice=0.07 sim=0.43 pt=6	dict-says-otherwise
+sitim	Nun	dice=0.06 sim=0.00 pt=5
+segue-me	Alphaeus	dice=0.15 sim=0.38 pt=8
+encontramos	Nathanael	dice=0.20 sim=0.50 pt=3	is-a-verb-form
+pode	Nathanael	dice=0.20 sim=0.15 pt=3	is-a-verb-form
+disse-lhe	Nathanael	dice=0.13 sim=0.33 pt=9
+mestre	Mahan	dice=0.07 sim=0.18 pt=52	dict-says-otherwise
+quereis	Geshem	dice=0.20 sim=0.46 pt=7	is-a-verb-form
+disseram-lhe	Pilate	dice=0.06 sim=0.44 pt=11
+crucifica-o	Pilate	dice=0.07 sim=0.24 pt=4
+fora	Barabbas	dice=0.15 sim=0.33 pt=3	is-a-verb-form
+caveira	Golgotha	dice=0.86 sim=0.13 pt=4	dict-says-otherwise
+estando	Mary	dice=0.08 sim=0.18 pt=5	is-a-verb-form
+apascenta	Jonas	dice=0.40 sim=0.43 pt=4	is-a-verb-form
+noa	Hoglah	dice=1.00 sim=0.44 pt=4
+uns	Presbyterian	dice=0.40 sim=0.27 pt=3
+testamento	Baptist	dice=0.10 sim=0.47 pt=4	dict-says-otherwise
+novo	Baptist	dice=0.10 sim=0.00 pt=4	is-a-verb-form
+enquanto	Susquehanna	dice=0.29 sim=0.63 pt=4	dict-says-otherwise
+juiz	Jehovah	dice=0.09 sim=0.18 pt=8	dict-says-otherwise
+voz	Esaias	dice=0.14 sim=0.00 pt=3	dict-says-otherwise
+arão	Aram	dice=0.46 sim=0.75 pt=3	dict-says-otherwise
+assentai-vos	Gethsemane	dice=0.80 sim=0.45 pt=3	is-a-verb-form
+lugar	Golgotha	dice=0.67 sim=0.46 pt=3	dict-says-otherwise
+aira	Ahira	dice=0.89 sim=0.89 pt=4	is-a-verb-form
+enaque	Anak	dice=0.55 sim=0.40 pt=3
+ouvimos	Obadiah	dice=0.09 sim=0.29 pt=3	is-a-verb-form
+salvação	Alleluia	dice=0.29 sim=0.38 pt=3
+aleluia	Alleluia	dice=1.00 sim=0.93 pt=4	is-a-verb-form
+saudai	Achaia	dice=0.13 sim=0.50 pt=4	is-a-verb-form
+toma-a	Boaz	dice=0.08 sim=0.40 pt=3

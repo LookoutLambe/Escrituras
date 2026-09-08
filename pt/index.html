@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Las Escrituras — Spanish Interlinear</title>
+<title>As Escrituras — Portuguese Interlinear</title>
 <meta name="description" content="Spanish Interlinear Standard Works — Español con Glosas en Inglés">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1B2A41">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Las Escrituras">
+<meta name="apple-mobile-web-app-title" content="As Escrituras">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <script>
@@ -1550,7 +1550,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
 <!-- Search bar -->
 <div id="search-container" role="search">
-  <input id="search-input" type="text" placeholder="Buscar en español o inglés..." autocomplete="off" aria-label="Search Spanish or English">
+  <input id="search-input" type="text" placeholder="Buscar em português ou inglês..." autocomplete="off" aria-label="Search Portuguese or English">
   <span id="search-close" onclick="closeSearch()" role="button" aria-label="Close search">&#10005;</span>
 </div>
 <div id="search-results"></div>
@@ -1570,10 +1570,10 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
     <button type="button" onclick="SpaAnnotate.underline()" title="Subrayar" aria-label="Subrayar"><u>U</u></button>
     <button type="button" onclick="SpaAnnotate.note()" title="Nota" aria-label="Nota">&#9998;</button>
     <button type="button" onclick="SpaAnnotate.copy()" title="Copiar" aria-label="Copiar">&#128203;</button>
-    <button type="button" onclick="SpaAnnotate.close()" title="Cerrar" aria-label="Cerrar">&#10005;</button>
+    <button type="button" onclick="SpaAnnotate.close()" title="Fechar" aria-label="Fechar">&#10005;</button>
   </div>
   <div class="hl-note-row" id="hl-note-row" style="display:none">
-    <textarea id="hl-note-input" placeholder="Escribe una nota…"></textarea>
+    <textarea id="hl-note-input" placeholder="Escreva uma nota…"></textarea>
     <button class="hl-note-save" onclick="SpaAnnotate.saveNote()">Guardar</button>
   </div>
 </div>
@@ -1590,7 +1590,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
 <!-- Return navigation banner -->
 <div id="return-banner">
-  <a id="return-link" href="javascript:void(0)" onclick="returnToPrevious()">&#x276E; Volver a <span id="return-verse"></span></a>
+  <a id="return-link" href="javascript:void(0)" onclick="returnToPrevious()">&#x276E; Voltar a <span id="return-verse"></span></a>
   <button class="return-dismiss" onclick="dismissReturnBanner()" aria-label="Dismiss">&times;</button>
 </div>
 
@@ -1598,11 +1598,11 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 <div id="drawer-overlay" onclick="toggleDrawer()" aria-hidden="true"></div>
 
 <!-- Slide-out drawer (LEFT side for LTR) -->
-<nav id="drawer" aria-label="Contenido" aria-hidden="true">
+<nav id="drawer" aria-label="Conteúdo" aria-hidden="true">
   <div class="drawer-header">
     <div>
-      <div class="drawer-header-title">Las Escrituras</div>
-      <div class="drawer-header-sub">Interlineal Español-Inglés</div>
+      <div class="drawer-header-title">As Escrituras</div>
+      <div class="drawer-header-sub">Interlinear Português-Inglês</div>
     </div>
     <button class="drawer-close" onclick="toggleDrawer()" aria-label="Close navigation menu">&#10005;</button>
   </div>
@@ -1611,7 +1611,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
   <!-- Volume:Old Testament -->
   <div class="volume-header" onclick="toggleVolume('ot')">
-    Antiguo Testamento <span class="vol-arrow" id="vol-arrow-ot">&#9660;</span>
+    Antigo Testamento <span class="vol-arrow" id="vol-arrow-ot">&#9660;</span>
   </div>
   <div id="vol-ot" class="volume-content" data-volume="ot"></div>
 
@@ -1619,7 +1619,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
   <!-- Volume:New Testament -->
   <div class="volume-header" onclick="toggleVolume('nt')">
-    Nuevo Testamento <span class="vol-arrow" id="vol-arrow-nt">&#9660;</span>
+    Novo Testamento <span class="vol-arrow" id="vol-arrow-nt">&#9660;</span>
   </div>
   <div id="vol-nt" class="volume-content" data-volume="nt"></div>
 
@@ -1627,7 +1627,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
   <!-- Volume:Book of Mormon -->
   <div class="volume-header" onclick="toggleVolume('bom')">
-    El Libro de Mormón <span class="vol-arrow" id="vol-arrow-bom">&#9660;</span>
+    O Livro de Mórmon <span class="vol-arrow" id="vol-arrow-bom">&#9660;</span>
   </div>
   <div id="vol-bom" class="volume-content" data-volume="bom"></div>
 
@@ -1635,7 +1635,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
   <!-- Volume:D&C -->
   <div class="volume-header" onclick="toggleVolume('dc')">
-    Doctrina y Convenios <span class="vol-arrow" id="vol-arrow-dc">&#9660;</span>
+    Doutrina e Convênios <span class="vol-arrow" id="vol-arrow-dc">&#9660;</span>
   </div>
   <div id="vol-dc" class="volume-content" data-volume="dc"></div>
 
@@ -1643,7 +1643,7 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
   <!-- Volume:Pearl of Great Price -->
   <div class="volume-header" onclick="toggleVolume('pgp')">
-    La Perla de Gran Precio <span class="vol-arrow" id="vol-arrow-pgp">&#9660;</span>
+    Pérola de Grande Valor <span class="vol-arrow" id="vol-arrow-pgp">&#9660;</span>
   </div>
   <div id="vol-pgp" class="volume-content" data-volume="pgp"></div>
 </nav>
@@ -1655,30 +1655,30 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
   </div>
 
   <button id="nav-label" class="chapter-pill" onclick="toggleDrawer()" aria-haspopup="dialog"
-          aria-controls="drawer" aria-label="Abrir el contenido">Contenido&nbsp;&#9662;</button>
+          aria-controls="drawer" aria-label="Abrir o conteúdo">Conteúdo&nbsp;&#9662;</button>
 
   <div class="bar-group bar-right">
     <button class="icon-btn" id="text-toggle" onclick="toggleTextPanel()" aria-expanded="false"
-            aria-controls="text-panel" aria-label="Tamaño del texto" title="Tamaño del texto">Aa</button>
+            aria-controls="text-panel" aria-label="Tamanho do texto" title="Tamanho do texto">Aa</button>
     <button class="icon-btn" id="dark-mode-toggle" onclick="toggleDarkMode()" aria-label="Cambiar tema" title="Tema">&#9789;&#65038;</button>
     <button class="icon-btn" id="search-toggle" onclick="openSearch()" aria-label="Buscar" title="Buscar"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.2"/><path d="M15.2 15.2 21 21"/></svg></button>
   </div>
 </div>
 
 <!-- Text size lives behind Aa, not as permanent furniture in the bar. -->
-<div id="text-panel" hidden role="group" aria-label="Tamaño del texto">
-  <label for="sizeSlider">Tamaño</label>
-  <input type="range" id="sizeSlider" min="70" max="150" value="100" oninput="setSize(this.value)" aria-label="Tamaño del texto">
+<div id="text-panel" hidden role="group" aria-label="Tamanho do texto">
+  <label for="sizeSlider">Tamanho</label>
+  <input type="range" id="sizeSlider" min="70" max="150" value="100" oninput="setSize(this.value)" aria-label="Tamanho do texto">
   <output id="size-readout" for="sizeSlider">100%</output>
 </div>
 
 <!-- Controls bottom -->
 <div class="controls-bottom">
   <button class="icon-btn" id="nav-prev" onclick="goPrev()" disabled aria-label="Capítulo anterior">&#8592;</button>
-  <div class="mode-group" role="group" aria-label="Modo de lectura"><button id="btn-inter" class="active" onclick="setMode('inter')">Interlineal</button>
-  <button id="btn-es" onclick="setMode('es')">Español</button>
+  <div class="mode-group" role="group" aria-label="Modo de leitura"><button id="btn-inter" class="active" onclick="setMode('inter')">Interlinear</button>
+  <button id="btn-es" onclick="setMode('es')">Português</button>
   <button id="btn-dual" onclick="setMode('dual')">Dual</button></div>
-  <button class="icon-btn" id="nav-next" onclick="goNext()" disabled aria-label="Capítulo siguiente">&#8594;</button>
+  <button class="icon-btn" id="nav-next" onclick="goNext()" disabled aria-label="Capítulo seguinte">&#8594;</button>
 </div>
 
 <!-- Main content area -->
@@ -1692,20 +1692,20 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
   <!-- Landing page -->
   <div class="chapter-panel" id="panel-landing" style="display:block">
     <header class="landing-head">
-      <h1 class="landing-title">Las Escrituras</h1>
-      <p class="landing-sub">Spanish Interlinear Edition</p>
+      <h1 class="landing-title">As Escrituras</h1>
+      <p class="landing-sub">Portuguese Interlinear Edition</p>
     </header>
 
     <div class="card-grid">
       <div class="scripture-card" onclick="navTo('gen-ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-spanish">Antiguo<br>Testamento</div>
+          <div class="card-cover-spanish">Antigo<br>Testamento</div>
           <div class="rule-bottom"></div>
           <div class="card-cover-title">Old<br>Testament</div>
         </div>
         <div class="card-label">
-          <div class="card-label-es">Antiguo Testamento</div>
+          <div class="card-label-es">Antigo Testamento</div>
           <div class="card-label-en">Old Testament</div>
         </div>
       </div>
@@ -1713,12 +1713,12 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
       <div class="scripture-card" onclick="navTo('mat-ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-spanish">Nuevo<br>Testamento</div>
+          <div class="card-cover-spanish">Novo<br>Testamento</div>
           <div class="rule-bottom"></div>
           <div class="card-cover-title">New<br>Testament</div>
         </div>
         <div class="card-label">
-          <div class="card-label-es">Nuevo Testamento</div>
+          <div class="card-label-es">Novo Testamento</div>
           <div class="card-label-en">New Testament</div>
         </div>
       </div>
@@ -1726,12 +1726,12 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
       <div class="scripture-card" onclick="navTo('ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-spanish">El Libro<br>de Mormón</div>
+          <div class="card-cover-spanish">O Livro<br>de Mórmon</div>
           <div class="rule-bottom"></div>
           <div class="card-cover-title">The Book<br>of Mormon</div>
         </div>
         <div class="card-label">
-          <div class="card-label-es">El Libro de Mormón</div>
+          <div class="card-label-es">O Livro de Mórmon</div>
           <div class="card-label-en">The Book of Mormon</div>
         </div>
       </div>
@@ -1739,12 +1739,12 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
       <div class="scripture-card" onclick="navTo('dc-sec1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-spanish">Doctrina<br>y Convenios</div>
+          <div class="card-cover-spanish">Doutrina<br>e Convênios</div>
           <div class="rule-bottom"></div>
           <div class="card-cover-title">Doctrine<br>and<br>Covenants</div>
         </div>
         <div class="card-label">
-          <div class="card-label-es">Doctrina y Convenios</div>
+          <div class="card-label-es">Doutrina e Convênios</div>
           <div class="card-label-en">Doctrine and Covenants</div>
         </div>
       </div>
@@ -1752,12 +1752,12 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
       <div class="scripture-card" onclick="navTo('ms-ch1')">
         <div class="card-cover">
           <div class="rule-top"></div>
-          <div class="card-cover-spanish">La Perla<br>de Gran Precio</div>
+          <div class="card-cover-spanish">Pérola de<br>Grande Valor</div>
           <div class="rule-bottom"></div>
           <div class="card-cover-title">Pearl<br>of Great<br>Price</div>
         </div>
         <div class="card-label">
-          <div class="card-label-es">La Perla de Gran Precio</div>
+          <div class="card-label-es">Pérola de Grande Valor</div>
           <div class="card-label-en">Pearl of Great Price</div>
         </div>
       </div>
@@ -1766,17 +1766,17 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
     <div class="lang-choice">
       <div class="lang-choice-label" id="lang-choice-label">Idioma · Language</div>
       <div class="lang-options" role="group" aria-labelledby="lang-choice-label">
-        <button type="button" class="lang-btn" data-lang="es" aria-current="true" onclick="setEditionLanguage('es')">
-          <span>Español<span class="lang-btn-sub">Spanish</span></span>
-        </button>
-        <button type="button" class="lang-btn" data-lang="pt" aria-current="false" onclick="setEditionLanguage('pt')">
+        <button type="button" class="lang-btn" data-lang="pt" aria-current="true" onclick="setEditionLanguage('pt')">
           <span>Português<span class="lang-btn-sub">Portuguese</span></span>
+        </button>
+        <button type="button" class="lang-btn" data-lang="es" aria-current="false" onclick="setEditionLanguage('es')">
+          <span>Espanhol<span class="lang-btn-sub">Spanish</span></span>
         </button>
       </div>
     </div>
 
     <div style="text-align:center;padding:32px 0 0;font-size:0.78em;color:var(--muted);line-height:1.5;max-width:600px;margin:0 auto">
-      Este es un proyecto independiente y no está afiliado, respaldado ni asociado con La Iglesia de Jesucristo de los Santos de los Últimos Días.
+      Este é um projeto independente e não é afiliado, patrocinado nem associado a A Igreja de Jesus Cristo dos Santos dos Últimos Dias.
     </div>
   </div>
 
@@ -1786,105 +1786,105 @@ input, textarea { background: var(--surface); border-color: var(--rule); }
 
 <!-- the word scorecard engine; its 1.16 MB concordance is fetched
      on the first word tap, not with the page -->
-<script src="spa_scorecard.js"></script>
-<script src="spa_annotate.js"></script>
+<script src="../spa_scorecard.js"></script>
+<script src="../spa_annotate.js"></script>
 <script>
 // =============================================
 // BOOK DATA
 // =============================================
 var BOOK_DATA = [
   // Old Testament
-  { prefix: 'gen-ch', name: 'Génesis', nameEn: 'Genesis', count: 50, volume: 'ot', gridId: 'genesis' },
-  { prefix: 'exo-ch', name: 'Éxodo', nameEn: 'Exodus', count: 40, volume: 'ot', gridId: 'exodus' },
+  { prefix: 'gen-ch', name: 'Gênesis', nameEn: 'Genesis', count: 50, volume: 'ot', gridId: 'genesis' },
+  { prefix: 'exo-ch', name: 'Êxodo', nameEn: 'Exodus', count: 40, volume: 'ot', gridId: 'exodus' },
   { prefix: 'lev-ch', name: 'Levítico', nameEn: 'Leviticus', count: 27, volume: 'ot', gridId: 'leviticus' },
   { prefix: 'num-ch', name: 'Números', nameEn: 'Numbers', count: 36, volume: 'ot', gridId: 'numbers' },
-  { prefix: 'deu-ch', name: 'Deuteronomio', nameEn: 'Deuteronomy', count: 34, volume: 'ot', gridId: 'deuteronomy' },
+  { prefix: 'deu-ch', name: 'Deuteronômio', nameEn: 'Deuteronomy', count: 34, volume: 'ot', gridId: 'deuteronomy' },
   { prefix: 'jos-ch', name: 'Josué', nameEn: 'Joshua', count: 24, volume: 'ot', gridId: 'joshua' },
-  { prefix: 'jdg-ch', name: 'Jueces', nameEn: 'Judges', count: 21, volume: 'ot', gridId: 'judges' },
-  { prefix: 'rut-ch', name: 'Rut', nameEn: 'Ruth', count: 4, volume: 'ot', gridId: 'ruth' },
-  { prefix: '1sa-ch', name: '1 Samuel', nameEn: '1 Samuel', count: 31, volume: 'ot', gridId: '1samuel' },
-  { prefix: '2sa-ch', name: '2 Samuel', nameEn: '2 Samuel', count: 24, volume: 'ot', gridId: '2samuel' },
-  { prefix: '1ki-ch', name: '1 Reyes', nameEn: '1 Kings', count: 22, volume: 'ot', gridId: '1kings' },
-  { prefix: '2ki-ch', name: '2 Reyes', nameEn: '2 Kings', count: 25, volume: 'ot', gridId: '2kings' },
-  { prefix: '1ch-ch', name: '1 Crónicas', nameEn: '1 Chronicles', count: 29, volume: 'ot', gridId: '1chronicles' },
-  { prefix: '2ch-ch', name: '2 Crónicas', nameEn: '2 Chronicles', count: 36, volume: 'ot', gridId: '2chronicles' },
+  { prefix: 'jdg-ch', name: 'Juízes', nameEn: 'Judges', count: 21, volume: 'ot', gridId: 'judges' },
+  { prefix: 'rut-ch', name: 'Rute', nameEn: 'Ruth', count: 4, volume: 'ot', gridId: 'ruth' },
+  { prefix: '1sa-ch', name: '1 Samuel', nameEn: '1 Samuel', count: 31, volume: 'ot', gridId: '1samuel' },
+  { prefix: '2sa-ch', name: '2 Samuel', nameEn: '2 Samuel', count: 24, volume: 'ot', gridId: '2samuel' },
+  { prefix: '1ki-ch', name: '1 Reis', nameEn: '1 Kings', count: 22, volume: 'ot', gridId: '1kings' },
+  { prefix: '2ki-ch', name: '2 Reis', nameEn: '2 Kings', count: 25, volume: 'ot', gridId: '2kings' },
+  { prefix: '1ch-ch', name: '1 Crônicas', nameEn: '1 Chronicles', count: 29, volume: 'ot', gridId: '1chronicles' },
+  { prefix: '2ch-ch', name: '2 Crônicas', nameEn: '2 Chronicles', count: 36, volume: 'ot', gridId: '2chronicles' },
   { prefix: 'ezr-ch', name: 'Esdras', nameEn: 'Ezra', count: 10, volume: 'ot', gridId: 'ezra' },
-  { prefix: 'neh-ch', name: 'Nehemías', nameEn: 'Nehemiah', count: 13, volume: 'ot', gridId: 'nehemiah' },
+  { prefix: 'neh-ch', name: 'Neemias', nameEn: 'Nehemiah', count: 13, volume: 'ot', gridId: 'nehemiah' },
   { prefix: 'est-ch', name: 'Ester', nameEn: 'Esther', count: 10, volume: 'ot', gridId: 'esther' },
-  { prefix: 'job-ch', name: 'Job', nameEn: 'Job', count: 42, volume: 'ot', gridId: 'job' },
+  { prefix: 'job-ch', name: 'Jó', nameEn: 'Job', count: 42, volume: 'ot', gridId: 'job' },
   { prefix: 'psa-ch', name: 'Salmos', nameEn: 'Psalms', count: 150, volume: 'ot', gridId: 'psalms' },
-  { prefix: 'pro-ch', name: 'Proverbios', nameEn: 'Proverbs', count: 31, volume: 'ot', gridId: 'proverbs' },
-  { prefix: 'ecc-ch', name: 'Eclesiastés', nameEn: 'Ecclesiastes', count: 12, volume: 'ot', gridId: 'ecclesiastes' },
-  { prefix: 'sng-ch', name: 'Cantares', nameEn: 'Song of Solomon', count: 8, volume: 'ot', gridId: 'songofsolomon' },
+  { prefix: 'pro-ch', name: 'Provérbios', nameEn: 'Proverbs', count: 31, volume: 'ot', gridId: 'proverbs' },
+  { prefix: 'ecc-ch', name: 'Eclesiastes', nameEn: 'Ecclesiastes', count: 12, volume: 'ot', gridId: 'ecclesiastes' },
+  { prefix: 'sng-ch', name: 'Cantares de Salomão', nameEn: 'Song of Solomon', count: 8, volume: 'ot', gridId: 'songofsolomon' },
   { prefix: 'isa-ch', name: 'Isaías', nameEn: 'Isaiah', count: 66, volume: 'ot', gridId: 'isaiah' },
-  { prefix: 'jer-ch', name: 'Jeremías', nameEn: 'Jeremiah', count: 52, volume: 'ot', gridId: 'jeremiah' },
-  { prefix: 'lam-ch', name: 'Lamentaciones', nameEn: 'Lamentations', count: 5, volume: 'ot', gridId: 'lamentations' },
+  { prefix: 'jer-ch', name: 'Jeremias', nameEn: 'Jeremiah', count: 52, volume: 'ot', gridId: 'jeremiah' },
+  { prefix: 'lam-ch', name: 'Lamentações', nameEn: 'Lamentations', count: 5, volume: 'ot', gridId: 'lamentations' },
   { prefix: 'ezk-ch', name: 'Ezequiel', nameEn: 'Ezekiel', count: 48, volume: 'ot', gridId: 'ezekiel' },
   { prefix: 'dan-ch', name: 'Daniel', nameEn: 'Daniel', count: 12, volume: 'ot', gridId: 'daniel' },
-  { prefix: 'hos-ch', name: 'Oseas', nameEn: 'Hosea', count: 14, volume: 'ot', gridId: 'hosea' },
+  { prefix: 'hos-ch', name: 'Oseias', nameEn: 'Hosea', count: 14, volume: 'ot', gridId: 'hosea' },
   { prefix: 'jol-ch', name: 'Joel', nameEn: 'Joel', count: 3, volume: 'ot', gridId: 'joel' },
   { prefix: 'amo-ch', name: 'Amós', nameEn: 'Amos', count: 9, volume: 'ot', gridId: 'amos' },
-  { prefix: 'oba-ch', name: 'Abdías', nameEn: 'Obadiah', count: 1, volume: 'ot', gridId: 'obadiah' },
-  { prefix: 'jon-ch', name: 'Jonás', nameEn: 'Jonah', count: 4, volume: 'ot', gridId: 'jonah' },
-  { prefix: 'mic-ch', name: 'Miqueas', nameEn: 'Micah', count: 7, volume: 'ot', gridId: 'micah' },
-  { prefix: 'nah-ch', name: 'Nahúm', nameEn: 'Nahum', count: 3, volume: 'ot', gridId: 'nahum' },
-  { prefix: 'hab-ch', name: 'Habacuc', nameEn: 'Habakkuk', count: 3, volume: 'ot', gridId: 'habakkuk' },
-  { prefix: 'zep-ch', name: 'Sofonías', nameEn: 'Zephaniah', count: 3, volume: 'ot', gridId: 'zephaniah' },
-  { prefix: 'hag-ch', name: 'Hageo', nameEn: 'Haggai', count: 2, volume: 'ot', gridId: 'haggai' },
-  { prefix: 'zec-ch', name: 'Zacarías', nameEn: 'Zechariah', count: 14, volume: 'ot', gridId: 'zechariah' },
-  { prefix: 'mal-ch', name: 'Malaquías', nameEn: 'Malachi', count: 4, volume: 'ot', gridId: 'malachi' },
+  { prefix: 'oba-ch', name: 'Obadias', nameEn: 'Obadiah', count: 1, volume: 'ot', gridId: 'obadiah' },
+  { prefix: 'jon-ch', name: 'Jonas', nameEn: 'Jonah', count: 4, volume: 'ot', gridId: 'jonah' },
+  { prefix: 'mic-ch', name: 'Miqueias', nameEn: 'Micah', count: 7, volume: 'ot', gridId: 'micah' },
+  { prefix: 'nah-ch', name: 'Naum', nameEn: 'Nahum', count: 3, volume: 'ot', gridId: 'nahum' },
+  { prefix: 'hab-ch', name: 'Habacuque', nameEn: 'Habakkuk', count: 3, volume: 'ot', gridId: 'habakkuk' },
+  { prefix: 'zep-ch', name: 'Sofonias', nameEn: 'Zephaniah', count: 3, volume: 'ot', gridId: 'zephaniah' },
+  { prefix: 'hag-ch', name: 'Ageu', nameEn: 'Haggai', count: 2, volume: 'ot', gridId: 'haggai' },
+  { prefix: 'zec-ch', name: 'Zacarias', nameEn: 'Zechariah', count: 14, volume: 'ot', gridId: 'zechariah' },
+  { prefix: 'mal-ch', name: 'Malaquias', nameEn: 'Malachi', count: 4, volume: 'ot', gridId: 'malachi' },
   // New Testament
-  { prefix: 'mat-ch', name: 'Mateo', nameEn: 'Matthew', count: 28, volume: 'nt', gridId: 'matthew' },
+  { prefix: 'mat-ch', name: 'Mateus', nameEn: 'Matthew', count: 28, volume: 'nt', gridId: 'matthew' },
   { prefix: 'mrk-ch', name: 'Marcos', nameEn: 'Mark', count: 16, volume: 'nt', gridId: 'mark' },
   { prefix: 'luk-ch', name: 'Lucas', nameEn: 'Luke', count: 24, volume: 'nt', gridId: 'luke' },
-  { prefix: 'jhn-ch', name: 'Juan', nameEn: 'John', count: 21, volume: 'nt', gridId: 'john' },
-  { prefix: 'act-ch', name: 'Hechos', nameEn: 'Acts', count: 28, volume: 'nt', gridId: 'acts' },
+  { prefix: 'jhn-ch', name: 'João', nameEn: 'John', count: 21, volume: 'nt', gridId: 'john' },
+  { prefix: 'act-ch', name: 'Atos', nameEn: 'Acts', count: 28, volume: 'nt', gridId: 'acts' },
   { prefix: 'rom-ch', name: 'Romanos', nameEn: 'Romans', count: 16, volume: 'nt', gridId: 'romans' },
-  { prefix: '1co-ch', name: '1 Corintios', nameEn: '1 Corinthians', count: 16, volume: 'nt', gridId: '1corinthians' },
-  { prefix: '2co-ch', name: '2 Corintios', nameEn: '2 Corinthians', count: 13, volume: 'nt', gridId: '2corinthians' },
+  { prefix: '1co-ch', name: '1 Coríntios', nameEn: '1 Corinthians', count: 16, volume: 'nt', gridId: '1corinthians' },
+  { prefix: '2co-ch', name: '2 Coríntios', nameEn: '2 Corinthians', count: 13, volume: 'nt', gridId: '2corinthians' },
   { prefix: 'gal-ch', name: 'Gálatas', nameEn: 'Galatians', count: 6, volume: 'nt', gridId: 'galatians' },
-  { prefix: 'eph-ch', name: 'Efesios', nameEn: 'Ephesians', count: 6, volume: 'nt', gridId: 'ephesians' },
+  { prefix: 'eph-ch', name: 'Efésios', nameEn: 'Ephesians', count: 6, volume: 'nt', gridId: 'ephesians' },
   { prefix: 'php-ch', name: 'Filipenses', nameEn: 'Philippians', count: 4, volume: 'nt', gridId: 'philippians' },
-  { prefix: 'col-ch', name: 'Colosenses', nameEn: 'Colossians', count: 4, volume: 'nt', gridId: 'colossians' },
-  { prefix: '1th-ch', name: '1 Tesalonicenses', nameEn: '1 Thessalonians', count: 5, volume: 'nt', gridId: '1thessalonians' },
-  { prefix: '2th-ch', name: '2 Tesalonicenses', nameEn: '2 Thessalonians', count: 3, volume: 'nt', gridId: '2thessalonians' },
-  { prefix: '1ti-ch', name: '1 Timoteo', nameEn: '1 Timothy', count: 6, volume: 'nt', gridId: '1timothy' },
-  { prefix: '2ti-ch', name: '2 Timoteo', nameEn: '2 Timothy', count: 4, volume: 'nt', gridId: '2timothy' },
+  { prefix: 'col-ch', name: 'Colossenses', nameEn: 'Colossians', count: 4, volume: 'nt', gridId: 'colossians' },
+  { prefix: '1th-ch', name: '1 Tessalonicenses', nameEn: '1 Thessalonians', count: 5, volume: 'nt', gridId: '1thessalonians' },
+  { prefix: '2th-ch', name: '2 Tessalonicenses', nameEn: '2 Thessalonians', count: 3, volume: 'nt', gridId: '2thessalonians' },
+  { prefix: '1ti-ch', name: '1 Timóteo', nameEn: '1 Timothy', count: 6, volume: 'nt', gridId: '1timothy' },
+  { prefix: '2ti-ch', name: '2 Timóteo', nameEn: '2 Timothy', count: 4, volume: 'nt', gridId: '2timothy' },
   { prefix: 'tit-ch', name: 'Tito', nameEn: 'Titus', count: 3, volume: 'nt', gridId: 'titus' },
-  { prefix: 'phm-ch', name: 'Filemón', nameEn: 'Philemon', count: 1, volume: 'nt', gridId: 'philemon' },
-  { prefix: 'heb-ch', name: 'Hebreos', nameEn: 'Hebrews', count: 13, volume: 'nt', gridId: 'hebrews' },
-  { prefix: 'jas-ch', name: 'Santiago', nameEn: 'James', count: 5, volume: 'nt', gridId: 'james' },
-  { prefix: '1pe-ch', name: '1 Pedro', nameEn: '1 Peter', count: 5, volume: 'nt', gridId: '1peter' },
-  { prefix: '2pe-ch', name: '2 Pedro', nameEn: '2 Peter', count: 3, volume: 'nt', gridId: '2peter' },
-  { prefix: '1jn-ch', name: '1 Juan', nameEn: '1 John', count: 5, volume: 'nt', gridId: '1john' },
-  { prefix: '2jn-ch', name: '2 Juan', nameEn: '2 John', count: 1, volume: 'nt', gridId: '2john' },
-  { prefix: '3jn-ch', name: '3 Juan', nameEn: '3 John', count: 1, volume: 'nt', gridId: '3john' },
+  { prefix: 'phm-ch', name: 'Filemom', nameEn: 'Philemon', count: 1, volume: 'nt', gridId: 'philemon' },
+  { prefix: 'heb-ch', name: 'Hebreus', nameEn: 'Hebrews', count: 13, volume: 'nt', gridId: 'hebrews' },
+  { prefix: 'jas-ch', name: 'Tiago', nameEn: 'James', count: 5, volume: 'nt', gridId: 'james' },
+  { prefix: '1pe-ch', name: '1 Pedro', nameEn: '1 Peter', count: 5, volume: 'nt', gridId: '1peter' },
+  { prefix: '2pe-ch', name: '2 Pedro', nameEn: '2 Peter', count: 3, volume: 'nt', gridId: '2peter' },
+  { prefix: '1jn-ch', name: '1 João', nameEn: '1 John', count: 5, volume: 'nt', gridId: '1john' },
+  { prefix: '2jn-ch', name: '2 João', nameEn: '2 John', count: 1, volume: 'nt', gridId: '2john' },
+  { prefix: '3jn-ch', name: '3 João', nameEn: '3 John', count: 1, volume: 'nt', gridId: '3john' },
   { prefix: 'jud-ch', name: 'Judas', nameEn: 'Jude', count: 1, volume: 'nt', gridId: 'jude' },
-  { prefix: 'rev-ch', name: 'Apocalipsis', nameEn: 'Revelation', count: 22, volume: 'nt', gridId: 'revelation' },
+  { prefix: 'rev-ch', name: 'Apocalipse', nameEn: 'Revelation', count: 22, volume: 'nt', gridId: 'revelation' },
   // Book of Mormon
-  { prefix: 'ch',    name: '1 Nefi',     nameEn: '1 Nephi', count: 22, volume: 'bom', gridId: '1nephi' },
-  { prefix: '2n-ch', name: '2 Nefi',     nameEn: '2 Nephi', count: 33, volume: 'bom', gridId: '2nephi' },
-  { prefix: 'jc-ch', name: 'Jacob',      nameEn: 'Jacob', count: 7, volume: 'bom', gridId: 'jacob' },
-  { prefix: 'en-ch', name: 'Enós',       nameEn: 'Enos', count: 1, volume: 'bom', gridId: 'enos' },
-  { prefix: 'jr-ch', name: 'Jarom',      nameEn: 'Jarom', count: 1, volume: 'bom', gridId: 'jarom' },
-  { prefix: 'om-ch', name: 'Omni',       nameEn: 'Omni', count: 1, volume: 'bom', gridId: 'omni' },
-  { prefix: 'wm-ch', name: 'Palabras de Mormón', nameEn: 'Words of Mormon', count: 1, volume: 'bom', gridId: 'wom' },
-  { prefix: 'mo-ch', name: 'Mosíah',     nameEn: 'Mosiah', count: 29, volume: 'bom', gridId: 'mosiah' },
-  { prefix: 'al-ch', name: 'Alma',       nameEn: 'Alma', count: 63, volume: 'bom', gridId: 'alma' },
-  { prefix: 'he-ch', name: 'Helamán',    nameEn: 'Helaman', count: 16, volume: 'bom', gridId: 'helaman' },
-  { prefix: '3n-ch', name: '3 Nefi',     nameEn: '3 Nephi', count: 30, volume: 'bom', gridId: '3nephi' },
-  { prefix: '4n-ch', name: '4 Nefi',     nameEn: '4 Nephi', count: 1, volume: 'bom', gridId: '4nephi' },
-  { prefix: 'mm-ch', name: 'Mormón',     nameEn: 'Mormon', count: 9, volume: 'bom', gridId: 'mormon' },
-  { prefix: 'et-ch', name: 'Éter',       nameEn: 'Ether', count: 15, volume: 'bom', gridId: 'ether' },
-  { prefix: 'mr-ch', name: 'Moroni',     nameEn: 'Moroni', count: 10, volume: 'bom', gridId: 'moroni' },
+  { prefix: 'ch', name: '1 Néfi', nameEn: '1 Nephi', count: 22, volume: 'bom', gridId: '1nephi' },
+  { prefix: '2n-ch', name: '2 Néfi', nameEn: '2 Nephi', count: 33, volume: 'bom', gridId: '2nephi' },
+  { prefix: 'jc-ch', name: 'Jacó', nameEn: 'Jacob', count: 7, volume: 'bom', gridId: 'jacob' },
+  { prefix: 'en-ch', name: 'Enos', nameEn: 'Enos', count: 1, volume: 'bom', gridId: 'enos' },
+  { prefix: 'jr-ch', name: 'Jarom', nameEn: 'Jarom', count: 1, volume: 'bom', gridId: 'jarom' },
+  { prefix: 'om-ch', name: 'Ômni', nameEn: 'Omni', count: 1, volume: 'bom', gridId: 'omni' },
+  { prefix: 'wm-ch', name: 'Palavras de Mórmon', nameEn: 'Words of Mormon', count: 1, volume: 'bom', gridId: 'wom' },
+  { prefix: 'mo-ch', name: 'Mosias', nameEn: 'Mosiah', count: 29, volume: 'bom', gridId: 'mosiah' },
+  { prefix: 'al-ch', name: 'Alma', nameEn: 'Alma', count: 63, volume: 'bom', gridId: 'alma' },
+  { prefix: 'he-ch', name: 'Helamã', nameEn: 'Helaman', count: 16, volume: 'bom', gridId: 'helaman' },
+  { prefix: '3n-ch', name: '3 Néfi', nameEn: '3 Nephi', count: 30, volume: 'bom', gridId: '3nephi' },
+  { prefix: '4n-ch', name: '4 Néfi', nameEn: '4 Nephi', count: 1, volume: 'bom', gridId: '4nephi' },
+  { prefix: 'mm-ch', name: 'Mórmon', nameEn: 'Mormon', count: 9, volume: 'bom', gridId: 'mormon' },
+  { prefix: 'et-ch', name: 'Éter', nameEn: 'Ether', count: 15, volume: 'bom', gridId: 'ether' },
+  { prefix: 'mr-ch', name: 'Morôni', nameEn: 'Moroni', count: 10, volume: 'bom', gridId: 'moroni' },
   // Doctrine & Covenants
-  { prefix: 'dc-sec', name: 'DyC',       nameEn: 'D&C', count: 138, volume: 'dc', gridId: 'dc' },
+  { prefix: 'dc-sec', name: 'DeC', nameEn: 'D&C', count: 138, volume: 'dc', gridId: 'dc' },
   // Pearl of Great Price
-  { prefix: 'ms-ch', name: 'Moisés',     nameEn: 'Moses', count: 8, volume: 'pgp', gridId: 'moses' },
-  { prefix: 'ab-ch', name: 'Abraham',    nameEn: 'Abraham', count: 5, volume: 'pgp', gridId: 'abraham' },
-  { prefix: 'jm-ch', name: 'JS—Mateo',   nameEn: 'JS-Matthew', count: 1, volume: 'pgp', gridId: 'jsmatthew' },
-  { prefix: 'jh-ch', name: 'JS—Historia', nameEn: 'JS-History', count: 1, volume: 'pgp', gridId: 'jshistory' },
-  { prefix: 'af-ch', name: 'Artículos de Fe', nameEn: 'Articles of Faith', count: 1, volume: 'pgp', gridId: 'aof' }
+  { prefix: 'ms-ch', name: 'Moisés', nameEn: 'Moses', count: 8, volume: 'pgp', gridId: 'moses' },
+  { prefix: 'ab-ch', name: 'Abraão', nameEn: 'Abraham', count: 5, volume: 'pgp', gridId: 'abraham' },
+  { prefix: 'jm-ch', name: 'Joseph Smith—Mateus', nameEn: 'JS-Matthew', count: 1, volume: 'pgp', gridId: 'jsmatthew' },
+  { prefix: 'jh-ch', name: 'Joseph Smith—História', nameEn: 'JS-History', count: 1, volume: 'pgp', gridId: 'jshistory' },
+  { prefix: 'af-ch', name: 'Regras de Fé', nameEn: 'Articles of Faith', count: 1, volume: 'pgp', gridId: 'aof' }
 ];
 
 // =============================================
@@ -1916,7 +1916,7 @@ var fullPageOrder = ['landing'].concat(chapterOrder);
       heading.className = 'chapter-heading';
       heading.id = chapId;
       var h2 = document.createElement('h2');
-      h2.textContent = (book.volume === 'dc' ? 'Sección ' : 'Capítulo ') + i;
+      h2.textContent = (book.volume === 'dc' ? 'Seção ' : 'Capítulo ') + i;
       heading.appendChild(h2);
       var labelEn = document.createElement('div');
       labelEn.className = 'chapter-label-en';
@@ -2013,7 +2013,7 @@ function getBookChapter(chId) {
 }
 
 function getChapterLabel(id) {
-  if (!id || id === 'landing') return 'Contenido';
+  if (!id || id === 'landing') return 'Conteúdo';
   for (var i = 0; i < BOOK_DATA.length; i++) {
     var b = BOOK_DATA[i];
     if (id.indexOf(b.prefix) === 0) {
@@ -2369,7 +2369,7 @@ function updateNavButtons() {
      three branches also assigned '&#9662;' through textContent, which prints
      the entity literally rather than a caret. One string, built once. */
   if (label) {
-    var text = 'Contenido';
+    var text = 'Conteúdo';
     if (currentChapterId) {
       var progress = getBookProgress(currentChapterId);
       if (progress) {
@@ -2417,8 +2417,8 @@ function setMode(mode) {
   else apply();
 })();
 
-var CURRENT_LANG = 'es';
-var OTHER_EDITION = 'pt/index.html';
+var CURRENT_LANG = 'pt';
+var OTHER_EDITION = '../index.html';
 
 /* THE EDITION LANGUAGE. Separate from the view mode on purpose — see the
    .lang-choice rule. Switching keeps the reader's place: BOTH editions use the
@@ -2499,7 +2499,7 @@ window._englishMap = {};
 
 function loadEnglishText() {
   if (window._englishLoaded) return;
-  // Use pre-loaded data from <script src="english_verses.js"> if available
+  // Use pre-loaded data from <script src="../english_verses.js"> if available
   if (window._englishVersesData) {
     // _englishVersesData is already a flat object keyed "Book|chapter|verse"
     if (typeof window._englishVersesData === 'object' && !Array.isArray(window._englishVersesData)) {
@@ -2522,7 +2522,7 @@ function loadEnglishText() {
   if (window._englishLoading) return;
   window._englishLoading = true;
   var el = document.createElement('script');
-  el.src = 'english_verses.js';
+  el.src = '../english_verses.js';
   el.onload = function() {
     window._englishLoading = false;
     if (window._englishVersesData) { loadEnglishText(); }
@@ -2645,7 +2645,7 @@ function doSearch(query) {
     }
   }
   if (matches.length === 0) {
-    results.innerHTML = '<div style="color:var(--muted);padding:12px;font-family:Times New Roman,Times,serif;">No se encontraron resultados</div>';
+    results.innerHTML = '<div style="color:var(--muted);padding:12px;font-family:Times New Roman,Times,serif;">Nenhum resultado para resultados</div>';
     results.classList.add('open');
     return;
   }

@@ -14,3 +14,10 @@ tools/*.conllu
 # tools/english_animate.json, which is what the tool actually loads and IS
 # committed. Re-download from globalwordnet/english-wordnet.
 tools/noun.*.yaml
+
+# Portuguese edition — build sources, regenerable, never fetched at runtime.
+# Same rule the Spanish toolchain uses for its .conllu treebanks: the
+# generator reads them once and the derived artefact is what ships.
+pt/tools/src/
+pt/corpus/
+pt/dual/
