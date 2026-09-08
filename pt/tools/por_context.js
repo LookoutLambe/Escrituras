@@ -243,8 +243,15 @@ function objectPronoun(form, after, before, en) {
   return OBJ[form];
 }
 
-function article(form, after) {
+function article(form, after, before) {
   const plural = form === 'as';
+  /* THE ARTICLE BETWEEN `todo` AND A POSSESSIVE READS "of". Portuguese
+     requires it — "todo o seu coração", "toda a sua família" — and English
+     has no article there at all: it says "all OF his heart". Glossed "the",
+     the line read "all the his heart", which is neither language. 1,289
+     tokens. Before a plain noun the article is still "the" ("todo o
+     conhecimento" = all the knowledge). */
+  if (/^tod[oa]s?$/.test(before[before.length - 1] || '') && POSS[after[0]]) return 'of';
   /* AN ARTICLE CANNOT PRECEDE ANOTHER DETERMINER. "comparar a palavra a uma
      semente" is "to a seed", and the gender scan looked straight past `uma`
      to `semente` and called it "the". */
@@ -367,8 +374,11 @@ function para(after) { return isInfin(after[0]) ? 'to' : null; }
 
 function resolveSyntax(form, after, before, raw, prevRaw, en) {
   before = before || [];
-  if (OBJ[form]) { const o = objectPronoun(form, after, before, en); if (o) return o; }
-  if (form === 'a' || form === 'as') return article(form, after);
+  if (OBJ[form]) {
+    if (/^tod[oa]s?$/.test(before[before.length - 1] || '') && POSS[after[0]]) return 'of';
+    const o = objectPronoun(form, after, before, en); if (o) return o;
+  }
+  if (form === 'a' || form === 'as') return article(form, after, before);
   if (form === 'para') return para(after);
   if (form === 'fora') return fora(before);
   /* `todo` TAKES AN ARTICLE TO MEAN "all". The distinction is the article and
