@@ -21,7 +21,22 @@
 (function (global) {
   'use strict';
 
-  var cfg = { base: '' };
+  /* BASE DEFAULTS TO THIS SCRIPT'S OWN DIRECTORY, not the page's. The
+     concordance was fetched as a page-relative 'spa_concordance.js', which is
+     right from /index.html and 404s from /pt/index.html — the Portuguese
+     edition sits a level down and shares this file. Resolving against the
+     script's own URL is correct at any depth and needs no per-page setup. */
+  var cfg = { base: (function () {
+    try {
+      var me = document.currentScript && document.currentScript.src;
+      if (!me) {
+        var all = document.getElementsByTagName('script');
+        for (var i = all.length - 1; i >= 0 && !me; i--)
+          if (/spa_scorecard\.js/.test(all[i].src)) me = all[i].src;
+      }
+      return me ? me.replace(/[^/]*$/, '') : '';
+    } catch (e) { return ''; }
+  })() };
   var loading = false, loaded = false, queue = [];
 
   function esc(s) {
@@ -99,7 +114,11 @@
         var f = data.lemmas[lem].f || {};
         for (var form in f) {
           var prev = formIndex[form];
-          if (!prev || f[form] > (data.lemmas[prev].f[form] || 0)) formIndex[form] = lem;
+          /* data.lemmas[prev] can be absent — the Portuguese edition shares
+             this file and its words are not in a Spanish concordance, so the
+             lookup threw on every word tap instead of simply finding nothing. */
+          var pe = prev && data.lemmas[prev];
+          if (!prev || f[form] > ((pe && pe.f && pe.f[form]) || 0)) formIndex[form] = lem;
         }
       }
     }
