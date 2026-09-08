@@ -66,6 +66,10 @@ const AMBIGUOUS = {
               ['pressing', 'pressing']],
   'levantou': [['arose', 'arose'], ['raised', 'raise']],
   'entre':    [['among', 'among'], ['between', 'between']],
+  /* conhecimento is "knowledge" in 260 verses and "learning" in 7 — the
+     Jews' learning, my father's learning. 1 Nephi 1:1 has both senses in the
+     one verse, so it keeps the majority. */
+  'conhecimento': [['knowledge', 'knowledge'], ['learning', 'learning']],
   'terra':  [['earth', 'earth'], ['land', 'land'], ['ground', 'ground']],
   'terras': [['lands', 'lands'], ['earth', 'earth']],
   'poder':  [['power', 'power'], ['can', 'can']],
@@ -367,6 +371,12 @@ function resolveSyntax(form, after, before, raw, prevRaw, en) {
   if (form === 'a' || form === 'as') return article(form, after);
   if (form === 'para') return para(after);
   if (form === 'fora') return fora(before);
+  /* `todo` TAKES AN ARTICLE TO MEAN "all". The distinction is the article and
+     nothing else — `todo homem` is "every man", `todo o homem` is "all the
+     man". 2,536 tokens stand before one, and every one of them read "every
+     the": "em todo o conhecimento de meu pai" glossed "in every the
+     knowledge of my father". */
+  if (/^tod[oa]$/.test(form)) return /^(o|a|os|as)$/.test(after[0] || '') ? 'all' : 'every';
   /* `outro` BEFORE ITS NOUN IS "other"; standing alone it is "others".
      "em outras palavras" is "in other words", and it read "in others
      words"; "vi outros avançando" really is "I beheld others". */
