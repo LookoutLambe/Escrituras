@@ -1,0 +1,7093 @@
+Google 
+
+
+
+This is a digital copy of a book that was preserved for generations on Hbrary shelves before it was carefully scanned by Google as part of a project 
+
+to make the world's books discoverable online. 
+
+It has survived long enough for the copyright to expire and the book to enter the public domain. A public domain book is one that was never subject 
+
+to copyright or whose legal copyright term has expired. Whether a book is in the public domain may vary country to country. Public domain books 
+
+are our gateways to the past, representing a wealth of history, culture and knowledge that's often difficult to discover. 
+
+Marks, notations and other maiginalia present in the original volume will appear in this file - a reminder of this book's long journey from the 
+
+publisher to a library and finally to you. 
+
+Usage guidelines 
+
+Google is proud to partner with libraries to digitize public domain materials and make them widely accessible. Public domain books belong to the 
+public and we are merely their custodians. Nevertheless, this work is expensive, so in order to keep providing this resource, we liave taken steps to 
+prevent abuse by commercial parties, including placing technical restrictions on automated querying. 
+We also ask that you: 
+
++ Make non-commercial use of the files We designed Google Book Search for use by individuals, and we request that you use these files for 
+personal, non-commercial purposes. 
+
++ Refrain fivm automated querying Do not send automated queries of any sort to Google's system: If you are conducting research on machine 
+translation, optical character recognition or other areas where access to a large amount of text is helpful, please contact us. We encourage the 
+use of public domain materials for these purposes and may be able to help. 
+
++ Maintain attributionTht GoogXt "watermark" you see on each file is essential for informing people about this project and helping them find 
+additional materials through Google Book Search. Please do not remove it. 
+
++ Keep it legal Whatever your use, remember that you are responsible for ensuring that what you are doing is legal. Do not assume that just 
+because we believe a book is in the public domain for users in the United States, that the work is also in the public domain for users in other 
+countries. Whether a book is still in copyright varies from country to country, and we can't offer guidance on whether any specific use of 
+any specific book is allowed. Please do not assume that a book's appearance in Google Book Search means it can be used in any manner 
+anywhere in the world. Copyright infringement liabili^ can be quite severe. 
+
+About Google Book Search 
+
+Google's mission is to organize the world's information and to make it universally accessible and useful. Google Book Search helps readers 
+discover the world's books while helping authors and publishers reach new audiences. You can search through the full text of this book on the web 
+
+at |http : //books . google . com/| 
+
+
+
+Ill 
+
+
+
+600083675- 
+
+
+
+
+A COMPENDIUM 
+
+
+
+OF 
+
+
+
+PORTUGUESE GRAMMAR. 
+
+
+
+A COMPENDIUM 
+
+
+
+PORTUGUESE GRAMMAR, 
+
+
+
+I THE POKTDGUESB (eLBTBBTH EDlTIOs) OF 
+C. A. DE FIOUEIREDO VIEIKA, AMD THE 
+
+
+
+A. KlNliOCH, 
+
+LATB CAFTAIH 36lB BBOT. 
+
+
+
+A. J. DOS REIS, 
+
+
+
+WILLIAMS AND NORGATE : 
+
+14, HENRIETTA STREET, COVENT GARDEN, LONDON, 
+
+AND an. SOUTH FREDERICK STREET, EDINBtlRGH. 
+
+IB76. 
+
+
+
+
+
+
+HERTFORD: 
+
+f&INTXD BT BTXPEKM AVBTIK AND SOMA. 
+
+
+
+L 
+
+
+
+TO 
+
+THE RIGHT HONOURABLE THE 
+
+LORD LYTTON, 
+
+LATE H.B.M.'S MUTESTEB DT P0BTU6AL, 
+
+AKD 
+
+TICEBOT AJSTD OOTERNOB-GSirERAL OF INDIA, 
+
+THIS LITTLB WOKK IS, 
+BY PERMISSION, 
+
+
+
+RESPECTFULLY DEDICATED. 
+
+
+
+SUBSCRIBERS. 
+
+
+
+The Kigbt Hon. the Earl of DerbT. 
+
+His Grace the Lord President of the Council (6 eopiesj. 
+
+The Rig;ht Hon. the Vice-rresidenl (Committee on Education) ( 
+
+copies) . 
+The Most kev. His Urace the Archbishop of Armagh. 
+Maior-Geueral Wynyard. 
+Col-theHon. C. H.LiudiuiT. 
+Col. J. J. Graham. 
+Professor dos Beis. 
+
+G. M. Xorris, Esq., Education Department (2 copies). 
+A. L. Cory, Esq., AesistanC Secretary, Education Department. 
+Chiu. Merrilield, Esq., Education Department. 
+W. Palgrave, Esq., Assistant Secretary, Education Department. 
+J. R. Smith, Esq., Education Department. 
+H. F. Pooley, Esq., Education Department. 
+C. W. Kinloch, Esq., lata Bengal Civil Service (2 copies). 
+J. Tulloch, Esq., Education Department. 
+H. S. Bryant, Esq., Private Secretary, Education Department. 
+S L App«rson Esq Education Department. 
+A. Barratt, Esq Education Department. 
+J W Edwards Esq Education Department. 
+G Sin T r Department, 
+
+fhar s 
+
+E r D on Uepattment. 
+
+M 1 ^ copies) 
+
+(. ■\\ 1 
+
+
+
+vale Secretary, Education Department. 
+
+H T E tion Department. 
+
+F ( H ation Department.* 
+
+5 J ycr J_ J i. ilepartment. 
+
+H W Hoarc Esq Education Department (2 copies) . 
+
+6 W Keliewich Esq Educat on Department. 
+
+J Sykes Esq Assistant Secretary, Education Department. 
+
+G A Smith Esq Education Department. 
+
+T S Rohertson Esq Education Department. 
+
+W J Ritchie Esq Education Department {2 copies). 
+
+W J Courthope Esq Education Department. 
+
+H M Mackenzie Esq Education Department, 
+
+C W Kiteon, Esq (2 copiet) 
+
+P Cumin Esq Assislant SFcielarv, Education Department. 
+
+J A Einloch Esq War Office 
+
+
+
+PREFACE. 
+
+
+
+A COMPOUND of the Latin, Teutonic^ and Arabic, 
+and not, as it has been somewhat disparagingly 
+termed,^ a boneless Castilian, the Portuguese 
+language may be regarded as a Galician, rather 
+than, so to speak, a reaUy Spanish dialect. 
+
+To English students it is comparatiyely but 
+little known ; indeed, an acquaintance with 
+Portuguese is the exception rather than the rule 
+amongst such scholars. Considering, however, 
+that the little kingdom of Portugal, once our 
+faithful ally in a great war, has still some posses^ 
+sions in India, China, and Africa (East and 
+West), und that the language is spoken in the 
+Azores and Madeiras, the Cape de Yerd Islands, 
+and the great empire of Brazil, moreover that, 
+though lacking the richness and power of Spanish, 
+it forms perhaps a better conversational medium, 
+its attainment should not be deemed altogether 
+unprofitable. 
+
+Lusitania, it is true, has not been prolific of 
+very many great men : still it has had its Albu- 
+
+1 Sismondi. 
+
+
+
+X PREPACK. 
+
+querque, its Pombal, and its Camoens ; i whilst 
+Ribeyro, Ferreyra, Bemaldes, S& de Miranda, 
+Meneses, Vicente, Castro, Caminha, Corterreal, 
+Vasconcellos, Lobo, Faria y Sousa, and Countess 
+Vimeiro, as poets ; and Barros, Castanheda, de 
+Brito, Herculano, Marques, Couto, Freire, etc., 
+as historians and authors, have, with others of 
+their countrymen in past years, a recognized title 
+to literary fame. 
+
+The Portuguese savans and literati of later 
+days, notably Bocage, Manoel, Gonzaga, Macedo, 
+Silva, and a few others, have likewise claims to 
+distinction ; nor must the labours of Vieyra, Con- 
+stancio, and Figueiredo Vieira, as grammarians 
+and lexicographers, be lightly regarded. 
+
+Possibly, therefore, the present unpretending 
+little treatise on the Elements of Portuguese 
+Grammar, though scarcely more than a compila- 
+tion and abridgment from the Portuguese, may 
+not be without use to the intending student, 
+whether such be the roving Englishman so surely 
+to be encoimtered in every clime, or the less 
+restless scholar whom the res angmta domi, or 
+other causes, retain at home. 
+
+London, lat June^ 1876. 
+
+^ It might also be said its Vasco de Gama. 
+
+
+
+PRONUNCIATION OF PORTUGUESE. 
+
+
+
+The Portuguese Alphabet is composed of 25 letters,* 
+
+« 
+
+as follows : 
+
+
+
+a 
+
+
+pronounced 
+
+
+ah. 
+
+
+n pronoi 
+
+
+inced ennay. 
+
+
+b 
+
+
+
+
+hay. 
+
+
+, 
+
+
+t 0. 
+
+
+c 
+
+
+
+
+say. 
+
+
+P 
+
+
+pay^ 
+
+
+d 
+
+
+If 
+
+
+day. 
+
+
+q 
+
+
+t ^• 
+
+
+e 
+
+
+t) 
+
+
+at. 
+
+
+r 't 
+
+
+, erray. 
+
+
+f 
+
+
+»> 
+
+
+effay. 
+
+
+8 t 
+
+
+, essay. 
+
+
+g 
+
+
+ft 
+
+
+J^' 
+
+
+t 
+
+
+t ^' 
+
+
+h 
+
+
+tj 
+
+
+ayhah. 
+
+
+^ t 
+
+
+, 00. 
+
+
+• 
+
+1 
+
+
+yj 
+
+
+ee. 
+
+
+V , 
+
+
+, vay. 
+
+
+• 
+
+
+ft 
+
+
+m « 
+
+
+X , 
+
+
+, shees. 
+
+
+k 
+
+
+tt 
+
+
+kah. 
+
+
+y 
+
+
+J ypsilon 
+
+
+1 
+
+
+tt 
+
+
+ellay. 
+
+
+z , 
+
+
+y tea. 
+
+
+m 
+
+
+tt 
+
+
+emmay. 
+
+
+
+
+
+
+
+^ Gonstancio and P. de Souza. According to Yieyra (Porta- 
+guese Grammar) of 24 only. He ignores the letter ky which is 
+in fact used only for foreign words or proper names introduced 
+into the Portuguese language. 
+
+
+
+EKRATA. 
+
+
+
+Page 5, note, for Sur, OonstanciO) etc., read Snr., etc. 
+„ 61, line 4, for after y read before. 
+„ 61, „ 10, despes in ordinary type. 
+
+
+
+» 62, , 
+
+»» 63, , 
+)i 76, , 
+
+
+
+16, insert after meqae, mega. 
+
+11, forya, already, read jd. 
+
+19, for eomplement adjective ^redA objective complement. 
+
+11, for aubatantivet read superlatives. 
+
+
+
+„ 79, last line, for el, read 0/. 
+
+
+
+mTRODUCTION. 
+
+
+
+\ 
+
+
+
+Grammab is the science or art of properly ex- 
+pressing words. 
+
+It is divided into general, and particular or 
+special grammar. 
+
+Qrammar in general is the exponent of the 
+principles common to, or general in, aU languages. 
+
+Grammar, in respect to any particular lan- 
+guage, is the art of speating or writing that 
+tongue correctly ; for example : 
+
+The Portuguese Grammar is the art of writing 
+or speaking correctly the Portuguese language. 
+
+It is divided into four parts, Etymology, Syntax, 
+Prosody, and Orthography. 
+
+Etymology explains the nature and property of 
+words. 
+
+Syntax teaches the composition of correct 
+phraseology. 
+
+Prosody teaches the correct pronimciation and 
+
+accent of words. 
+
+1 
+
+
+
+2 FORTUOUESE OEAMMAB. 
+
+Orthography teaches the " correct writing and 
+reading" of words, and the use of punctuation. 
+
+Sentences are the expression of an opinion. They 
+are composed of words, and these again of syllables. 
+
+A syllable is the sound represented by one or 
+more letters, pronounced in one single utterance ; 
+Example : a he-lha} 
+
+A diphthong is the union of two vowels in one 
+syllable ; ex. : lei. 
+
+Words, according to their employment in speech,^ 
+are divided into seven classes,^ denominated parts 
+of speech; that is to say, the noun substantive, 
+the adjective^ verb, preposition, adverb, conjunction, 
+and interjection. 
+
+^ Letters are diyided into v<nt>$h and coMonaniB, Towels are 
+those which by themselyes alone can form a perfect sonnd : such 
+are the letters a, e, iy Oy u, y. All other letters are styled cotuonantSy 
+because they cannot be pronounced without the aid of some vowel. 
+
+Now, when two vowels are joined together, so that their sounds 
+are, as it were, confounded, the one being long and predominant, 
+the other being short, or even mute, they are called diphthonga. 
+These, in Portuguese, are ae, at, ay; aoy au; «t, eyy eoy eu; to, iu; 
+ocy oiy ay, ou; ue, uiy uy. There are then eight diphthongs, which 
+may be written in the whole of the eighteen modes here denoted. 
+
+The vowel or diphthong joined to the letters tn, n, or to the 
+syllable til, is called a nasal vowel or diphthong. Examples are 
+tiie first syllable of amparo, protection, and the last syllable of 
+eorofSo, courage. 
+
+' Sode divide words into nine classes (noun, article, pronoun, 
+verb, participle, preposition, adverb, conjunction, interjection) ; 
+but, according to the best national grammarians, the article, pro- 
+noun and participle may be regarded as a species of adjective. 
+
+
+
+FORTUOUESE GRAMMAR. 
+
+
+
+OF ETYMOLOGY. 
+
+
+
+The Substantive. 
+
+
+
+Substantives are the words which give names to 
+the persons or things which we presume to exist, 
+or have kaowledge of ; or they may be corporeal, 
+as pau, wood, pedra, a stone ; or incorporeal, as 
+virtude, virtue, espirito, spirit. 
+
+Substantives are divided into proper, appellative, 
+and collective. Substantives proper are those which 
+signify one sole person or thing, as Joao, John, 
+Roma, Rome. 
+
+Appellative substantives are those which may be 
+appUed to many things or persons, as exercito, 
+army, rebanho, flock. 
+
+When collective substantives signify only part of 
+a multitude, they are caiHei partitive ; ex. : porgao, 
+portion, parte, part. The others are called general 
+collectives. 
+
+Words have certain properties, which are called 
+declensions ; those of the substantives are five, 
+that is to say, the signification, kind, figure, gender, 
+and number. 
+
+The signification of substantives (and of words 
+
+
+
+4 FORTUOtJESE GRAMMAR. . 
+
+in general) consists in the meaning they bear, and 
+may be natural or figurative; it is natural when 
+the words express the same idea as that for which 
+they have been invented ; ex. : o tigre 4 feroz, the 
+tiger is ferocious ; it is figurative when they ex- 
+press a different idea from their primitive mean- 
+ing 5 ex. : Pedro 4 urn tigre, i.e. Peter is as fierce 
+as a tiger. 
+
+Species or kind in words consists in being primi- 
+tive or derivative. Words are called primitive 
+which are not derived from others in the same 
+language ; ex. : pedra, a stone, arvore, a tree ; de- 
+rivative when they take their origin from others, 
+aspedraria, freestone, arvoredo, grove. 
+
+The figure in words consists in being simple or 
+compound. The simple are those which, if divided, 
+have no meaning, as mar, the sea, beira, the shore; 
+the compound are those which may be divided into 
+complete words, as beira-mar, sea-shore. 
+
+Oender with substantives is the different form 
+under which is designated the male or the female. 
+The genders are two, the masculine and the femi- 
+nine. 
+
+Of the masculine gender are words which signify 
+the male; ex.: homem, man, leao, lion; and of the 
+feminine, those which signify the female ; ex. : 
+mulher, woman, leoa, lioness. 
+
+
+
+PORTUOTTESE 6RAMMAB. O 
+
+There are many substantiyes which, without 
+signifying male or f emale, are considered, when 
+used, mascniine or feminine ; ex. : casa, honse, 
+fogareirOy brazier. Those to which, without loss 
+of euphony, can be added the article o, may be 
+called masculine ; ex. : o fogarexro ; feminine, 
+those to which may be prefixed the article a; ex. : 
+a cam. 
+
+The names of certain animals are styled epicene ^ 
+which, though masculine or feminine, designate 
+indistinctly the male and female ; ex. : o salmao, 
+the salmon, asardinha, the sardine. To indicate 
+the sex to which these names refer, we say, for 
+example, a sardinha tnaeha,^ the male sardine, o 
+salmdo femeay the female salmon ; or o macho da 
+sardin/uiy the male of, etc. 
+
+The substantiyes are of either gender, which, 
+under one sole form or termination, denote man 
+or woman ; ex. : o martyr, or a martyr, the martyr. 
+
+The sex to which substantiyes belong may, 
+howeyer, be denoted in three modes : 
+
+^ We ask those who may take exception to the use of this word 
+not to condemn it without fiist consulting the Gnunmatical Intro- 
+dnction to the Portngnese Dictionary of Snr. Oonstancio (p. 14, 
+col. 2), and also lefenring to the obsenrations of this lexicographer 
+and Moraes on the word -maeho-. It is, besides, known that the 
+adjectives in o change it into a, when they are joined to feminine 
+sahetantiyes ; we belieye, howeyer, that not only reason speaks in 
+our fayonr, bat also practice : <* Quern pmn arbUrwm «t^, 9t/u» ei 
+nwma lequmdi,* 
+
+
+
+L* »» 
+
+
+
+b FOBTUOUESE GRAMMAR. 
+
+1st. By joining to common or epicene nouns 
+some adjective or substantive which declares the 
+sex, as before said. 
+
+2nd. By making use of different words, accord- 
+ing to the different sex of the individuals named ; 
+ex. : homemy man, muUher^ woman. 
+
+3rd. By varying the termination in the foUow- 
+faig manner : 
+
+Masculine substantives ending in o, almost all 
+change into a, in order to denote the female ; ex. : 
+a pamba^ (the hen dove) is the female of pambo. 
+
+Masculine substantives ending in ao change it 
+into oa or oma, or lose merely the o ; ex. : kao 
+leoa, valentSo, vakntona, brave man and woman, 
+irmao, irma, brother, sister. • 
+
+Masculine substantives ending in or nearly 
+all change this termination into ora ; ex. : pintar, 
+pintora, painter. 
+
+There are, however, some substantives, not only 
+with this, but other terminations, which are ir- 
+regular, as use will teach. 
+
+The numbers in grammar are two : the singular ^ 
+which refers to one sole person or thing; the 
+plural, which refers to more than one. 
+
+The plural of nouns ending in vowels is formed 
+by adding to them an « ; ex. : livro, livros, book, 
+books ; pat, pais, father, fathers. 
+
+
+
+FORTUGUESE ORAMMAR. 7 
+
+Exceptions are notms ending in So, which, for 
+the most part, form the plural by changing the 
+ao into oes; ex. : caragao, eorafSea, heart, hearts. 
+Some, however, follow the general role, as irmao, 
+irtnaos, brother, brethren ; and d^ers change the 
+So into aes, as pSo, paea} 
+
+^ In order to obTiaAe the difficulty of fomung the plnnd of 
+nouns ending in So, Portngnese grammarians have recourse to 
+Latin and Spanish, and lay down the following roles : 
+
+Ist. They form the plural by oea of nouns ending in So, and 
+which are derived from Spanish substantiyes terminating in on in 
+the singular, and ones in the plural, or from Latin words in o in 
+the nominatiTe, in onmn in the accusative, and cm in the ablative ; 
+ex. : sermao, discourse, aermoes ; oraqaoy prayer, orafoea. 
+
+2nd. They form the plural in aos of nouns ending in 00, and 
+which are derived from Latin words ending in anut, or from 
+Spanish terminating with ano in the singular and anos in the 
+plural ; ex. : moo, hand, takes ao8 in the plural, from its derivation 
+from the Latin word manua ; and in like manner, in Spanish, the 
+word mono has its plural in anos. 
+
+3rd. They form the plural of nouns ending in So by Sm, when 
+these are derived from Spanish words terminating in on in the 
+singular and ones in the plural ; or Latin in «m in the nominative, 
+nem in the accusative, and ne in the ablative. The word pao, 
+bread, derived from panis, and the plural of which, according to 
+rule, is paes, serves as an example. Such are the rules of Barreto, 
+Madureira, and Constancio ; but, as many may be unable to avail 
+themselves thereof, the following rules are selected from the gram- 
+mar of Moraes : — ^Nouns ending in So form, for the most part, the 
+plural iRdes; ex. : sertnao, discourse, sermoes. Except we must, 
+however, in the first place— for having their plural in aos — the 
+following nouns : aeeon^, sentence, ehao, soil, ehrisiao, christian, 
+eoimhraoy native of Coimbra, eomarcao^ border, grao^ degree, irmao^ 
+brother, lotto, (game of) loto, mao, hand, orfao, orphan, or^So, 
+organ, orsgaOf origanum (herb), pagaoj pagan, ralAOf cob, no, 
+
+
+
+8 FORTUOUESE GRAMMAR. 
+
+The plural of nouns eliding in al, ol^ ul, is 
+formed by changing the I into es ; ex. : pardal, 
+sparrow, pardaes, sparrows; rol, list, roes, lists; 
+paul, marsh, paues, marshes. An exception is 
+mal, evil, which makes males, evils, and consul, 
+consul (with its compoxmds), which becomes con- 
+sules in the plural. 
+
+The plural of those which end in ^/ is formed 
+by changing the / into is; ex. : annel, ring, anneis, 
+rings. 
+
+The plural of those ending in il is formed by 
+changing the / into s ; ex. : /unil, funnel, /wnis, 
+funnels. 
+
+The plural of those ending in m is formed by 
+changing the m into ns ; ex. : homem, man, 
+homens. 
+
+The plural of those which end in r or 2 is 
+formed by adding to them the syllable es ; ex. : 
+flor, a ^ower, flares; noz, walnut, nazes. 
+
+Many of the nouns which have 6 in the last 
+
+saint, totao, cellar^ tultaoy sultan^ temporao, early season^ vao, ford, 
+zangaOf drone, dtdo, hound, aldedo, countryman, anaOy dwarf, aneiao, 
+old man, bettfoo, blessing, eaatellao, chdtelain, eidadao, citizen, eor- 
+tezao, courtier, villaOf villager, to which, howeyer, the plural is 
+sometimes formed by oes. 
+
+Excepting also, in the 2nd place, alletnaOf German, mo, dog, 
+eaialao, Catalan, dMO^ dean, ermitao^ hermit, aermao, sermon, eacri- 
+vao, writer, guardiao, guardian, mattapao, marchpane, pao, bread, 
+taerisiao, sacristan, tabelliao notary, which have the plural in aes. 
+
+
+
+PORTUGUESE GRAMMAR. 9 
+
+syllable but one, change it into 6 when they be- 
+come plural ; ex. : ^ egg, &f>08 eggs. Others, as 
+contomo, circuit, sarvOy sip, and potro, colt, pre- 
+serve the circumflex accent also in the plural. 
+
+Some nouns there are which have no plural; 
+others without the singular; others, again, with 
+one only form or ending denote both numbers. 
+
+There is no plural, when taken in their natural 
+sense : 
+
+1st. To proper names, as Manuel, Sol (Saul). 
+
+2nd. To the names of virtues, vices, arts, 
+sciences, professions, etc., as velhicey old age, mede- 
+cina, medicine, pinturUy painting, preguiga, idle- 
+ness, diligenciay diligence. 
+
+Nouns have no singular which signify pairs, or 
+the like, or the imion of things of the same kind, 
+as and€i8y andilhas, side saddles, algemas, fetters, 
+brassas, hot coals, /atM^«, throats, etc. 
+
+The following have both singular and plural 
+alike ; ouriveSy goldsmith, cties, quay, pirea, saucer, 
+alferes, lieutenant, arraes, skipper, simples, simples, 
+etc. 
+
+The A^ective, 
+
+Adjectives are words which express the quali- 
+ties of, or determine the signification of substan- 
+tives. 
+
+
+
+10 FORTUOUESE GRAMMAR. 
+
+They are divided into attributive and determinate 
+adjectiyes. 
+
+Determinate ac^'ectivea are those which determine 
+and apply appellative names to certain individuals 
+in particular; they are subdivided into four 
+kinds, i.e. : 
+
+1st. The Articles. The articles are certain 
+words which are joined to appellatives, in order 
+to indicate that their general signification is 
+limited to individuals in particular. There are 
+two articles; the definite Oy a, 08, as, which is joined 
+to appellatives when it is wished to limit their 
+signification; ex. :^ o homem que vi^ era alto, the 
+man I saw was tall. This article is added not 
+merely to appellatives, but likewise to other parts 
+of speech, when used in place of appellatives; 
+ex. : ler i proveitoso, reading is profitable ; o 
+Homero Portuguez morreu pobre, the Portuguese 
+Homer died poor. 
+
+The second article is the indefinite um, uma, 
+uns, umas, a, an, etc., which indicates also indi- 
+viduals, but indeterminate ; ex. : um estudiante 
+deve estudar muito, a scholar must study much. 
+
+^ Sabstantiyes are taken in a definite or determinate sense, 
+when they signify a kind, species, or particular indiyidual ; ex. : 
+a rota d hella Jhr, the rose is a beautiful flower ; a roaa que nu 
+deate era de mmgo; a rosa de muago i beUa e odorifera, the rose 
+yon gave me was a musk rose; the musk rose is beautiful and 
+odoriferous. 
+
+
+
+FOBTUGUESE GRAMMAR. 11 
+
+2nd. Personal Pronouns. The personal pro- 
+nouns are certain words which indicate the sub- 
+stantive by the person they represent in discourse, 
+and which sometimes axe substituted for the noun, 
+the repetition of which it is wished to avoid; 
+ex. : elle nao me viu hontem, he did not see me 
+yesterday. The pronoun elle is here substituted 
+for the name of Joao, John, Antony, or other 
+name. 
+
+The personal pronoims are eleven : six primitive, 
+and five derivative. 
+
+The primitive are, in the singular eu, I, to de- 
+note the 1st person, tu, thou, the 2nd, elk, ella, he, 
+she, the 3rd ; in the plural, nds, we, to denote the 1st 
+person, v6s, ye, the 2nd, elles (ellasj, they, the 3rd. 
+The personal reciprocal se, himself or themselves, 
+is the 6th, which has reference to the 3rd person 
+of both singular and pluraL 
+
+There are then three persons in grammar, the 
+1st, the one who speaks ; 2nd, the one addressed; 
+3rd, the one referred to. These three persons are 
+represented in discourse by personal pronouns, as 
+just stated. 
+
+These pronoims are converted into me, me, te, 
+thee, Ihe, him, nds, us, v6s, you, Ihes, them, when 
+they serve as complement to any verb ; ex. : 
+louvo^te I praise thee ; and into mim, fi, si, migo. 
+
+
+
+12 FOBTUOUESE ORAMMAB. 
+
+tigOf sigOf nosco, vosco, when joined to prepositions; 
+ex. : comtigo, with thee. 
+
+The derivative personal pronounBy styled also pos- 
+sessive pronouns, are the following : meu (minha), 
+mine, teu (tuaj, thine, seu (ma), his, hers, noaao 
+(nossa), ours, vosao (vaasa), yours, ^ sens, stcas, 
+theirs. 
+
+3rd. The demomtrative adjectives or pronouns are 
+so called because they show the objects to which 
+they refer, as este (esta, istoj, this, aquelle (aqtiella^ 
+aquilloj, that, esse, (essa, this, isso, it). 
+
+To this class belong the words que, what, qital, 
+which, qttem, whom, cujo, whose,^ called relative 
+pronouns, because they refer to an object pre- 
+viously named. 
+
+These words, que, qual, quern, cujo, are also 
+called interrogative pronouns, when used for in- 
+quiry ; ex. : qus dizes tu ? what sayest thou P 
+
+4th. Adjectives of quantity are those which 
+
+^ The words in parenthesis are here only feminine yariations of 
+the preceding prononns, and not themselves distinct possessive pro- 
+nouns. They have their plnral by the addition of the a. 
+
+^ Cujo^ whose, involves always the idea of possession, and may 
+only be properly replaced by d$ que, de qual, d$ quern, of which, 
+of whom, and the like. One may with propriety use the expres- 
+sion Fedro cujo aciber eonhecet, Peter, whose knowledge you know 
+. . . , in place of Fedro do qual eonheees o saber, Peter, of whom 
+you know the learning . . . ; but it would be an error to say o 
+hemem eujo eonheees, the man whose, or of whom, you know, in place 
+of homem que tu eonheees, the man whom thou knowest. 
+
+
+
+FOBTUGTTESE GRAMMAK, 13 
+
+express nimiber or quantily, as um^ one, daus, two, 
+primeirOf first, iodo, all, qualquer, whatever, etc.^ 
+
+AUributwe adjectives are those which express 
+qualities, as sdbiOy wise, prudente, prudent. To this 
+class belong 
+
+The Participles. Participles are certain adjec- 
+tiyes which partake of the nature of the yerb 
+from which they are derived, and of the adjective 
+to the inflexions of which they are common; ex. : 
+huvadOf praised. 
+
+The inflexions of the adjective are six, that is, 
+the signification, figure, clasSj gender, number, and 
+the degrees of comparison. 
+
+The signification may be natural, as eampo perde, 
+green field ; or figurative, as verdes annos, advanced 
+years. 
+
+Ajb regards class, they may be either primitive, 
+as amareUo, yellow, or derivative, as amarellado, 
+yellowish. 
+
+In respect to figure they may be simple, as 
+humane, hnman, or compound, as deshumano, in- 
+human. 
+
+The gender and the nun^er of adjectives consist 
+in the different terminations, which some change 
+
+^ To ihe class of adfeetives ofguaniiiy belong numeral atyeeiiws, 
+widch are those that expreas a certain number : thej are dirided 
+into eardmalM and ordauUi. (See the Appendix.) 
+
+
+
+14 PORTUGUESE GRAMMAR. 
+
+according to the gender and number of the sub- 
+stantives to which they are joined. 
+
+The adjectiyes which end in o change into a 
+when they are affixed to feminine nouns ; ex. : 
+homem gordo, a fat man, mulher gorda, a fat woman. 
+Those ending in ez, ol, OTy u, or um, have the addi- 
+tion of an a ; ex. : um, one, uma. Commun, com- 
+mon, is an exception, being inyariable. 
+
+The attributive adjectives of every other termi- 
+nation are unchangeable. 
+
+The adjectives follow the same rules as sub- 
+stantives in the formation of the plural, except- 
+ing, however, those ending in il short, which is 
+changed into eta ; ex. : facil, easy, faceis. 
+
+The degrees of comparison are three, the 
+positive, comparative, and superlative. 
+
+The positive signifies simply a quality, as Pedro 
+^ sabio, Peter is wise. 
+
+The comparative expresses the quality of a noun 
+as compared with another, as Pedro d mats sabio 
+que Joao, Peter is wiser than John. 
+
+The comparative is formed by placing before the 
+positive one of the adverbs, mais, more, menos, less, 
+or tarn, so, and after it the conjunction, qtie, than, or 
+as ; ex. : Pedro d tarn sabio como Joao, Peter is as 
+wise as John, or Pedro e menos sabio qm Joao, 
+Peter is not so wise as John. 
+
+
+
+P0RTUOX7ESE GRAMMAR. 15 
+
+The superlative expresses the same quality as 
+the positive, augmented as much as possible; ex. : 
+Pedro ^ muito sabiOy Peter is most wise. 
+
+The superlative is formed by preceding the posi- 
+tive by the adverb muitOy most, or adding to its 
+last consonant the termination issimo or issima; 
+ex. : Maria i muito honesta, or honestissima, Maria 
+is very or most honest; Pedro ^ muito douto, or 
+doutissimo, Peter is very or most learned. 
+
+Exceptions are the adjectives pio, pious, and the 
+like, which makes ptissimo, and others which have 
+the second superlative irregular, owing to their 
+derivation from Latin or ancient positives, as 
+fideUssimOy^ most faithfuL 
+
+^ The saperlatiTeB in ittimo are not of yery ancient date in 
+Portugese, since they were only brought into general use about 
+the end of the fifteenth century. It was then that the writers who 
+perfected or improyed the idiom of that tongue introduced them, 
+as formed in the Latin, or by denying them from thence. And 
+for this cause it is that for poMsaimOy most poor,— regularly formed 
+from the Portuguese positiye, poire, poor, is met at times,— ^Mn^per- 
+rtmo, poorest, directly deriyed from the Latin positiye, /la^pfr, poor, 
+and that other like irreg^arities are to be noted. 
+
+These positiyes, thus irregular, may be reduced to three princi- 
+pal classes: 
+
+Ist. Positiyes ending in oo or m, which form the superlatiye by 
+changing the or m into ntiftiMO, fiwMM4i; ex.: vao, yain, foiiMnimo, 
+yainest, MminiM, common, eornnmnistimo, commonest, ChrittaOy 
+Christian, makes CfhrisiumiMtimOy most Christian. 
+
+2nd. Positiyes in vel, which change the vel into Mmimo, as 
+§mavely amiable, amaiUiMsiww, Nobre, noble, makes also nobilitsmo, 
+
+3rd. Positiyes in s, which change it into MMtMo, as mijm». 
+
+
+
+16 
+
+
+
+POBTUOUESE OBAHHAB. 
+
+
+
+The following adjectives have comparatives or 
+superlatives differing from their positives : 
+
+
+
+POSITITB. 
+
+
+COXPABATITI. 
+
+
+SUFBKLATITB. 
+
+
+alto 
+
+
+high 
+
+
+ftfp^r^ higher 
+
+
+iupromo higheit 
+
+
+baixo 
+
+
+low 
+
+
+i^trior lower 
+
+
+injlmo lowest 
+
+
+bom 
+
+
+good 
+
+
+mdhor hotter 
+
+
+Optimo heft 
+
+
+mdo 
+
+
+had 
+
+
+peior wone 
+
+
+ptuUno wont 
+
+
+grwid$ 
+
+
+great 
+
+
+maioT greater 
+
+
+mawimo greatest 
+
+
+pequmo 
+
+
+Utile 
+
+
+mmor leeeer 
+
+
+minima leaet 
+
+
+intemo 
+
+
+internal 
+
+
+interior inner 
+
+
+intimo innermoet 
+
+
+extimo 
+
+
+external 
+
+
+ext^ior outer 
+
+The Verb. 
+
+
+oxtromo nttermoft 
+
+
+
+The verb is a word which signifies affirmation, 
+with the designation of mood, tense, number, and 
+termination, corresponding to the person* 
+
+It is divided into subsianiwe and a4jeciive verb. 
+
+The verb substcmtwe is that which simply ex- 
+presses affirmation, as Pedro i vivente, Peter is 
+living. There is one only, which is the verb aer, 
+to be. 
+
+capahle, eapaeiitimo. From the same came proceeds the irregu- 
+larity of the following superlatiyes : aeerrimo (from aer$^ hitter), 
+hittcrest, amieiisimOf most friendly (from amifOf friend), aopurimOf 
+roughest (from atpero), oeUberrimOf most i^mons (from ul$br$)^ 
+diffloilUmOf most difficult (from diffleit), facUHmOf most easy (from 
+/aeil)fJldelitsimo (from^/), faithful, humUlUno^ most humhle (from 
+humilde)^ saoratistimo, most sacred (from sagradOf sacred), saiuber- 
+rimo, most wholesome (from talubre), sapimtiaimo, wisest (from 
+sabio) ; and others of the like kind. 
+
+
+
+PORTUGUESE GBAlOfAR. 17 
+
+The verb adjective is that which, besides the 
+affinnatioii, expresses an affirmed thing or &ct ; 
+ex. : Pedro vive, Peter lives. The verb adjective is 
+divided into active and passive. 
+
+The verb active expresses an action done by the 
+subject, Pedro louva, Peter praLses ; it is divided 
+into transitive and intransitive. 
+
+A transitive verb is that which expresses an 
+action referring to an object other than the agent; 
+ex. : Pedro louva a JoaOy Peter praLses John. 
+
+The intransitive verb, called likewise neuter, 
+expresses an action which affects the subject 
+which is the agent, as Pedro Jugiu, Peter fled.^ 
+
+The transitiYe verb is subdivided into reciprocal 
+and reflective. 
+
+The reflective verb is that of which the action 
+reverts to the same subject as that which is the 
+
+^ It may be known whether a yerb be transitiTe or intransitiye, 
+by adding to it as complement one of the words wte, itio, this, or 
+aqvelle, aqueUoy that. If betwixt the verb and the words in ques- 
+tion may be introduced any preposition, the yerb will be intransitiye, 
+otherwise transitiye. For example, we may say deiso etU e wm 
+com ngueiley I leaye this and go with that; the yerb deixar, to leaye, 
+is then transitiye, becanse between it and the demonstratiye, eate, 
+cannot be introduced any preposition; and the yerb tr, to go, is in- 
+transitiye, because between it and the demonstratiye, aguelie, may 
+be introduced a preposition. 
+
+It should be obseryed that the preposition a, to, neyer can apply 
+to this analysis, because it is frequently joined to the accosatiye of 
+transitiye yerbs ; ex. : amor a Dem^ to loye God. 
+
+2 
+
+
+
+18 PORTUGUESE GRAMMAR. 
+
+agent ; ex. : Pedro huva-ae, Peter praises Imn- 
+self. 
+
+The reciprocal verb is that which expresses an 
+action, likewise reciprocal between its subjects; 
+ex. : Pedro e Joao huvam-se um ao outro, Peter 
+and John praise each other. 
+
+The passive verb is that which expresses an 
+action of 'which its subject is the object, as Pedro 
+i huvado, Peter is praised. In Portuguese there 
+are no passive verbs; their want is supplied by 
+adding to the verb ser, to be, the participle passive 
+or past of the active verbs ; ex. : JBu sou amado, I 
+am loved, tu es amado, thou art loved, elle i amado, 
+he is loved, and so on in other tenses. The 
+passive action is likewise expressed by adding to 
+the verb active the pronoun se (self), being the 
+subject cause, and not person ; ex. : a casa quei- 
+mon^se, the house burned, that is, foi queimada, was 
+burned. 
+
+The verbs ser, estar (to be), ter, haver (to have) , 
+are styled auxiliaries, when they assist in the for- 
+mation of the tenses of verbs; ex.: tenho louvado, 
+I have praised. 
+
+The declensions of verbs are ten, i.e. the signifi- 
+cation, class, figure, voice, mood, tense, number, 
+person, conjugation, and regularity. 
+
+The signification of verbs may be either natural. 
+
+
+
+PORTUGUESS GRAMMAR. 19 
+
+as cultivar a terra, to cultiyate the earth, or figura- 
+tiye, as cultivar a memaria, to improye the memory. 
+
+Their class (especie) consists in hemg primitive, 
+as chorar, to lament, or derivative, as choramingar, 
+to squall. 
+
+The figure consists in being simple, as gostar, to 
+taste, or compound, as desgostar, to disgust. 
+
+The voices in yerbs are the different forms 
+whereby is expressed the actiye or passiye yerb. 
+
+The moods are fiye, the infinitive, indicative^ con- 
+ditional, subjunctive, and imperative. 
+
+The infinitive expresses an action without de- 
+claring the agent ; ex. : louvar, to praise. There 
+is, howeyer, in Portuguese the peculiarity of using 
+infinitiye personals; ex.: Barba Roxa Ihe persuadiu 
+SEREM OS uleis desta fac$ao maiores que as difficul- 
+dades, Barbarossa persuaded him that the profit 
+of this act was greater than the difficulties^ 
+(Freire). 
+
+The indicative expresses an action actually 
+effected, or effecting ; ex. : huvo, I praise. 
+
+1 The infinitiTe personal is made use of : 1st. When (as in the 
+example giy/en) the suhject of discourse differs from the finite yerh 
+which it determines. 2nd. When the infinitiTe, serring as snh- 
+ject, or attrihute of a verh, or the complement of a paragraph, 
+is taken in a personal sense ; ex. : A vosta determinaqao de atbn- 
+
+TUBABDBS VOSM peSSOa^ pOT B0C00BBBBDB8 2>t0, fot mut boUf JOJil 
+
+resolution to risk your safety for the sake of the Lord was excellent. 
+
+
+
+20 PORTUGUESE GRAMMAR. 
+
+The conditional expresses an action whicli will 
+take effect under certain conditions ; ex. : loumria 
+86 gostasae, I would praise if I tasted. 
+
+The subjunctive expresses an action dependent 
+on another foregoing; ex.: duvido que te louvem, I 
+am doubtful if they should praise thee. 
+
+The imperative is the mood of command, as 
+iouva, praise. 
+
+The principal tenses are three, the present, pre- 
+terite, future. 
+
+The present expresses an action done at the 
+moment it is annoimced ; ex. : louvo, I praise. 
+
+The preterite expresses an action done at a time 
+anterior to that when it is annoimced ; ex. : louvei, 
+I praised. 
+
+The future expresses an action which has to be 
+performed after it is declared ; ex. : louvarei, I 
+shall praise. 
+
+The preterite and the future, as will be seen in 
+the conjugations, are subdivided. 
+
+The persor^ of verbs consist in the terminations, 
+whereby are denoted the 1st, 2nd, and 3rd person. 
+
+Conjugations are the systematic changes of 
+terminations which the verb imdergoes in its 
+different moods, tenses, numbers, and persons. 
+There are in the Portuguese idiom three regular 
+conjugations. To the first belong verbs ending 
+
+
+
+PORTUGTJESE GRAMMAB. 21 
+
+in ar; ex. : lauvar, to praise ; to the second those 
+ending in er; ex. : comer, to eat; to the third the 
+verbs ending in ir; ex. : partiry to depart. 
+
+The verb pAr, to put, which originally was of 
+the second, now forms a separate conjugation, 
+which serves as rule for its compounds. 
+
+Those verbs are styled regular, which change 
+their terminations regularly, without any alteration 
+of the radical letters ; this constitutes regularity. 
+
+The letters are named radical, which occur before 
+the last vowel of the present impersonal of the 
+infinitive. The last of the radical letters is styled 
+figurative ; ex. : fot«-VAR to praise. 
+
+The letter (or letters) which follow ^efigurcUive 
+is called the termination ; ex. : IouV'AR, Iouv-bi, 
+to praise, I praised. 
+
+Thesimple tenses of verbs are formed by chang- 
+ing the termination of the present impersonal of 
+the infinitive in the terminations of those tenses ; 
+ex. : of louvar, by changing the termination ar, 
+into 0, is formed louvo, I praise ; into ava, Umvava, 
+I praised. 
+
+The compound tenses are formed by some of 
+the tenses of the verbs ter or haver (to have), and 
+by the past participle of the verb to be conjugated, 
+as will be shown practically in the following con- 
+jugations. 
+
+
+
+22 PORTUGUESE GRAMMAR. 
+
+CONJUGATION 
+
+Of the Verbs TER, to have, KA VER, to have. 
+
+INFINITIVE MOOD. 
+
+PRESENT TENSE (dCFERSONAL). 
+
+Ter, to have. Haver, to have. 
+
+FEBSONAL. 
+
+Sing. Ter eu Sing. Haver eu. 
+
+Teres tu, etc. Haveres tu, etc.* 
+
+FBETEKPEBFECT COMPOUND DCFESSONAX. 
+
+Ter tido, to have had. Ter havido, to have had. 
+
+PERSONAL. 
+
+S. Ter eu tido, etc. S. Ter eu havido, etc.* 
+
+FUTUBE COMPOUND IMPEBSONAL. 
+
+Haver de ter. Ter de haver. 
+
+FUTUBE COMPOUND FEBSONAL. 
+
+S. Haver eu de ter, etc. S. Ter eu de haver, etc.^ 
+
+GEBXTND. 
+
+Tendo, having. Havendo, having. 
+
+OEBUND COMPOUND OF FBETEBITB. 
+
+Tendo tido, having had. Tendo havido, having had. 
+
+OEBUND COMPOUND OF FUTUBE. 
+
+Havendo de ter, having to Tendo de haver, having to 
+have have 
+
+PABTICIPLE PAST. 
+
+Tido, tida, had. Havido, havida^ had. 
+
+^ The tenses of the Infinitiye, though existing in Portuguese, 
+are not used ; it is therefore unnecessary to give the rest of the 
+terminations of such tenses. 
+
+
+
+PORTUGTJESS GKAMBiAB. 23 
+
+INDICATIVE MOOD. 
+
+PBSSSNT TBNSB. 
+
+S. Ea tenho, I have. S. En hei, I baye. 
+
+Tu tens, thon hast. Tu has, thon hast. 
+
+Elle tern, he has. EUe ha, he has. 
+
+F. N'os temos, we have. P. N'os hayemofi^ we liaye. 
+
+Yos tendes, ye haye. Y6s hanaiB, ye haye. 
+
+EUes teem, ^ey haye. JEDesliao, they haye. 
+
+TBSTBRDCPEBPBCT. 
+
+S. En tinha, I was haying. S. En hayia, I was haying. 
+
+Tn tuihas, etc. Tn hayias, etc.^ 
+
+Elle tinha Elle hayia 
+
+P. Nos tinhanios P. N'os hayiamos 
+
+Yos tinheis Yos hayieis 
+
+Elles tinham. Elles hayiam. 
+
+
+
+S. En tiye, I had. S. En honye, I had. 
+
+Tn tiyeste, etc. Tn honyeste, etc. 
+
+Elle teye EUe honye 
+
+P. Nos tiyemos • P. Nos honyemos 
+
+Yos tiyestes Yos honyestes 
+
+Elles tiyeram Elles honyeiam 
+
+PKBTBBPBBFBCT OOMPOUirD.' 
+
+S. En tenho tido, I haye S. En tenho hayido, I haye 
+had had 
+
+Tn tens „ etc. Tn tens „ etc. 
+
+Elle tern „ Elle tern 
+
+
+
+yy 
+
+
+
+^ When tiie English ecjoiTalent is identical in both mxifiaij 
+Terbs it is needless to repeat it tibrooghont tiie tense; in like 
+manner, and for a nearly similar cause, the first person iuii|rnlM' 
+only of tiie "Rnglish Terbs is giren in each tense ; tiie gie, indicat- 
+ing Aat there is no other deriation from tiie first person hot that 
+of tiie prononn, and that of the rerhal terminations known to 
+
+
+
+The preterpafect and the prateiperfect conqponnd on^^ht 
+
+
+
+24 PORTUGUESE GRAMMAR. 
+
+P. iN'os temos tido P. N6s temos havido 
+
+Vos tendes ,, V6s tendes ,, 
+
+EUes teem ,, EUes teem „ 
+
+PBBTEBFLUFEBPBCT. 
+
+S. Eu tivera, I had had 8. Eu houvera, I had had 
+Tu tiveras, etc. Tu houveras, etc. 
+
+EUe tivera EUe houvera 
+
+P. 1^08 tiveramos P. Nos houveramos 
+Vos tivereis Vos houvereis 
+
+Elles tiveram EUes houveram 
+
+PSETBBPLUPBBPBCT COMPOUND. 
+
+S. Eu tinha tido, I had S. Eu tinha havido, I had 
+had had 
+
+Tu tinhas „ etc. Tu tinhas ,, etc. 
+
+EUe tinha ,, EUe tinha ,, 
+
+
+
+P. Nostinhamos,, P. Nostiohamos,, 
+
+Vos tinheis „ Vos tinheis „ 
+
+EUes tinham „ EUes tinham „ 
+
+
+
+FUTURE IMPBBFBCT. 
+
+S. Eu terei; I shaU have S. Eu haverei, I shaU have 
+Tu teras, etc. Tu haveras, etc. 
+
+EUe tera EUe havera 
+
+not to be used promiscnously, as if synonymous; since the first ex- 
+presses an action performed at a time entirely passed, and the 
+second an action done in a period of time still existing, and is (as 
+observed by the late Patriarch of Lisbon, p. 152 of the Glossary 
+of French Words), " a preterite with succession of time and acts 
+often repeated.'' The following example shows the different ap- 
+plication of these two tenses: Hontem nao five notieias tuaSf e tenho 
+tido par xmo dea^s d^ir ver-te; mat houve hontem tanta neve, $ hoje 
+tern ehovido tanto, que nao tenho podido sahir^ " I yesterday heard 
+' nothing from you, and therefore was desiring to go and see you ; 
+but it snowed so yesterday, and to-day has rained so much, that I 
+was unable to move out.'* 
+
+
+
+PORTUGUESE GRAMMAR. 25 
+
+P. Nos terdmos P. Nos hayeremos 
+
+Vos tereis Vos havereis 
+
+Elles terao EUes haverao 
+
+FUTU&B DCFBBPBCT COMPOUND. 
+
+S. Eu hei de ter, I shall S. Eu hei de haver, I shall 
+
+have had have had 
+
+Tu has de ter, etc. Tu has de haver, etc. 
+
+EUeha „ EUe ha ,, 
+
+P. Noshavemos,, P. Ifoshavemos,, 
+
+Vos haveis ,, V6s haveis „ 
+
+Elles hfio ,, Elles hfio ,, 
+
+FT7TUBB FBBFBOT COMPOUND. 
+
+S. Eu terei tido, I shall S. Eu terei havido, I shall 
+
+have had have had 
+
+Tu terds tido, etc. Tu terds havido, etc. 
+
+EUeterd „ EUe terd „ 
+
+P. N6s teremos „ P. N68 teremos „ 
+
+Vos tereis „ Vos tereis ,, 
+
+Elles terao „ Elles terao y, 
+
+CONDITIONAL MOOD. 
+
+S. Eu teria, I should have S. Euhaveria, I should have 
+
+Tu terias, etc. Tu haverias, etc. 
+
+EUe teria EUe haveria 
+
+P. "Nos teriamos P. Nos haveriamos 
+
+V6s terieis Vos haverieis 
+
+EUes teriam EUes haveriam 
+
+COMPOUND. 
+
+S. Eu teria tido, I should S. Eu teria havido, I should 
+
+have had have had 
+
+Tu terias tido, etc. Tu terias havido, etc. 
+
+EUe teria „ EUe teria „ 
+
+P. Nos teriamos „ P. N6s teriamos ,, 
+
+Vos terieis ,, V68 terieis ,, 
+
+EUes teriam „ EUes teriam „ 
+
+
+
+26 PORTUGUESE GRAMMAR. 
+
+IMPERATIVE MOOD. 
+
+FUTURE. 
+
+S. Tern to, hast thou S. Ha ta, hast thou 
+
+P. Tende T6a, have ye P. Havei v6s, have ye 
+
+SUBJUNCTIVE MOOD. 
+
+S. Que eu tenha, that I S. Que eu luija, Ibat I aay 
+may have have 
+
+Que tu tenhas, etc. Que tu hajas, etc. 
+
+Que elle tenha Que elle haja 
+
+P. Que nos tenhamos P. Que nos hajamos 
+
+Que v6s tenhais Que v6s hajais 
+
+Que elles tenham Que elles hajam 
+
+PBBTBBDCPBRFBCT. 
+
+S. Que en tivesse, that I S. Que eu houvesse, that I 
+might have might have 
+
+Que tu tivesses, etc. Que tu houvesses, etc. 
+
+Que elle tivesse Que elle houvesse 
+
+P. Que nos tivessemos P. Que nos houvessemos 
+
+Que v6s tivesseis Que v6s houvesseis 
+
+Que elles tivessem Que elles houvessem 
+
+FSETEBFBBFECT COMFOUKD. 
+
+S. Que eu tenha tido, that S. Que eutenhahavido, that 
+I might have had I might have had 
+
+Que tu tenhas tido, etc. Que tutenhashavido, etc. 
+
+Que elle tenha ,, Que elle tenha ,, 
+
+P. Que nos tenhamos,, P. Que nos tenhamos ,, 
+
+Que v6s tenhais ,, Que v6s tenhais ,, 
+
+Que elles tenham tido Que elles tenham ,, 
+
+PSETBKFLUFB&FBCT COMPOUin). 
+
+S. Que eu tivesse tido, that S. Que eu tivesse havido, 
+
+I might have had that I might have had 
+
+Que tu tivesses tido, etc . Que tu tivesses havido, etc 
+
+Que elle tivesse ,, Que elle tivesse 
+
+
+
+ff 
+
+
+
+PORTUOUESE GRAMMAR. 
+
+
+
+27 
+
+
+
+P. Quenostiyesflemostido P. QuenostiyessemosliaYido 
+Que vos tiyesseis ,, Que yos tiyesseis 
+
+
+
+Que elles tiyessem 
+
+
+
+>f 
+
+
+
+Que elles tiyessem 
+
+
+
+ff 
+
+
+
+ft 
+
+
+
+FUrtTBB I1CPBB7BCT. 
+
+
+
+S. Se eu tiyer, when I S. Se eu houyer, when I 
+
+
+
+shall haye 
+Se tu tiyeres, etc. 
+Se elle tiyer 
+P. Se nos tiyermos 
+Se yos tiyeides 
+Se elles tiyerem 
+
+
+
+shall haye 
+Se tu houyeres, etc. 
+Se elle houyer 
+P. Se nos houyermos 
+Se yos houyerdes 
+Se elles houyerem 
+
+
+
+FUTUBI IMPKBFBCT COKFOUHD. 
+
+
+
+S. Se eu houyer de ter, 
+when I shall haye 
+had 
+Se tu houyeres de ter 
+Se elle houyer 
+P. Se nos houyennos 
+Se yos houyerdes 
+Se elles houyerem ,, 
+
+
+
+99 
+
+
+
+tt 
+
+
+
+>f 
+
+
+
+S. Se eu houyer de hayer, 
+when I shall haye 
+had 
+Se tu houyeres de hayer 
+Se elle houyer ,, 
+P. Se nos houyermos 
+Se yos houyerdes 
+Se elles houyerem ,, 
+
+
+
+>» 
+>> 
+
+
+
+FUTUBI PBB7BCT C01CF0Uin>. 
+
+
+
+8. Se eu tiyer tido, when S. 
+I shall haye had 
+
+Se tu tiyeres tido, etc. 
+
+Se elle tiyer „ 
+P. Se nos tiyermos,) P. 
+
+Se yos tiyerdes „ 
+
+Se elles tiyerem,. 
+
+
+
+Se eu tiyer hayido, when 
+
+I shall haye had 
+Se tu tiyeres hayido, etc. 
+Se elle tiyer „ 
+Se nos tiyeimos „ 
+Se yos tiyerdes ,, 
+Se elles tiyerem 
+
+
+
+9> 
+
+
+
+28 FOBTUGXTESE ORAMMAB. 
+
+CONJUGATION 
+
+Of the Verbs SHE and ESTAR, to be. 
+
+INFINITIVE MOOD. 
+
+PBB8ENT nCPBSSONAL. 
+
+Ser, to be Estar^ to be 
+
+PEBSONAL. 
+
+S. Ser eu, etc. S. Estar eu, etc.^ 
+
+PRBTBBPBRFECT COMPOUND DCPBBSONAL. 
+
+Ter sidO; to have been Ter estado, to have been 
+
+PBBTBBPBKFBOT COMPOUND PBB80NAL. ' 
+
+S. Ter eu side, etc. S. Ter eu, estado, etc.^ 
+
+FUTVBB COMPOUND IMPBB80NAL. 
+
+Haver de ser, to hare to be Haver de estar, to have to be 
+
+PEBSONAL. 
+
+S. Haver eu de ser, etc. S. Haver eu de estar, etc.* 
+
+GBBUND. 
+
+Sendo, being Estando, being 
+
+OBBUND COMPOUND OF PBBTBBITB. 
+
+Tendo side, having been Tendo estado, having been 
+
+OBBUND COMPOUND OF FUTUBB. 
+
+Havendo de ser, having Havendo de estar, having 
+to be to be 
+
+^ For these uniised tenses see note p. 22. 
+
+
+
+PORTUGUESE GRAMMAR. 
+
+
+
+29 
+
+
+
+INDICATIVE MOOD.. 
+
+PBBSlDfT. 
+
+
+
+S. Eu sou, I am 
+, Tu 6s, thou art 
+Elle e, he is 
+
+P. "Nob sonios, we are 
+Vos sois, ye are 
+EUes sao, they are 
+
+
+
+S. Eu estou, I am 
+Tu est^, thou art 
+Elle estd, he is 
+
+P. N6s estamos, we are 
+Y6s estais, ye are 
+Elles estSo, they are 
+
+
+
+PBBTBBDfPERFBCT. 
+
+S. Eu era, I was S. Eu estaya, I was 
+Tu eras, etc. Tu estavas, etc. 
+
+Elle era Elle estaya 
+
+P. Nos eramos P. Nos estayamos 
+V6s ereis Vos estayeis 
+
+Elles eram Elles estayam 
+
+
+
+FBBTBKPERFBCT. 
+
+
+
+S. Eu fui, I was 
+Tu foste, etc. 
+EUefoi 
+
+P. Nos fomos 
+Yos fostes 
+EUes foram 
+
+
+
+S. Eu estiye, I was 
+Tu estiyes, etc. 
+Elle esteye 
+
+P. Nos estiyemos 
+Vos estiyestes 
+Elles estiyeram 
+
+
+
+PUSTBBPBRFBCT COMPOUND. 
+
+
+
+etc. 
+
+
+
+S. Eu tenho sido, I haye S. Eu tenho estado, I haye 
+been 
+
+Tu tens 
+
+Elle tern 
+P. Nos temoB 
+
+Vos tendes 
+
+Elles teem 
+
+
+
+been 
+etc. Tu tens 
+
+EUe tern 
+P. N'os temos 
+Vos tendes 
+Elles teem 
+
+PBETEBPLTJPEBPBCT. 
+
+
+
+S. Eu fora, I had been, 
+
+Tu foras, etc. 
+
+Ellefora 
+P. N'os f oramos 
+
+Vos f oreis 
+
+Elles foram 
+
+
+
+S. Eu estiyera, I had been, 
+
+Tu estiyeras, etc. 
+
+Elle estiyera 
+P. N'os estiyeramos 
+
+Vos estiyereis 
+
+EUes estiyeram 
+
+
+
+30 
+
+
+
+PORTUGUESE GRAMMAR. 
+
+
+
+PBBTBBFLTJPBIIFBCT COMPOUND. 
+
+
+
+S. Eu tinlia sido, I had S. Eu tinlia estado, I had 
+
+
+
+
+
+been 
+
+
+been 
+
+
+
+
+
+
+Tu tmhas ,, etc. 
+
+
+Tu tinhas „ 
+
+
+etc. 
+
+
+
+
+Elle tiTiha „ 
+
+
+Elle tiTiha „ 
+
+
+
+
+P. 
+
+
+Nos tinhamos ,, 
+
+
+P. N6s tinhamos ,, 
+
+
+
+
+
+
+Vos tinheis „ 
+
+
+Vos tinheis ,, 
+
+
+
+
+
+
+EUes tinham ,, 
+
+
+EUes tinham ,, 
+
+
+
+
+
+
+FUTUBB 
+
+
+nCPBBFBCT. 
+
+
+
+
+s. 
+
+
+Eu serei, I Rhall be 
+
+
+S. Eu estarei, I shall be 
+
+
+
+
+Tu seras, etc. 
+
+
+Tu estaras, etc. 
+
+
+
+
+
+
+Elle sera 
+
+
+Elle estard 
+
+
+
+
+p. 
+
+
+Nob seremoB 
+
+
+P. Nos estaremos 
+
+
+
+
+
+
+Vos sereis 
+
+
+V6s estareis 
+
+
+
+
+
+
+Elles serfio 
+
+
+Elles estarSo 
+
+
+
+
+
+
+FUTUBB DCPBBPBCT COMPOUND. 
+
+
+
+
+s. 
+
+
+Eu hei de ser, I shall 
+
+
+S. Eu hei de estar, 
+
+
+I shall 
+
+
+
+
+have been 
+
+
+have been 
+
+
+
+
+
+
+Tu has „ etc. 
+
+
+Tuhaa „ 
+
+
+etc. 
+
+
+
+
+Elle ha „ 
+
+
+Elle ha „ 
+
+
+
+
+p. 
+
+
+Noshavemos,, 
+
+
+P. !N'6s havemos „ 
+
+
+
+
+
+
+Vos haveis „ 
+
+
+V6s haveis ,, 
+
+
+
+
+
+
+Elles hao „ 
+
+
+EUes hao „ 
+
+
+
+
+
+
+FUTUBB PBB7BCT COMPOUND. 
+
+
+
+
+s. 
+
+
+Eu terei side, I shall 
+
+
+S. Eu terei estado, 
+
+
+I shall 
+
+
+
+
+have been 
+
+
+have been 
+
+
+
+
+
+
+Tu teras side, etc. 
+
+
+Tu terds estado, 
+
+
+etc. 
+
+
+
+
+Elle terd „ 
+
+
+Elle tera ,, 
+
+
+
+
+p 
+
+
+. Nosteremos,, 
+
+
+P. Nos teremos „ 
+
+
+
+
+
+
+Vos tereis „ 
+
+
+Vos tereis „ 
+
+
+
+
+
+
+Elles terao „ 
+
+
+Elles terao ,, 
+
+
+
+
+
+CONDITIONAL MOOD. 
+
+S. Eu seria, I should be S. Eu estaria, I should be 
+Tu seriaSy etc. Tu estarias, etc. 
+
+EUe seria EUe estaria 
+
+
+
+PORTUGUESE OBAliMAR. 31 
+
+P. Nos seriamos P. Nos estariamos 
+
+Vos serieis Vos estarieis 
+
+Elles seriam Elles estariam 
+
+COMPOUND. 
+
+S. Eu teria sido, I should S. Eu teria estado, I should 
+
+have been have been 
+
+Tu terias sido, etc. Tu terias estado, etc. 
+
+P. Elle teria „ P. EUe teria „ 
+
+Nob teriamos , , !N^6s teriamos , , 
+
+Vos terieis „ Nos terieis „ 
+
+Elles teriam ,y EUes teriam ,, 
+
+IMPEEATIVE MOOD. 
+
+FUTT7BE. 
+
+S. Se tu, be thou S. Esta tu, be thou 
+
+P. Sede vos, be ye P. Estai v6s, be ye 
+
+SUBJUNCTIVE MOOD. 
+
+S. Que eu seja, that I S. Que eu esteja, that I 
+may be may be 
+
+Que tu sejas, etc. Que tu estejas, etc. 
+
+Que elle seja Que elle esteja 
+
+P. Que nos sejamos P. Que nos estejamos 
+
+Que vos sejais Que vos estejais 
+
+Que elles sejam Que eUes estejam 
+
+PBBTBBIMFEKPECT. 
+
+S. Que eu fosse, that I S. Que eu estivesse, that I 
+might be might be 
+
+Que tu fosses, etc. Que tu estivesses, etc. 
+
+Que elle fosse ' Que elle estivesse 
+
+P. Que nos fossemos P. Que nos estivessemos 
+
+Que vos fosseis Que vos estivesseis 
+
+Que elles fossem Que eUes estivessem 
+
+PBSTEBPEBFBCT COMPOUND. 
+
+S. Que eu tenha sido, that S. Que eu tenha estado, that 
+I might have been I might have been 
+
+Que tu tenhas sido, etc. Que tu tenhas estado, etc. 
+Que elle tenha „ Que elle tenha „ 
+
+
+
+32 PORTUGUESE GRAMMAR. 
+
+P. Que n68 tenhamos sido P. Que nos teuhamos estado 
+Que Yos tenhais ,, Que yob tenhaiB ,, 
+
+Que elles tenham ,, Que elles tenham „ 
+
+PBBTBBfLUPBBFECT COMPOUND. 
+
+S . Que eu tiYesse sido, that S. Que eu tiYesse estado, that 
+I might haYe been I might haYe been 
+
+Que tu tiYesses sido, etc. Que tutiYesses estado, etc. 
+
+Que elle tiYesse „ Que elle tiYesse „ 
+
+P. QuenostiYessemos,, P. QuenostiYessemos,, 
+
+Que YOS tiYCsseis „ Que yob tiYCsseis „ 
+
+Que elles tiYessem „ Que elles tiYessem „ 
+
+PUTT7RE IHPBBPECT. 
+
+S. Se eu for, when I shall 8. Se eu estiYcr, when I 
+be shall be 
+
+Se tu fores, etc. Se tu estiYcres, etc. 
+
+Se elle for Se elle estiYer 
+
+P. Se nos formos P. Se nos estiYcrmos 
+
+Se y6s fordes Se yos estiYerdes 
+
+Se elles forem Se elles estiYcrem 
+
+PUTUBB IMPBBFEOT COMPOUND. 
+
+S. Se eu houYcr de ser, S. Se eu houYcr de estar, 
+
+when I shall haYe when I shall haYe 
+
+been been 
+
+Se tu houYcres de ser Se tu houYcres de estar 
+
+Se elle houYcr „ Se elle houYer ,, 
+
+P. Se nos houYcrmos „ P. Se nos houYermos „ 
+
+Se YOS houYcrdes ,, Se yos houYerdes ,, 
+
+Se elles houYcrem , , Se elles houYcrem , , 
+
+FUTURE PEKPECT COMPOUND. 
+
+S. Se eu tiYer sido, when I S. SeeutiYcr estado, when I 
+shall haYe been shall haYe been 
+
+Se tu tiYcres sido, etc. Se tu tiYcres estado, etc. 
+
+Se elle tiYer ,, Se elle tiver ,, 
+
+P. Se nos tiYermos „ P. Se nos tiYermos ,, 
+
+Se YOS tiYcrdes „ Se yos tiYerdes „ 
+
+Se eUes tiYcrem ,, Se elles tiYcrem ,, 
+
+
+
+PORTUOITESE GRAMMAR. 33 
+
+
+
+CONJUGATION 
+
+Of the Verbs LOTJVAR, to praise, COMER, to eat. 
+
+To serve as rule or model for the regular verbs of the 
+first and second conjugation. 
+
+INFINITIVE MOOD. 
+
+PRESBNT IMFBB80NAL. 
+
+Louvar, to praise Comer, to eat 
+
+PB&BONAL. 
+
+S. Louvar eu S. Comer eu * 
+
+Louvares tu, etc. Comeres tu, etc. 
+
+FBETERFEBFBCT COMPOUND IMPEB80NAL. 
+
+Ter louvado, to have praised Ter comido, to have eaten 
+
+PERSONAL. 
+
+S. Ter eu louvado, etc. S. Ter eu comido, etc.^ 
+
+FUTURE COMPOUND IMPERSONAL. 
+
+Haver de louvar, to have to praise 
+Haver de comer, to have to eat 
+
+FUTURE COMPOUND PERSONAL. 
+
+S. Haver eu de louvar, etc. S. Haver eu de comer, etc.^ 
+
+GERUND. 
+
+Louvando, praising Comendo, eating 
+
+GERUND COMPOUND OF PRETEBITB. 
+
+Tendo louvado, having praised 
+Tendo comido, having eaten 
+
+^ See note ante p. 22 regarding tenses not used. 
+
+3 
+
+
+
+34 
+
+
+
+PORTUGUESE ORAMMAB. 
+
+
+
+OBBUND OOMFOUKD OF PUTUBB. 
+
+Havendo de louyar, having to praise 
+Havendo de comer, having to eat 
+
+PABTICIPLB PAST. 
+
+Louvado, lonvada, praised Comido, comida, eaten 
+
+INDICATIVE MOOD. 
+
+
+
+PBBBBNT. 
+
+
+
+S. En lonvo, I praise 
+Tn lonvas, etc. 
+Elle louva 
+
+P. N6s louvamos 
+V6s lonvais 
+EUes lonvam 
+
+
+
+S. En como, I eat 
+Tn comes, etc. 
+EUe come 
+
+P. !N^6s comemos 
+V6s comeis 
+Elles comem 
+
+
+
+PBBTBBXMPBBPBCT. 
+
+S. En lonvava, I did praise S. En comia, I did eat 
+Tn louvavas, etc. Tn comias, etc. 
+
+Elle louvava Elle comia 
+
+P. N6s lonvavamos P. N"6s comiamos 
+
+V6s lonvaveis Vos comieis 
+
+EUes lonvavam Elles comiam 
+
+PRBTBBPEKPECT. 
+
+
+
+S. En lonvei, I praised 
+Tn lonvaste, etc. 
+Elle lonvon 
+
+P. N6s lonvamos 
+Vos lonvastes 
+Elles lonvaram 
+
+
+
+S. En comi, I eat 
+Tn comeste, etc. 
+Elle comen 
+
+P. N6s comemos 
+Yos comestes 
+EUes comeram 
+
+
+
+PBBTBBPBBPECT COMPOUND. 
+
+
+
+S. Entenholonvado,Ihave S. En tenho comido, I have 
+
+
+
+praised 
+Tn tens 
+EUetem 
+P. N"6s temos 
+Vos tendes 
+EUes teem 
+
+
+
+eaten 
+etc. Tn tens 
+
+EUetem 
+P. N6s temos 
+Vos tendes 
+EUes teem 
+
+
+
+etc. 
+
+
+
+FOKTUGX7E8E OKAMMAB. 
+
+
+
+35 
+
+
+
+PBBTBBPLUPBBFECT. 
+
+
+
+S. Eu louvara, I had 
+praised 
+
+Tn louyaras, etc. 
+
+Elle louvdra 
+P. Nos louyaramos 
+
+Vos louvareis 
+
+Elles louyaram 
+
+
+
+S. Eu comera, I had eaten 
+
+Tu comSras, etc. 
+Elle comera 
+P. !N^6s comeramos 
+V6s com^reis 
+Elles comeram 
+
+
+
+PBBTBBPLUPEBFECT COMPOUND. 
+
+
+
+S. EutiiihalouyadOylhad S. Eu tinha comido, I had 
+
+
+
+praised 
+Tu tiuhas 
+EUe tinha 
+P. N6s tinhamos 
+Yos tinheis 
+Elles tinham 
+
+
+
+eaten 
+etc. Tu tinhas 
+
+Elle tinha 
+P. Nos tinhamos y, 
+Yos tinheis 
+Elles tinham 
+
+
+
+ft 
+
+
+
+>> 
+
+
+
+>f 
+
+
+
+etc. 
+
+
+
+i> 
+
+
+
+FVTVRE nCPERFBCT. 
+
+
+
+S. Eu louyareiy I shall 
+praise 
+
+Tu louyaras, etc. 
+
+Elle louyard 
+P. Nos louyaremoB 
+
+Yos louyareis 
+
+Elles louyanlo 
+
+
+
+S. Eu comerei, I shall eat 
+
+Tu comeras, etc. 
+EUe comera 
+P. Nos comeremos 
+Yos comereis 
+Elles comerao 
+
+
+
+FUTUBX mPERFBCT 00MP0I7ND. 
+
+S. Euheidelouyar,Ishall S. Eu hei de comer, I shall 
+haye praised haye eaten 
+
+Tu has de louyar, etc. Tu has de comer, etc. 
+
+Elle ha „ Elle ha „ 
+
+P. Noshayemos „ P. Noshayemos,, 
+
+Yos hayeis „ Yos hayeis 
+
+Elles hao ,. EUes hao 
+
+
+
+91 
+
+
+
+99 
+
+
+
+99 
+
+
+
+36 
+
+
+
+FOBTUGUESE GRAMMAR. 
+
+
+
+FUTUBB PBBPBCT COMPQUin). 
+
+S. Eu terei louvado, I S. Eu terei comido, I shall 
+
+
+
+shall have praised 
+Tu terds louyado, etc. 
+Elle terd ,, 
+P. N68 teremos 
+Yos tereis 
+EUes terao 
+
+
+
+ft 
+t) 
+
+
+
+yf 
+
+
+
+have eaten 
+Tu terds comido, etc. 
+EUe ter£ ,, 
+P. Nos teremos ,y 
+Vos tereis 
+Elles terfio 
+
+
+
+99 
+99 
+
+
+
+CONDITIONAL MOOD. 
+
+
+
+S. Eu louvaria, I should 8. Eu comeria, I should eat 
+praise 
+
+
+
+Tu louyarias, etc. 
+Elle louyaria 
+P. N"6s louyariamos 
+V6s louyarieis 
+EUes louyariam 
+
+
+
+Tu comerias, etc. 
+Elle comeria 
+P. N6s comeriamos 
+Vos comerieis 
+EUes comeriam 
+
+
+
+COMPOUND. 
+
+
+
+8. Eu teria louyado^ I 
+should haye praised 
+
+Tu terias louyado, etc. 
+
+EUe teria „ 
+P. N68teriainos,y 
+
+Vosterieis ,, 
+
+EUes teriam ,y 
+
+
+
+S. Eu teria comido, I 
+should haye eaten 
+
+Tu terias comido, etc. 
+
+EUe teria ,, 
+P. Nosteriamos,, 
+
+Vos terieis 
+
+
+
+EUes teriam 
+
+
+
+>9 
+
+99 
+
+
+
+IMPERATIVE MOOD. 
+
+
+
+7UTUBB. 
+
+
+
+8. Louya tu, praise thou 8. Come tu, eat thou 
+P. Louyai yos, praise ye P. Comei yos, eat ye 
+
+SUBJUNCTIVE MOOD. 
+
+PRESENT. 
+
+8. Que eu louye, that I 8. Que eu coma, that I may 
+may praise may eat 
+
+Que tu louyes, etc. Que tu comas, etc. 
+
+Que eUe louye Que eUe coma 
+
+
+
+PORTUGUESE GRAMMAR. 37 
+
+P. Que nos louyemos P. Que nos comamos 
+
+Que Yos louveis Que yob comais 
+
+Que elles louyem Que elles comam 
+
+PILBTBBIMFEBFECT. 
+
+S. Que eu louyasse, that I S. Que eu comesse, that I 
+might praise might eat 
+
+Que tu louvasses, etc. Que tu comesses, etc. 
+
+Que elle louyasse Que elle comesse 
+
+P. Que nos louyassemos P. Que nos comessemos 
+
+Que yos louyasseis Que yos comesseis 
+
+Que elles louyassem Que elles comessem 
+
+PBETBBPBBFECT COMPOUND. 
+
+S. Que eu tenha louyado, S. Que eutenhacomido, that 
+that I might haye I might haye eaten, 
+
+praised 
+Que tu tenhas louyado, etc. Que tu tenhas comido, etc. 
+Que elle tenha ,, Que elle tenha ,, 
+
+P. Que nos tenhamos ,, P. Que n6s tenhamos ,, 
+Que yos tenhais ,, Que yos tenhais ,, 
+
+Que elles tenham „ Que elles tenham ,, 
+
+PBBTEBf LUPBBFBOT COMPOUIO). 
+
+S. Que eu tiyesse louyado, S. Que eutiyesse comido, 
+that I might haye that I might haye 
+
+praised eaten 
+
+Que tu tiyesses louyado Que tu tiyesses comido 
+Que elle tiyesse „ etc. Que elle tiyesse „ etc. 
+P. Que nos tiyessemos ,, P. Que nos tiyessemos ,, 
+Que yos tiyesseis ,, Que yos tiyesseis 
+
+Que elles tiyessem ,, Que elles tiyessem 
+
+
+
+
+
+
+PUTUBB DCFBBFECT. 
+
+
+
+S. Se eu louyar, when I S. Se eu comer, when I shall 
+shall pndse eat 
+
+Se tu louyares, etc. Se tu comeres, etc. 
+
+Se eUe louyar Se eUe comer 
+
+
+
+38 PORTUGUESE ORAMMAK. 
+
+P. Se nos louvarmos P. Se nos comermos 
+
+Se Yos louyardes Se yob comerdes 
+
+Se elles louyaxem Se elles comerem 
+
+FUTURE IMFBBFBCT COMPOUND. 
+
+S. Se en houYer de loiiYar, S. Se eu houYer de comer, 
+
+when I sliall haYe when I shall haYe 
+
+praised eaten 
+
+Se tn honYeres de lonYar Se tn honYeres de comer 
+
+Se elle honYer ,, etc. Se elle honYer ,, etc. 
+
+P. Se nos houYermos ,, P. Se nos honYermos ,, 
+
+Se YOS honYerdes ,, Se yos honYerdes „ 
+
+Se elles honYerem „ Se elles honYerem ,, 
+
+FUTURE PERFECT COBfPOUND. 
+
+S. Se en tiYer lonYado, S. Se en tiYcr comido, when 
+
+when I shaU haYe I shall haYe eaten 
+praised 
+Se tn tiYeres lonYado, etc. Se tn tiYeres comido, etc . 
+
+Se eUe tiYer ,, Se eUe tiYer „ 
+
+P. Se nos tiYermoB ,, P. Se nos tiYermos ,, 
+
+Se YOS tiYcrdes ,, Se yos tiYcrdes ,, 
+
+Se elles tiYcrem ,, Se elles tiYerem ,, 
+
+
+
+P0RTU6X7ESB GRAMMAR. 39 
+
+
+
+CONJUGATION 
+
+Of the Verb PARTIR^ to depart, to serve as model 
+for the regular Yerbs of the third class; and of the 
+Verb PORy to put, as example for its compounds. 
+
+INFINITIVE MOOD. 
+
+PSBSBNT IMFEBSONAL. 
+
+Partir, to depart Por, to put 
+
+PERSONAL. 
+
+S. Partir eu, etc; 8. Por eu, etc.* 
+
+PBBTBRPEBPBCT COMPOXmD DCPBRSONAL. 
+
+Ter parddo, to have departed 
+Ter posto, to have put 
+
+PBBSONAL. 
+
+S. Ter eu partido, etc. S. Ter eu posto, etc.* 
+
+FUTUBB OOMPOUND DCPEBSONAL. 
+
+Haver de partir, to have Haver de por, to have to 
+to depart put 
+
+FUTXTBB COMPOUND PSBSONAL. 
+
+S. Haver eu de partir, etc. S. Haver eu de por, etc.* 
+
+OBKUND. 
+
+Partindo, departing Pondo, putting 
+
+OEBUND COMPOUND OP PIBTEBTTB. 
+
+Tendo partido, having departed 
+Tendo posto, having put 
+
+> See note ante on Infinitive Mood tenses. 
+
+
+
+40 PORTUGUESE GRAMMAR. 
+
+OEHriTD COMPOUND OF FUTT7BB. 
+
+Havendo de partir, having to depart 
+Havendo de por, haviag to put 
+
+PABTICIFLE PAST. 
+
+Partido, partida, departed Posto, posta, put 
+
+INDICATIVE MOOD. 
+
+PBBSSNT. 
+
+S. Eu parto, I depart S. Eu ponho, I put 
+Tu partes, etc. Tu poes, etc. 
+
+EUe parte Elle pde 
+
+P. Nob partinios P. Nos pomos 
+VoB partis V6s pondes 
+
+EUes partem Elles poem 
+
+PRSTEBIMFEllFBCT. 
+
+S. Eu partia, I departed S. Eu punha, I put 
+Tu partiasy etc. Tu punhas, etc. 
+
+EUe partia Elle punlia 
+
+P. N6s partiamos P. N6s punhamos 
+V6s partieis V6s punheis 
+
+EUes partiam EUes punham 
+
+PBBTBBPBSFBCT. 
+
+S. Eu parti, I departed S. Eu puz, I put 
+Tu partiste, etc. Tu pozeste, etc. 
+
+EUe partiu EUe poz 
+
+P. Nos partimos P. Nos pozemos 
+Vos partistes Vos pozestes 
+
+EUes partiram EUes pozeram 
+
+PBBTB&PBBPBCT COMPOUND. 
+
+S. EutenhopartidOylliaYe S. Eu tenho posto, I have 
+departed put 
+
+Tu tens ,, etc. Tu tens y, etc. 
+
+EUe tern „ EUe tern 
+
+
+
+ff AAUO TOIU ,, 
+
+
+
+PORTUGXTESB GRAMMAR. 41 
+
+P. Nob temos partido P. N6s temos posto 
+
+Vos tendes „ Yob tendes „ 
+
+Elles teem ,, Elles teem ,, 
+
+PBETEBPLUPERFECT. 
+
+S. Eu partira, I had de- S. Eu pozera,^ I had put 
+parted 
+
+Tu partiras, etc. Tu pozeras, etc. 
+
+Elle partira Elle pozera 
+
+P. 1^08 partiramos P. Nos pozeramos 
+
+Yos partireis Vos pozereis 
+
+Elles partiram Elles pozeram 
+
+PRETBBFLUPEBFEOT COMPOUND. 
+
+8. Eutinha partido, I had S. Eu tinha posto, I had 
+departed put 
+
+
+
+Tu tinhas 
+Elle tinha 
+P. ISTos tinhamos 
+Vos tinheis 
+EUes tinham 
+
+
+
+etc. Tu tinhas 
+
+Elle tinha 
+Nostinhamos 
+Vos tinheis 
+Elles tinham 
+
+
+
+etc. 
+
+
+
+FUTURE nCPEBPECT. 
+
+S. Eu partirei, 1 shall de- S. Eu porei, I shall put 
+part 
+
+Tu partiras, etc. Tu por^, etc. 
+
+Elle partira Elle pord 
+
+P. Nos partiremos P. N6s poremos 
+
+Vos partireis Vos poreis 
+
+EUes patirSo Elles porfio 
+
+FUTUBX IMPEBPECT OOMFOUND. 
+
+S. Euheidepartir, Ishall S. Eu hei de por, I shall 
+have departed have put 
+
+Tu has de partir, etc. Tu has de por, etc. 
+
+Elle ha „ Elle ha „ 
+
+P. Noshayemos,, P. Noshavemos,, 
+
+Vos haveis „ Vos haveis „ 
+
+Elles hao „ EUes hao 
+
+> Aadpmara; yide Consttticio, Gr. Noiit. 
+
+
+
+42 FORTUOUESB 6BAMMAK. 
+
+FUTVRB PEBFBCT COMPOUND. 
+
+S. Eutereipartido, Ishall S. Eu terei posto, I shall 
+have departed have put 
+
+Tu terds partido, etc. Tu terds posto, etc. 
+
+Elleterd „ EUe terd „ 
+
+P. NosteremoB ,, P. Nosteremos,, 
+
+Vos tereis ,, V6s tereis ,, 
+
+EUesterfio ,, Ellesl^rao „ 
+
+
+
+CONDITIONAL MOOD. 
+
+S. Eu partiria, I should S. Eu poria, I should put 
+depart 
+
+Tu paxtiriaSy etc. Tu porias, etc. 
+
+Elle partiria Elle poria 
+
+P. Nos partiriamos P. Nos poriamos 
+
+Vos partirieis Vos porieis 
+
+Elles paxtiriam Elles poriam 
+
+OOBCPOUND. 
+
+S. Euteriapartido, I should S. Eu teria posto, I should 
+
+have departed have put 
+
+Tu terias partido, etc. Tu terias posto, etc. 
+
+Elle teria ,, Elle teria ,, 
+P. N'osteriamos ,, P. iNosterianios,, 
+
+Vos terieis „ Vos terieis ,, 
+
+Elles teriam ,, Elles teriam „ 
+
+IMPERATIVE MOOD. 
+
+PUTURB. 
+
+S. Parte tu, depart thou S. Poe tu, put thou 
+Part( v6s, depart ye Ponde vos, put ye 
+
+SUBJUNCTIVE MOOD. 
+
+PBBSENT. 
+
+S. Que eu parta, that I S. Que eu poiiha,'that I 
+may depart may put 
+
+Que tu partas, etc. Que tu ponhas, etc. 
+
+Que eUe parta Que eUe ponha 
+
+
+
+FOBTUGUESE GRAMMAR. 43 
+
+
+
+P. Que noB partamos P. Que nos ponliamos 
+
+Que vos paitais Que yos ponhais 
+
+Que elles partam Que elles ponham 
+
+
+
+PKBTEBIMPBBFECT. 
+
+
+
+S. Que eu partisse, that I S. Que eu pozesse, that I 
+might depart might put 
+
+Que tu paribisseSy etc. Que tu pozesses, etc. 
+
+Que elle partisse Que elle pozesse 
+
+P. Que nos partissemos P. Que nos pozessemos 
+
+Que YOS partisseis Que vos pozesseis 
+
+Que elles partissem Que eUes pozessem 
+
+
+
+FBSTEBFBKFECT COMPOUND. 
+
+
+
+S. Que eu tenha partido, S. Que eu tenha posto, that 
+that I might have I might have put 
+
+departed 
+QuetutenhaspartidOy etc. Que tu tenhas posto, etc. 
+Que elle tenha „ Que elle tenha ,, 
+
+P. Que nos tenhamos ,j P. Que nos tenhamos f, 
+Que vos tenhais ,j Que vos tenhais ,, 
+
+Que elles tenham ,, Que elles tenham ,, 
+
+PKBTBBPLtJPEaPECT COMPOUND. 
+
+S. Que eu tivesse partido, S. Que eu tivesse posto, that 
+that I might have I might have put 
+
+departed 
+Que tu tivesses partido Que tu tivesses posto 
+Que elle tivesse „ Que elle tivesse „ 
+
+P. Que nos tivessemos „ P. Que nos tivessemos ,, 
+Que vos tivesseis ,, Que vos tivesseis 
+
+Que elles tivessem „ Que elles tivessem 
+
+
+
+
+
+
+FUTURE IMPERFECT. 
+
+
+
+S. Se eu partir, when I S. Se eu pozer, when I shall 
+shall depart put 
+
+Se tu partires, etc. Se tu pozeres, etc. 
+
+Se elle partir Se elle pozer 
+
+
+
+44 PORTUGUESE GRAMMAR. 
+
+P. Se nos partirmos P. Se n68 pozermos 
+
+Se voB partirdes Se vos pozerdes 
+
+Se elles partirem Se elles pozerem 
+
+PUTT7BS IMPBBFECT COMPOUND. 
+
+S. Se eu houver de partir, S. Seeuhouverdep6r,wheii 
+
+when I shall have de- I shall have put 
+
+parted, etc. etc. 
+Se tu houveres de partir Se tu houveres de por 
+
+Se elle houver ,, Se elle houver „ 
+
+P. Se noshouvermos,, P. Se nos houvermos „ 
+
+Se vos houverdes ,, Se vos houverdes „ 
+
+Se elles houverem , , Se elles houverem , , 
+
+
+
+FfJTTJBB PESFBCT COMPOUND. 
+
+S. Se eu tiver partido, S. Se eutiverposto, when I 
+
+when I shall have shall have put 
+departed 
+Se tu tiveres partido, etc. Se tu tiveres posto, etc. 
+
+Se elle tiver „ Se elle tiver „ 
+
+P. Se nos tivermos ,, P. Se nos tivermos „ 
+
+Se vos tiverdes „ Se vos tiverdes ,, 
+
+Se elles tiverem „ Se elles tiverem „ 
+
+
+
+PORTUGUESE GRAMMAR. 45 
+
+
+
+THE IRREGULAR VERBS. 
+
+Verbs are called irregular which by variation 
+of the radical letters, or by irregularly changing 
+their terminations, deviate from the rules of the 
+verbs of their own conjugation. 
+
+Before treating of the irregular verbs of each 
+conjugation, the following rule common to all is 
+given : Compound verbs are cor^'ugated as the simple 
+verbs of which they are compounds. 
+
+First Conjugation. 
+
+The verbs which terminate in car change into 
+qu the c, when it is followed by the letter e; ex. : 
+ficar, to fix, Jique, fiqueiy etc. 
+
+The verbs ending in gar are increased by u 
+after the ^, in the persons wherein the letter e 
+follows ; ex. : julgar, to judge, julgueiy julgue. 
+
+The verb dar, to give, is also irregular in some 
+or all of the persons of the following tenses : 
+Indicative, Present. Dou^ d&s, d& ; damos, dais, 
+dao. Preterperfect. Dei, deste, deu ; d^os,dSstes, 
+deram. Pluperfect. Dera, deras, dera; deramos, 
+dereis, deram. Subjunctive, Imperfect. D^sse, 
+
+
+
+46 PORTUGUESE GRAMMAR. 
+
+dSaaes, dSsse; Mssemos, desaeis, dissem. Future. 
+DeVy deres, der; dermoa, derdes, derem} 
+
+Second Conjugation. 
+
+The verbs whicli terminate in geVy change into 
+j the gy when that is followed by the letter a or o ; 
+ex. : eleger, to choose, ekjOy eleja^ etc. 
+
+The verb per der y to lose, forms perco in the 1st 
+person present of the Indicative ; and perca, 
+percaSy percOy percamos, percais, percam, in the 
+present of the Subjunctive. 
+
+Valer, to be worth, forms valhOy in the Subjunc- 
+tive present, valha, valhas, valha, valhamos, valhaisy 
+valham. 
+
+CreTy to believe, makes in the Indicative present 
+creio, crfes, cr6, cremos, credeSy creem ; and in the 
+Subjunctive present creiay creiasy creiay creiamos, 
+creiais, creiam. In like manner is conjugated the 
+verb leVy to read, and its compounds. 
+
+^ In regard to the mode of conjngatmg the verbs ending in tar, 
+there are yarions methods in use ; ex. : some say eu me glorio ; 
+others, eu me gloreio. The first have the undoubted advantage of 
+never forming an irreg^ar verb ; but as good authority is found 
+for both modes, certainty on the point is scarcely possible ; it will 
+therefore suffice to indicate the following verbs as those whereof 
+the present tense is formed by the ignorant only, in our opinion, in 
+no: avarieiar, to covet, alumiar, enlighten, ampliar, amplify, 
+annunciar, announce, copiar, copy, notieiar, notify, pronuneiar^ 
+pronounce, renuneiar, renounce, prineipiar^ beg^, HtMar^ waver, 
+varisTf vary, and others. 
+
+
+
+PORTUGUESE GRAMMAR. 
+
+
+
+47 
+
+
+
+Poder, to be able, forms posso, in the first person 
+present of the Indicative ; in the preterperf ect 
+pude, -podeste, pdde ; podemos, podestes, poderam; 
+and in the Subjunctiye present poasa, possas, posna, 
+posaamos, poasais, poaaam. 
+
+These verbs are regular in the tenses omitted, 
+and the same is to be observed in regard to the 
+following verbs, which are here conjugated in the 
+tenses wherein they have any irregularity : 
+
+Bizer, to say. Fazer, to do. Trazery to bring. 
+
+INFINITIVE MOOD. 
+
+PA&TICIPLB PAST. 
+
+Dito, dita, said Feito^ etc., done Trazido, etc., brought 
+
+INDICATIVE MOOD. 
+
+
+
+
+
+PBEBBNT. 
+
+
+
+
+DijfOy I say 
+
+
+Fa^Oy I do 
+
+
+Trago, I bring 
+
+
+DtzeSf etc. 
+
+
+Fazea, etc. 
+
+
+lYazea, etc. 
+
+
+Di% 
+
+
+Faz 
+
+
+Traz 
+
+
+Liumoa 
+
+
+Fazemoa 
+
+
+lYazemoa 
+
+
+DiteiB 
+
+
+Fazeia 
+
+
+Trazeia 
+
+
+D%%em 
+
+
+Fazem 
+
+PBETBBFEBPBCT. 
+
+
+IVazem 
+
+
+Disae 
+
+
+Fiz 
+
+
+Trouxe 
+
+
+DiaaeaU 
+
+
+FizeaU 
+
+
+TrouxeaU 
+
+
+Diaae 
+
+
+Fez 
+
+
+Trouxe 
+
+
+Diaaemoa 
+
+
+Fizemoa 
+
+
+Trouxemoa 
+
+
+Diaaeatea 
+
+
+Fizeatea 
+
+
+Trouxeatea 
+
+
+Dtaaeram 
+
+
+Fizeram 
+
+
+Trouxeram 
+
+
+
+48 
+
+
+
+FOBTXTGUESE GBAHMAR. 
+
+
+
+
+
+PLVPBAFBCT. 
+
+
+Distera 
+
+
+Fiz&ra 
+
+
+Trouxera 
+
+
+Disseras 
+
+
+Fizeras 
+
+
+Trouxeras 
+
+
+D%89era 
+
+
+Fizera 
+
+
+Trouxera 
+
+
+Disseramoa 
+
+
+Fiz&ramos 
+
+
+Troux&ramos 
+
+
+Disterets 
+
+
+Fizereis 
+
+
+Trouxereis 
+
+
+Dtsaeram 
+
+
+Fizeram 
+
+FUTUBB. 
+
+
+Trouxeram 
+
+
+Direi 
+
+
+Farei 
+
+
+Trarei 
+
+
+Dirds 
+
+
+Fords 
+
+
+Trards 
+
+
+JHrd 
+
+
+Ford 
+
+
+Trard 
+
+
+Diremof 
+
+
+Faremos 
+
+
+Traremos 
+
+
+Dtreis 
+
+
+Fareis 
+
+
+Trareis 
+
+
+Dirao 
+
+
+Farao 
+
+
+Trarao 
+
+
+
+
+CONDITIONAL 
+
+
+MOOD. 
+
+
+Diria 
+
+
+Faria 
+
+
+IVaria 
+
+
+IXrias 
+
+
+Farias 
+
+
+Trarias 
+
+
+Diria 
+
+
+Faria 
+
+
+Traria 
+
+
+Diriamos 
+
+
+Fariamos 
+
+
+Trariamos 
+
+
+Dirieis 
+
+
+Farieis 
+
+
+IVarieis 
+
+
+Diriam 
+
+
+Fariam 
+
+
+Trariam 
+
+
+
+
+SUBJUNCTIVE 
+
+
+MOOD. 
+
+
+
+
+PBB8BNT. 
+
+
+
+
+Diga 
+
+Digas 
+
+Diga 
+
+Digamos 
+
+Digais 
+
+Digam 
+
+
+Faga 
+
+Fagas 
+
+Faga 
+
+Fagamos 
+
+Fa^ais 
+
+Fagam 
+
+
+Traga 
+
+Tragas 
+
+Traga 
+
+Tragamos 
+
+Tragais 
+
+Tragam 
+
+
+
+
+IMPBBFBCT 
+
+
+• 
+
+
+Dissesse 
+
+
+Fizesse 
+
+
+Trtmxesse 
+
+
+Dissesses 
+
+
+Fizesses 
+
+
+Trouxesses 
+
+
+Dissesse 
+
+
+Fizesse 
+
+
+Trouxesse 
+
+
+Dissessemos 
+
+
+Fizessetnos 
+
+
+Trouxessemos 
+
+
+Dissesseis 
+
+
+Fizesseis 
+
+
+TrtMxesseis 
+
+
+Dissessem 
+
+
+Fizessem 
+
+
+Trouxessem 
+
+
+
+FOBTCGXrESB OKAM3IAB. 
+
+
+
+49 
+
+
+
+
+
+FUTUBB. 
+
+
+
+
+Dmmt 
+
+
+l^zer 
+
+
+Ihmxer 
+
+
+Disserea 
+
+
+Fimr99 
+
+
+Thmxerei 
+
+
+Disser 
+
+
+Fi%0r 
+
+
+Trouxer 
+
+
+DissermM 
+
+
+Fkermof 
+
+
+TrouxermM 
+
+
+Disserdet 
+
+
+Fisserde9 
+
+
+IV'Ouxerdet 
+
+
+DUserem 
+
+
+Fisurem 
+
+
+Trouxerem 
+
+
+Querer, to wish 
+
+
+Saber, to know 
+
+
+Ver, to see 
+
+
+
+INFINITIVE MOOD. 
+
+PABTIGIPIS PAST. 
+
+
+
+QueridOf querida, Sdbido, tahida, 
+wished known 
+
+
+
+Visto, vitta, 
+seen 
+
+
+
+INDICATIVE MOOD. 
+
+PBBSBNT. 
+
+
+
+Quero 
+
+Queres 
+
+Quer 
+
+Queremat 
+
+Quereis 
+
+Querem 
+
+Quiz 
+
+Quiseste 
+
+Quiz 
+
+Quizemot 
+
+QuisBestes 
+
+Quizeram 
+
+Quizera 
+
+Quizeroi 
+
+Quizera 
+
+
+
+Sei 
+
+Sahei 
+
+Sahe 
+
+Sabemos 
+
+Saheis 
+
+Sahem 
+
+
+
+Souhe 
+
+SoubesU 
+
+Souhe 
+
+Soubemos 
+
+Soubeste$ 
+
+Sauberam 
+
+PBXTXBPLUPEBFBCT. 
+
+Soubera 
+
+Sauberai 
+
+Soubera 
+
+
+
+Vejo 
+
+Ves 
+
+Ve 
+
+Vemoe 
+
+Vedee 
+
+Veem 
+
+Vi 
+
+Viste 
+
+Viu 
+
+Vimae 
+
+Vistes 
+
+Viram 
+
+vy-a 
+
+Vyae 
+VWa 
+
+
+
+50 
+
+
+
+FOBTBGUBSE GRAMMAR. 
+
+
+
+Quiwramos 
+
+
+Souheramos 
+
+
+Vlramos 
+
+
+QutMereis 
+
+
+Sauhereis 
+
+
+rirets 
+
+
+Quizeram 
+
+
+Sauberam 
+
+
+Vlram 
+
+
+
+
+SUBJUNCTIVE 
+
+
+MOOD. 
+
+
+
+
+PBSBBNT. 
+
+
+
+
+Queira 
+
+
+Saiba 
+
+
+Veja 
+
+
+Queiras 
+
+
+Saihoi 
+
+
+Vefoi 
+
+
+Queira 
+
+
+Saiba 
+
+
+Vefa 
+
+
+Queiramos 
+
+
+Saibamos 
+
+
+Vefamos 
+
+
+Queirais 
+
+
+Saibais 
+
+
+V&fais 
+
+
+Queiram 
+
+
+Saibam 
+
+
+Vtjam 
+
+
+
+
+IMFBBFBCT 
+
+
+• 
+
+
+Quizesse 
+
+
+Soubes9e 
+
+
+Vi%M 
+
+
+Qui%esses 
+
+
+Soubesses 
+
+
+Visaets 
+
+
+Qui%esse 
+
+
+, Saubesse 
+
+
+Vis»e 
+
+
+Qui%essemo8 
+
+
+8oube8semo8 
+
+
+Vmemos 
+
+
+Quizessets 
+
+
+8oub$88eis 
+
+
+Visseis 
+
+
+Qui%esiem 
+
+
+Soubessem 
+
+FT7TUBB. 
+
+
+Vissem 
+
+
+Quizer 
+
+
+Souber 
+
+
+Vir 
+
+
+Quizeres 
+
+
+Souberes 
+
+
+Vires 
+
+
+Quizer 
+
+
+Souber 
+
+
+Vir 
+
+
+Quizermos 
+
+
+Soubermos 
+
+
+Virmos 
+
+
+Quizerdes 
+
+
+Souberdes 
+
+
+Virdes 
+
+
+Qutzerem 
+
+
+8<mberem 
+
+
+Virem 
+
+
+
+The verb cahevy to befit, forms caiho in the Ist 
+person present of the Indicative, otherwise it is 
+conjugated as the verb sahevy to know. Requerery 
+to reqidre, forms requeiro, requeres, requer, in the 
+
+
+
+PORTUGUESE GRAMMAR. 51 
+
+Indicative present; and requeira, reqtmraa, re- 
+queira; reqtmramos, requeirais, requeiram, in the 
+Subjunctive ; otherwise it is regular. 
+
+Third Conjugation. 
+
+The verbs ending in ir, with e after the figura- 
+tive letter when that is g, p, r, t, or v, change it 
+into i in the 1st person present Indicative, and in 
+all the persons of the Subjunctive present. Of this 
+the verb deapir, strip^ is example, making in the 
+present Indicative diapOy despes^ despe ; despimos, 
+despis, despem ; and in the Subjunctive present 
+dispa^ dispas, dispa, dispamos, dispais, dispam. In 
+the other tenses it is regular, and likewise the 
+verbs adherir, to adhere, advertir, advert, assentir, 
+assent, competir, compete, conferir, confer, dea- 
+mentir, belie, ferir, wound, mentivy lie, progredir, 
+progress, reflectiVy reflect, aentir, feel, which are 
+conjugated in the same mode. 
+
+Those terminating in gir, change the g into J 
+before a or o; ex. : fingir, feign, jftnjoy fif\fa, fir^faa, 
+etc. 
+
+Those ending in guiry without the u being 
+sounded, lose it before o or a; ex. : seguir, follow, 
+aigoy aigtty aigaa, etc. 
+
+Those ending in hir lose the A, and preserve the 
+i before o or a; ex. : cahir, fall, caio, caia, etc. 
+
+
+
+52 PORTUGUESE GRAMMAR. 
+
+Those tenmnating in zir are now irregular in 
+the 3rd person singular of the Indicative present; 
+luzir, to shine^ and canduzir, conduct^ for example, 
+form conduz, luz, instead of luze, conduze. 
+
+The verb cobrir or cubrir, to cover, forms in the 
+Indicative present cubro, cobrea, cobre, etc. ; in the 
+Imperative cobre ; and in the Subjunctive present 
+cubray cubras, cubra; cubramos, cubrais, cubram ; 
+in the other tenses it is regular. 
+
+The verbs acudir, to help, bulir, boil, construir, 
+construct, cuspivy spit, destruir, destroy, enguKr, 
+engulph, fugir, fly, aacudiry shake, sumivy sink, 
+toBsiry cough, are conjugated in the same manner, 
+and form cospesy deatroeSy etc. 
+
+MediVy to measure, forms mego in the 1st person 
+Indicative present, and megay megas ; megamoSy 
+megaiSy megam in the Subjunctive. 
+
+In like manner are conjugated the verbs ouvivy 
+to hear, pediry ask, impediry hinder, and despedivy 
+dismiss. 
+
+Miry to laugh, in the Indicative present forms 
+rio, ris, n', rimos, rides, riem; in the Imperative 
+riy ride; and in the Subjunctive m, rias, ria; 
+riamosy riaiSy nam; otherwise it is regular. 
+
+/r, to go, vir, to come, are conjugated in the 
+following way. 
+
+
+
+PORTUGUESE GRAMMAR. 
+
+
+
+63 
+
+
+
+INFINITIVE MOOD. 
+
+
+
+
+
+
+
+PRESENT IMPEB80NAL. 
+
+
+
+
+
+
+/r, to go 
+
+
+
+
+Vir, to come 
+
+
+
+
+
+
+
+
+PBRflONAL.^ 
+
+
+
+
+
+
+Ir eu 
+
+
+
+
+Yir eu 
+
+OBBX7ND. 
+
+
+
+
+
+
+Indo, going 
+
+
+
+
+Vindo, coming 
+
+
+
+
+
+
+
+
+PABTICIPLB PAST. 
+
+
+
+
+
+
+IdOf gone 
+
+
+
+
+Vindo, Vinda, ( 
+
+
+3ome 
+
+
+
+
+
+
+INDICATIVE MOOD. 
+
+
+
+
+
+
+S. Vau 
+
+
+P. 
+
+
+Imos or S. Venho 
+
+
+P. 
+
+
+Vimoa 
+
+
+Vats 
+Vat 
+
+
+
+
+vamos 
+Ides Vena 
+Vao Vem 
+
+PBBTEBIMPBBFBCT. 
+
+
+
+
+Vindea 
+Vem 
+
+
+S. la 
+las 
+la 
+
+
+P. 
+
+
+lamos S. Vin?ia 
+leia Vinhaa 
+lam Vinha 
+
+PBETBRPBBFBCT. 
+
+
+P. 
+
+
+Vinhamoa 
+
+Vinheia 
+
+Vinham 
+
+
+S. Fui 
+Foate 
+Foi 
+
+
+P. 
+
+
+Fomos S. Vim 
+Fostes Vieste 
+Foram Veto 
+
+PBETEBPLUPBRPECT. 
+
+
+P. 
+
+
+Viemoa 
+Vieatea 
+Vieram 
+
+
+S. Fora 
+Forai 
+Fora 
+
+
+P. 
+
+
+Foramoa S. Viera 
+Foreia Vieraa 
+Foram Viera 
+
+
+P. 
+
+
+Vieramoa 
+
+Viereia 
+
+Vieram 
+
+
+
+^ See note ante p. 22. 
+
+
+
+54 
+
+
+
+TOKrVOTTESE GBAHUAB. 
+
+
+
+
+
+
+
+7UTT7BE. 
+
+
+
+
+s. 
+
+
+Irei 
+
+
+P. Iremoi 8. Vw-ei P. 
+
+
+Viremos 
+
+
+
+
+Irds 
+
+
+Ireis Virds 
+
+
+Vireis 
+
+
+
+
+Ird 
+
+
+Lrao Vird 
+CONDITIONAL MOOD. 
+
+
+Virao 
+
+
+s. 
+
+
+Iria 
+
+
+P. Iriamos 8. Viria P. 
+
+
+ViriamoB 
+
+
+
+
+Irias 
+
+
+IrteU VirioB 
+
+
+VirieiB 
+
+
+
+
+Iria 
+
+
+Iriam Viria 
+
+
+Viriam 
+
+
+
+IMPERATIVE MOOD. 
+8. Vai tu P. Ide vda 8. Vm tu P. Vinde v6b 
+
+
+
+8. Va 
+Vas 
+Va 
+
+
+
+8. Fo»9e 
+Fosses 
+Fosse 
+
+
+
+8. For 
+Fores 
+For 
+
+
+
+SUBJUNCTIVE MOOD. 
+
+
+
+FBBBENT. 
+
+
+
+P. Tamos 
+Vades 
+Vao 
+
+
+
+8. Venha 
+Venhas 
+Venha 
+
+
+
+P. FossetMs 8. Viesse 
+Fosseis Viesses 
+
+Fossem Viesse 
+
+
+
+FVTUBB* 
+
+
+
+P. Formos 8. Vi^r 
+Fordes Vieres 
+
+Forem Vier 
+
+
+
+P. Venhamos 
+Venhais 
+Venham 
+
+
+
+P. Viessemos 
+Viesseis 
+Viessem 
+
+
+
+P. Viermos 
+Vierdes 
+Vierem 
+
+
+
+There are verbs whicli, besides the participle 
+past regular, have another irregular, and this 
+latter is frequently preferred in discourse; we 
+indicate some of these, the knowledge of which 
+appears most necessary. 
+
+
+
+POBTUGUESE GRAMMAR. • 55 
+
+Acceitar, to ace&pt, acceito Isentar, exempt, isento 
+
+Annexar, annex, annexo Jiintar, add, junto 
+
+Gaptiyar, captivate, captivo Limpar^ eUanee, limpo 
+
+DescalQar, unshoe, descal^o Manif estar, manifeeto, man- 
+
+Entregar, give up, entregue Matar, kill, morto [ifesto 
+
+Enxugar, dry, enxuto OccultEtr, hide, occulto 
+
+EsctLsar, excuse^ escuso Pagar, pay, pago 
+
+Expre88ar,«^prM«, ezpresso Salvar, sa/oe, salyo 
+
+Ezpulsar, expel, ezpulso Seccar, day, sScco 
+
+Faitar, glut, faito Segorar, secure, segnro 
+
+Gkistar, spend, gasto Soltar, release, solto 
+
+Second Conjugation. 
+
+Eleger, ehoose, eleito Morrer, die, morto 
+
+Encher, fill (up)^ cheio Prender, take, pr^so 
+Escrever, write, escripto Eomper, hreak, roto 
+Incoirer, inew, incurso Suspender, suspend, sus- 
+
+[penso 
+
+ITiird Cotyugation. 
+
+Abrir, open, aberto Extingair, extinguish, ez- 
+
+Affligir, afflict, afflicto Frigir, fry, frito [tdncto 
+
+Cobrir, cover, coberto Imprimir, print, impresso 
+
+Ezhaurir, ftrA^MM^, exliansto InBerir, insert, inserto 
+
+Expellir, expel, ezpulso Tingir, dge, tinto 
+
+
+
+56 PORTUGUESE ORAMMAR. 
+
+
+
+OF DEFECTIVE VERBS. 
+
+Verbs are called defective which are wanting 
+in certain voices ; of these is example, the verb 
+feder^ to smell strongly, which is never used in 
+the persons where the d is followed by the letter 
+a or 0. 
+
+Brandir^ to brandish, colorir, to colour, compellir, 
+compel, demoUr, demolish, expellir, expel, repelUvy 
+repel, aubmergir, submerge, are likewise defective, 
+because, according to many grammarians, they 
+ought only to be used in the persons in which the 
+letter i follows the figurative or radical letters. 
+
+When these verbs have only the 3rd person 
+singular, they are called impersonal; such are the 
+verbs chover, to rain, nevar, to snow, amanhecer, 
+dawn, and others. 
+
+The verb prazer, to praise, is not only defective, 
+but irregular in the following persons ; praZy 
+prouve, prouvdra, prouvesse, prouver. 
+
+OF THE PREPOSITION. 
+
+Prepositions are unchanging words which serve 
+to indicate the relations that things have between 
+them ; ex.: livro de Pedro, Peter's book. The 
+
+
+
+PORTU6T7ESE GRAMMAR. 57 
+
+de expresses relation of possession, indicating that 
+the book belongs to Peter. 
+
+Prepositions are the words a, to, ante, before, 
+apds, after, aU, until, com, with, contra, against, 
+de, of, desde, from, em, in, entre, between, para, 
+for (by), per, through, por, by, sem, without, sob, 
+under, sobre, above, and others expressing rela- 
+tions of place (for example, estive em Roma, I was 
+in Srome, vou para Liaboa, I go to Lisbon), and 
+figuratively others analogous, such as : 
+
+Those relating to time, as, fez-se em duaa horaa, 
+
+it was done in two hours. 
+Those of concurrence or union, as, estive com Pedro, 
+
+I was with Peter. 
+Those of opposition, as, foi contra o costume, it was 
+
+unusiial. 
+Those of possession or origin, as, a luz provim do 
+
+sol, light comes from the sun. 
+Those of cause, as, obra por tnteresse, he works for 
+
+his own profit. 
+Those of means or instrumentality, as, elevourse 
+
+pela intriga, he rose by intrigue. 
+Those relating to object or end to, as, estudou para 
+
+saber, he studied to acquire knowledge. 
+
+OF ADVERBS. 
+
+Adverbs are unchangeable words, joined to 
+verbs and adjectives, to express the mode or cir- 
+cumstances of their signification ; ex. : Pedro 
+escreve bem, Peter writes well. 
+
+
+
+58 POKTUGUSSE GRAMMAR. 
+
+Sometimes adjectives are employed^ or certain 
+plirases in place of adverbs ; ex. : Failou d'este 
+ARTE, e VELOZ parttu, ^he spoke in tliis way, 
+and left immediately.' 
+
+Adverbs are divided into different classes ac- 
+cording to the circumstances to be expressed, that 
+is to say : 
+
+Of mode : bem, well, mal, badly, assim, thus, do 
+mesmo modo, in like manner, como, as, facHmenie, 
+easilv.^ 
+
+Of time : aff&ra^ now, jd, already, logo, after, 
+hqfe, to-day, dmanha, to-morrow, nunca, never, 
+entao, then, quando, when, sempre, always. 
+
+Of place: gd, here, aqui, there, acold, there, 
+onde, where, longe, far, ahi, there. 
+
+Of quantity : pouco, little, maia, more, menoa, 
+less, muito, much, tanto, so much, quanto, as much 
+as. 
+
+Of affirmation : aim, yes, na verdade, in truth. 
+
+Of negation : nao, no, de nenhum nwdo, in no- 
+wise. 
+
+Of doubt : talvez, perhaps, quigd, perhaps, por 
+Ventura, by chance. 
+
+Of exclusion: a6, only, apenaa^ scarcely, aAmente, 
+only. 
+
+
+
+^ A great many adyerbs of mode are formed by placing after 
+the attributive adjective the termination mente; ex.: fielmmte, 
+faithfully. Wlien the adjectives end in o, they change it into a, 
+for the formation of theie adverbs ; ex. : iobiamentt, wisely. 
+
+
+
+PORTUGUESE GRAMBiAR. 59 
+
+OF THE CONJUNCTION. 
+
+The Oonjunction is an nnyarying part of speecli, 
+which serves to connect not only words but parts 
+and periods of discourse ; ex. : Pedro i Joao sao 
+sMoSy Peter and John are wise. 
+
+There are different kinds of conjunctions^ the 
+chief whereof are as follows : 
+
+Copulatives : e, and, tambem, also (too), ^[ue, 
+than, or as, itemy also, outro sim, besides. 
+
+Disjunctives: ou, or, nem, nor, quer, whether, 
+ara; now, ja, already, quando, when. 
+
+Conditional : se^ if, nao, not, com tanto que^ if. 
+
+Of cause : eomo, as, por quanta, for as much as, 
+pais que, since, so much as. 
+
+Of conclusion : pais, then, logo, therefore, par- 
+tantOy then. 
+
+Of opposition : maSy but» poreniy but, cam qwmtOy 
+provided that, todatnUy nevertheless. 
+
+OF THE INTERJECTION, 
+
+The Interjection is a word whereby is expressed 
+sudden movement or emotion of the mind. 
+
+Those most in use are as follows: at, ah! to 
+express pain or grief, oh! pleasure; ui! fear; ah! 
+oh ! admiration ; ^ / to incite \ ta! to suspend, 
+stop, 6! ix} call. 
+
+Interjections are elliptical expressions, which 
+are equivalent to entire sentences ; ai is the same 
+
+
+
+60 PORTUGUESE GRAMMAR. 
+
+as tenho ddr, I feel pain, ta, to, suspende, suspend 
+(stop), and the same with the rest. 
+
+In order to facilitate the practice of the rules 
+given, and the comprehension of the principles 
+laid down, an analysis of the f oUowing words is 
+offered as example. 
+
+JETontem recebi de Coimbra dom livros antigos, I 
+yesterday received from Coimbra two very old 
+books. 
+
+Santem, yesterday, is an adverb to express the 
+circumstance of the time when these books were 
+received. 
+
+Mecebi, I received, is a word to express affirma- 
+tion, and is verb adjective, because besides the 
+affirmation, it expresses an affirmed thing ; that is, 
+that I was the recipient. And it is verb active, 
+because it expresses an action done by the subject, 
+and transitive, because the said action has, or 
+passes to, an object distinct from the subject, 
+which is the agent ; it is in its natural significa- 
+tion, in order to correspond with its primitive 
+idea; it is primitive, because it is not derived 
+from any other word in Portuguese ; simple, be- 
+cause divided it has no meaning; it is in the 
+active voice, in order to express an action likewise 
+active; in the indicative mood, for its action is 
+actually performed ; in the preterperf ect, because 
+
+
+
+PORTUGUESE GRAMMAR. 61 
+
+it is done at a time anterior to that in whieli it is 
+announced; it is in the 1st person singular, in 
+order to agree with the pronoun eu, 1, understood 
+by ellipsis; it belongs to the 2nd conjugation, 
+because ending in ^ in the present impersonal of 
+its infinitive; and it is regular, because it changes 
+regularly its terminations without any alteration 
+of the radical letters. 
+
+Dcy of, is a preposition to indicate the relation 
+of place whence the books were received. 
+
+Coimbra is a substantive to intimate to us an 
+object, and it is a noun proper, because that object 
+is unique in its kind. It is in its natural meaning 
+to correspond with its primitive idea ; it is primi- 
+tive, because it is derived from no other word in 
+the Portuguese idiom ; simple, for divided it 
+means nothing ; in the singular, and could not be 
+otherwise, because proper names in their natural 
+acceptation have no plural, and by use considered 
+feminine. 
+
+Dou8, two, is a determinative adjective, because 
+it limits the signification of its substantive, denot- 
+ing its quantity, and is simple, primitive, and 
+unchanging in its termination. 
+
+Livros, books, is a substantive to intimate the 
+objects, and noim appellative, because it may be 
+referred to all of its kind; but in the present 
+
+
+
+62 F0BTUGI7ESE 6BAMMAB. 
+
+case limited to the number of them denoted by 
+the adjective dom; it is in its natural acceptation, 
+and it is primitiye and simple^ for use considered 
+masculine, and in the plural, because naming more 
+than one thing. 
+
+Antigos, ancient (or very old), is an attributive 
+adjective, in order to express a quality. It is, in 
+its natural acceptation, simple and primitive. It 
+is in the masculine, and in the plural, and positive, 
+because expressing simply the quality, without 
+comparison or preference. 
+
+OF SYNTAX. 
+
+Syntax is the part of grammar which teaches 
+the correct composition of sentences. 
+
+Speech, or proposition, is the expression of an 
+opinion or affirmation. 
+
+Opinion is the act of the mind, wherein we 
+decide on the propriety of two ideas, as, for 
+example, Pedro i sabio, Peter is wise. 
+
+The proposition consists of three principal 
+members, i.e. subject, verb, and attribute expressed 
+or included in the verb, when this is adjective ; 
+as, Pedro e vivente, ou Pedro vive, Peter is living. 
+
+The subject is the person or thing spoken of; 
+ex. : Pedro i sabio, Peter is wise. 
+
+
+
+PORTUGUESE GRAMMAR. 63 
+
+The subject of any sentence may be found by 
+joining to the verb the interrogatiye quern, who ; 
+ex. : qiiem i sabio, who is wise P The reply indi- 
+cates Peter. 
+
+The 9ub)ect is either complex or incompkx [ue. 
+simple) ; it is incompkx when it is expressed by 
+one word only (not including the article) ; ex. : a 
+neve 6 branca, snow is white; it is complex when 
+expressed by two or more words ; ex. : o Homem 
+Benefico soccorre o indigente, the beneyolent relieye 
+the poor. 
+
+Not only substantives can serve as subject in 
+discourse, but also any other parts of speech 
+applied, with the article, as substantives; ex. : o ler 
+^proveUoso, reading is beneficiaL • 
+
+The attribute is that which is affirmed or 
+denied of the subject ; ex. : Pedro i sabio, Peter 
+is wise. 
+
+The attribute (or the complement adjective) 
+may be formed by joining to the verb the interro- 
+gative que ? ex. : Pedro i . , . . o que f Peter is 
+.... whatP The reply indicates aabio, wise, 
+which in fact is the attribute. 
+
+The attribute may also be complex or incom- 
+plex ; and not only may adjectives serve as attri- 
+bute, but likewise substantives ; ex. : Pedro 6 
+Pastor, Peter is a Pastor (or Shepherd). 
+
+
+
+64 PORTUGUESE 6BAMMAR. 
+
+Finally the verb is the word whereby we affirm 
+what the attribute requires of, or omits to convey 
+to, the subject; ex. : Pedro i aabio, Peter is wise. 
+
+Propositions (or sentences) may be either simple 
+or compound ; simple are those which have but 
+one sole subject and one sole attribute, i.e. when 
+expressing but one sole affirmation or opinion; 
+ex. : Pedro S sabio ; they are compoimd, when 
+having more than one subject or attribute, i.e. 
+when expressing more than one judgment or 
+opinion ; ex. : Pedro e Joao sao sabios^ Peter and 
+John are wise ; Pedro i sabio e modesto, Peter is 
+wise and modest. The conjunction of many sen- 
+tences, or even one forming a complete sense, is 
+called a. period; when the period consists of more 
+than one sentence, one of them is caHei principal, 
+the rest subordinate. 
+
+The principal sentence is that which of itself 
+forms usually complete sense. Principal sentences 
+are denoted by the Indicative, Conditional, or 
+Imperative Mood, imless with a conjunction which 
+renders them subordinate. 
+
+Subordinate sentences are those which, of them- 
+selves alone, do not form complete sense ; ex. : 
+SE QUERES SABER, estuda, H you would acquire 
+knowledge, study. These sentences, when they 
+form part of others, are caHei partial. 
+
+
+
+PORTUGUESE 6RAMMAB. 65 
+
+Division of Syntax, 
+
+Syntax is divided into three parts, i.e. govern- 
+ment, agreement, and construction, and may be 
+either regular or figurative. 
+
+Kegular syntax is when neither the number 
+nor the grammatical order of the words of a 
+sentence be altered ; ex. : muitos homens sefizeram 
+auctorea d^este homicidio, many were said to be 
+concerned in that murder (Freire). 
+
+It is figurative when the number or grammati- 
+cal order of the words is changed ; ex. : muitos 
+d*este homicidio sefizeram auctores. 
+
+Of Crovemment. 
+
+Government is the mutual dependence of the 
+words of a sentence.^ Transitive verbs, preposi- 
+
+^ This dependence in the Latin, and other tongues, is indicated 
+hy means of the 0mm, which ar$ the different terminations whereby 
+the toorde declined indicate their uee in the phrase or sentence ; ex. : 
+JUius Petri (o JUho de PedroJ^ Peter's son. In this example the 
+termination of the name Peter is changed, in order thus to indi- 
+cate that it serves as complement to the word JUius, son, on which 
+it depends, and hy which it is goyemed. In Portugaese the de- 
+pendence is almost always expressed hy comhining the prepositions 
+with the snbstantiyes, and, as it wonld be incorrect to call these 
+combinations ensesy the name of complement is given to them, a 
+name nndonbtedly very appropriate and expressive, since these 
+eombinations complete and explain the sense of the words they 
+govern. 
+
+
+
+66 PORTUGUESE GRAMMAR. 
+
+tions, and in general words of relative significa- 
+tion/ require others to complete them. If, for 
+example, we say Cesar venceu^ Cesar conquered, 
+it is necessary to add a Pompeo, Pompey, or some 
+one, without which the signification of the verb 
+would remain incomplete. Consequently the 
+verb, preposition, etc., are styled governing words; 
+governed, whatever others serve as their comple- 
+ment; and not only such may be the case with 
+words alone, but even entire sentences. 
+
+There are four kinds of complement : the objec- 
+tive, the terminative, circumstantial, and restrictive. 
+
+The objective complement is the word or words 
+upon which falls directly the action of the transi- 
+tive verb ; ex. : Pedro comprou um livro, Peter 
+bought a book. When, however, the objective 
+complement be the name of animals, or personified 
+things, and is of the same number and person as 
+the subject, it should always be preceded by the 
+preposition a ; ex. : Pedro matou a Paulo, Peter 
+slew Paul. 
+
+The terminative complement is the word or words 
+which, preceded by any preposition, serve as the 
+
+^ 'Words of relatiTe signification are those which require a term 
+which completes their meaning ; such are the adjectiyes igual, 
+svperioTy etc., the yerbs dar, to giye,' attribuiry attribute, and 
+otiiers, for which the objectiye complement is not sufficieut to com- 
+plete their signification. 
+
+
+
+PORTUGUESE GRAMMAR. 67 
+
+indispensable terms to the relative signification of 
+the governing words ; ex. : Joao deu um livro a 
+PEDRO, John gave Peter a book. 
+
+The circumstantial complement is the word or 
+words which, preceded by any preposition, are 
+joined to verbs and adjectives to express any 
+circumstance of their signification ; ex. : Pedro 
+estvda com cuidado, Peter studied carefully. 
+
+The restrictive complement is the word or words 
+which, preceded by the preposition de, of, limit or 
+restrict the signification of the appellative preced- 
+ing it ; ex. : par de zapatos, a pair of shoes. 
+
+When the governing and the governed parts 
+are all expressed, the government is regular ; 
+when otherwise, ellipsis occurs, which will be re- 
+ferred to hereafter. 
+
+0/ Agreement. 
+
+Agreement is the concordance resulting from the 
+use of the adjective and verb' in the terminations 
+corresponding to the gender, number, and person 
+of their substantives or subjects. 
+
+Adjectives ought to agree with their substantives 
+in gender and number; ex. : homem sabio, mulheres 
+virtuosos, a wise man, virtuous women. 
+
+If the substantives should be two or more, and 
+of different gender, the adjective, being an attri- 
+
+
+
+68 PORTUGUESE GRAMMAR. 
+
+bute, should be put in the plural masculine ; ex. : 
+Pedro e Maria aao virtuosos, Peter and Maria are 
+virtuous. But when the adjective is conjoined 
+with substantives, as it were synonymous, it may 
+agree with the nearest ; ex. : o amor e a amizade 
+VERDADEiRA, OT a amizode e o amor verdadeiro, 
+friendship and true love. 
+
+When we make use of the appellations senhoruiy 
+lordship, and the like, and have some adjective to 
+agree with them, we ought to put it in the termi- 
+nation corresponding with the sex of the person to 
+whom, or of whom, we speak, so that the pronoun 
+remain in the feminine ; ex. : 8tui Excellencia foi 
+CASADO com Maria^ ou gasada com Pedro, ffis (or 
+Her) ExceUency was married to Maria, or married 
+to Peter. 
+
+Nda, we, and vds^ ye, used in place of eu, I, and 
+tu, thou, require the verb in the plural, but the 
+corresponding adjective remains in the singular ; 
+ex. : autes (nos) sejamos breve, que frolixo, we 
+should be brief, rather than prolix {Barroa, Gram.). 
+
+The verb ought to agree with its subject in 
+number and person ; ex. : Pedro fugiu, Peter 
+fled. 
+
+The verb haver, to have, is an exception to this 
+rule, when signifying ' to exiaty remaining always 
+in the singular, even though the subject be of the 
+
+
+
+POBTUOUESE GRAMMAR. 69 
+
+plural ; ex. : annos houve em que os baptisados 
+foram dom mil, in some years the numbers bap- 
+tised amoimted to 2000 (Lucena). 
+
+If there be two or more subjects, the verb is 
+placed in the plural ; in the 1st person, if any of 
+them shall be of the 1st person ; in the 2nd, if 
+any be of the 2nd person ; ex.: eu e tu estamos 
+bonSy you and I are good ; tu e Pedro estais bom, 
+you and Peter are good. If, however, all should 
+be of the 3rd person, the verb may either be put 
+in the 3rd person plural, as, for example: subiram 
+ao quarto da Duqueza de Mantua D. Miguel e Femao 
+Telles^ Don Miguel and Fernando Telles repaired 
+to the apartments of the Duchess of Mantua ; or 
+in the third person singular, as, o p6 e o fumo 
+AVisou a D. Joao da Costa, the dust and smoke 
+forewarned Dom John da Costa.^ 
+
+If the subject should be a collective partitive, 
+followed by a noun, in the plural, the verb is also 
+put in the plural ; ex. : parte dos nossoa inhnigoB 
+FUGiRAM, part of our enemies fled. But if the 
+collective be general, the verb must remain in the 
+singular ; ex. : o exerciio dos inimigos retirou-se, 
+the enemy's army retreated. 
+
+These irregularities are explained by the system 
+of figurative syntax, as will hereafter be seen. 
+
+I Portugal re$tauradOy Edit. 1679, pp. 129 and 133. 
+
+
+
+70 PORTUGUESE GRAMMAR. 
+
+Of Construction. 
+
+Construction is the combination of words in a 
+sentence without alteration of their syntax ; con- 
+struction may be direct or the reverse. 
+
+Direct construction requires that the subject take 
+the first place, then the verb, afterwards the attri- 
+bute or objectiye complement, and the terminatiye 
+or circumstantial complement, if any, the last, 
+and that the words of modification have place 
+after those modified ; ex. : D. Joao de Castro the 
+iouvou e accendeu este brio com favores publicos, Dom 
+John de Castro lauded his bravery and encouraged 
+it by public demonstrations of favour. 
+
+Inverse construction, on the contrary, demands 
+that the verb be placed before the subject, the 
+adjective before its substantive, and that other 
+similar inversions be made ; ex. : este brio the 
+Iouvou e accendeu D. Joao de Castro com favores 
+publioos (Freire). 
+
+The inverse construction is the most followed ; 
+but it ought to be noted that the determinative 
+adjectives should never be placed after their sub- 
+stantives. Likewise no other adjective whatever 
+ought to be drawn from its place, which by change 
+of position would alter in signification; such is 
+the adjective algun, any, some, which, placed be- 
+
+
+
+PORTUGUESB GRAMMAR. 71 
+
+fore or after its substantive, has meanings totally 
+different : cotiaa algumUy signifies nenhuma, notliing ; 
+alguma coma, anytliing, or the opposite. (N.B. 
+The natural signification of these adjectiyes is 
+usually indicated by their direct construction ; 
+the figurative meaning by the reverse.) 
+
+Of Figurative Syntax, 
+
+Figurative Syntax is when, by means of the 
+following figures, we omiiy increase, or transpose 
+words in speech. 
+
+Ellipsis is a figure whereby we omit in speech 
+certain words which are easily imderstood ; ex. : 
+d'onde vindes? whence comest thouP de casa, from 
+home. In this reply are wanting the words eu 
+venho de casa,^ I come from home. 
+
+When we have to repeat a word already ex- 
+pressed, and which may be easily understood, it is 
+elegant to omit it ; an exception is, should there 
+be any article, pronoun, or preposition which pre- 
+
+^ In order to rednce to regular syntax the following example, 
+estdt velhOf doente^ pobrsy yon are old, suffering, poor, it is neces- 
+sary to repeat the yerb and say, tu eatds velho^ tu estda pohre^ tu 
+estda doente, you are old, you are, etc., thus formrug three regular 
+sentences. It is therefore obvious that continuous words, and 
+those connected by expressed or understood conjunctions, form so 
+many elliptical sentences, which may be reduced to regular syntax 
+by understanding as omitted the words they lack. 
+
+
+
+72 PORTUGUESE GRAMMAR. 
+
+cedes words of an opposite meaning ; it would be 
+wrong to say, meu Pai e Mai boo jd velhos, my 
+father and mother are already aged, instead of, 
+meu Pai e minha Mai sao Jd velhoa. 
+
+Syllepsis is a kind of ellipse, whereby the verb 
+or adjective is made to agree, not with the sub- 
+stantives to which they are joined, but with 
+others which we imagine, or which are understood ; 
+ex. : Pedro e Mayna sao virtuosos^ Peter and Maria 
+are virtuous. Virtuosos does not agree with Pedro 
+nor Maria, but with the substantive entes, beings, 
+understood by ellipse. 
+
+Pleonasm is when a perfect and complete sen- 
+tence is augmented by certain words to render it 
+the more expressive ; ex. : eu o vi com os meus 
+PROPRios OLHOS, I saw it with my own eyes. 
+
+Hyperbole is when we transpose words in speech, 
+separating the governed from the governing, the 
+adjectives from their substantives, etc. ; ex. : eu 
+cuido que da illustre Dio Ihe seri cada pedra 
+um epitaphio mudo (Freire), I think that every 
+stone will be a silent epitaph of the famous Dio. 
+
+Analysis of the Proposition, 
+
+1st example : Pedro 6 sabio, Peter is wise. This 
+is a simple sentence to express one sole affirma- 
+
+
+
+PORTUGUESE 6BAMMAR. 73 
+
+tion ; its subject is Peter^ the person spoken of. 
+The word e, is, affirms the co-existence of Peter 
+with the quality expressed by the adjectiye sabiOy 
+wise; it is for that end the verb. Sahio is the 
+attribute to express the quality we affirm to belong 
+to the subject, Peter. 
+
+2nd: Pedro e Maria mo virtuosos, Peter, etc., are 
+virtuous; a compound phrase, to express more than 
+one affirmation ; it is equivalent to Pedro i 
+virtuoso, Maria i virtuosa, Peter is virtuous, Mary 
+is virtuous; phrases which are analysed like the 
+preceding one. 
+
+3rd: O justo so teme a Deus, the just only 
+fear God. 
+
+A simple phrase to express one sole judgment ; 
+its verb adjective teme, fear, expresses briefly the 
+co-existence of the subject Justo, just man, with 
+the attribute temente, fearing, whose objective 
+complement are the words a Deus, Gtod. 
+
+Analysis of the Period. 
+
+Example : Mandou JD. Joao 4^ ao Dr. Rodrigo 
+Botelho, que assistia em Suecia, qtie passasse a Osna- 
+bruck com os Plenipotenciarios que a Bainha mandasse 
+d^aquelle Reino, D. John IV. commanded Dr. 
+Bodrigo Botelho, then in Sweden, to repair to 
+
+
+
+74 PORTUGUESE ORAMMAB. 
+
+Osnaburgli with the plenipotentiaries whom the 
+Queen was to send from that kingdom. 
+
+This period or paragraph consists of four sen- 
+tences, the 1st is the principal, not only because 
+enunciated by the indicative mood, without a con- 
+junctidh to subordinate it, but because, conjointly 
+with its integrant (which is the 3rd), which serves 
+it as objective 'complement, it forms a complete 
+and independent sentence. The 2nd is an inci- 
+dental explicative sentence, in order to explain 
+and amplify the idea expressed by the words £. 
+Botelho ; but forms no essential part of this idea, 
+and for that cause may be omitted without chang- 
+ing the meaning. The 3rd is, as was said, an 
+entire sentence, because completing the governance 
+of the verb mandau, ordered. The 4th is an inci- 
+dental restrictive sentence, since it limits the 
+signification of the word 'plenipotentiaries,' by 
+restricting it to those whom the Queen of Sweden 
+should send; and it cannot be omitted without 
+altering the sense, since we could not say the 
+plenipotentiariea without declaring who they were. 
+
+
+
+POSTU6UZ8E OKAIOCAIL 75 
+
+
+
+•PE080DY. 
+
+Prosody is a part of grammar whicli teaches 
+the pronimciatioii of words with their due sound 
+and accent. 
+
+Accent is the greater or less stress or eleration 
+ai voice wherewith we pronounce the words re- 
+presented by the foUowing signs or marks (^)9 {'\ 
+(*)y entitled, the first grave accent, the second 
+acute accent, the third circumflex, and the value 
+whereof can only be orally learned* 
+
+The syllables with acute accent or circumflex 
+are commonly called long, the others short; and 
+in nearly all words there is a long or predominant 
+syllable, which may be the last, the last but one, 
+or the one before that, but never one antecedent 
+to that. To indicate which of these syllables 
+should be predominant is one of the objects of 
+I prosody. 
+
+The words having the last syllable predominant 
+i are: 
+
+I let Those ending in i or ti, excepting quim, 
+
+ahnost, in a mode, and trUm, tribe. 
+
+2nd. Those ending in. So car m; excqyting orgSo, 
+organ, bengSo, blessing, etc. ; except also the 
+voices of the verbs (unless those of the future 
+
+
+
+76 PORTUGUESE GBAMMAK. 
+
+tenses), and words ending in em ; ex. : imagem, 
+image. 
+
+3rd. Those ending in /, excepting the adjectives 
+in eel or il; ex. : docil, docile, amavel, amiable. 
+
+4th. Those ending in r, excepting ambar, amber, 
+nectar, nectar, etc. 
+
+5th. Those which terminate in « or 2 when of 
+the singular, for if of the plural they preserfe 
+the quantity of their singular. 
+
+The antepenultimate is predominant ; 
+
+1st. With substantives which end in imo ; ex. : 
+Optimo, best, bellissimo, most beautiful. 
+
+2nd. The voices of the verbs terminating in 
+mos; ex. : eramoa, we were, excepting those of the 
+preterperf ect, future, and present. 
+
+3rd. The substantives compounded of Greek 
+roots ; ex. : philosopho, philosopher, excepting 
+those ending in ia, as, for instance, philosophia, 
+philosophy. 
+
+The last syllable but one is predominant with 
+all words in which the last or antepenultimate 
+syllable is not predominant ; ex. : mrtude, virtue. 
+
+Of Figuree of Speech, 
+
+Figures of speech are used when, for euphony 
+in pronunciation, we cut off, augment, or change 
+letters in our phrases. 
+
+
+
+FOBTU6TJESE 6BAMMAR. 77 
+
+Letters are cat off: 
+
+1st. By Apheerems in the begiimiiig of words ; 
+ex. : lianga for alUanfa, alliance.^ 
+
+2. By Syncope in the middle ; ex. : mar for 
+maior, greater. 
+
+3. By Apocope in the end ; ex. : sam for santo^ 
+holy. 
+
+Synalepha is when the last vowel of a word is 
+suppressed, and supplies as it were the first vowel 
+of the following sentence, this sign ('), or 
+apostrophe, at times understood, taking the place 
+of the suppressed voweL The preposition de^ of, 
+almost always loses the ^, if followed by a vowel ; 
+ex. : dOf of it, d^este^ of this, etc., for de o, de eate, 
+etc. The pronouns tne, te^ Ihe, me, thee, it or him, 
+lose also the e, when followed by the article a, the, 
+or 0, the, without the substantive ; ex. : deram'^o 
+for derani'MK'O, they gave it. 
+
+Proihesis is when the word is increased by any 
+letter ; ex. : deram-'so for deram-o, they gave it. 
+
+Antithesis is when any letter is changed in a 
+
+1 Almost all grammariaiis gire as eramples of ihis figure tiie 
+words no, na^ n-etU^ etc., bat they seem to be in error. Li these 
+words, whicb lonnerly were written em tio^ tm na, 0m nuUj etc., 
+as may be seen in the Terj oldest docoments, eollected bj J. P. 
+Bibeiro, in tiie Leal Cooselheiro, Vita Christi, etc., not cmly has 
+there been no suppression of any letter, bat even tiie co n t rar y 
+has been the ease, thos being examples of prothuU raflier than 
+tipktgreHi, 
+
+
+
+78 PORTUGUESE GRAMMAR. 
+
+word, as in the voices of verbs ending in 8 or r, 
+and followed by the article o or «, in which the 
+« or r is changed into /; ex. : dal-o, to give it, 
+louvamo'lo, we praise it, in place of louvamo8-o, 
+dar-o. 
+
+ORTHOGRAPHY. 
+
+Orthography is the part of grammar which 
+teaches the correct mode of writing words, and 
+the use of punctuation. 
+
+The orthography generally adopted is that 
+which has for basis etymology and the derivation 
+of words, and as this orthography can be effec- 
+tively learned by the use of any good dictionary,^ 
+we have now but to occupy ourselves with the 
+following objects. 
+
+The Use of Capital Letters, 
+
+These should only be made use of : 
+
+1st. At the beginning of periods (paragraphs), 
+
+and after the points of interrogation, admiration 
+
+or exclamation, terminating these. 
+
+2nd. At the beginning of every verse of any 
+
+^ The author of the Portagaese Compendium has puhlished an 
+Essay upon Orthography, in which is a Yocahulary, that may in 
+some measure supply the want of a Dictionary in regard to 
+orthography. 
+
+
+
+POBTUGUESE 6BAMMAB. 79 
+
+poem, and also at tlie beginning of any sentence 
+or saying we may cite ; ex. : Dizia Soracio ; min- 
+gmm vive contente com a sua aarte, Horace said, no 
+one lives contented with liis lot. 
+
+3rd. At the beginning of proper or heathen 
+names, of sciences or arts, dignities or profes- 
+sions, of degrees, relationships, and others like 
+to them, when they are taken in the personal 
+and determinatiye sense, for example : meu Prima 
+Luiz ^ digno de toda a estima, my cousin Louis is 
+worthy of aU esteem; bnt not when speaking 
+generally, for instance, os filhoa devem respeiiar sens 
+pais, sons should respect their parents. 
+
+On the Use of the Stephen. 
+
+The hyphen (-), dash, or mark of connection, is 
+nsed to divide words in their elements, especially 
+or chiefly when any such word overpasses its own 
+line, and goes partly to the next; in this case 
+every care should be taken not to separate the 
+letters forming syllables, and to note the f ollow- 
+^ing rules: 
+
+1st. Two consonants occurring in any word, 
+one of them belongs to the preceding vowel, the 
+other to that which follows : ex. : beUlo, hand- 
+Bame,/or'te, strong. Exceptions are the consonants 
+bl, br, elf and all those, which though joined to- 
+
+
+
+80 PORTUGUESE GRAMMAR. 
+
+gether, would be proper to commence a syllable, 
+and which belong both to the vowel that follows ; 
+ex. : a-brir, to open, a-dro, porch. 
+
+2nd. Three or more consonants occurring, those 
+which would be proper for the beginning of a 
+syllable belong to the following vowel, the others 
+to that preceding ; ex. : ac-clamar, to acclaim. 
+
+3rd. When a consonant occurs between two 
+vowels, it usually belongs to the vowel that follows 
+it ; ex. : a-ve, hail ! An exQ^ption is the letter e, 
+which belongs to the preceding vowel ; ex. : 
+ex^ercito, army, ex-ecutar, to execute. 
+
+4th. Two or more vowels occurring in any word 
+may be divided, if not forming a diphthong ; ex. : 
+sa-u-de, health. 
+
+As exception to these rules, it should be noted 
+that compound words ought to be divided into the 
+simple words that compose them ; ex. : in-atidito, 
+unheard, ad-mittir, to admit. 
+
+The hyphen serves also to unite the pronouns 
+me, te, Ihe, nds, vos, se, me, thee, etc., to the words 
+whereto they serve as complements ; ex. : cumpre- 
+no8, it behoves us, ensinar-te, to instruct you. It 
+also serves to mark a break or pause in a sentence, 
+and to indicate an emphasis on the word or words 
+so isolated ; thus, in fact, almost taking its place 
+in 
+
+
+
+P0BTU6UESE GRAMMAR. 81 
+
+PUNCTUATIOK 
+
+Punettiatum is the art of indicating in writing, 
+by means of certain signs, the pauses which should 
+be made in reading, for the better understanding 
+of the subject of discourse. 
+
+These signs are the following : the comma (, ), 
+sCTU-colon (;), colon (:), full stop (.), the point 
+of interrogation (?), the point of exclamation (!), 
+
+parenthesLB ( ), and reticence ( ). Briefly, 
+
+in fact, punctuation in Portuguese is precisely the 
+same as in French or English. 
+
+Examples of the use of the comma , semicolon; 
+colon : and period or full stop . are : Edudai^ dis 
+Seneca f nao para saber, mais que as outras ; mas 
+melhor que elks, I studied, said Seneca, not to know 
+more than others, but better than they. Em 
+Portugal teem reinado tres dynastias: a DyfuuUa 
+Alfonzina; a ^AmZy e ade Braganga, three dynas- 
+ties hare rrigned in Portugal, that of Alf onzo, 
+thatof Aviz,andthatofBragan2a. Seasabedaria 
+enirar em teu eorafSo, e a seieneia agradar a tua 
+alma; o canselho te guardard, e a prudenda te eot^ 
+servard. (Proverbio do SalomSo), When wisdom 
+^itereth into thy heart, and knowledge is pleasant 
+unto thy soul ; discretion shall preserre ibee, 
+understanding shall keep thee : (Prorerbs of 
+Scdomon). 
+
+
+
+82 PORTUGUESE GILAMMAR. 
+
+The point of interrogation is made use of at the 
+end of sentences which express any inquiry ; ex. : 
+Como, Senhores, sem mim pasaais a Dio ? (Freire), 
+How, gentlemen, would you go to Dio without me ? 
+
+The point of admiration, or rather of exclamation, 
+is appUed to express sudden emotion, surprise, or 
+comparison; ex.: Quanto ^ admiravela naturaleza/ 
+How wonderful (or admirable) is nature ! 
+
+The parenthesis serves to isolate any sentence or 
+phrase which is inserted in the phrase, without 
+being at all an essential part of it ; ex. : Joao 
+Coelho Be offereceu ao Capitao Mor (a quem era 
+siNGULARMENTE ACCEno), para tentar os mares 
+(Freire), John Coelho offered himself to the 
+Capitao Mor (by whom he was remarkably es- 
+teemed), for service on the seas. 
+
+The words in parenthesis should be read in a 
+lower or altered tone of voice. 
+
+Reticence, or the breaking off of parts of a 
+sentence or dialogue, serves to denote a sudden 
+suspension of what has to be said, and is expressed 
+in reading by a certain peculiar pause, which may 
+be better learned by oral instruction ; ex. : 
+
+JEf verdade, ^ verdade, os anjos oifo 
+
+Mas ^ dado aos mortales ouvir-W o canto (Socage). 
+
+'Tis true, 'tis true, I hear the angels 
+
+But mortals are allowed to hear their song. 
+
+
+
+POBTUGUESE GRAMMAR. 83 
+
+In the following stanzas of the Lusiad may be 
+found examples of nearly all rules regarding 
+pimctuation. 
+
+Entrava a f onnosiBsinia Maria 
+Pelos patemaes pagos sublimados, 
+Lindo gesto, mas f 6ra de alegria, 
+E seas olhos em lagrimas banhados : 
+Os cabellos angelicos trazia 
+Pelos ebumeos hombros espalhados, 
+Diante do pae ledo, que a agasaiha, 
+Estas palayras taes chorando espalha : 
+
+Quantos povos a terra produziu 
+
+De Africa toda, gente fera e estranha, 
+
+grao Bei de Marrocos conduziu, 
+
+Para vir possuir a nobre Hespanha : 
+
+Poder tamanho junto nao se viu, 
+
+Depois que o salso mar a terra banha : 
+
+Trazem f erocidade, e furor tanto, 
+
+Que a vivos medo, e a mortos faz espanto. 
+
+Aquelle que me d^ste por marido, 
+Por defender sua terra amedrontada, 
+Go 'o pequeno poder ofFerecido. 
+Ao duro golpe esta da maura espada ; 
+E, se nao for comtigo soccorrido, 
+Yer-me-has d'eUe, e do reino ser privada ; 
+Yiuva, e triste, e posta em vida escura, 
+Sem marido, sem reino, e sem ventura. 
+
+Portanto, 6 Bei, de quem com puro medo 
+corrente Mulucba se congela, 
+Eompe toda a tardan9ay acude cedo 
+A miseranda gente de Gastella : 
+Se esse gesto, que mostras claro e ledo, 
+De pae o verdadeiro amor assella, 
+Acude, e corre Pai ; que se nao corres, 
+Pode ser que nao aches quem soccoires. 
+
+C. 3, B. 11. 
+
+
+
+84 PORTUGUESE GRAMMAR. 
+
+Thus rendered in English by Thomas Moore 
+Musgrave (Canto 3, pp. 119-20) : 
+
+The beauteous Maria camey 
+
+Entering the Palace of her Ancestors 
+
+"With sweetly sorrowful dejected mien— 
+
+Her brilliant eyes suffused with streaming tears, 
+
+"While o'er her neck, that vied with ivory, 
+
+In snowy hue, flowed her angelic hair. 
+
+"With joy her father clasp'd her to his heart, 
+
+"When thus, with interrupting sobs and tears. 
+
+She spake — '^ From all the furious Moorish States 
+
+Of Africa, .a fierce and warlike host, 
+
+The Monarch of Morocco hither leads, 
+
+Noble Iberia to subjugate. 
+
+Such numbers infinite have ne'er been seen. 
+
+Since the salt waves first lash'd the sounding shore ; 
+
+So great their fury and ferocity. 
+
+They fill with fear the living, and the dead 
+
+Perturb. The Prince to whom thou gav'st my hand, 
+
+His menaced kingdom to defend, no means 
+
+Possesses, nor can the fatal blow 
+
+From the uplifted Moorish sword avert 
+
+"Without thy aid, King, me thou wilt see. 
+
+Of consort and of kingdom both depriv'd ; 
+
+A widow mourning in obscurity — 
+
+"Without her king, without her crown, and lost 
+
+To happiness. My Eoyal Father, if 
+
+Mulucha's streams at thy approach with fear 
+
+Congeal' d, banish delay, and haste, haste. 
+
+The overwhelm'd Castilian to relieve ; 
+
+And if the joy, that in thy face now beams, 
+
+Be a true sign of thy paternal love, 
+
+Accelerate thy speed, — ^for, without haste, 
+
+He whom thou would' st assist, may be no more." 
+
+
+
+FORTUGUE8E GRAMMAR. 
+
+
+
+85 
+
+
+
+APPENDIX. 
+
+
+
+Cardinal Numbers, 
+
+
+
+Urn* 
+
+
+One. 
+
+
+Vinte e um 
+
+
+Twenty-one 
+
+
+Dois,dous Two 
+
+
+Vinte dous 
+
+
+Twenty-two 
+
+
+Tres 
+
+
+Three 
+
+
+Trinta 
+
+
+Thirty 
+
+
+Quatro 
+
+
+Pour 
+
+
+Trinta e um 
+
+
+Thirty-one 
+
+
+Cinco 
+
+
+Pive 
+
+
+Quarenta 
+
+
+Forty 
+
+
+Seis 
+
+
+Six 
+
+
+Cincoenta 
+
+
+Fifty 
+
+
+Sete 
+
+
+Seven 
+
+
+Sessenta 
+
+
+Sixty 
+
+
+Oito 
+
+
+Eight 
+
+
+Setenta 
+
+
+Seventy 
+
+
+Nove 
+
+
+Nine 
+
+
+Setenta e um 
+
+
+Seventy-one 
+
+
+'Dez, des 
+
+
+Ten 
+
+
+Oitenta 
+
+
+Eighty 
+
+
+Onze 
+
+
+Eleven 
+
+
+Noventa 
+
+
+Ninety 
+
+
+Doze 
+
+
+Twelve 
+
+
+Noventaedous Ninety-two 
+
+
+Treze 
+
+
+Thirteen 
+
+
+Gem or cento 
+
+
+A hundred 
+
+
+Quatorze 
+
+
+Fourteen 
+
+
+Duzentos 
+
+
+Two hundred 
+
+
+Quinze 
+
+
+Fifteen . 
+
+
+Trezentos 
+
+
+Three hundred 
+
+
+Desaseis 
+
+
+Sixteen 
+
+
+Mil 
+
+
+A thousand 
+
+
+Desanete 
+
+
+Seventeen 
+
+
+Dous mil 
+
+
+Two thousand 
+
+
+Desoito 
+
+
+Eighteen 
+
+
+Des mil 
+
+
+Ten thousand 
+
+
+Desanove 
+
+
+Nineteen 
+
+
+Cem mil 
+
+
+A hundred thou- 
+
+
+Vittte 
+
+
+Twenty 
+
+
+Um milhao 
+
+
+A million [sand 
+
+
+
+^ Spelt and pronounced at times Amui, and huma, the h being 
+but slightly aspirated. 
+
+
+
+86 
+
+
+
+PORTUOUESE GRAMMAR. 
+
+
+
+Fra>ctions. 
+
+Meio Half Quinto Fifth 
+
+Tergo Third Sexto Sixth 
+
+Quarto Quarter, fourth etc. 
+
+
+
+Multiple Numbers. 
+
+
+
+Dobrado Double 
+Triplo Triple 
+
+Quadruple Fourfold 
+
+TTma vezy once 
+
+
+
+Onze vezes Elevenfold 
+Centuple Hundredfold 
+
+Dwu vasMy twice, etc. 
+
+
+
+The Months, 
+
+
+
+Janeiro 
+
+Fevereiro 
+
+Margo 
+
+Abril 
+
+Maio 
+
+Junho 
+
+
+
+January 
+February- 
+March 
+April 
+May 
+June 
+
+
+
+Julho 
+
+Agosto 
+
+Septembro 
+
+Outubro 
+
+Novembro 
+
+Dezembro 
+
+
+
+July 
+
+August 
+
+September 
+
+October 
+
+November 
+
+December 
+
+
+
+Days of (he Week. 
+
+
+
+Domingo Sunday 
+
+Segundafeira Monday 
+Ter^a feira Tuesday 
+Qua^ feira Wednesday 
+
+
+
+Quinta feira Thursday 
+Sexta feira Friday 
+Sabbado Saturday 
+
+
+
+Aprimavera Spring 
+verfio or estio Summer 
+
+
+
+outono 
+invemo 
+
+
+
+Autumn 
+Winter 
+
+
+
+PORTUGUESE GRAMMAR. 87 
+
+^ A few Phrases and Familiar Expressions. 
+
+Quer, so be it. 
+
+Perto de meia noitSf near midnight. 
+JE!i8, there ! 
+
+A manhan, to-morrow. 
+JEm tomOy round about. 
+As avessas, the reverse. 
+Cedo, soon. 
+
+De caso pensado, designedly. 
+De mamoy softly. 
+De ear, by heart. 
+Isto he, that is to say. 
+Vai'te-emhora, begone. 
+Qm ted ? what do you say of it ? 
+! iSfw.' hush! 
+
+Ai de mim ! alas ! 
+
+Ao ammheeer, at sunrise. 
+
+Trqjar a moda, to be dressed in fashion. 
+
+Estou para partir, I am just off. 
+
+B<m8 diaa senhor, good morning, sir. 
+
+Agradicido, I thank you. 
+
+Adeos men Senhor, farewell, sir. 
+
+Vm. tern pressa, you are in haste. 
+
+Muito aeu criado, your most humble serrant. 
+
+j^ao tenha vm mSdo, fear not. 
+
+Que tempo faz ? what sort of weather is it ? 
+
+Fa&frio ? is it cold ? 
+
+Tern vm. acdbado ? have you done ? 
+
+Q^e quer f What do you want ? 
+
+Mitende o f do you understand ? 
+
+Nao sei, I do not know it. 
+
+Andar d vela, to sail. 
+
+Pagwr as cartas, to play at cards. 
+
+Fulano entrou, so and so came in. 
+
+Qm novas ha ? what news? 
+
+Hum palavra, a word. 
+
+Que vos parece, what do you think ? 
+
+Que tern Vm, f what is the matter with you ? 
+
+Estou pasmado, I am astonished. 
+
+
+
+88 PORTUGUESE GBAHMAR. 
+
+Como eatd f how are you ? 
+
+Assim dttemy they say so. 
+
+Quern Ihe disss a vm^* ? who told it to you ? 
+
+JPegolhe perdao, I beg your pardon. 
+
+Penso ntssOf I am thmking of it. 
+
+Ihme sentido, take care. 
+
+Sempre seu, entirely yours. 
+
+Msu querido amigoy my d^r Mend. 
+
+Q^e horas sao ? what time is it ? 
+
+Eis me prompto^ I am ready. 
+
+Como vets f how did you come ? 
+
+Muito folgOf I am glad. 
+
+Fallar em, to talk of it. 
+
+Andar doente, to feel ill. 
+
+Darfim, to conclude. 
+
+Ter mao, to hold back. 
+
+Passar hem, to be comfortable. 
+
+Dor umpassetOf to take a walk. 
+
+Fazer gentey to raise troops. 
+
+Vou passandOyl'Bxxi. tolerably well. 
+
+Tive que escrever, I had to write. 
+
+Dor dia e hara, to appoint a time. 
+
+E mister separar-n6s, we must part. 
+
+A razaOy at the rate of. 
+
+^do achOf I cannot find. 
+
+Sefa, I consent. 
+
+Tern razaOy you are right. 
+
+Fu Wapego, pray do. 
+
+Una duzitty a dozen. 
+
+Una ventena, a score. 
+
+Sim, SenhoTf yes, sir. 
+
+Sinto caloTf I am very warm. 
+
+Almogar avos, to breakfast on eggs. 
+
+Mai bonitOf very fine. 
+
+Quatro xelins o arratel, 4«. a pound. 
+
+Chaperao, a big hat. 
+
+Nuns nadaSf trivialities. 
+
+maisy the rest. 
+
+
+
+PORTUGXTESK GRAMMAR. 89 
+
+Aiffum ditty some day. 
+
+tal st^'eiio, the said person. 
+
+Depregsa, promptly. 
+
+yb ehao, on the ground. 
+
+Logo-logo, at once. 
+
+^Mtm-oMtm, qnite gently. 
+
+SefUido, have a care. 
+
+Do todo, quite. 
+
+Assim tanto, rather. 
+
+Caluial hush! 
+
+Ora veja, only see ! 
+
+Aqui tern, there are. 
+
+Cifico harretes de dormir, five nightcaps. 
+
+Una eapa, an envelope. 
+
+Anao, a manikin. 
+
+O horn do monge, the good monk. 
+
+Dar OS parahens, to congratulate. 
+
+Gosto de seu estylo, I like your style. 
+
+CaUe-se, hold your tongue. 
+
+Dai-mo, give it me. 
+
+Um par, a pair. 
+
+A metade, half. 
+
+Some Contractions and AbbreciatioHS, 
+
+C, eriado, servant. 
+
+Dir for disier, to say. 
+
+AA. for autores, author. 
+
+Cap^' for eapitao, captain. 
+
+2). for dom or don. 
+
+Far for fazer, to do. 
+
+A.^. for altexa real, royal 
+Grao,gran,ioTgrandef great, D*'* for Deus^ God, [highness, 
+/for tde, go. S. for santo, saint. 
+
+2/<5r for maior, greater. M^- for mestre, master. 
+Semos iorhavemos, weh&ve, Q^- for Quern, who. 
+iV^^M MOMA, ours. Jb^M Manod, Emanuel. 
+
+P^^ padre, &ther. L^*-^ Duarte, Edward. 
+
+Q., que, who. Jtf^t mtiiAa, my. 
+
+
+
+iSi**"* MitAor 
+
+
+, sir. 
+
+
+De forms eife. 
+
+
+DtfM 
+
+
+
+
+das. 
+
+
+£ma 
+
+
+
+
+na. 
+
+
+Em 08 
+
+
+
+
+no9. 
+
+
+Para 
+
+
+
+
+pela. 
+
+
+Poras 
+
+
+
+
+pelas. 
+
+
+
+90 
+
+
+
+PORTUGUESE GBAMMAB. 
+
+
+
+Coinage of Portugal. 
+
+
+
+SILYBB. 
+
+
+
+Coroas (milreis or silver 
+
+crown) 
+
+Meias, (i), do. do. . . 
+
+Orusados novos 
+
+Half do 
+
+Quarter do 
+
+Testados 
+
+Half do 
+
+Vmtems 
+
+
+
+8, d. 
+= 1000Eeis«4 10 English. 
+
+
+
+500 
+480 
+240 
+120 
+100 
+50 
+20 
+
+
+
+-2 
+=2 
+«1 
+
+n=0 
+
+»0 
+«0 
+»0 
+
+
+
+5 
+
+H 
+
+6 
+3 
+1 
+
+
+
+i> 
+
+
+
+»> 
+
+
+
+}} 
+
+
+
+»» 
+
+
+
+ft 
+
+
+
+if 
+
+
+
+ft 
+
+
+
+COPPBB COINAGE. 
+
+
+
+40, 20, 10, 5, 3, li Reis. 
+
+
+
+GOLD COINS. 
+
+£ 
+
+Dobraos s24,000Eeis»7 
+
+Half do =12,000 „ =3 
+
+One-fifth do. (moidore, 
+
+pistole or lisbonine) = 4, 800 . , , =1 
+
+Dobras =3 
+
+Half do =1 
+
+Quarter do «0 
+
+Escudos =0 
+
+Half do =0 
+
+Old crusados =0 
+
+Coroas d'ouro . .' =1 
+
+Half do =0 
+
+
+
+s. 
+
+
+d. 
+
+
+
+
+
+
+
+
+
+
+
+
+English 
+
+
+15 
+
+
+
+
+
+
+
+tt 
+
+
+7 
+
+
+or 
+
+
+8«. 
+
+
+
+
+14 
+
+
+
+
+
+
+
+
+
+17 
+
+
+
+
+
+
+
+
+
+18 
+
+
+6 
+
+
+
+
+
+
+9 
+
+
+2 
+
+
+
+
+
+
+4 
+
+
+7 
+
+
+
+
+
+
+2 
+
+
+H 
+
+
+
+
+
+
+4 
+
+
+9 
+
+
+
+
+
+
+12 
+
+
+H 
+
+
+
+
+
+
+
+PORTUGUESE GRAMMAR. 91 
+
+
+
+A Business or other Communication. 
+
+
+
+(To Senhoia F.) (from Senhoia G.) 
+
+Che^o a panto de : se sum oeeupagoes The permit' 
+
+tern de vir d minha easa, dar-lhe hei notidas com qus 
+
+muito folgard. I have just arrived from : if you 
+
+are at leisure to give me a call, I have news to impart 
+that will afford you pleasure. 
+
+
+
+THE EKD. 
+
+
+
+BTBPHBM AUamr AlTD 801I8, FmillTmBS, HSBTTOKD. 
+
+
+

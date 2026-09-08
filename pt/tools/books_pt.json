@@ -1,0 +1,785 @@
+[
+ {
+  "gridId": "genesis",
+  "prefix": "gen-ch",
+  "nameEn": "Genesis",
+  "slug": "gen",
+  "vol": "ot",
+  "count": 50,
+  "namePor": "Gênesis"
+ },
+ {
+  "gridId": "exodus",
+  "prefix": "exo-ch",
+  "nameEn": "Exodus",
+  "slug": "ex",
+  "vol": "ot",
+  "count": 40,
+  "namePor": "Êxodo"
+ },
+ {
+  "gridId": "leviticus",
+  "prefix": "lev-ch",
+  "nameEn": "Leviticus",
+  "slug": "lev",
+  "vol": "ot",
+  "count": 27,
+  "namePor": "Levítico"
+ },
+ {
+  "gridId": "numbers",
+  "prefix": "num-ch",
+  "nameEn": "Numbers",
+  "slug": "num",
+  "vol": "ot",
+  "count": 36,
+  "namePor": "Números"
+ },
+ {
+  "gridId": "deuteronomy",
+  "prefix": "deu-ch",
+  "nameEn": "Deuteronomy",
+  "slug": "deut",
+  "vol": "ot",
+  "count": 34,
+  "namePor": "Deuteronômio"
+ },
+ {
+  "gridId": "joshua",
+  "prefix": "jos-ch",
+  "nameEn": "Joshua",
+  "slug": "josh",
+  "vol": "ot",
+  "count": 24,
+  "namePor": "Josué"
+ },
+ {
+  "gridId": "judges",
+  "prefix": "jdg-ch",
+  "nameEn": "Judges",
+  "slug": "judg",
+  "vol": "ot",
+  "count": 21,
+  "namePor": "Juízes"
+ },
+ {
+  "gridId": "ruth",
+  "prefix": "rut-ch",
+  "nameEn": "Ruth",
+  "slug": "ruth",
+  "vol": "ot",
+  "count": 4,
+  "namePor": "Rute"
+ },
+ {
+  "gridId": "1samuel",
+  "prefix": "1sa-ch",
+  "nameEn": "1 Samuel",
+  "slug": "1-sam",
+  "vol": "ot",
+  "count": 31,
+  "namePor": "1 Samuel"
+ },
+ {
+  "gridId": "2samuel",
+  "prefix": "2sa-ch",
+  "nameEn": "2 Samuel",
+  "slug": "2-sam",
+  "vol": "ot",
+  "count": 24,
+  "namePor": "2 Samuel"
+ },
+ {
+  "gridId": "1kings",
+  "prefix": "1ki-ch",
+  "nameEn": "1 Kings",
+  "slug": "1-kgs",
+  "vol": "ot",
+  "count": 22,
+  "namePor": "1 Reis"
+ },
+ {
+  "gridId": "2kings",
+  "prefix": "2ki-ch",
+  "nameEn": "2 Kings",
+  "slug": "2-kgs",
+  "vol": "ot",
+  "count": 25,
+  "namePor": "2 Reis"
+ },
+ {
+  "gridId": "1chronicles",
+  "prefix": "1ch-ch",
+  "nameEn": "1 Chronicles",
+  "slug": "1-chr",
+  "vol": "ot",
+  "count": 29,
+  "namePor": "1 Crônicas"
+ },
+ {
+  "gridId": "2chronicles",
+  "prefix": "2ch-ch",
+  "nameEn": "2 Chronicles",
+  "slug": "2-chr",
+  "vol": "ot",
+  "count": 36,
+  "namePor": "2 Crônicas"
+ },
+ {
+  "gridId": "ezra",
+  "prefix": "ezr-ch",
+  "nameEn": "Ezra",
+  "slug": "ezra",
+  "vol": "ot",
+  "count": 10,
+  "namePor": "Esdras"
+ },
+ {
+  "gridId": "nehemiah",
+  "prefix": "neh-ch",
+  "nameEn": "Nehemiah",
+  "slug": "neh",
+  "vol": "ot",
+  "count": 13,
+  "namePor": "Neemias"
+ },
+ {
+  "gridId": "esther",
+  "prefix": "est-ch",
+  "nameEn": "Esther",
+  "slug": "esth",
+  "vol": "ot",
+  "count": 10,
+  "namePor": "Ester"
+ },
+ {
+  "gridId": "job",
+  "prefix": "job-ch",
+  "nameEn": "Job",
+  "slug": "job",
+  "vol": "ot",
+  "count": 42,
+  "namePor": "Jó"
+ },
+ {
+  "gridId": "psalms",
+  "prefix": "psa-ch",
+  "nameEn": "Psalms",
+  "slug": "ps",
+  "vol": "ot",
+  "count": 150,
+  "namePor": "Salmos"
+ },
+ {
+  "gridId": "proverbs",
+  "prefix": "pro-ch",
+  "nameEn": "Proverbs",
+  "slug": "prov",
+  "vol": "ot",
+  "count": 31,
+  "namePor": "Provérbios"
+ },
+ {
+  "gridId": "ecclesiastes",
+  "prefix": "ecc-ch",
+  "nameEn": "Ecclesiastes",
+  "slug": "eccl",
+  "vol": "ot",
+  "count": 12,
+  "namePor": "Eclesiastes"
+ },
+ {
+  "gridId": "songofsolomon",
+  "prefix": "sng-ch",
+  "nameEn": "Song of Solomon",
+  "slug": "song",
+  "vol": "ot",
+  "count": 8,
+  "namePor": "Cantares de Salomão"
+ },
+ {
+  "gridId": "isaiah",
+  "prefix": "isa-ch",
+  "nameEn": "Isaiah",
+  "slug": "isa",
+  "vol": "ot",
+  "count": 66,
+  "namePor": "Isaías"
+ },
+ {
+  "gridId": "jeremiah",
+  "prefix": "jer-ch",
+  "nameEn": "Jeremiah",
+  "slug": "jer",
+  "vol": "ot",
+  "count": 52,
+  "namePor": "Jeremias"
+ },
+ {
+  "gridId": "lamentations",
+  "prefix": "lam-ch",
+  "nameEn": "Lamentations",
+  "slug": "lam",
+  "vol": "ot",
+  "count": 5,
+  "namePor": "Lamentações"
+ },
+ {
+  "gridId": "ezekiel",
+  "prefix": "ezk-ch",
+  "nameEn": "Ezekiel",
+  "slug": "ezek",
+  "vol": "ot",
+  "count": 48,
+  "namePor": "Ezequiel"
+ },
+ {
+  "gridId": "daniel",
+  "prefix": "dan-ch",
+  "nameEn": "Daniel",
+  "slug": "dan",
+  "vol": "ot",
+  "count": 12,
+  "namePor": "Daniel"
+ },
+ {
+  "gridId": "hosea",
+  "prefix": "hos-ch",
+  "nameEn": "Hosea",
+  "slug": "hosea",
+  "vol": "ot",
+  "count": 14,
+  "namePor": "Oseias"
+ },
+ {
+  "gridId": "joel",
+  "prefix": "jol-ch",
+  "nameEn": "Joel",
+  "slug": "joel",
+  "vol": "ot",
+  "count": 3,
+  "namePor": "Joel"
+ },
+ {
+  "gridId": "amos",
+  "prefix": "amo-ch",
+  "nameEn": "Amos",
+  "slug": "amos",
+  "vol": "ot",
+  "count": 9,
+  "namePor": "Amós"
+ },
+ {
+  "gridId": "obadiah",
+  "prefix": "oba-ch",
+  "nameEn": "Obadiah",
+  "slug": "obad",
+  "vol": "ot",
+  "count": 1,
+  "namePor": "Obadias"
+ },
+ {
+  "gridId": "jonah",
+  "prefix": "jon-ch",
+  "nameEn": "Jonah",
+  "slug": "jonah",
+  "vol": "ot",
+  "count": 4,
+  "namePor": "Jonas"
+ },
+ {
+  "gridId": "micah",
+  "prefix": "mic-ch",
+  "nameEn": "Micah",
+  "slug": "micah",
+  "vol": "ot",
+  "count": 7,
+  "namePor": "Miqueias"
+ },
+ {
+  "gridId": "nahum",
+  "prefix": "nah-ch",
+  "nameEn": "Nahum",
+  "slug": "nahum",
+  "vol": "ot",
+  "count": 3,
+  "namePor": "Naum"
+ },
+ {
+  "gridId": "habakkuk",
+  "prefix": "hab-ch",
+  "nameEn": "Habakkuk",
+  "slug": "hab",
+  "vol": "ot",
+  "count": 3,
+  "namePor": "Habacuque"
+ },
+ {
+  "gridId": "zephaniah",
+  "prefix": "zep-ch",
+  "nameEn": "Zephaniah",
+  "slug": "zeph",
+  "vol": "ot",
+  "count": 3,
+  "namePor": "Sofonias"
+ },
+ {
+  "gridId": "haggai",
+  "prefix": "hag-ch",
+  "nameEn": "Haggai",
+  "slug": "hag",
+  "vol": "ot",
+  "count": 2,
+  "namePor": "Ageu"
+ },
+ {
+  "gridId": "zechariah",
+  "prefix": "zec-ch",
+  "nameEn": "Zechariah",
+  "slug": "zech",
+  "vol": "ot",
+  "count": 14,
+  "namePor": "Zacarias"
+ },
+ {
+  "gridId": "malachi",
+  "prefix": "mal-ch",
+  "nameEn": "Malachi",
+  "slug": "mal",
+  "vol": "ot",
+  "count": 4,
+  "namePor": "Malaquias"
+ },
+ {
+  "gridId": "matthew",
+  "prefix": "mat-ch",
+  "nameEn": "Matthew",
+  "slug": "matt",
+  "vol": "nt",
+  "count": 28,
+  "namePor": "Mateus"
+ },
+ {
+  "gridId": "mark",
+  "prefix": "mrk-ch",
+  "nameEn": "Mark",
+  "slug": "mark",
+  "vol": "nt",
+  "count": 16,
+  "namePor": "Marcos"
+ },
+ {
+  "gridId": "luke",
+  "prefix": "luk-ch",
+  "nameEn": "Luke",
+  "slug": "luke",
+  "vol": "nt",
+  "count": 24,
+  "namePor": "Lucas"
+ },
+ {
+  "gridId": "john",
+  "prefix": "jhn-ch",
+  "nameEn": "John",
+  "slug": "john",
+  "vol": "nt",
+  "count": 21,
+  "namePor": "João"
+ },
+ {
+  "gridId": "acts",
+  "prefix": "act-ch",
+  "nameEn": "Acts",
+  "slug": "acts",
+  "vol": "nt",
+  "count": 28,
+  "namePor": "Atos"
+ },
+ {
+  "gridId": "romans",
+  "prefix": "rom-ch",
+  "nameEn": "Romans",
+  "slug": "rom",
+  "vol": "nt",
+  "count": 16,
+  "namePor": "Romanos"
+ },
+ {
+  "gridId": "1corinthians",
+  "prefix": "1co-ch",
+  "nameEn": "1 Corinthians",
+  "slug": "1-cor",
+  "vol": "nt",
+  "count": 16,
+  "namePor": "1 Coríntios"
+ },
+ {
+  "gridId": "2corinthians",
+  "prefix": "2co-ch",
+  "nameEn": "2 Corinthians",
+  "slug": "2-cor",
+  "vol": "nt",
+  "count": 13,
+  "namePor": "2 Coríntios"
+ },
+ {
+  "gridId": "galatians",
+  "prefix": "gal-ch",
+  "nameEn": "Galatians",
+  "slug": "gal",
+  "vol": "nt",
+  "count": 6,
+  "namePor": "Gálatas"
+ },
+ {
+  "gridId": "ephesians",
+  "prefix": "eph-ch",
+  "nameEn": "Ephesians",
+  "slug": "eph",
+  "vol": "nt",
+  "count": 6,
+  "namePor": "Efésios"
+ },
+ {
+  "gridId": "philippians",
+  "prefix": "php-ch",
+  "nameEn": "Philippians",
+  "slug": "philip",
+  "vol": "nt",
+  "count": 4,
+  "namePor": "Filipenses"
+ },
+ {
+  "gridId": "colossians",
+  "prefix": "col-ch",
+  "nameEn": "Colossians",
+  "slug": "col",
+  "vol": "nt",
+  "count": 4,
+  "namePor": "Colossenses"
+ },
+ {
+  "gridId": "1thessalonians",
+  "prefix": "1th-ch",
+  "nameEn": "1 Thessalonians",
+  "slug": "1-thes",
+  "vol": "nt",
+  "count": 5,
+  "namePor": "1 Tessalonicenses"
+ },
+ {
+  "gridId": "2thessalonians",
+  "prefix": "2th-ch",
+  "nameEn": "2 Thessalonians",
+  "slug": "2-thes",
+  "vol": "nt",
+  "count": 3,
+  "namePor": "2 Tessalonicenses"
+ },
+ {
+  "gridId": "1timothy",
+  "prefix": "1ti-ch",
+  "nameEn": "1 Timothy",
+  "slug": "1-tim",
+  "vol": "nt",
+  "count": 6,
+  "namePor": "1 Timóteo"
+ },
+ {
+  "gridId": "2timothy",
+  "prefix": "2ti-ch",
+  "nameEn": "2 Timothy",
+  "slug": "2-tim",
+  "vol": "nt",
+  "count": 4,
+  "namePor": "2 Timóteo"
+ },
+ {
+  "gridId": "titus",
+  "prefix": "tit-ch",
+  "nameEn": "Titus",
+  "slug": "titus",
+  "vol": "nt",
+  "count": 3,
+  "namePor": "Tito"
+ },
+ {
+  "gridId": "philemon",
+  "prefix": "phm-ch",
+  "nameEn": "Philemon",
+  "slug": "philem",
+  "vol": "nt",
+  "count": 1,
+  "namePor": "Filemom"
+ },
+ {
+  "gridId": "hebrews",
+  "prefix": "heb-ch",
+  "nameEn": "Hebrews",
+  "slug": "heb",
+  "vol": "nt",
+  "count": 13,
+  "namePor": "Hebreus"
+ },
+ {
+  "gridId": "james",
+  "prefix": "jas-ch",
+  "nameEn": "James",
+  "slug": "james",
+  "vol": "nt",
+  "count": 5,
+  "namePor": "Tiago"
+ },
+ {
+  "gridId": "1peter",
+  "prefix": "1pe-ch",
+  "nameEn": "1 Peter",
+  "slug": "1-pet",
+  "vol": "nt",
+  "count": 5,
+  "namePor": "1 Pedro"
+ },
+ {
+  "gridId": "2peter",
+  "prefix": "2pe-ch",
+  "nameEn": "2 Peter",
+  "slug": "2-pet",
+  "vol": "nt",
+  "count": 3,
+  "namePor": "2 Pedro"
+ },
+ {
+  "gridId": "1john",
+  "prefix": "1jn-ch",
+  "nameEn": "1 John",
+  "slug": "1-jn",
+  "vol": "nt",
+  "count": 5,
+  "namePor": "1 João"
+ },
+ {
+  "gridId": "2john",
+  "prefix": "2jn-ch",
+  "nameEn": "2 John",
+  "slug": "2-jn",
+  "vol": "nt",
+  "count": 1,
+  "namePor": "2 João"
+ },
+ {
+  "gridId": "3john",
+  "prefix": "3jn-ch",
+  "nameEn": "3 John",
+  "slug": "3-jn",
+  "vol": "nt",
+  "count": 1,
+  "namePor": "3 João"
+ },
+ {
+  "gridId": "jude",
+  "prefix": "jud-ch",
+  "nameEn": "Jude",
+  "slug": "jude",
+  "vol": "nt",
+  "count": 1,
+  "namePor": "Judas"
+ },
+ {
+  "gridId": "revelation",
+  "prefix": "rev-ch",
+  "nameEn": "Revelation",
+  "slug": "rev",
+  "vol": "nt",
+  "count": 22,
+  "namePor": "Apocalipse"
+ },
+ {
+  "gridId": "1nephi",
+  "prefix": "ch",
+  "nameEn": "1 Nephi",
+  "slug": "1-ne",
+  "vol": "bofm",
+  "count": 22,
+  "namePor": "1 Néfi"
+ },
+ {
+  "gridId": "2nephi",
+  "prefix": "2n-ch",
+  "nameEn": "2 Nephi",
+  "slug": "2-ne",
+  "vol": "bofm",
+  "count": 33,
+  "namePor": "2 Néfi"
+ },
+ {
+  "gridId": "jacob",
+  "prefix": "jc-ch",
+  "nameEn": "Jacob",
+  "slug": "jacob",
+  "vol": "bofm",
+  "count": 7,
+  "namePor": "Jacó"
+ },
+ {
+  "gridId": "enos",
+  "prefix": "en-ch",
+  "nameEn": "Enos",
+  "slug": "enos",
+  "vol": "bofm",
+  "count": 1,
+  "namePor": "Enos"
+ },
+ {
+  "gridId": "jarom",
+  "prefix": "jr-ch",
+  "nameEn": "Jarom",
+  "slug": "jarom",
+  "vol": "bofm",
+  "count": 1,
+  "namePor": "Jarom"
+ },
+ {
+  "gridId": "omni",
+  "prefix": "om-ch",
+  "nameEn": "Omni",
+  "slug": "omni",
+  "vol": "bofm",
+  "count": 1,
+  "namePor": "Ômni"
+ },
+ {
+  "gridId": "wom",
+  "prefix": "wm-ch",
+  "nameEn": "Words of Mormon",
+  "slug": "w-of-m",
+  "vol": "bofm",
+  "count": 1,
+  "namePor": "Palavras de Mórmon"
+ },
+ {
+  "gridId": "mosiah",
+  "prefix": "mo-ch",
+  "nameEn": "Mosiah",
+  "slug": "mosiah",
+  "vol": "bofm",
+  "count": 29,
+  "namePor": "Mosias"
+ },
+ {
+  "gridId": "alma",
+  "prefix": "al-ch",
+  "nameEn": "Alma",
+  "slug": "alma",
+  "vol": "bofm",
+  "count": 63,
+  "namePor": "Alma"
+ },
+ {
+  "gridId": "helaman",
+  "prefix": "he-ch",
+  "nameEn": "Helaman",
+  "slug": "hel",
+  "vol": "bofm",
+  "count": 16,
+  "namePor": "Helamã"
+ },
+ {
+  "gridId": "3nephi",
+  "prefix": "3n-ch",
+  "nameEn": "3 Nephi",
+  "slug": "3-ne",
+  "vol": "bofm",
+  "count": 30,
+  "namePor": "3 Néfi"
+ },
+ {
+  "gridId": "4nephi",
+  "prefix": "4n-ch",
+  "nameEn": "4 Nephi",
+  "slug": "4-ne",
+  "vol": "bofm",
+  "count": 1,
+  "namePor": "4 Néfi"
+ },
+ {
+  "gridId": "mormon",
+  "prefix": "mm-ch",
+  "nameEn": "Mormon",
+  "slug": "morm",
+  "vol": "bofm",
+  "count": 9,
+  "namePor": "Mórmon"
+ },
+ {
+  "gridId": "ether",
+  "prefix": "et-ch",
+  "nameEn": "Ether",
+  "slug": "ether",
+  "vol": "bofm",
+  "count": 15,
+  "namePor": "Éter"
+ },
+ {
+  "gridId": "moroni",
+  "prefix": "mr-ch",
+  "nameEn": "Moroni",
+  "slug": "moro",
+  "vol": "bofm",
+  "count": 10,
+  "namePor": "Morôni"
+ },
+ {
+  "gridId": "dc",
+  "prefix": "dc-sec",
+  "nameEn": "D&C",
+  "slug": "dc",
+  "vol": "dc-testament",
+  "count": 138,
+  "namePor": "Doutrina e Convênios"
+ },
+ {
+  "gridId": "moses",
+  "prefix": "ms-ch",
+  "nameEn": "Moses",
+  "slug": "moses",
+  "vol": "pgp",
+  "count": 8,
+  "namePor": "Moisés"
+ },
+ {
+  "gridId": "abraham",
+  "prefix": "ab-ch",
+  "nameEn": "Abraham",
+  "slug": "abr",
+  "vol": "pgp",
+  "count": 5,
+  "namePor": "Abraão"
+ },
+ {
+  "gridId": "jsmatthew",
+  "prefix": "jm-ch",
+  "nameEn": "JS-Matthew",
+  "slug": "js-m",
+  "vol": "pgp",
+  "count": 1,
+  "namePor": "Joseph Smith—Mateus"
+ },
+ {
+  "gridId": "jshistory",
+  "prefix": "jh-ch",
+  "nameEn": "JS-History",
+  "slug": "js-h",
+  "vol": "pgp",
+  "count": 1,
+  "namePor": "Joseph Smith—História"
+ },
+ {
+  "gridId": "aof",
+  "prefix": "af-ch",
+  "nameEn": "Articles of Faith",
+  "slug": "a-of-f",
+  "vol": "pgp",
+  "count": 1,
+  "namePor": "Regras de Fé"
+ }
+]
