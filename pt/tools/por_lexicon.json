@@ -356,7 +356,7 @@
  "todos": "all",
  "toda": "all",
  "razão": "reason",
- "contar": "tell",
+ "contar": "count",
  "contando": "telling",
  "contando-lhe": "telling-him",
  "contou": "told",
@@ -524,5 +524,16 @@
  "confiasse": "trust",
  "confia": "trusts",
  "levantou-se": "arose",
- "levantaria": "should-raise-up"
+ "levantaria": "should-raise-up",
+ "passar": "pass",
+ "passar-se": "pass",
+ "contado": "numbered",
+ "contados": "numbered",
+ "contada": "numbered",
+ "contadas": "numbered",
+ "designar": "appoint",
+ "designado": "appointed",
+ "designados": "appointed",
+ "designada": "appointed",
+ "designadas": "appointed"
 }

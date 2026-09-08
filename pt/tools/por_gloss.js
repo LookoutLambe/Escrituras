@@ -509,6 +509,38 @@ function glossBare(w, o) {
     if (g) return g;
   }
 
+  /* AFTER AN AUXILIARY, A PARTICIPLE IS A PARTICIPLE. `tendo passado muitas
+     aflições` is "having GONE THROUGH many afflictions" and glossed "having
+     past" — the noun. 1,891 tokens stand right after ter/haver/ser/estar
+     while the treebank calls them a noun or adjective: mortos, contados,
+     posto, escritas, ouvido, cuidado, achado. Nothing else can follow an
+     auxiliary, so the position settles it outright. */
+  if (o.afterAux) {
+    const masc = w.replace(/[ao]s?$/, 'o');
+    const pc = (K[w] || []).find(c => /Partic[ií]pio/i.test(c[1])) ||
+               (K[masc] || []).find(c => /Partic[ií]pio/i.test(c[1]));
+    if (pc) {
+      /* the form's OWN gloss wins when it is already an English participle:
+         `ferido` is aligned "wounded", and rebuilding from ferir gave "hurt".
+         But `passado`/`ouvido`/`dados` gloss "past"/"ear"/"dice" — noun
+         senses, not participles — so those must be rebuilt from the lemma.
+         BASEOF holds every inflected English verb form, which is the test. */
+      /* it must be a PAST PARTICIPLE, not merely a verb form: BASEOF holds
+         every inflection, so `feitas` kept its alignment "promises" — the
+         third singular of promise — where fazer's participle is "made". */
+      const own = bestFrom(w);
+      if (own && /(ed|en)$/.test(own)) return own;
+      /* POSITION ALREADY SAYS PARTICIPLE, so an aligned English participle is
+         trustworthy here even below the usual threshold: `ferido` aligns
+         "wounded" at 0.348 against a 0.35 floor, and "wound" is not in the
+         verb tables at all, so rebuilding from ferir gave "hurt". A noun
+         sense cannot pass this test — past, ear, dice, post do not end -ed. */
+      const a = A[w] && A[w][0];
+      if (a && /(ed|en)$/.test(a[0]) && a[1] >= 0.2) return a[0];
+      const g = fromConj(pc); if (g) return g;
+    }
+  }
+
   /* imperatives are inherently second person, so they must not drive the
      second-person preference or every one of them wins it */
   const second = pick(simple.filter(c => c[3] === '2' && !IMPERATIVE.test(c[1])));
@@ -699,7 +731,8 @@ function gloss(token, en, pos) {
      and needs no translation; it stands for itself. 704 tokens. */
   if (!bare) return token;
   let g = glossBare(bare.toLowerCase(), { en: en, cap: /^[A-ZÀ-Þ]/.test(bare),
-                                          initial: pos.initial, clauseStart: pos.clauseStart });
+                                          initial: pos.initial, clauseStart: pos.clauseStart,
+                                          afterAux: pos.afterAux });
 
   /* LAST RESORT, IN ORDER. Everything above has declined, so what is left is
      one of four things and each says what it is:

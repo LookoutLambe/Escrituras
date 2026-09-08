@@ -5,6 +5,12 @@ const { gloss, tokenise } = require('./por_gloss.js');
 const { contextual } = require('./por_context.js');
 /* Deus -> God, not god: a capitalised source word keeps its capital, the same
    rule por_gloss applies to its own output. */
+const AUX_LEMMA = { ter: 1, haver: 1, ser: 1, estar: 1 };
+const CONJ = JSON.parse(fs.readFileSync(path.join(__dirname, 'por_conjug.json'), 'utf8')).forms;
+function isAuxForm(w) {
+  return !!(w && (CONJ[w] || []).some(c => AUX_LEMMA[c[0]] &&
+    !/Partic[ií]pio/i.test(c[1])));
+}
 const cap = (raw, g) => (/^[^0-9A-Za-zÀ-ÿ]*[A-ZÀ-Þ]/.test(raw) && /^[a-z]/.test(g)
   ? g[0].toUpperCase() + g.slice(1) : g);
 const [, , slug, chap, only] = process.argv;
@@ -36,6 +42,9 @@ for (const r of rows) {
             /* a clause head, which is wider: a coordinator also opens one */
             clauseStart: ti === 0 || /[.;:!?—,]$/.test(ti ? toks[ti - 1].text : '') ||
                          /^(e|mas|ou|portanto|pois|sim)$/.test(bares[ti - 1] || ''),
+            /* the previous word is a form of ter/haver/ser/estar, so this one
+               can only be the participle of a compound tense */
+            afterAux: ti > 0 && isAuxForm(bares[ti - 1]),
           }));
     out.push(t.text + ' [' + (g || '***') + ']');
   }
