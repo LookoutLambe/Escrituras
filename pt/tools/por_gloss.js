@@ -166,20 +166,36 @@ const CORE = {
   dever: 'must',
 };
 const MODAL = { poder: 'can', dever: 'shall', querer: 'will' };
+const MODAL_COND = { poder: 'could', dever: 'should', querer: 'would' };
 /** the infinitive behind an inflected English verb: compared -> compare */
 function baseVerb(v) { return PAST[v] !== undefined ? v : (BASEOF[v] || v); }
+/* A COMPOUND GLOSS INFLECTS ON ITS HEAD. "take-away" is a verb phrase, and
+   every inflector bailed out on the hyphen — so `tiraste`, a preterite,
+   glossed "you-take-away". English puts the tense on the first word:
+   take-away -> took-away, go-forth -> went-forth, bear-fruit -> bore-fruit. */
+function onHead(fn) {
+  return v => {
+    const i = v.indexOf('-');
+    if (i < 0) return fn(v);
+    const head = fn(v.slice(0, i));
+    return head === v.slice(0, i) ? v : head + v.slice(i);
+  };
+}
 /* en-verbs leaves the regular third singular blank, so `procura` glossed
    "seek" where English says "seeks". Person is not optional in English. */
 const MODAL_EN = { must: 1, can: 1, shall: 1, will: 1, may: 1, might: 1, should: 1, ought: 1 };
-function thirdSing(v) {
+const thirdSing = onHead(function (v) {
   if (MODAL_EN[v]) return v;                               // modals do not inflect
-  if (PAST[v] === undefined || /-/.test(v)) return v;      // not a known verb
+  /* the irregulars are listed: be -> is, have -> has. Without this the
+     regular rule produced "bes" (and "bes-angry"). */
+  if (PRES[v] && PRES[v]['3sing']) return PRES[v]['3sing'];
+  if (PAST[v] === undefined) return v;                     // not a known verb
   if (/(s|sh|ch|x|z|o)$/.test(v)) return v + 'es';
   if (/[^aeiou]y$/.test(v)) return v.slice(0, -1) + 'ies';
   return v + 's';
-}
+});
 /* the English present participle, for the Portuguese gerund */
-function toIng(v) {
+const toIng = onHead(function (v) {
   /* the silent -e drops (make -> making) but "be" and "see" keep it */
   if (v.length > 2 && !/ee$/.test(v) && /[^aeiou]e$/.test(v)) return v.slice(0, -1) + 'ing';
   if (/ie$/.test(v)) return v.slice(0, -2) + 'ying';
@@ -187,14 +203,14 @@ function toIng(v) {
      split -> splitting, run -> running */
   if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(v)) return v + v.slice(-1) + 'ing';
   return v + 'ing';
-}
+});
 /* the past PARTICIPLE, which is not the past tense: become/became/become,
    write/wrote/written. `tornado` is a participle and wants "become". */
-function toPastPart(v) {
+const toPastPart = onHead(function (v) {
   if (PPART[v]) return modernise(PPART[v]);
   return toPast(v);
-}
-function toPast(v) {
+});
+const toPast = onHead(function (v) {
   if (PAST[v]) return modernise(PAST[v]);         // irregular, listed (and en-verbs is archaic: blest)
   if (PAST[v] === null) {                         // known verb, regular
     if (/e$/.test(v)) return v + 'd';
@@ -202,10 +218,14 @@ function toPast(v) {
     return v + 'ed';
   }
   return v;                                       // not a known verb: leave it
-}
+});
 /* The conditional is not the past. It was folded in with it and `seria`
    glossed "were"; the Spanish edition writes sería -> should-be. */
 const PAST_TENSE = /pret[eé]rito/i;
+/* THE SIMPLE PLUPERFECT IS A TENSE OF ITS OWN, and PAST_TENSE swallowed it —
+   `vira` ("which he HAD seen") glossed "saw", `fizera` "made", `dissera`
+   "said". One word, no auxiliary; English needs the auxiliary. */
+const PLUPERFECT = /Mais-que-Perfeito Simples/i;
 const CONDITIONAL = /Condicional/i;
 const LEAD = /^[^0-9A-Za-zÀ-ÿ]+/, TRAIL = /[^0-9A-Za-zÀ-ÿ]+$/;
 
@@ -269,7 +289,11 @@ function fromConj(c) {
      Portuguese imperatives are second person by definition, so the
      second-person rule was firing on every one of them: vai -> "you-go". */
   if (IMPERATIVE.test(c[1])) return baseVerb(stem);   // "knock", not "knocking"
+  /* A MODAL IS ITS OWN CONDITIONAL. `deveriam` came out "they-should-must";
+     English says "they should". */
+  if (CONDITIONAL.test(c[1]) && MODAL_COND[c[0]]) return (PERSON[pn] || '') + MODAL_COND[c[0]];
   if (CONDITIONAL.test(c[1])) return (PERSON[pn] || '') + 'should-' + baseVerb(stem);
+  if (PLUPERFECT.test(c[2])) return (PERSON[pn] || '') + 'had-' + toPastPart(baseVerb(stem));
   if (PAST_TENSE.test(c[2])) {
     const pp = PASTP[stem];
     const f = (pp && (pp[pn] || (c[4] === 'plur' ? pp.plur : ''))) || toPast(stem);
@@ -288,7 +312,15 @@ function fromConj(c) {
 }
 
 /** the gloss for one bare, lowercased token */
-function glossBare(w) {
+/**
+ * The gloss for one bare, lowercased token.
+ *   o.en       the English of the verse (the enclitic tail, the -eth strip)
+ *   o.cap      the source token was capitalised (a name needs a capital)
+ *   o.initial  the token opens a sentence (the imperative)
+ */
+function glossBare(w, o) {
+  o = o || {};
+  const en = o.en, cap = o.cap;
   if (GRAM[w]) return GRAM[w];                       // the grammar first
   if (LEX[w]) return LEX[w];                         // then the corpus vocabulary
   /* AND ITS AGREEMENT. The table is keyed on the masculine singular, but a
@@ -297,7 +329,12 @@ function glossBare(w) {
   const lexAgr = /[ao]s?$/.test(w) && LEX[w.replace(/[ao]s?$/, 'o')];
   if (lexAgr) return lexAgr;
   if (F[w]) return F[w].gloss;                       // pronoun or contraction
-  if (N[w]) return N[w];                             // a name glosses to itself
+  /* A NAME NEEDS A CAPITAL. Portuguese capitalises proper nouns without
+     exception, so a LOWERCASE token is not one — and the registry, built from
+     alignment, had claimed 1,187 lowercase tokens: `santos` glossed "Seneca"
+     307 times, `retidão` "Coriantum" 179 times, `convênios` "Vinson" 62.
+     Those are saints, righteousness and covenants. */
+  if (N[w] && cap) return N[w];                      // a name glosses to itself
   /* CORE FIRST WHEN THE WORD *IS* THE LEMMA. `ser` is the infinitive as well
      as a noun meaning "a being", and the dictionary leads with the noun — so
      the bare infinitive kept glossing "creature" even after the core table
@@ -316,7 +353,7 @@ function glossBare(w) {
      Split for a real pronoun; trust the whole form for `se`. */
   if (w.indexOf('-') > 0 && C.splits[w] &&
       (C.splits[w][C.splits[w].length - 1] !== 'se' || !bestFrom(w))) {
-    const g = splitEnclitic(w);
+    const g = splitEnclitic(w, o);
     if (g) return g;
   }
 
@@ -386,6 +423,17 @@ function glossBare(w) {
   const simple = Object.values(groups)
     .filter(g => g.length <= 2)
     .map(g => g.find(c => c[3] === '3') || g[0]);
+  /* THE PLUPERFECT IS SYNCRETIC IN THE PLURAL. `foram` is "they were" and
+     "they had been" in the same letters, and narrative overwhelmingly wants
+     the preterite — so the pluperfect reading is taken only where the form
+     has no other finite reading at all (fora, vira, fizera, dissera). */
+  const finite = (K[w] || []).filter(c => !PERSONLESS(c) && !IMPERATIVE.test(c[1]));
+  if (finite.length && finite.some(c => PLUPERFECT.test(c[2])) &&
+      !finite.every(c => PLUPERFECT.test(c[2]))) {
+    for (let i = simple.length - 1; i >= 0; i--) {
+      if (PLUPERFECT.test(simple[i][2])) simple.splice(i, 1);
+    }
+  }
   /* -ndo is the ending, but `mundo`, `fundo` and `mando` are not gerunds and
      glossed "worlding", "merging", "commanding". The gerund is built from the
      lemma's own stem — falar -> falando, comer -> comendo, partir -> partindo
@@ -401,13 +449,62 @@ function glossBare(w) {
     if (stem && !/-/.test(stem)) return toIng(stem);
   }
 
+  /* -amos/-emos/-imos IS THE SAME FORM IN THE PRESENT AND THE PRETERITE.
+     `subimos` is "we go up" and "we went up"; `vimos` is "we see" and "we
+     saw"; `cremos` and `devemos` are present, `partimos` and `saímos` are
+     past. 496 tokens, and no default is right for all of them — but the
+     English of the verse names the tense outright. */
+  if (en) {
+    const one = t => (K[w] || []).find(c => /Indicativo/i.test(c[1]) && c[3] === '1' &&
+                                            c[4] === 'plur' && t.test(c[2]));
+    const pres = one(/presente/i), pret = one(/pret[eé]rito perfeito simples/i);
+    if (pres && pret) {
+      const st = CORE[pres[0]] || bestFrom(pres[0]);
+      if (st) {
+        const words = new Set(String(en).toLowerCase().split(/[^a-z]+/));
+        const past = toPast(st);
+        if (words.has(past.split('-')[0])) return 'we-' + past;
+        if (words.has(st.split('-')[0])) return 'we-' + st;
+      }
+    }
+  }
+
+  /* THE FIRST-PLURAL SUBJUNCTIVE IS THE HORTATIVE. Portuguese has no "let
+     us" — it says `subamos`, `sejamos`, `façamos`, and English needs the
+     auxiliary: "Subamos, portanto" is "Let us go up, therefore" and glossed
+     "We-climb". Only at the head of a clause: after `que` the same form is an
+     ordinary subordinate subjunctive ("that we may go up"). */
+  if (o.clauseStart) {
+    const h = (K[w] || []).find(c => /Conjuntivo|Subjuntivo/i.test(c[1]) &&
+                                     /presente/i.test(c[2]) &&
+                                     c[3] === '1' && c[4] === 'plur');
+    if (h) { const st = CORE[h[0]] || bestFrom(h[0]); if (st) return 'let-us-' + baseVerb(st); }
+  }
+
+  /* THE IMPERATIVE OPENS A SENTENCE, AND THE ENGLISH CONFIRMS IT. `vai` is
+     the third singular of ir AND its imperative — "Vai, portanto, meu filho"
+     is "Go, therefore, my son" and glossed "Goes". Position alone is not
+     enough ("Vem o dia" is "the day cometh"), so the verse's English must
+     also carry the BARE verb, which is what an English imperative looks
+     like. Both together, or the indicative stands. */
+  if (o.initial && en) {
+    const imp = (K[w] || []).find(c => IMPERATIVE.test(c[1]));
+    if (imp && (K[w] || []).some(c => !IMPERATIVE.test(c[1]))) {
+      const g = fromConj(imp);
+      if (g && new Set(String(en).toLowerCase().split(/[^a-z]+/)).has(g)) return g;
+    }
+  }
+
   /* AN IRREGULAR PARTICIPLE OF A CORE VERB IS THAT PARTICIPLE. feito, dito,
      visto, posto are the participles of fazer, dizer, ver, pôr — and each is
      also some obscure verb's first singular (vestir gives visto, "I wear"),
      which is what they were glossing: "I-done", "I-force", "I-clothe". The
      core verbs are exactly where the rare homograph must not win. */
   const cpart = (K[w] || []).find(c => /Partic[ií]pio/i.test(c[1]) && CORE[c[0]]);
-  if (cpart && !simple.some(c => CORE[c[0]])) {
+  /* ...unless the word is a noun in its own right. `estado` is estar's
+     participle AND "a state": "num estado de perdição" glossed "in-a been
+     of perdition". The treebank's dominant tag settles it. */
+  if (cpart && !simple.some(c => CORE[c[0]]) && !nominal(w)) {
     const g = fromConj(cpart);
     if (g) return g;
   }
@@ -515,21 +612,49 @@ function glossBare(w) {
      The gloss may be a hyphenated phrase — the Spanish edition writes
      it-came-to-pass — so a compound word gets a compound gloss. Declines
      rather than guesses when the base itself has no gloss. */
-  const built = derive(w, x => (x === w ? null : glossBare(x)), K[w]);
+  const built = derive(w, x => (x === w ? null : glossBare(x, o)), K[w]);
   if (built) return built;
 
-  return splitEnclitic(w);
+  return splitEnclitic(w, o);
 }
 
 /** disse-lhe -> said-to-him; the head is glossed, the tail is a pronoun */
-function splitEnclitic(w) {
+/* THE THIRD-PERSON OBJECT PRONOUN IS "him" OR "it", AND ONLY THE ENGLISH
+   KNOWS. `matá-lo` is "slay him" and `fazê-lo` is "do it" — identical
+   Portuguese. 3,301 tokens carry one of these tails, and a flat "him" made
+   "I make it" into "I-make-him" in the third verse of the book. The plural
+   is unambiguous: os/as are always "them". */
+const ENCLITIC_EN = {
+  o: ['him', 'it'], lo: ['him', 'it'], no: ['him', 'it'],
+  a: ['her', 'it'], la: ['her', 'it'], na: ['her', 'it'],
+};
+function encliticTail(p, en, head) {
+  /* THE REFLEXIVE AGREES WITH ITS VERB. `estendem-se` is third PLURAL —
+     "they stretch themselves" — and a flat table made it "himself". */
+  if (p === 'se' && head) {
+    const cs = (K[head] || []).filter(x => x[4] && !/Infinitivo|Ger[uú]ndio|Partic/i.test(x[1]));
+    /* the imperfect is identical in the first and third singular, so take the
+       third — `regozijava-se` is "rejoiced himself", not "myself" */
+    const c = cs.find(x => x[3] === '3') || cs[0];
+    if (c && c[4] === 'plur') return c[3] === '1' ? 'ourselves' : 'themselves';
+    if (c && c[3] === '1') return 'myself';
+    if (c && c[3] === '2') return 'thyself';
+  }
+  const alt = ENCLITIC_EN[p];
+  if (!alt) return ENCLITIC[p] || (F[p] && F[p].gloss);
+  const words = new Set(String(en || '').toLowerCase().split(/[^a-z]+/));
+  for (const cand of alt) if (words.has(cand)) return cand;
+  return alt[0];
+}
+function splitEnclitic(w, o) {
+  const en = (o || {}).en;
   const sp = C.splits[w];
   if (!sp) return null;
   /* the head of an enclitic form is a VERB by construction — `arrependei` is
      listed only under the pronominal lemma arrepender-se, so the paradigm
      test could not see it and "repenteth-you" kept its King James ending. */
-  const parts = sp.map((p, i) => (i === 0 ? (g => (g ? modernise(g, true) : g))(glossBare(p))
-                                          : (ENCLITIC[p] || (F[p] && F[p].gloss))));
+  const parts = sp.map((p, i) => (i === 0 ? (g => (g ? modernise(g, true) : g))(glossBare(p, o))
+                                          : encliticTail(p, en, sp[0])));
   return parts.every(Boolean) ? parts.join('-') : null;
 }
 
@@ -564,7 +689,8 @@ function tokenise(text) {
 }
 
 /** keep the punctuation the source token carries */
-function gloss(token) {
+function gloss(token, en, pos) {
+  pos = pos || {};
   const lead = (token.match(LEAD) || [''])[0];
   const trail = (token.match(TRAIL) || [''])[0];
   const bare = token.slice(lead.length, token.length - trail.length);
@@ -572,7 +698,8 @@ function gloss(token) {
      uses them heavily for parenthetical asides — carries no lexical content
      and needs no translation; it stands for itself. 704 tokens. */
   if (!bare) return token;
-  let g = glossBare(bare.toLowerCase());
+  let g = glossBare(bare.toLowerCase(), { en: en, cap: /^[A-ZÀ-Þ]/.test(bare),
+                                          initial: pos.initial, clauseStart: pos.clauseStart });
 
   /* LAST RESORT, IN ORDER. Everything above has declined, so what is left is
      one of four things and each says what it is:

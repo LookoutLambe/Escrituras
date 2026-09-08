@@ -31,7 +31,12 @@ for (const r of rows) {
             raw: t.text.replace(/^[^0-9A-Za-zÀ-ÿ]+/, ''),
             prevRaw: ti ? toks[ti - 1].text : '',
           });
-    const g = t.gloss || (ctx ? t.text.replace(/[0-9A-Za-zÀ-ÿ]+/, cap(t.text, ctx)) : gloss(t.text));
+    const g = t.gloss || (ctx ? t.text.replace(/[0-9A-Za-zÀ-ÿ]+/, cap(t.text, ctx)) : gloss(t.text, en, {
+            initial: ti === 0 || /[.;:!?—]$/.test(ti ? toks[ti - 1].text : ''),
+            /* a clause head, which is wider: a coordinator also opens one */
+            clauseStart: ti === 0 || /[.;:!?—,]$/.test(ti ? toks[ti - 1].text : '') ||
+                         /^(e|mas|ou|portanto|pois|sim)$/.test(bares[ti - 1] || ''),
+          }));
     out.push(t.text + ' [' + (g || '***') + ']');
   }
   console.log('PT  ' + out.join('  '));
