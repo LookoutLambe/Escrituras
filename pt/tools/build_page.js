@@ -39,8 +39,16 @@ s = s.replace(/\{\s*prefix:\s*'([^']+)',\s*name:\s*'([^']*)',\s*nameEn:\s*'([^']
 const STRINGS = [
   ['Las Escrituras', 'As Escrituras'],
   ['Spanish Interlinear Edition', 'Portuguese Interlinear Edition'],
-  ['>Contenido<', '>Conteúdo<'],
-  ["'Contenido'", "'Conteúdo'"],
+  /* the markup is `Contenido&nbsp;&#9662;` and `aria-label="Contenido"`, not
+     `>Contenido<` — matching on the tag boundary missed every one of them */
+  ['aria-label="Contenido"', 'aria-label="Conteúdo"'],
+  ['aria-label="Abrir el contenido">Contenido', 'aria-label="Abrir o conteúdo">Conteúdo'],
+  ['Interlineal Español-Inglés', 'Interlinear Português-Inglês'],
+  ['>Tamaño<', '>Tamanho<'],
+  ["'Sección '", "'Seção '"],
+  ['Volver a ', 'Voltar a '],
+  ['title="Cerrar" aria-label="Cerrar"', 'title="Fechar" aria-label="Fechar"'],
+  ['Capítulo siguiente', 'Capítulo seguinte'],
   ['>Interlineal<', '>Interlinear<'],
   ['>Español<', '>Português<'],
   ['Buscar en español o inglés...', 'Buscar em português ou inglês...'],

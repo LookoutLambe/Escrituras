@@ -25,12 +25,29 @@ const esc = s => String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 
 const BOOKS = JSON.parse(fs.readFileSync(path.join(__dirname, 'books_pt.json'), 'utf8'));
 const { gloss, tokenise } = require('./por_gloss.js');
+/* Forms the grammar calls ambiguous are decided by the verse's own English —
+   see por_context.js. seu/sua/seus/suas agree with the thing possessed, not
+   the possessor, so "suas sinagogas" is their synagogues or his synagogues
+   depending on the subject, and only the context can say which. */
+const { contextual } = require('./por_context.js');
+/* Deus -> God, not god: a capitalised source word keeps its capital, the same
+   rule por_gloss applies to its own output. */
+const cap = (raw, g) => (/^[^0-9A-Za-zÀ-ÿ]*[A-ZÀ-Þ]/.test(raw) && /^[a-z]/.test(g)
+  ? g[0].toUpperCase() + g.slice(1) : g);
+const DUAL = path.join(ROOT, 'dual');
 const files = fs.readdirSync(CORPUS).filter(f => f.endsWith('.json') && !f.startsWith('_'));
 let books = 0, verses = 0, words = 0, glossed = 0, missing = 0;
 const nonContiguous = [];
 
 for (const f of files) {
   const d = JSON.parse(fs.readFileSync(path.join(CORPUS, f), 'utf8'));
+  /* the English of each verse, for the ambiguous forms */
+  const dualFile = path.join(DUAL, f);
+  const EN = {};
+  if (fs.existsSync(dualFile)) {
+    for (const r of JSON.parse(fs.readFileSync(dualFile, 'utf8')).rows)
+      if (r.en) EN[r.chapter + ':' + r.verse] = r.en;
+  }
   const meta = BOOKS.find(b => b.gridId === d.gridId);
   if (!meta) { console.error('  no book metadata for ' + d.gridId); continue; }
   const prefix = meta.prefix;
@@ -52,9 +69,20 @@ for (const f of files) {
     out += `var v${ch} = [\n`;
     out += rows.map(r => {
       /* multiword units are ONE token: "e aconteceu que" / "and-it-came-to-pass-that" */
-      const w = tokenise(r.text)
-        .map(t => {
-          const g = t.gloss || gloss(t.text);
+      const en = EN[r.chapter + ':' + r.verse] || '';
+      const toks = tokenise(r.text);
+      const bares = toks.map(t => t.text.replace(/^[^0-9A-Za-zÀ-ÿ]+|[^0-9A-Za-zÀ-ÿ]+$/g, '').toLowerCase());
+      const w = toks
+        .map((t, ti) => {
+          const bare = bares[ti];
+          /* `a` and `se` are decided by what FOLLOWS them, so the contextual
+             pass needs the rest of the verse, not just this token. */
+          const ctx = contextual(bare, {
+            after: bares.slice(ti + 1), before: bares.slice(0, ti), en,
+            raw: t.text.replace(/^[^0-9A-Za-zÀ-ÿ]+/, ''),
+            prevRaw: ti ? toks[ti - 1].text : '',
+          });
+          const g = t.gloss || (ctx ? t.text.replace(/[0-9A-Za-zÀ-ÿ]+/, cap(t.text, ctx)) : gloss(t.text));
           if (g) glossed += t.n; else missing += t.n;
           return `["${esc(t.text)}","${esc(g || '')}"]`;
         }).join(',');
