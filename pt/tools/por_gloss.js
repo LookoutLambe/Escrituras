@@ -167,6 +167,15 @@ const CORE = {
 };
 const MODAL = { poder: 'can', dever: 'shall', querer: 'will' };
 const MODAL_COND = { poder: 'could', dever: 'should', querer: 'would' };
+/* nor do modals take a regular past: `deviam` glossed "they-musted" */
+const MODAL_PAST = { poder: 'could', dever: 'ought', querer: 'would' };
+/* what the English column calls these verbs when it commands with them */
+const IMP_SYN = {
+  ver: ['behold', 'look', 'see'], olhar: ['look', 'behold'],
+  ouvir: ['hear', 'hearken', 'listen'], escutar: ['hear', 'hearken'],
+  ir: ['go', 'get'], vir: ['come'], dizer: ['say', 'tell'],
+  dar: ['give'], fazer: ['do', 'make'], vede: ['behold'],
+};
 /** the infinitive behind an inflected English verb: compared -> compare */
 function baseVerb(v) { return PAST[v] !== undefined ? v : (BASEOF[v] || v); }
 /* A COMPOUND GLOSS INFLECTS ON ITS HEAD. "take-away" is a verb phrase, and
@@ -194,14 +203,22 @@ const thirdSing = onHead(function (v) {
   if (/[^aeiou]y$/.test(v)) return v.slice(0, -1) + 'ies';
   return v + 's';
 });
+const ING_DOUBLE = {
+  forget: 1, beget: 1, begin: 1, occur: 1, prefer: 1, refer: 1, confer: 1,
+  admit: 1, commit: 1, permit: 1, submit: 1, transmit: 1, omit: 1, remit: 1,
+  control: 1, compel: 1, rebel: 1, expel: 1, propel: 1, repel: 1, forbid: 1,
+  upset: 1, regret: 1, prefer: 1, allot: 1, acquit: 1,
+};
 /* the English present participle, for the Portuguese gerund */
 const toIng = onHead(function (v) {
   /* the silent -e drops (make -> making) but "be" and "see" keep it */
   if (v.length > 2 && !/ee$/.test(v) && /[^aeiou]e$/.test(v)) return v.slice(0, -1) + 'ing';
   if (/ie$/.test(v)) return v.slice(0, -2) + 'ying';
   /* a one-syllable verb ending consonant-vowel-consonant doubles it:
-     split -> splitting, run -> running */
-  if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(v)) return v + v.slice(-1) + 'ing';
+     split -> splitting, run -> running. So does a longer verb stressed on
+     its last syllable — forget, begin, permit — which no spelling rule can
+     detect, so those are listed. */
+  if (/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(v) || ING_DOUBLE[v]) return v + v.slice(-1) + 'ing';
   return v + 'ing';
 });
 /* the past PARTICIPLE, which is not the past tense: become/became/become,
@@ -294,6 +311,7 @@ function fromConj(c) {
   if (CONDITIONAL.test(c[1]) && MODAL_COND[c[0]]) return (PERSON[pn] || '') + MODAL_COND[c[0]];
   if (CONDITIONAL.test(c[1])) return (PERSON[pn] || '') + 'should-' + baseVerb(stem);
   if (PLUPERFECT.test(c[2])) return (PERSON[pn] || '') + 'had-' + toPastPart(baseVerb(stem));
+  if (PAST_TENSE.test(c[2]) && MODAL_PAST[c[0]]) return (PERSON[pn] || '') + MODAL_PAST[c[0]];
   if (PAST_TENSE.test(c[2])) {
     const pp = PASTP[stem];
     const f = (pp && (pp[pn] || (c[4] === 'plur' ? pp.plur : ''))) || toPast(stem);
@@ -446,25 +464,37 @@ function glossBare(w, o) {
                        l.slice(0, -2) + { a: 'ando', e: 'endo', i: 'indo' }[l.slice(-2, -1)] === w;
     const lm = gc ? gc[0] : [LEM[w], M.forms[w] && M.forms[w][0][0]].find(built);
     const stem = lm && (CORE[lm] || bestFrom(lm));
-    if (stem && !/-/.test(stem)) return toIng(stem);
+    if (stem) return toIng(stem);        // toIng inflects on the head, so go-forth works
   }
 
   /* -amos/-emos/-imos IS THE SAME FORM IN THE PRESENT AND THE PRETERITE.
-     `subimos` is "we go up" and "we went up"; `vimos` is "we see" and "we
-     saw"; `cremos` and `devemos` are present, `partimos` and `saímos` are
-     past. 496 tokens, and no default is right for all of them — but the
-     English of the verse names the tense outright. */
-  if (en) {
+     `subimos` is "we go up" and "we went up"; `cremos` and `devemos` are
+     present, `partimos` and `saímos` are past. And for -ar verbs the tables
+     do not even list the collision: European Portuguese writes the preterite
+     `tomámos` with an accent that Brazilian does not, so this corpus spells
+     both "tomamos" and only the present is in the paradigm. The English of
+     the verse names the tense either way. */
+  if (en && /mos$/.test(w)) {   // saímos, pusemos: the vowel may be accented
     const one = t => (K[w] || []).find(c => /Indicativo/i.test(c[1]) && c[3] === '1' &&
                                             c[4] === 'plur' && t.test(c[2]));
-    const pres = one(/presente/i), pret = one(/pret[eé]rito perfeito simples/i);
-    if (pres && pret) {
+    const pres = one(/^indicativo presente$/i);
+    if (pres) {
       const st = CORE[pres[0]] || bestFrom(pres[0]);
       if (st) {
-        const words = new Set(String(en).toLowerCase().split(/[^a-z]+/));
-        const past = toPast(st);
-        if (words.has(past.split('-')[0])) return 'we-' + past;
-        if (words.has(st.split('-')[0])) return 'we-' + st;
+        const low = String(en).toLowerCase();
+        const words = new Set(low.split(/[^a-z]+/));
+        const past = toPast(st), head = st.split('-')[0];
+        /* THE ENGLISH SAYS "we DID gather", not "we gathered" — the
+           periphrastic past is everywhere in this text, and testing only for
+           the inflected form made every one of them present tense. */
+        /* "did" governs coordinated bare verbs at a distance: "we did take
+           our bows and our arrows, and GO FORTH into the wilderness". The
+           window stops at sentence punctuation, which is the real boundary. */
+        if (new RegExp('\\bdid\\b[^.;:!?]{0,60}\\b' + head + '\\b').test(low)) return 'we-' + past;
+        /* and its spelling varies: travelled / traveled */
+        const alt = past.replace(/([bdgklmnprt])\1(ed|ing)$/, '$1$2');
+        if (words.has(past.split('-')[0]) || words.has(alt.split('-')[0])) return 'we-' + past;
+        if (words.has(head)) return 'we-' + st;
       }
     }
   }
@@ -478,7 +508,13 @@ function glossBare(w, o) {
     const h = (K[w] || []).find(c => /Conjuntivo|Subjuntivo/i.test(c[1]) &&
                                      /presente/i.test(c[2]) &&
                                      c[3] === '1' && c[4] === 'plur');
-    if (h) { const st = CORE[h[0]] || bestFrom(h[0]); if (st) return 'let-us-' + baseVerb(st); }
+    /* ...and the English must actually be exhorting. `demos` is both the
+       hortative of dar and its first-plural preterite, and "we did call the
+       name of the place" came out "let-us-give". */
+    if (h && /\blet\s+us\b/i.test(String(en || ''))) {
+      const st = CORE[h[0]] || bestFrom(h[0]);
+      if (st) return 'let-us-' + baseVerb(st);
+    }
   }
 
   /* THE IMPERATIVE OPENS A SENTENCE, AND THE ENGLISH CONFIRMS IT. `vai` is
@@ -487,11 +523,20 @@ function glossBare(w, o) {
      enough ("Vem o dia" is "the day cometh"), so the verse's English must
      also carry the BARE verb, which is what an English imperative looks
      like. Both together, or the indicative stands. */
-  if (o.initial && en) {
+  if ((o.initial || o.clauseStart) && en) {
     const imp = (K[w] || []).find(c => IMPERATIVE.test(c[1]));
     if (imp && (K[w] || []).some(c => !IMPERATIVE.test(c[1]))) {
       const g = fromConj(imp);
-      if (g && new Set(String(en).toLowerCase().split(/[^a-z]+/)).has(g)) return g;
+      /* the English column renders one Portuguese verb several ways — `ver`
+         is both "see" and "behold", `ouvir` both "hear" and "hearken" — so
+         "Olha e vê" ("Look, and behold") needs the synonyms, not just the
+         gloss. Coordination is why clauseStart counts here too: the second
+         imperative of a pair does not open the sentence. */
+      const words = new Set(String(en).toLowerCase().split(/[^a-z]+/));
+      /* a compound gloss matches on its head: "Alça os teus olhos" is
+         "LIFT UP thine eyes", and the English carries "lift", not "lift-up" */
+      const ok = [g, g && g.split('-')[0]].concat(IMP_SYN[imp[0]] || []);
+      if (g && ok.some(x => x && words.has(x))) return g;
     }
   }
 

@@ -70,6 +70,24 @@ const AMBIGUOUS = {
      Jews' learning, my father's learning. 1 Nephi 1:1 has both senses in the
      one verse, so it keeps the majority. */
   'conhecimento': [['knowledge', 'knowledge'], ['learning', 'learning']],
+  /* alto is "high" of a mountain and "loud" of a voice */
+  'alta':  [['high', 'high'], ['loud', 'loud']],
+  'alto':  [['high', 'high'], ['loud', 'loud']],
+  /* provar is "taste" of fruit and "prove" of a thing */
+  'provou': [['tasted', 'tasted'], ['proved', 'proved']],
+  'provar': [['taste', 'taste'], ['prove', 'prove']],
+  /* desejo is the noun "desire" and the first singular "I desire" */
+  'desejo': [['desire', 'desire'], ['I-desire', 'desire']],
+  'certo': [['sure', 'sure'], ['certain', 'certain']],
+  /* feitos is the participle "made" and the noun "proceedings/deeds" */
+  'feitos': [['made', 'made'], ['acts', 'proceedings'], ['deeds', 'deeds']],
+  'feitas': [['made', 'made'], ['deeds', 'deeds']],
+  /* proceder is the verb and "the dealings/manner of proceeding" */
+  'proceder': [['proceed', 'proceed'], ['dealings', 'dealings']],
+  'abismo': [['pit', 'pit'], ['gulf', 'gulf']],
+  'novas':     [['new', 'new'], ['tidings', 'tidings']],
+  'exércitos': [['hosts', 'hosts'], ['armies', 'armies']],
+  'vivo': [['I-live', 'live'], ['alive', 'alive']],
   'terra':  [['earth', 'earth'], ['land', 'land'], ['ground', 'ground']],
   'terras': [['lands', 'lands'], ['earth', 'earth']],
   'poder':  [['power', 'power'], ['can', 'can']],
@@ -86,7 +104,9 @@ const AMBIGUOUS = {
 /* forms whose FALLBACK is not the first candidate — listed first because the
    English probe for the majority reading is the weaker one */
 const FALLBACK = { via: 'saw', vira: 'had-seen', terra: 'land', pais: 'fathers',
-                   'esforço': 'diligence', levantou: 'arose', entre: 'among', real: 'royal', colher: 'reap', esperando: 'waiting',
+                   'esforço': 'diligence', levantou: 'arose', entre: 'among',
+                   alta: 'high', alto: 'high', provou: 'tasted', provar: 'taste', certo: 'certain',
+                   feitos: 'acts', proceder: 'proceed', real: 'royal', colher: 'reap', esperando: 'waiting',
                    cultivar: 'till', cultivardes: 'till',
                    colhereis: 'you-will-reap', colheis: 'you-reap' };
 
@@ -149,6 +169,7 @@ function isParticiple(w) {
 const isInfin = w => !!(w && K[w] && K[w].some(c => /Infinitivo/i.test(c[1])));
 /** the treebank's dominant gender for a form, or null */
 function gender(w) {
+  if (!w) return null;                     // the last token of a verse has no next
   const a = MF[w] || [];
   for (const r of a) {
     const m = /Gender=(Fem|Masc)/.exec(r[2] || '');
@@ -158,10 +179,13 @@ function gender(w) {
      its nouns are simply absent — `recompensa` among them, which left "a
      recompensa" as "to reward" instead of "the reward". Portuguese marks
      gender in the ending reliably enough to stand in when nothing is known. */
-  if (/(ção|dade|agem|eza|ência|ância|tude|ice)$/.test(w)) return 'f';
-  if (/(mento|ismo|ário)$/.test(w)) return 'm';
-  if (/a$/.test(w)) return 'f';
-  if (/(o|or|ês)$/.test(w)) return 'm';
+  /* the plural carries the same gender, and Portuguese builds it several
+     ways: -z/-r/-s take -es (meretriz -> meretrizes), everything else -s */
+  const sg = /(z|r|s)es$/.test(w) ? w.slice(0, -2) : w.replace(/s$/, '');
+  if (/(ção|dade|agem|eza|ência|ância|tude|ice|triz)$/.test(sg)) return 'f';
+  if (/(mento|ismo|ário)$/.test(sg)) return 'm';
+  if (/a$/.test(sg)) return 'f';
+  if (/(o|or|ês)$/.test(sg)) return 'm';
   return null;
 }
 
@@ -191,7 +215,10 @@ const POSS = { meu: 1, minha: 1, meus: 1, minhas: 1, teu: 1, tua: 1, teus: 1, tu
                seu: 1, sua: 1, seus: 1, suas: 1, nosso: 1, nossa: 1, nossos: 1,
                nossas: 1, vosso: 1, vossa: 1, vossos: 1, vossas: 1 };
 const OBJ = { o: 'him', a: 'it', os: 'them', as: 'them' };
-const OBJ_EN = { o: ['him', 'it'], a: ['it', 'her'] };
+/* candidate, probe — "I beheld that SHE was carried away" names the referent
+   with "she", not "her", so the pronoun needs its own probe list */
+const OBJ_EN = { o: [['him', 'him'], ['it', 'it'], ['him', 'he']],
+                 a: [['her', 'her'], ['her', 'she'], ['it', 'it']] };
 /* the next word has to be a verb and NOTHING ELSE: "os humildes" is "the
    humble", and humildes parses as a verb form too, so a bare isVerb() test
    turned the article into "them". The treebank's own tag settles it. */
@@ -207,8 +234,16 @@ function nounish(w) {
    Neither person is evidence of a verb on its own: this corpus has 1,637 `tu`
    tokens against tens of thousands of plural nouns. */
 function finiteBeyondDeverbal(w) {
-  const cs = (K[w] || []).filter(c => !/Infinitivo|Ger[uú]ndio|Partic/i.test(c[1]));
-  const deverbal = c => c[4] === 'sing' && /presente/i.test(c[2]) &&
+  /* the PERSONAL infinitive counts — it is an inflected verb and takes a
+     proclitic object ("depois de o haveres visto" = after thou hast
+     witnessed HIM). Only the impersonal one, the gerund and the participle
+     are excluded. */
+  const cs = (K[w] || []).filter(c => !/Ger[uú]ndio|Partic/i.test(c[1]) &&
+                                      !(/Infinitivo/i.test(c[1]) && !/Pessoal/i.test(c[2])));
+  /* the PLAIN present only. Portuguese names the future "Futuro do
+     Presente", so a bare /presente/ test swallowed it — and "tu o verás"
+     ("him shalt thou witness") read "the". */
+  const deverbal = c => c[4] === 'sing' && /^indicativo presente$/i.test(c[2]) &&
                         (c[3] === '1' || c[3] === '2');
   return cs.length > 0 && cs.some(c => !deverbal(c));
 }
@@ -237,8 +272,8 @@ function objectPronoun(form, after, before, en) {
   const alt = OBJ_EN[form];
   if (alt) {
     const words = new Set(String(en || '').toLowerCase().split(/[^a-z]+/));
-    for (const c of alt) if (words.has(c)) return c;
-    return alt[0];
+    for (const [cand, probe] of alt) if (words.has(probe)) return cand;
+    return alt[alt.length - 1][0];        // no evidence: the thing, not the person
   }
   return OBJ[form];
 }
@@ -260,9 +295,21 @@ function article(form, after, before) {
      is "into his light" — so only a true indefinite or demonstrative in that
      slot means the `a` is the preposition. */
   if (DET[after[0]] && !POSS[after[0]]) return 'to';
+  /* AN UNCONTRACTED `a` BEFORE A FEMININE POSSESSIVE IS THE ARTICLE. The
+     preposition would have contracted with the article into `à` — "à tua
+     cerviz" — so a bare `a` here can only be the article: "a tua cerviz" is
+     "THY neck". This settles it without knowing the noun's gender, which the
+     treebank often does not have (cerviz, mão, paz). */
+  if (/^(minha|tua|sua|nossa|vossa)s?$/.test(after[0] || '')) return 'the';
+  /* "a mais abominável de todas" is the superlative — the article, not the
+     preposition */
+  if (/^(mais|menos)$/.test(after[0] || '')) return 'the';
   for (let i = 0; i < 3 && i < after.length; i++) {
     const w = after[i];
     if (!w) break;
+    /* STOP AT THE PHRASE BOUNDARY. Scanning on past the noun, "as escarlatas
+       e o linho" reached `o` and called the whole thing masculine. */
+    if (/^(e|ou|que|de|do|da|dos|das|em|com|por|para|a|o|se|mas|nem)$/.test(w)) break;
     /* A POSSESSIVE AGREES WITH ITS NOUN, so it can never settle the gender —
        scan past it to the head. The treebank tags `tua` PROPN/Masc, one
        stray row, and that alone turned "a tua semente" into "to thy seed". */
@@ -316,16 +363,19 @@ const CLAUSE = { e: 1, mas: 1, ou: 1, porque: 1, pois: 1, portanto: 1, que: 1,
  */
 function seGloss(after, before, prevRaw, en) {
   const prev = before[before.length - 1];
+  const n = after[0];
   /* a clause boundary in front of it: the conjunction */
   if (!prev || /[,;:—-]$/.test(prevRaw || '') || CLAUSE[prev] === 1 && prev !== 'que') return 'if';
-  if (prev === 'que') {
+  /* ...but only when a verb actually follows: a passive `se` is proclitic.
+     "acontecerá QUE se os gentios derem ouvidos" is a conditional opening its
+     own clause, and it read "themselves". */
+  if (prev === 'que' && (isVerb(n) || looksInfinitive(n))) {
     /* the passive `se` agrees with its verb: "coisas que se não veem" is
        plural ("are not seen"), "multidão que se compunha" is singular */
     const v = after.find(x => isVerb(x));
     const c = v && (K[v] || []).find(x => x[4]);
     return c && c[4] === 'plur' ? 'themselves' : 'itself';
   }
-  const n = after[0];
   /* A REFLEXIVE DOES NOT ATTACH TO A COPULA. "se é compelido" is "if he is
      compelled"; "se arrepender" is the pronominal verb. */
   if (isAux(n)) return 'if';
@@ -381,6 +431,18 @@ function resolveSyntax(form, after, before, raw, prevRaw, en) {
   if (form === 'a' || form === 'as') return article(form, after, before);
   if (form === 'para') return para(after);
   if (form === 'fora') return fora(before);
+  /* AFTER A PREPOSITION `eles` IS THE OBJECT. "levado entre eles" is "carried
+     forth among THEM", and the verse also contains "they", so the English
+     alone picks the subject form. */
+  if (/^el[ea]s$/.test(form) &&
+      /^(entre|com|para|por|de|a|sobre|contra|sem|até|perante|diante)$/.test(before[before.length - 1] || ''))
+    return /^ele/.test(form) ? 'them' : 'them';
+  /* `alta voz` IS A LOUD VOICE. The English cannot settle it — 1 Nephi 11:6
+     carries "the most HIGH God" and "a LOUD voice" in the one verse — but
+     the noun can. */
+  if (/^alt[oa]s?$/.test(form)) {
+    if (/^(voz|vozes|brado|brados|grito|gritos|clamor)$/.test(after[0] || '')) return 'loud';
+  }
   /* `todo` TAKES AN ARTICLE TO MEAN "all". The distinction is the article and
      nothing else — `todo homem` is "every man", `todo o homem` is "all the
      man". 2,536 tokens stand before one, and every one of them read "every
@@ -438,7 +500,11 @@ function resolveSyntax(form, after, before, raw, prevRaw, en) {
     if (SELF[prev]) return SELF[prev];
     /* between a determiner and its noun it is "same": "nesse mesmo ano" is
        "that same year", and it was reading "in-that even year" */
-    if (nounish(after[0]) || gender(after[0])) return 'same';
+    /* a contraction is not a noun: "esquecendo-se mesmo DO poder" is "even
+       forgetting", and `do` ends in -o so the gender guess called it one */
+    const nx = after[0] || '';
+    if (!/^(d[oa]s?|n[oa]s?|a[oa]s?|pel[oa]s?|de|em|a|o|que|e|com|por|para)$/.test(nx) &&
+        (nounish(nx) || gender(nx))) return 'same';
     if (DET[prev] || /^(n?[oa]s?|ness[ea]|nest[ea]|aquel[ea]s?)$/.test(prev || '')) return 'same';
   }
 
